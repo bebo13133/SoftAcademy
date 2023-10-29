@@ -11,6 +11,14 @@ const result = await request.get(baseUrl)
 const courses = Object.values(result)
 return courses
 }
+
+const getOne = async(courseId)=>{
+    const oneCourse = await request.get(`${baseUrl}/${courseId}`)
+
+    return oneCourse
+
+}
+
 const create = async(courseData)=>{
 
     const result = await request.post(baseUrl, courseData)
@@ -20,7 +28,7 @@ const create = async(courseData)=>{
 return {
     getAll,
     create,
-    
+    getOne,
 }
 
 }
