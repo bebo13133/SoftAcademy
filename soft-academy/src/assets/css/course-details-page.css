@@ -1,7 +1,7 @@
 #details-page {
     margin-top: 5.5em;
     left: 70%;
-    font-family: "Agency FB";
+    font-family: 'Times New Roman', serif;
 }
 
 .main_card {
@@ -11,8 +11,8 @@
     display: flex;
     left: 55%;
     max-width: 1050px;
-    background: #e4a1a9;
-    background: -webkit-linear-gradient(to right, #03434C, rgb(179, 91, 98));
+    /* background: #e4a1a9; */
+    /* background: -webkit-linear-gradient(to right, #03434C, rgb(179, 91, 98)); */
     background: -webkit-gradient(linear, left top, right top, from(#03434C), to(rgb(#08272C)));
     background: -webkit-linear-gradient(left, #03434C, #08272C);
     background: -o-linear-gradient(left, #03434C, #08272C);
@@ -21,23 +21,23 @@
      box-shadow: 0 0 40px rgba(78, 70, 70, 0.3); 
 }
 
-.disc p {
+/* .disc p {
     color: black;
     font-size: 18px;
-}
+} */
 
 .card_left {
     width: 770px;
 }
 
 .card_datails {
-    width: 96%;
+    width: 98%;
     padding: 50px;
     margin-top: -25px;
 }
 
 .card_datails h1 {
-    font-size: 29px;
+    font-size: 55px;
     padding-bottom: 8px;
 }
 
@@ -56,7 +56,7 @@
 
 
 .card_right {
-    max-width: 350px;
+    max-width: 250px;
     border-radius: 2px;
 }
 
@@ -93,7 +93,7 @@
 
 .disc {
     font-weight: 100;
-    font-size: 27.5px;
+    font-size: 22px;
     line-height: 27px;
     color: black;
   
@@ -101,6 +101,7 @@
 
 .social-btn {
     margin-left: -10px;
+
     margin-top: 2em;
 }
 
