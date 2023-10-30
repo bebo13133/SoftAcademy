@@ -16,15 +16,15 @@ export const OneCourse = ({
     courseName,
     comments,
     onCommentSubmit
- 
-}) => {
-console.log(comments)
-        const[commentsPopUp,setCommentsPopUp] =useState(false)
 
-    const openCommentsPopUp = ()=>{
+}) => {
+    console.log(comments)
+    const [commentsPopUp, setCommentsPopUp] = useState(false)
+
+    const openCommentsPopUp = () => {
         setCommentsPopUp(true)
     }
-    const closeCommentsPopUp = ()=>{
+    const closeCommentsPopUp = () => {
         setCommentsPopUp(false)
     }
 
@@ -33,6 +33,7 @@ console.log(comments)
         <>
             <div className="main_card">
                 <div className="card_left">
+                    
                     <div className="card_datails">
 
                         <h1>Course: {courseName}</h1>
@@ -67,6 +68,7 @@ console.log(comments)
 
                         </div>
                     </div>
+
                 </div>
                 {/* src="../DetailsCourse/img/npm_trends_logo.png"  */}
                 <div className="card_right">
@@ -85,7 +87,7 @@ console.log(comments)
                 </div>
 
             </div>
-            <CommentsPopUp onCommentSubmit={onCommentSubmit} isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} comments = {comments}/>
+            <CommentsPopUp onCommentSubmit={onCommentSubmit} isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} comments={comments} />
         </>
 
 

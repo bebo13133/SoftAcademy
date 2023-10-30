@@ -11,9 +11,10 @@
     align-items: center;
     z-index: 999;
   }
-  
+  .create-comment label {
+    display: block;
+  }
   .comments-content {
-    height: 100%;
     
     background: #f1f1f1;
     border: 1px solid #ccc;
@@ -30,11 +31,17 @@
 
 
   .comments-scroll {
-    max-height: 500px; 
-    overflow-y: auto; 
+    max-height: 300px; 
+    overflow-y:scroll;
     width: 300px; 
   }
+  #details-page > div.comments-popup > div{
+    max-height: 40%; 
+    overflow-y:scroll;
+  }
+
   .close-button {
+    font-size: 22px;
     background: #f7f7f7;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -80,6 +87,7 @@
    */
    /* поле коментари */
    #details-page > div.comments-popup > div > article{
+
     padding:20px;
     margin: 0px auto;
     

@@ -51,6 +51,7 @@ export const CommentsPopUp = ({
                         {showAll ? 'Show Less' : 'Show More'}
                     </button>
                 )}
+                
                 <article className="create-comment">
                     <label>Add new comment:</label>
                     <form className="form-comment" onSubmit={onSubmit}>
@@ -58,6 +59,7 @@ export const CommentsPopUp = ({
                         <input className="btn-comment submit" type="submit" value="Add Comment" />
                     </form>
                 </article>
+
             </div>
 
 
