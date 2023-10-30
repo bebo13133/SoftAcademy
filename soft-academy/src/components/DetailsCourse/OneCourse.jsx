@@ -33,7 +33,7 @@ export const OneCourse = ({
         <>
             <div className="main_card">
                 <div className="card_left">
-                    
+
                     <div className="card_datails">
 
                         <h1>Course: {courseName}</h1>
