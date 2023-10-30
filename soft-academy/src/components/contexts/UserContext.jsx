@@ -63,7 +63,7 @@ export const UserProvider = ({ children }) => {
         userId: isAuth._id,
         userEmail: isAuth.email,
         token: isAuth.accessToken,
-        isAuthentication: !!isAuth.accessToken,
+        isAuthentication: isAuth.accessToken,
         onRegisterSubmit,
         onLogout
 

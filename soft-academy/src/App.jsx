@@ -1,6 +1,7 @@
 // import { useState,useEffect } from 'react'
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import ErrorBoundary from './components/ErrorBoundary'
 // import './App.css'
 import { Blog } from './components/Blog/Blog'
 import { CatalogCourses } from './components/CatalogCourses/CatalogCourses'
@@ -17,9 +18,9 @@ import { Logout } from './components/Logout/Logout'
 import { CreateCourse } from './components/CreateCourse/CreateCourse'
 import { CourseProvider } from './components/contexts/CourseContext'
 import { DetailsCourse } from './components/DetailsCourse/DetailsCourse'
-
-
-
+import { RouteGuard } from './components/common/RouteGuard'
+import { PageNotFound } from './components/404/PageNotFound'
+import { GuardLoginRegister } from './components/common/GuardLoginRegister'
 function App() {
 
   useEffect(() => {
@@ -30,24 +31,39 @@ function App() {
 
   return (
     <>
+
       <UserProvider>
         <CourseProvider>
-        <Header />
-        <Routes>   
-          <Route path={"/"} element={<Home />} />
-          <Route path={"/catalog"} element={<CatalogCourses />} />
-          <Route path={"/reviews"} element={<StudentReview />} />
-          <Route path={"/blog"} element={<Blog />} />
-          <Route path={"/contact"} element={<Contact />} />
-          <Route path={"/login"} element={<Login />} />
-          <Route path={"/register"} element={<Register />} />
-          <Route path={"/logout"} element={<Logout />} />
-          <Route path={"/create"} element={<CreateCourse />} />
-          <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
+          <ErrorBoundary>
+            <Header />
+            <Routes>
+              <Route path={"/"} element={<Home />} />
+              <Route path={"/catalog"} element={<CatalogCourses />} />
+              <Route path={"/reviews"} element={<StudentReview />} />
+              <Route path={"/blog"} element={<Blog />} />
+              <Route path={"/contact"} element={<Contact />} />
 
-        </Routes>
+              {/* loginRegisterGuard */}
+              <Route element={<GuardLoginRegister />}>
+                <Route path={"/login"} element={<Login />} />
+                <Route path={"/register"} element={<Register />} />
+              </Route>
+              {/* Edn LoginRegisterGuard */}
+              {/* Route Guard */}
+              <Route element={<RouteGuard />}>
 
-        <Footer />
+                <Route path={"/logout"} element={<Logout />} />
+                <Route path={"/create"} element={<CreateCourse />} />
+                <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
+
+              </Route>
+              {/* End RouteGuard */}
+              
+              <Route path={"/404"} element={<PageNotFound/>} />
+            </Routes>
+
+            <Footer />
+          </ErrorBoundary>
         </CourseProvider>
       </UserProvider>
     </>

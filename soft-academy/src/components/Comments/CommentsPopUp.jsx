@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useForm } from '../Hooks/useForm';
+import { RouteGuard } from '../common/RouteGuard';
 export const CommentsPopUp = ({
     isOpenComments,
     onCloseComments,
@@ -51,7 +52,7 @@ export const CommentsPopUp = ({
                         {showAll ? 'Show Less' : 'Show More'}
                     </button>
                 )}
-                
+                 <RouteGuard>
                 <article className="create-comment">
                     <label>Add new comment:</label>
                     <form className="form-comment" onSubmit={onSubmit}>
@@ -59,7 +60,7 @@ export const CommentsPopUp = ({
                         <input className="btn-comment submit" type="submit" value="Add Comment" />
                     </form>
                 </article>
-
+                </RouteGuard>
             </div>
 
 

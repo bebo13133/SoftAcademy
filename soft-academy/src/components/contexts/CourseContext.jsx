@@ -14,6 +14,7 @@ export const CourseProvider = ({ children }) => {
     const navigate = useNavigate()
 
 useEffect(()=>{
+    
     courseService.getAll()
         .then(result=>{
             setCourse(result)
@@ -22,6 +23,7 @@ useEffect(()=>{
 
     const onCreateCourseSubmit = async (courseData) => {
 try{
+
     const newCourse = await courseService.create(courseData)
     setCourse(state => [...state, newCourse])
     navigate("/catalog")
