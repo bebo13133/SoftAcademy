@@ -11,7 +11,7 @@ export const CommentsPopUp = ({
     const [showAll, setShowAll] = useState(false);
 
 
-// За формата , важното да е на първо място 
+    // За формата , важното да е на първо място 
     const { values, onChangeHandler, onSubmit } = useForm({
         comment: "",
     }, onCommentSubmit)
@@ -52,14 +52,14 @@ export const CommentsPopUp = ({
                         {showAll ? 'Show Less' : 'Show More'}
                     </button>
                 )}
-                 <RouteGuard>
-                <article className="create-comment">
-                    <label>Add new comment:</label>
-                    <form className="form-comment" onSubmit={onSubmit}>
-                        <textarea name="comment" placeholder="Comment......" value={values.comment} onChange={onChangeHandler}></textarea>
-                        <input className="btn-comment submit" type="submit" value="Add Comment" />
-                    </form>
-                </article>
+                <RouteGuard>
+                    <article className="create-comment">
+                        <label>Add new comment:</label>
+                        <form className="form-comment" onSubmit={onSubmit}>
+                            <textarea name="comment" placeholder="Comment......" value={values.comment} onChange={onChangeHandler}></textarea>
+                            <input className="btn-comment submit" type="submit" value="Add Comment" />
+                        </form>
+                    </article>
                 </RouteGuard>
             </div>
 
