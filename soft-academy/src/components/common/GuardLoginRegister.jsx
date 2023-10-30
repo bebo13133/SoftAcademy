@@ -2,7 +2,7 @@ import { PageNotFound } from "../404/PageNotFound"
 import { useAuthContext } from "../contexts/UserContext"
 import { Navigate, Outlet } from "react-router-dom"
 
-export const GuardLoginRegister = ({children}) => {
+export const GuardLoginRegister = ({ children }) => {
     const { isAuthentication } = useAuthContext()
 
     if (isAuthentication) {
@@ -10,6 +10,6 @@ export const GuardLoginRegister = ({children}) => {
         return <Navigate to={'/404'} />
     }
     return (
-       children? children: <PageNotFound />
+        children ? children : <PageNotFound />
     )
 }
