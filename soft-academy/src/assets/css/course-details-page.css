@@ -2,22 +2,25 @@
     margin-top: 5.5em;
     left: 70%;
     font-family: 'Times New Roman', serif;
+
 }
 
 .main_card {
     color: #060606;
     height: 300px auto;
-    margin: 150px auto;
+    margin: -50px auto;
     display: flex;
-    left: 55%;
+    left: 60%;
     max-width: 1050px;
+    border-radius: 10px;
+
     /* background: #e4a1a9; */
     /* background: -webkit-linear-gradient(to right, #03434C, rgb(179, 91, 98)); */
-    background: -webkit-gradient(linear, left top, right top, from(#03434C), to(rgb(#08272C)));
-    background: -webkit-linear-gradient(left, #03434C, #08272C);
-    background: -o-linear-gradient(left, #03434C, #08272C);
-    background: linear-gradient(to right, #635b5b, #f7de8b);
-    -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    /* background: -webkit-gradient(linear, left top, right top, from(#03434C), to(rgb(#08272C))); */
+    /* background: -webkit-linear-gradient(left, #03434C, #08272C);
+    background: -o-linear-gradient(left, #03434C, #08272C); */
+    background: linear-gradient(to right, #f1f1f1, #d9e7ea);
+    -webkit-box-shadow: 0 0 40px rgba(68, 68, 68, 0.3);
      box-shadow: 0 0 40px rgba(78, 70, 70, 0.3); 
 }
 
@@ -41,12 +44,19 @@
     padding-bottom: 8px;
 }
 
-.card_right img {
+
+.card_datails h3 {
+text-transform:none;
+}
+/* .card_right img {
     display: flex;
-    /* height: 40%; */
+
  
     border-radius: 2px;
-}
+
+
+    
+} */
 .trend-btn{
    
  
@@ -56,22 +66,13 @@
 
 
 .card_right {
+    position: relative;
     max-width: 250px;
     border-radius: 2px;
 }
 
 
-.card_animal {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    margin-top: 27px;
-    margin-bottom: 20px;
-}
+
 
 .PG,
 .card-keyword,
@@ -82,7 +83,53 @@
     font-weight: bold;
     border-radius: 15px;
 }
+.card_left p{
+font-size: 22px;
+color: #060606;
 
+}
+.card_right p{
+    font-size: 22px;
+    color: #060606;
+    
+}
+.card_right span{
+    font-size: 22px;
+    color: #060606;
+    
+}
+/* .card_right h2{
+    font-size: 30px;
+    color: #060606;
+
+    font-weight: bold;
+    text-align: center; 
+    margin: 25px 0;
+} */
+.card_right h2 {
+    /* position: absolute; */
+    bottom: 10px; /* Adjust the bottom distance as needed */
+    right: 10px; /* Adjust the right distance as needed */
+    font-size: 36px;
+    color: #181819; /* A blue color, you can choose your preferred color */
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+    padding: 8px; /* Add padding for a highlighted effect */
+    /* background-color: #060606; */
+    border: 3px solid #669b9b; /* Add a border around the price */
+    border-radius: 40px; /* Round the corners of the border */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Apply a subtle shadow */
+    transition: background-color 0.3s, color 0.3s; /* Add a smooth color transition on hover */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+
+  }
+  
+  .card_right h2:hover {
+    background-color: #d03913; /* Change background color on hover */
+    color: #ffffff; /* Change text color on hover to white */
+    transform: scale(1.1);
+  }
 .PG {
     /*background: #92FE9D;*/
     background: rgba(116, 153, 226, 0.89);
@@ -100,16 +147,16 @@
 }
 
 .social-btn {
-    margin-left: -10px;
+
+    margin-left: 10px;
 
     margin-top: 2em;
 }
 
 .social-btn>.edit-btn,
-.del-btn,
-.vote-up,
-.vote-down,
-.thanks-for-vote {
+.del-btn
+ {
+    margin-left: 10px;
     color: #fff;
     border: none;
     padding: 14px;
@@ -262,10 +309,10 @@ article {
     justify-content: space-between;
 }
 
-p {
+/* p {
     flex: 1;
     line-height: 1.4;
-}
+} */
 
 span {
     font-size: 12px;
@@ -275,14 +322,14 @@ span {
     letter-spacing: .05em;
     margin: 2em 0 0 0;
 }
-
+/* 
 .thumb {
     max-height: 350px;
-    /*   padding-bottom: 40%;*/
+
     width: 100%;
     background-size: cover;
     background-position: center center;
-}
+} */
 
 #votes {
     margin-top: 3em;
@@ -352,3 +399,61 @@ span {
         font-size: 24px;
     }
 }
+
+
+  .card_right img {
+
+    
+    float: right; 
+    transition: transform 1s; 
+  }
+  .card_right img:hover {
+    /* transform: scale(1.1);  */
+    transform:scale(1.2);
+  }
+  .card_right a.trend-btn {
+    text-align: center;
+    float: center; 
+    margin-left: 40px; 
+  }
+
+
+  /* like and comments btns */
+  /* ... (existing CSS) ... */
+
+.comments-action-buttons {
+    /* float:right; */
+    text-align: right;
+    margin-top: 0px;
+  }
+  
+  .like-button,
+  .comment-button {
+    /* display: inline-block; */
+    /* position: relative; */
+    /* outline: none; */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .like-button:hover,
+  .comment-button:hover {
+ 
+    background-color: #0056b3;
+
+  }
+  
+  .divider {
+    margin: 12px 0;
+    border-top: 1px solid #ccc;
+  }
+  
+  /* ... (existing CSS) ... */
+  

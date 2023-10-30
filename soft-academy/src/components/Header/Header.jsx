@@ -22,6 +22,7 @@ export const Header = () => {
 								<li className="select-opt">
 									<a href="#"><span className="lnr lnr-magnifier"></span></a>
 								</li>
+								<li className="navbar-brand "style={{fontSize:"20px", fontWeight:"bold", color:"#ff545a"}} href="/">Soft<span style={{fontSize:"20px", textTransform:"none", color:"black"}}>Academy</span></li>
 							</ul>
 						</div>
 					</li>
@@ -67,7 +68,7 @@ export const Header = () => {
 								<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 									<i className="fa fa-bars"></i>
 								</button>
-								<a className="navbar-brand" href="/">Soft<span>academy</span></a>
+							
 
 							</div>
 

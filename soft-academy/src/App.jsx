@@ -33,7 +33,7 @@ function App() {
       <UserProvider>
         <CourseProvider>
         <Header />
-        <Routes>
+        <Routes>   
           <Route path={"/"} element={<Home />} />
           <Route path={"/catalog"} element={<CatalogCourses />} />
           <Route path={"/reviews"} element={<StudentReview />} />

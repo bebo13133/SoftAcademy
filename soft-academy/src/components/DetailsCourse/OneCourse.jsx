@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import { CommentsPopUp } from "../Comments/CommentsPopUp"
+import { useState } from "react"
 
 export const OneCourse = ({
     imageUrl,
@@ -8,12 +10,24 @@ export const OneCourse = ({
     email,
     description,
     price,
-    username,
+    ownerCourse,
     date,
     selectOption,
-    courseName
-
+    courseName,
+    comments,
+    onCommentSubmit
+ 
 }) => {
+console.log(comments)
+        const[commentsPopUp,setCommentsPopUp] =useState(false)
+
+    const openCommentsPopUp = ()=>{
+        setCommentsPopUp(true)
+    }
+    const closeCommentsPopUp = ()=>{
+        setCommentsPopUp(false)
+    }
+
 
     return (
         <>
@@ -21,12 +35,13 @@ export const OneCourse = ({
                 <div className="card_left">
                     <div className="card_datails">
 
-                        <h1>Title: {courseName}</h1>
-                        <h3>Created by an author: {username}</h3>
+                        <h1>Course: {courseName}</h1>
+                        <h3>Created by an author: {ownerCourse}</h3>
+                        <h3>Email: {email}</h3>
+
                         <div className="card_animal">
-                            <p className="card-keyword">Keyword: </p>
-                            <p className="card-location">Location: </p>
-                            <p className="card-date">Date: {date}</p>
+                            <p className="card-location">Language: {selectOption}</p>
+                            <p className="card-date">Start date: {date}</p>
                         </div>
 
                         <p className="disc">{description}</p>
@@ -36,6 +51,13 @@ export const OneCourse = ({
 
                             <a href="/photos/{{photo._id}}/edit" className="edit-btn">Edit</a>
                             <a href="/photos/{{photo._id}}/delete" className="del-btn">Delete</a>
+                            <div className="divider"></div>
+                            <div className="comments-action-buttons">
+                                <button className="like-button">Like</button>
+                                <button className="comment-button" onClick={openCommentsPopUp} >Comments</button>
+                            </div>
+
+
                             {/*                 
                         <p className="thanks-for-vote">Thanks For Voting</p>
         
@@ -49,14 +71,21 @@ export const OneCourse = ({
                 {/* src="../DetailsCourse/img/npm_trends_logo.png"  */}
                 <div className="card_right">
                     <img src={imageUrl} alt="image" />
-                    <a href="https://npmtrends.com/" className="trend-btn">   Trends
-                        <img className="trend-btn"src="https://seeklogo.com/images/N/npm-logo-01B8642EDD-seeklogo.com.png" alt="npm trends icon" />
-                     
-                </a>
-                </div>
-          
-            </div>
+                    <a href="https://npmtrends.com/" className="trend-btn">
+                        <img className="trend-btn" src="https://seeklogo.com/images/N/npm-logo-01B8642EDD-seeklogo.com.png" alt="npm trends icon" />Trends
+                    </a>
+                    <br />
+                    <br />
+                    <p className="card-keyword">Lector: <span>{firstName} {lastName}</span> </p>
+                    {/* <p className="card-location">Location: </p> */}
+                    <h2>Price: {price}$</h2>
+                    {/* buttons */}
 
+
+                </div>
+
+            </div>
+            <CommentsPopUp onCommentSubmit={onCommentSubmit} isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} comments = {comments}/>
         </>
 
 

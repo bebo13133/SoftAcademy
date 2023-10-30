@@ -23,10 +23,12 @@ font-family: 'Roboto', sans-serif;
 /*-------------------------------------
 		1.General css (Reset code)
 --------------------------------------*/
+
 @import "login-register.css";
 @import "create-course.css";
 @import "course-details-page.css";
-
+@import "comments.css";
+@import "commentsPopUp";
 
 *{
     padding: 0;
