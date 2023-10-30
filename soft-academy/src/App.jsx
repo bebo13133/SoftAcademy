@@ -58,8 +58,8 @@ function App() {
 
               </Route>
               {/* End RouteGuard */}
-              
-              <Route path={"/404"} element={<PageNotFound/>} />
+
+              <Route path={"/404"} element={<PageNotFound />} />
             </Routes>
 
             <Footer />
