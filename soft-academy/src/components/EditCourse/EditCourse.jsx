@@ -1,4 +1,19 @@
-export const EditCourse=()=>{
+import { useForm } from "../Hooks/useForm"
+
+export const EditCourse=({
+    
+})=>{
+
+    const{onSubmit,onChangeHandler,on} =useForm({   courseName: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    ownerCourse: "",
+    price:"",
+    description: "",
+    imageUrl2:"",
+    selectOption,
+    imageUrl,},onEditSubmit)
 
     return (
         <>
