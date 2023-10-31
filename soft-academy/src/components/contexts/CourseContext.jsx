@@ -13,26 +13,26 @@ export const CourseProvider = ({ children }) => {
     const courseService = courseServiceFactory()
     const navigate = useNavigate()
 
-useEffect(()=>{
-    
-    courseService.getAll()
-        .then(result=>{
-            setCourse(result)
-        })
-},[])
+    useEffect(() => {
+
+        courseService.getAll()
+            .then(result => {
+                setCourse(result)
+            })
+    }, [])
 
     const onCreateCourseSubmit = async (courseData) => {
-try{
+        try {
 
-    const newCourse = await courseService.create(courseData)
-    setCourse(state => [...state, newCourse])
-    navigate("/catalog")
+            const newCourse = await courseService.create(courseData)
+            setCourse(state => [...state, newCourse])
+            navigate("/catalog")
 
-}catch(err){
+        } catch (err) {
 
-    throw new Error(err.message || err)
-}
-  
+            throw new Error(err.message || err)
+        }
+
     }
 
     const contextCourseValue = {

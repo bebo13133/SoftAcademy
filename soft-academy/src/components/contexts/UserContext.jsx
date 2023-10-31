@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
     console.log(`isAuth${isAuth}`)
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
-    console.log(`isA=uth${isAuth.accessToken}`)
+    
     const onLoginSubmit = async (data) => {
 
         try {

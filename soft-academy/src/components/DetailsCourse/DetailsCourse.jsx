@@ -25,7 +25,7 @@ export const DetailsCourse = () => {
             })
 
     }, [courseId])
-    console.log(comments)
+    // console.log(comments)
     const onCommentSubmit = async (values) => {
         const result = await commentsService.createComment(
             courseId,
