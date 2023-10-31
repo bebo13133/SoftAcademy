@@ -11,7 +11,7 @@ export const UserContext = createContext()
 export const UserProvider = ({ children }) => {
 
     const [isAuth, setIsAuth] = useLocalStorage('auth', {})
-    console.log(`isAuth${isAuth}`)
+   
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
     
