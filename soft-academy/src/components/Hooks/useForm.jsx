@@ -18,10 +18,10 @@ export const useForm = (initialValues, onSubmitHandler) => {
 
     }
 
-    // const onChangeValues = (newValues) => {
+    const onChangeValues = (newValues) => {
 
-    //     setValues(newValues)
-    // }
+        setValues(newValues)
+    }
 
     return {
         onChangeHandler,
