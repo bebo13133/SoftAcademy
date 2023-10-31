@@ -41,13 +41,24 @@ export const CourseProvider = ({ children }) => {
         }
 
 
-       
+          const onDeleteClick = async (id) => {
+            const result = await courseService.delete(id)
+         
+        
+            setCourse(state => state.filter(x => x._id !== id))
+        
+            navigate("/catalog")
+         
+          }
 
     const contextCourseValue = {
         onCreateCourseSubmit,
         courses: courses,
         selectCourse,
-         }
+        onDeleteClick,
+  
+
+    }
 
     return (
 

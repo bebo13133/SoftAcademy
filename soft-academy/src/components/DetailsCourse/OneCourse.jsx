@@ -25,7 +25,7 @@ export const OneCourse = ({
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
 
-   
+    const { onDeleteClick, } = useCourseContext()
     
     const openCommentsPopUp = () => {
         setCommentsPopUp(true)
@@ -39,15 +39,7 @@ export const OneCourse = ({
     const onCloseDelete = () => {
         setIsOpen(false)
     }
-    const onDeleteClick = async (id) => {
-        const result = await courseService.delete(id)
-     
-    
-        setGames(state => state.filter(x => x._id !== id))
-    
-        navigate("/catalog")
-     setIsOpen(false)
-      }
+
     return (
         <>
 
@@ -117,7 +109,7 @@ export const OneCourse = ({
                 open={isOpen}
                 closeDialog={()=>onCloseDelete()}
                 // title={deleteData?.name}
-                deleteFunction={() => onDeleteClick(_id)}
+                deleteFunction={() => {setIsOpen(false),onDeleteClick(_id)}}
             />
 
         </>
