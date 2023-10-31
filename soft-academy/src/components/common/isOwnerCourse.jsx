@@ -1,8 +1,8 @@
-import { Navigate, useParams } from "react-router-dom"
+import { Navigate, Outlet, useParams } from "react-router-dom"
 import { useCourseContext } from "../contexts/CourseContext"
 import { useAuthContext } from "../contexts/UserContext"
 
-export const isOwnerCourse = () => {
+export const isOwnerCourse = ({children}) => {
     const { courseId } = useParams
     const { selectCourse } = useCourseContext()
     const { userId } = useAuthContext()
@@ -12,5 +12,5 @@ export const isOwnerCourse = () => {
         return <Navigate to={'/catalog/:courseId'} />
     }
 
-
+return children? children:<Outlet/>
 }

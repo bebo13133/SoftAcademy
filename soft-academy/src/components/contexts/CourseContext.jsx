@@ -43,7 +43,8 @@ export const CourseProvider = ({ children }) => {
 
     const contextCourseValue = {
         onCreateCourseSubmit,
-        courses: courses
+        courses: courses,
+        selectCourse
 
     }
 
