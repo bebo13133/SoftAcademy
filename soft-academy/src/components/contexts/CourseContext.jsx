@@ -35,6 +35,12 @@ export const CourseProvider = ({ children }) => {
 
     }
 
+        const selectCourse = (courseId) => {
+
+            return courses.find(course=> course.id === courseId)
+        }
+
+
     const contextCourseValue = {
         onCreateCourseSubmit,
         courses: courses
