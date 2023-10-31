@@ -16,10 +16,10 @@ const {onSubmit,onChangeHandler,values} = useForm({
 
     return (
         <>
-    <section id="register-page" className="content auth">
+    <section id="register-page-login" className="content auth">
     <form id="register" method="POST" onSubmit={onSubmit}>
-        <div className="container">
-            <div className="brand-logo"></div>
+        <div className="container-login">
+            <div className="brand-logo-login"></div>
             <h1>Register</h1>
 
             <label htmlFor="email">Email:</label>

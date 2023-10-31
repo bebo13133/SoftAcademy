@@ -23,6 +23,7 @@ import { PageNotFound } from './components/404/PageNotFound'
 import { GuardLoginRegister } from './components/common/GuardLoginRegister'
 import { EditCourse } from './components/EditCourse/EditCourse'
 import { IsOwnerCourse } from './components/common/isOwnerCourse'
+
 function App() {
 
   useEffect(() => {
@@ -36,7 +37,7 @@ function App() {
 
       <UserProvider>
         <CourseProvider>
-          <ErrorBoundary>
+          {/* <ErrorBoundary> */}
             <Header />
             <Routes>
               <Route path={"/"} element={<Home />} />
@@ -44,6 +45,7 @@ function App() {
               <Route path={"/reviews"} element={<StudentReview />} />
               <Route path={"/blog"} element={<Blog />} />
               <Route path={"/contact"} element={<Contact />} />
+             
 
               {/* loginRegisterGuard */}
           
@@ -80,7 +82,7 @@ function App() {
             </Routes>
 
             <Footer />
-          </ErrorBoundary>
+          {/* </ErrorBoundary> */}
         </CourseProvider>
       </UserProvider>
     </>

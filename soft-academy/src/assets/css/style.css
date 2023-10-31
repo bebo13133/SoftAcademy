@@ -28,7 +28,8 @@ font-family: 'Roboto', sans-serif;
 @import "create-course.css";
 @import "course-details-page.css";
 @import "comments.css";
-@import "commentsPopUp";
+@import "commentsPopUp.css";
+@import "conatct-form.css";
 
 *{
     padding: 0;

@@ -1,4 +1,4 @@
-#login-page {
+#login-page-login {
   position: relative;
   width: auto;
   height: 900px;
@@ -6,10 +6,10 @@
   padding: 75px;
   box-sizing: border-box;
   background: #f1f1f1;
-  box-shadow: 0px 0px 32px 0px #de0808, -14px -14px 20px #6197f4;
+  box-shadow: 0px 0px 32px 0px #484545;
   }
   
-  #register-page {
+  #register-page-login {
     position: relative;
     width: auto;
     height: 900px;
@@ -17,45 +17,45 @@
     padding: 75px;
     box-sizing: border-box;
     background: #f1f1f1;
-    box-shadow: 0px 0px 32px 0px #de0808, -14px -14px 20px #6197f4;
+  box-shadow: 0px 0px 32px 0px #484545;
   }
   
-  .container {
+  .container-login {
     padding: 40px;
   }
   
-  .brand-logo {
+  .brand-logo-login {
     height: 100px;
     width: 100px;
-    background: url("../img/icon-gamepad-2.png");
+    background: url("../img/maleAvatar.png");
     margin: auto;
     border-radius: 50%;
     box-sizing: border-box;
-    box-shadow: 7px 7px 10px #0366c9, -7px -7px 10px white;
+    /* box-shadow: 7px 7px 10px #0366c9, -7px -7px 10px white; */
   }
   
-  .container>h1 {
+  .container-login>h1 {
     margin-top: 15px;
     font-weight: 900;
-    font-size: 2.7rem;
+    font-size: 3rem;
     text-align: center;
-    color: white;
+    color: rgb(247, 5, 5);
     letter-spacing: 1px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 17px;
   }
   
-  label,
+  .container-login label,
   input {
     display: block;
-    width: 100%;
+    width: 60%;
     padding: 0;
     border: none;
     outline: none;
     box-sizing: border-box;
   }
   
-  label {
+  .container-login label {
     margin-bottom: 8px;
     font-size: 27px;
     color: rgb(207, 15, 15);
@@ -64,10 +64,10 @@
   }
   
   label:nth-of-type(2) {
-    margin-top: 20px;
+    margin-top: 30px;
   }
   
-  input::placeholder {
+  .container-login input::placeholder {
     color: rgba(184, 179, 179, 0.678);
   };
   
@@ -95,8 +95,11 @@
   }
   
   .btn.submit {
+    float:right;
     margin-top: 30px;
     background: #778e9c;
+    text-align: center;
+    width: 600px;
     height: 60px;
     border-radius: 20px;
     color: white;
@@ -112,7 +115,7 @@
     background-color: #8fa9b9;
   }
   
-  .container {
+  .container-login {
     text-align: left;
     margin-top: 0px;
   }

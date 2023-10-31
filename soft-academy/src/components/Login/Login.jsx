@@ -19,14 +19,14 @@ console.log(`Login ${token}`)
 
     return (
         <>
-      <section id="login-page" className="auth">
+      <section id="login-page-login" className="auth">
             <form id="login" method="POST" onSubmit={onSubmit}>
 
-                <div className="container">
-                    <div className="brand-logo"></div>
+                <div className="container-login">
+                    <div className="brand-logo-login"></div>
                     <h1>Login</h1>
                     <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Sokka@gmail.com" value={values.email} onChange={onChangeHandler} />
+                    <input type="email" id="email" name="email" placeholder="peter@gmail.com" value={values.email} onChange={onChangeHandler} />
 
                     <label htmlFor="login-pass">Password:</label>
                     <input type="password" id="login-password" name="password" value={values.password} onChange={onChangeHandler} />

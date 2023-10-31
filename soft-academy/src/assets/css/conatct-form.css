@@ -1,0 +1,48 @@
+.contact-us-softacademy {
+    padding: 70px 0px;
+    background: #afabab;
+}
+.section-title h2 {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    border-bottom: 5px solid #af8070;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+.section-title-soft p {
+    color: #e8e8e8;
+    margin-bottom: 30px;
+}
+.contact-us-softacademy input,
+.contact-us-softacademy textarea {
+    background: #fafafa;
+}
+.contact-us-softacademy textarea {
+    min-height: 188px;
+    max-width: 100%;
+}
+.contact-us .map {
+    overflow: hidden;
+    border-radius: 4px;
+}
+.contact-us-softacademy #email{
+    font-size: 14px;
+    height: 34px;
+    /* background: #ecf0f3; */
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    line-height: 1.42857143;
+    margin-top: 0px;
+    box-shadow: none;
+}
+#root > section.contact-us-softacademy > div > div:nth-child(2) > div.col-lg-7 > form > button{
+
+    font-size: 26px;
+    width: 199px
+}
