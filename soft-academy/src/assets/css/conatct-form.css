@@ -1,5 +1,5 @@
 .contact-us-softacademy {
-    padding: 70px 0px;
+    padding: 45px 0px;
     background: #afabab;
 }
 .section-title h2 {
@@ -29,7 +29,7 @@
     border-radius: 4px;
 }
 .contact-us-softacademy #email{
-    font-size: 14px;
+    font-size: 22px;
     height: 34px;
     /* background: #ecf0f3; */
     display: block;
@@ -45,4 +45,10 @@
 
     font-size: 26px;
     width: 199px
+}
+.contact-us-softacademy #name{
+    font-size: 22px;
+}
+.contact-us-softacademy #subject{
+    font-size: 22px;
 }
