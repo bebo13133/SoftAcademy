@@ -1,10 +1,14 @@
 import { useForm } from "../Hooks/useForm"
-import { useCourseContext } from "../contexts/CourseContext"
+import { useService } from "../Hooks/useService"
+import { courseServiceFactory } from "../Services/courseService"
+import { CourseContext, useCourseContext } from "../contexts/CourseContext"
 
 export const EditCourse = ({
 
 }) => {
     const { onEditSubmit } = useCourseContext()
+    const courseService = useService(courseServiceFactory)
+    const{courseId} = useParams()
     const { onSubmit, onChangeHandler, onChangeValues, values } = useForm({
         courseName: "",
         firstName: "",
@@ -18,6 +22,13 @@ export const EditCourse = ({
         imageUrl,
     }, onEditSubmit)
 
+    useEffect(() => {
+        courseService.getOne(courseId)
+        .then(result=>{
+            onChangeValues(result)
+        })
+
+    },[courseId])
     return (
         <>
             <div className="testbox">

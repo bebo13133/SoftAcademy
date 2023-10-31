@@ -8,7 +8,7 @@ export const CourseContext = createContext()
 
 export const CourseProvider = ({ children }) => {
 
-    const [courses, setCourse] = useState([])
+    const [course, setCourse] = useState([])
 
     const courseService = courseServiceFactory()
     const navigate = useNavigate()
@@ -37,7 +37,7 @@ export const CourseProvider = ({ children }) => {
 
         const selectCourse = (courseId) => {
 
-            return courses.find(course=> course.id === courseId)
+            return course.find(course=> course.id === courseId)
         }
 
 
@@ -50,10 +50,19 @@ export const CourseProvider = ({ children }) => {
             navigate("/catalog")
          
           }
+          const onEditSubmit=async(data)=>{
+            try{
+                const course = await courseService.update(course._id,data)
+        setCourse(course => course.map(x => x._id === data._id ? game : x))
+
+            }catch(err){
+                throw new Error(err.message || err)
+            }
+          }
 
     const contextCourseValue = {
         onCreateCourseSubmit,
-        courses: courses,
+        courses: course,
         selectCourse,
         onDeleteClick,
   
