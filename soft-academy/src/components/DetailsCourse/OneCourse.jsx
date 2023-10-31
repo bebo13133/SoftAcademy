@@ -3,6 +3,8 @@ import { CommentsPopUp } from "../Comments/CommentsPopUp"
 import { useState } from "react"
 import { IsOwnerCourse } from "../common/isOwnerCourse"
 import { RouteGuard } from "../common/RouteGuard"
+import { useCourseContext } from "../contexts/CourseContext"
+import { ConfirmBox } from '../ConfirmBox/ConfirmBox'
 export const OneCourse = ({
     imageUrl,
     firstName,
@@ -16,23 +18,39 @@ export const OneCourse = ({
     selectOption,
     courseName,
     comments,
-    onCommentSubmit
+    onCommentSubmit,
 
 }) => {
-    console.log(comments)
-    const [commentsPopUp, setCommentsPopUp] = useState(false)
 
+    const [commentsPopUp, setCommentsPopUp] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
+
+   
+    
     const openCommentsPopUp = () => {
         setCommentsPopUp(true)
     }
     const closeCommentsPopUp = () => {
         setCommentsPopUp(false)
     }
-
-
+    const openDelete = () => {
+        setIsOpen(true)
+    }
+    const onCloseDelete = () => {
+        setIsOpen(false)
+    }
+    const onDeleteClick = async (id) => {
+        const result = await courseService.delete(id)
+     
+    
+        setGames(state => state.filter(x => x._id !== id))
+    
+        navigate("/catalog")
+     setIsOpen(false)
+      }
     return (
         <>
-      
+
             <div className="main_card">
                 <div className="card_left">
 
@@ -51,15 +69,15 @@ export const OneCourse = ({
 
 
                         <div className="social-btn">
-                      
+
                             <IsOwnerCourse>
-                            <Link to={`/catalog/${_id}/edit`} className="edit-btn">Edit</Link>
-                            <button onClick={()=>onDeleteClick(_id)} className="del-btn">Delete</button>
+                                <Link to={`/catalog/${_id}/edit`} className="edit-btn">Edit</Link>
+                                <button onClick={() => openDelete()} className="del-btn">Delete</button>
                             </IsOwnerCourse>
-                          
+
                             <div className="divider"></div>
                             <div className="comments-action-buttons">
-                                
+
                                 <button className="like-button">Like</button>
                                 <button className="comment-button" onClick={openCommentsPopUp} >Comments</button>
                             </div>
@@ -94,6 +112,14 @@ export const OneCourse = ({
 
             </div>
             <CommentsPopUp onCommentSubmit={onCommentSubmit} isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} comments={comments} />
+
+            <ConfirmBox
+                open={isOpen}
+                closeDialog={()=>onCloseDelete()}
+                // title={deleteData?.name}
+                deleteFunction={() => onDeleteClick(_id)}
+            />
+
         </>
 
 
