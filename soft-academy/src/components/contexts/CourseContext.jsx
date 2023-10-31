@@ -35,38 +35,37 @@ export const CourseProvider = ({ children }) => {
 
     }
 
-        const selectCourse = (courseId) => {
+    const selectCourse = (courseId) => {
 
-            return course.find(course=> course.id === courseId)
+        return course.find(course => course.id === courseId)
+    }
+
+
+    const onDeleteClick = async (id) => {
+        const result = await courseService.delete(id)
+
+
+        setCourse(state => state.filter(x => x._id !== id))
+
+        navigate("/catalog")
+
+    }
+    const onEditSubmit = async (data) => {
+        try {
+            const result = await courseService.update(data._id, data)
+            setCourse(courses => courses.map(x => x._id === data._id ? result : x))
+            navigate(`/catalog/${data._id}`)
+        } catch (err) {
+            throw new Error(err.message || err)
         }
-
-
-          const onDeleteClick = async (id) => {
-            const result = await courseService.delete(id)
-         
-        
-            setCourse(state => state.filter(x => x._id !== id))
-        
-            navigate("/catalog")
-         
-          }
-          const onEditSubmit=async(data)=>{
-            try{
-                const course = await courseService.update(course._id,data)
-        setCourse(course => course.map(x => x._id === data._id ? game : x))
-
-            }catch(err){
-                throw new Error(err.message || err)
-            }
-          }
+    }
 
     const contextCourseValue = {
         onCreateCourseSubmit,
         courses: course,
         selectCourse,
         onDeleteClick,
-  
-
+        onEditSubmit
     }
 
     return (

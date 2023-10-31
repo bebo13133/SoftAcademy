@@ -1,14 +1,47 @@
+
+import { useState } from "react"
 import { useForm } from "../Hooks/useForm"
 import { useService } from "../Hooks/useService"
 import { courseServiceFactory } from "../Services/courseService"
-import { CourseContext, useCourseContext } from "../contexts/CourseContext"
+import { useCourseContext } from "../contexts/CourseContext"
+import { useParams } from "react-router-dom"
+import { useEffect } from "react"
+export const EditCourse = () => {
 
-export const EditCourse = ({
 
-}) => {
+    const [selectOption, setSelectOptions] = useState('')
     const { onEditSubmit } = useCourseContext()
     const courseService = useService(courseServiceFactory)
-    const{courseId} = useParams()
+    const { courseId } = useParams()
+
+    const imageMap = {
+        Java: "https://static.vecteezy.com/system/resources/previews/019/899/953/non_2x/java-free-download-free-png.png",
+        Python: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
+        ReactJS: "https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png",
+        "Java Script": "https://cdn3d.iconscout.com/3d/premium/thumb/javascript-7308311-5938360.png",
+        'C#': "https://seeklogo.com/images/C/c-sharp-c-logo-02F17714BA-seeklogo.com.png",
+        "VueJs": "https://w7.pngwing.com/pngs/854/555/png-transparent-vue-js-hd-logo-thumbnail.png",
+        "Type Script": "https://cdn-icons-png.flaticon.com/512/919/919832.png",
+        "HTML&CSS": "https://www.clipartmax.com/png/middle/291-2918933_html-and-css-logo.png",
+        "Angular": "https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg",
+        "FullStack Developer": "https://static.thenounproject.com/png/390336-200.png",
+        "Cyber Security": "https://jdimi.com/wp-content/uploads/sites/4/2022/03/Cyber-Security-PNG-Clipart.png",
+    };
+    const selectOptionHandler = (e) => {
+        const selectedOption = e.target.value;
+        setSelectOptions(selectedOption);
+        const selectedImage = imageMap[selectedOption];
+        onChangeHandler({ target: { name: 'selectOption', value: selectedOption } });
+        onChangeHandler({ target: { name: 'imageUrl', value: selectedImage } });
+    }
+
+    const selectedImage = imageMap[selectOption];
+
+    const imageUrl = selectedImage ? `${selectedImage}` : '';
+
+
+
+    
     const { onSubmit, onChangeHandler, onChangeValues, values } = useForm({
         courseName: "",
         firstName: "",
@@ -24,11 +57,12 @@ export const EditCourse = ({
 
     useEffect(() => {
         courseService.getOne(courseId)
-        .then(result=>{
-            onChangeValues(result)
-        })
+            .then(result => {
+                onChangeValues(result)
+            })
 
-    },[courseId])
+    }, [courseId])
+
     return (
         <>
             <div className="testbox">
@@ -108,7 +142,7 @@ export const EditCourse = ({
                     </div>
 
                     <div className="btn-block">
-                        <button type="submit" value="send">Create</button>
+                        <button type="submit" value="send">Edit</button>
                     </div>
                 </form>
             </div>
