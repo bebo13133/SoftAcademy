@@ -8,7 +8,7 @@ export const IsOwnerCourse = ({ children }) => {
     const { userId } = useAuthContext()
     const currentCourse = selectCourse(courseId) // взимаме курса от стейта //
 
-    if (currentCourse._ownerId !== userId) {
+    if (currentCourse&& currentCourse._ownerId !== userId) {
         return <Navigate to={`/catalog/${courseId}` } replace/>
     }
 

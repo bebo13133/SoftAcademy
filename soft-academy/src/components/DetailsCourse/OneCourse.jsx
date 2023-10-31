@@ -51,12 +51,12 @@ export const OneCourse = ({
 
 
                         <div className="social-btn">
-                        <RouteGuard>
+                      
                             <IsOwnerCourse>
-                            <Link href="/photos/{{photo._id}}/edit" className="edit-btn">Edit</Link>
-                            <Link href="/photos/{{photo._id}}/delete" className="del-btn">Delete</Link>
+                            <Link to={`/catalog/${_id}/edit`} className="edit-btn">Edit</Link>
+                            <button onClick={()=>onDeleteClick(_id)} className="del-btn">Delete</button>
                             </IsOwnerCourse>
-                            </RouteGuard>
+                          
                             <div className="divider"></div>
                             <div className="comments-action-buttons">
                                 

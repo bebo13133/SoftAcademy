@@ -9,6 +9,7 @@ export const CourseContext = createContext()
 export const CourseProvider = ({ children }) => {
 
     const [courses, setCourse] = useState([])
+    const [isOpen,setIsOpen] = useState(false)
 
     const courseService = courseServiceFactory()
     const navigate = useNavigate()
@@ -40,11 +41,26 @@ export const CourseProvider = ({ children }) => {
             return courses.find(course=> course.id === courseId)
         }
 
+        const openDelete = (courses)=>{
+            setIsOpen(true)
+          }
+
+          const onDeleteClick = async (courseId) => {
+            const result = await gameService.delete(courseId)
+           setIsOpen(false)
+        
+            setGames(state => state.filter(x => x._id !== id))
+        
+            navigate("/catalog")
+        
+          }
 
     const contextCourseValue = {
         onCreateCourseSubmit,
         courses: courses,
-        selectCourse
+        selectCourse,
+        onDeleteClick,
+        openDelete
 
     }
 
