@@ -19,6 +19,7 @@ export const CourseProvider = ({ children }) => {
             .then(result => {
                 setCourse(result)
             })
+            
     }, [])
 
     const onCreateCourseSubmit = async (courseData) => {
@@ -43,17 +44,17 @@ export const CourseProvider = ({ children }) => {
 
     const onDeleteClick = async (id) => {
 
-        try{
+        try {
             const result = await courseService.delete(id)
 
 
             setCourse(state => state.filter(x => x._id !== id))
-    
+
             navigate("/catalog")
-        }catch (err) {
+        } catch (err) {
             throw new Error(err.message || err)
         }
-     
+
 
     }
     const onEditSubmit = async (data) => {
