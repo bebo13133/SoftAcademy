@@ -4,13 +4,13 @@ export const PageNotFound=()=>{
     return(
       
 
-        <div class="full-screen">
-            <div class='con-not-found'>
-                <span class="error-num">4</span>
-                <div class='eye'></div>
-                <span class="error-num">4</span>
+        <div className="full-screen">
+            <div className='con-not-found'>
+                <span className="error-num">4</span>
+                <div className='eye'></div>
+                <span className="error-num">4</span>
 
-                <p class="sub-text">Something went wrong. We're <span class="italic">looking</span> to see what happened.</p>
+                <p className="sub-text">Something went wrong. We're <span className="italic">looking</span> to see what happened.</p>
                 <p>Go Back to <a href="/">Home</a></p>
             </div>
         </div>

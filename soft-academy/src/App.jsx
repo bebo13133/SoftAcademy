@@ -44,10 +44,10 @@ function App() {
               <Route path={"/contact"} element={<Contact />} />
 
               {/* loginRegisterGuard */}
-              <Route element={<GuardLoginRegister />}>
+              {/* <Route element={<GuardLoginRegister />}> */}
                 <Route path={"/login"} element={<Login />} />
                 <Route path={"/register"} element={<Register />} />
-              </Route>
+              {/* </Route> */}
               {/* Edn LoginRegisterGuard */}
               {/* Route Guard */}
               <Route element={<RouteGuard />}>

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import { CommentsPopUp } from "../Comments/CommentsPopUp"
 import { useState } from "react"
-
+import { IsOwnerCourse } from "../common/isOwnerCourse"
+import { RouteGuard } from "../common/RouteGuard"
 export const OneCourse = ({
     imageUrl,
     firstName,
@@ -31,6 +32,7 @@ export const OneCourse = ({
 
     return (
         <>
+      
             <div className="main_card">
                 <div className="card_left">
 
@@ -49,11 +51,15 @@ export const OneCourse = ({
 
 
                         <div className="social-btn">
-
-                            <a href="/photos/{{photo._id}}/edit" className="edit-btn">Edit</a>
-                            <a href="/photos/{{photo._id}}/delete" className="del-btn">Delete</a>
+                        <RouteGuard>
+                            <IsOwnerCourse>
+                            <Link href="/photos/{{photo._id}}/edit" className="edit-btn">Edit</Link>
+                            <Link href="/photos/{{photo._id}}/delete" className="del-btn">Delete</Link>
+                            </IsOwnerCourse>
+                            </RouteGuard>
                             <div className="divider"></div>
                             <div className="comments-action-buttons">
+                                
                                 <button className="like-button">Like</button>
                                 <button className="comment-button" onClick={openCommentsPopUp} >Comments</button>
                             </div>
