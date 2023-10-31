@@ -24,7 +24,7 @@ const create = async(courseData)=>{
     const result = await request.post(baseUrl, courseData)
     return result
 }
-const deleteCourse = (id)=> request.del(`${baseUrl}/${id}`)
+const deleteCourse = (courseId)=> request.del(`${baseUrl}/${courseId}`)
 
 return {
     getAll,
