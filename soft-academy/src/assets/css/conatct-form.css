@@ -1,7 +1,8 @@
 .contact-us-softacademy {
     padding: 45px 0px;
-    background: #afabab;
+    background: #cfcccc;
 }
+
 .section-title h2 {
     color: #ffffff;
     font-size: 30px;
@@ -12,23 +13,28 @@
     padding-bottom: 10px;
     display: inline-block;
 }
+
 .section-title-soft p {
     color: #e8e8e8;
     margin-bottom: 30px;
 }
+
 .contact-us-softacademy input,
 .contact-us-softacademy textarea {
     background: #fafafa;
 }
+
 .contact-us-softacademy textarea {
     min-height: 188px;
     max-width: 100%;
 }
+
 .contact-us .map {
     overflow: hidden;
     border-radius: 4px;
 }
-.contact-us-softacademy #email{
+
+.contact-us-softacademy #email {
     font-size: 22px;
     height: 34px;
     /* background: #ecf0f3; */
@@ -41,14 +47,17 @@
     margin-top: 0px;
     box-shadow: none;
 }
-#root > section.contact-us-softacademy > div > div:nth-child(2) > div.col-lg-7 > form > button{
+
+#root>section.contact-us-softacademy>div>div:nth-child(2)>div.col-lg-7>form>button {
 
     font-size: 26px;
     width: 199px
 }
-.contact-us-softacademy #name{
+
+.contact-us-softacademy #name {
     font-size: 22px;
 }
-.contact-us-softacademy #subject{
+
+.contact-us-softacademy #subject {
     font-size: 22px;
 }
