@@ -14,6 +14,10 @@
   .create-comment label {
     display: block;
   }
+  .create-comment{
+    border-radius: 5px;
+
+  }
   .comments-content {
     
     background: #f1f1f1;
@@ -67,7 +71,7 @@
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
     color: black;
-    font-size: 22px;
+    font-size: 16px;
   }
   /* rotate */
   /* @keyframes rotate360 {
@@ -90,13 +94,17 @@
 
     padding:20px;
     margin: 0px auto;
+    width: 730px;
+    height: 180px;
+    margin: 10px auto;
     
    } 
    #details-page > div.comments-popup > div > article > form > input{
-    font-size: 22px;
+    font-size: 18px;
    }
    #details-page > div.comments-popup > div > article > form > textarea{
-    font-size: 22px;
+    margin-bottom: 10px;
+    font-size: 18px;
     
    }
   

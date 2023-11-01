@@ -89,8 +89,9 @@ export const OneCourse = ({
                 {/* src="../DetailsCourse/img/npm_trends_logo.png"  */}
                 <div className="card_right">
                     <img src={imageUrl} alt="image" />
+                    <br/>
                     <a href="https://npmtrends.com/" className="trend-btn">
-                        <img className="trend-btn" src="https://seeklogo.com/images/N/npm-logo-01B8642EDD-seeklogo.com.png" alt="npm trends icon" />Trends
+                        <img className="trend-btn" src="https://seeklogo.com/images/N/npm-logo-01B8642EDD-seeklogo.com.png" alt="npm trends icon" />
                     </a>
                     <br />
                     <br />

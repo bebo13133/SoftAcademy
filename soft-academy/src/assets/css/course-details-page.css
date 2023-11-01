@@ -40,8 +40,8 @@
 }
 
 .card_datails h1 {
-    font-size: 55px;
-    padding-bottom: 8px;
+    font-size: 40px;
+    padding-bottom: 19px;
 }
 
 
@@ -57,12 +57,12 @@ text-transform:none;
 
     
 } */
-.trend-btn{
+/* .trend-btn{
    
  
     max-width: 30px;
     border-radius: 2px;
-}
+} */
 
 
 .card_right {
@@ -84,19 +84,19 @@ text-transform:none;
     border-radius: 15px;
 }
 .card_left p{
-font-size: 22px;
+font-size: 16px;
 color: #060606;
 
 }
 .card_right p{
-    font-size: 30px;
+    font-size: 14px;
     color: #060606;
     
 }
 .card_right span{
-    font-size: 22px;
+    font-size: 14px;
     color: #060606;
-    
+  text-transform:none
 }
 /* .card_right h2{
     font-size: 30px;
@@ -110,7 +110,7 @@ color: #060606;
     /* position: absolute; */
     bottom: 10px; /* Adjust the bottom distance as needed */
     right: 10px; /* Adjust the right distance as needed */
-    font-size: 36px;
+    font-size: 24px;
     color: #181819; /* A blue color, you can choose your preferred color */
     font-weight: bold;
     text-align: center;
@@ -159,7 +159,7 @@ color: #060606;
     margin-left: 10px;
     color: #fff;
     border: none;
-    padding: 14px;
+    padding: 14px 50px;
     outline: none;
     font-size: 18px;
     font-weight: 600;
@@ -174,11 +174,16 @@ color: #060606;
 }
 
 .del-btn {
-    background-color: #88B04B;
+    background-color: #ff0000;
+    font-size: 16px;
 }
 
 .edit-btn {
+   
+
     background-color: #EFC050;
+    font-size: 16px;
+
 }
 
 .vote-up {
@@ -199,22 +204,21 @@ color: #060606;
 }
 
 .edit-btn:hover,
-.del-btn:hover,
-.vote-up:hover,
-.vote-down:hover {
+.del-btn:hover
+ {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
 
-.play_btn {
+/* .play_btn {
     height: 100%;
     margin: -394px auto;
     position: relative;
     text-align: center;
     background: rgba(0, 244, 170, 0.4);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .fa-play-circle {
     color: #255;
@@ -365,7 +369,7 @@ span {
     margin-bottom: 25px;
 }
 
-.PV {
+/* .PV {
     background: #9B2335;
     -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
@@ -389,7 +393,7 @@ span {
     font-weight: bold;
     border-radius: 15px;
     margin-left: 10px;
-}
+} */
 
 @media (min-width: 60em) {
     .item-1 {
@@ -402,7 +406,9 @@ span {
 
 
   .card_right img {
-
+    border: none;
+    max-width: 80%;
+    height: 200px;
     
     float: right; 
     transition: transform 1s; 
@@ -435,7 +441,7 @@ span {
     background-color: #007bff;
     color: #fff;
     border: none;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 5px;
     padding: 10px 20px;
     margin: 0 10px;
@@ -454,6 +460,13 @@ span {
     margin: 12px 0;
     border-top: 1px solid #ccc;
   }
-  
+  #details-page > div > div.card_right > a > img{
+
+    border: none;
+    max-width: 100%;
+    height: 30px;
+    float: right;
+
+  }
   /* ... (existing CSS) ... */
   
