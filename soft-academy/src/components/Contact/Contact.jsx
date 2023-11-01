@@ -1,6 +1,14 @@
-import { Fragment } from "react"
+import { Fragment, useRef, useState } from "react"
 
 export const Contact = () => {
+    const[emails,setEmails] =useState({})
+
+    const form = useRef()
+
+    const sendEmail = ()=>{
+
+
+    }
 
 
     return (
@@ -17,7 +25,7 @@ export const Contact = () => {
                     </div>
                     <div className="row">
                         <div className="col-lg-7">
-                            <form action="/" className="mb-4 mb-lg-0">
+                            <form ref={form} className="mb-4 mb-lg-0">
                                 <div className="form-row">
                                     <div className="col-md-6 form-group">
                                         <input type="text" name="name" className="form-control" id="name" placeholder="Your Name" />
@@ -32,7 +40,7 @@ export const Contact = () => {
                                 <div className="form-group">
                                     <textarea className="form-control" name="message" placeholder="Type Message"></textarea>
                                 </div>
-                                <button type="submit" className="btn btn-light">Contact Now</button>
+                                <button type="submit" className="btn btn-light">Send</button>
                             </form>
                         </div>
 
