@@ -24,6 +24,8 @@ export const OneCourse = ({
 
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const [liked,setLiked]=useState(false)
+    const [likeCounter,setLikeCounter]= useState(0)
 
     const { onDeleteClick, } = useCourseContext()
     
@@ -38,6 +40,15 @@ export const OneCourse = ({
     }
     const onCloseDelete = () => {
         setIsOpen(false)
+    }
+
+    const handleLikeToggle=()=>{
+        if(liked){
+            setLikeCounter(likeCounter-1)
+        }else{
+            setLikeCounter(likeCounter+1)
+        }
+        setLiked(!liked)
     }
 
     return (
@@ -66,11 +77,11 @@ export const OneCourse = ({
                                 <Link to={`/catalog/${_id}/edit`} className="edit-btn">Edit</Link>
                                 <button onClick={() => openDelete()} className="del-btn">Delete</button>
                             </IsOwnerCourse>
-
+                            <p>Likes: {likeCounter}</p>
                             <div className="divider"></div>
                             <div className="comments-action-buttons">
 
-                                <button className="like-button">Like</button>
+                                <button className="like-button" onClick={handleLikeToggle}>{liked ? "Unlike":"Like"}</button>
                                 <button className="comment-button" onClick={openCommentsPopUp} >Comments</button>
                             </div>
 
