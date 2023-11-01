@@ -4,8 +4,19 @@ export const Contact = () => {
     const[emails,setEmails] =useState({})
 
     const form = useRef()
+    
+    const sendEmail = (e)=>{
+        e.preventDefault()
+        emailjs
+        .sendForm(
 
-    const sendEmail = ()=>{
+        )
+        .then(result=>{
+            console.log(result)
+        },(err)=>{
+            throw new Error(err)
+        }
+        )
 
 
     }
@@ -19,7 +30,7 @@ export const Contact = () => {
                         <div className="col-md-7">
                             <div className="section-title-soft">
                                 <h2>Contact Us</h2>
-                                <p><b>Bootstrap 4 contact form</b> is designed with a Google map. contact form pages design is created by using Bootstrap and custom CSS</p>
+                                <p><b>Contact whit SoftAcademy</b> is designed with a Google map. contact form pages design is created by using Bootstrap and custom CSS</p>
                             </div>
                         </div>
                     </div>
