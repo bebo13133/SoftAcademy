@@ -1,22 +1,27 @@
 import { Fragment, useRef, useState } from "react"
-
+import emailjs from '@emailjs/browser'
 export const Contact = () => {
-    const[emails,setEmails] =useState({})
+    // const [emails, setEmails] = useState({})
 
     const form = useRef()
-    
-    const sendEmail = (e)=>{
-        e.preventDefault()
-        emailjs
-        .sendForm(
 
+    const sendEmail = (e) => {
+        e.preventDefault()
+
+        emailjs
+            .sendForm(
+                "service_zxhuqbx",
+                "template_7tkpsx5",
+                form.current,
+                "iRYFR4BuAXZEBF1ld",
         )
-        .then(result=>{
-            console.log(result)
-        },(err)=>{
-            throw new Error(err)
-        }
-        )
+            .then(result => {
+                console.log(result)
+                console.log("message: ")
+            }, (err) => {
+                throw new Error(err)
+            }
+            )
 
 
     }
@@ -36,17 +41,17 @@ export const Contact = () => {
                     </div>
                     <div className="row">
                         <div className="col-lg-7">
-                            <form ref={form} className="mb-4 mb-lg-0">
+                            <form ref={form} onSubmit={sendEmail} className="mb-4 mb-lg-0">
                                 <div className="form-row">
                                     <div className="col-md-6 form-group">
-                                        <input type="text" name="name" className="form-control" id="name" placeholder="Your Name" />
+                                        <input type="text" name="user_name" className="form-control" id="name" placeholder="Your Name" />
                                     </div>
                                     <div className="col-md-6 form-group">
-                                        <input type="email" className="form-control" name="email" id="email" placeholder="Your Email" />
+                                        <input type="email" className="form-control" name="user_email" id="email" placeholder="Your Email" />
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" />
+                                    <input type="text" className="form-control" name="user_subject" id="subject" placeholder="Subject" />
                                 </div>
                                 <div className="form-group">
                                     <textarea className="form-control" name="message" placeholder="Type Message"></textarea>
