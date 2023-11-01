@@ -1,9 +1,9 @@
 import { Fragment, useRef, useState } from "react"
 import emailjs from '@emailjs/browser'
 export const Contact = () => {
-    // const [emails, setEmails] = useState({})
+    const [emails, setEmails] = useState({})
 
-    const form = useRef()
+    const form = useRef() // връща стоиност , която ще се използва сам о1 път
 
     const sendEmail = (e) => {
         e.preventDefault()
@@ -12,17 +12,19 @@ export const Contact = () => {
             .sendForm(
                 "service_zxhuqbx",
                 "template_7tkpsx5",
-                form.current,
+                form.current,   // Взимам като 3 параметър според изискванията на emailjs информацията от формата с помоща ref={form}
                 "iRYFR4BuAXZEBF1ld",
-        )
+            )
             .then(result => {
-                console.log(result)
+// setEmails(state=>[{...state,[e.target.name]: e.target.value}]);   
+
+                console.log(emails)
                 console.log("message: ")
             }, (err) => {
                 throw new Error(err)
             }
             )
-
+            console.log(form.current)
 
     }
 
