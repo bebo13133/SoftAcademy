@@ -33,19 +33,19 @@
     width: 770px;
 }
 
-.card_datails {
+.card_details {
     width: 98%;
     padding: 50px;
     margin-top: -25px;
 }
 
-.card_datails h1 {
+.card_details h1 {
     font-size: 40px;
     padding-bottom: 19px;
 }
 
 
-.card_datails h3 {
+.card_details h3 {
 text-transform:none;
 }
 /* .card_right img {
@@ -146,20 +146,21 @@ color: #060606;
   
 }
 
-.social-btn {
+/* .social-btn {
 
     margin-left: 10px;
 
-    margin-top: 2em;
-}
+} */
 
 .social-btn>.edit-btn,
 .del-btn
  {
     margin-left: 10px;
+    margin-top: 2em;
+
     color: #fff;
     border: none;
-    padding: 14px 50px;
+    padding: 6px 39px;
     outline: none;
     font-size: 18px;
     font-weight: 600;
@@ -185,6 +186,61 @@ color: #060606;
     font-size: 16px;
 
 }
+/* Like icon */
+#details-page > div > div.card_left > div > div.social-btn > div:nth-child(1) > svg{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    float:right;
+    color: #007bff; 
+  font-size: 24px; 
+  margin-right: 20px;
+}
+#details-page > div > div.card_left > div > div.social-btn > div:nth-child(1) > p{
+    /* display: flex;
+    align-items: right;
+
+    color: #007bff; 
+  font-size: 16px; 
+  margin-right: 5px; */
+  
+  align-items: center;
+  color: #5b5b5b; 
+  font-size:16px; 
+  float:right;
+  margin-right: 5px;
+  float:right;
+}
+
+#details-page > div > div.card_left > div > div.social-btn > div:nth-child(3) > svg{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    float:right;
+    color: #007bff; 
+  font-size: 26px; 
+  margin-right: 20px;
+}
+#details-page > div > div.card_left > div > div.social-btn > div:nth-child(3) > p{
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+   
+
+  margin-right: 5px; */
+  align-items: center;
+  color: #5b5b5b; 
+  font-size: 16px; 
+  float:right;
+  margin-right: 5px;
+}
+
+
+/* #details-page > div > div.card_left > div > div.social-btn > p:hover{
+    color: #ff6347;
+    cursor: pointer; 
+  } */
 
 .vote-up {
     background-color: #9B2335;
@@ -220,7 +276,7 @@ color: #060606;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 } */
 
-.fa-play-circle {
+/* .fa-play-circle {
     color: #255;
     font-size: 160px;
     margin-top: 110px;
@@ -231,7 +287,7 @@ color: #060606;
 .fa-play-circle:hover {
     color: aqua;
     animation: bounce 0.4s infinite;
-}
+} */
 
 @-webkit-keyframes bounce {
     8% {
@@ -335,65 +391,7 @@ span {
     background-position: center center;
 } */
 
-#votes {
-    margin-top: 3em;
-    left: 50%;
-}
 
-.vote-info {
-    color: #fff;
-    height: 200px auto;
-    margin: 50px auto;
-    display: flex;
-    max-width: 950px;
-    background: #e4a1a9;
-    background: -webkit-linear-gradient(to right, #03434C, rgb(179, 91, 98));
-    background: -webkit-gradient(linear, left top, right top, from(#03434C), to(rgb(#08272C)));
-    background: -webkit-linear-gradient(left, #03434C, #08272C);
-    background: -o-linear-gradient(left, #03434C, #08272C);
-    background: linear-gradient(to right, #03434C, #08272C);
-    -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-}
-
-.card_vote {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    margin-top: 6px;
-    margin-left: 2em;
-    margin-bottom: 25px;
-}
-
-/* .PV {
-    background: #9B2335;
-    -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-    -webkit-transition: 300ms ease-in-out;
-    font-size: 18px;
-}
-
-.NV {
-    background: rgba(116, 153, 226, 0.89);
-    -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-    font-size: 18.5px;
-    -webkit-transition: 300ms ease-in-out;
-}
-
-.PV,
-.NV {
-    color: fff;
-    max-width: 300px;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 15px;
-    margin-left: 10px;
-} */
 
 @media (min-width: 60em) {
     .item-1 {
@@ -430,7 +428,7 @@ span {
 .comments-action-buttons {
     /* float:right; */
     text-align: right;
-    margin-top: 0px;
+    margin-top: 26px;
   }
   
   .like-button,

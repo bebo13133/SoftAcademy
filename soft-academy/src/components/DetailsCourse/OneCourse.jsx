@@ -1,14 +1,14 @@
 import { Link, useParams } from "react-router-dom"
 import { CommentsPopUp } from "../Comments/CommentsPopUp"
 import { useState } from "react"
-import { IsOwnerCourse } from "../common/isOwnerCourse"
-import { RouteGuard } from "../common/RouteGuard"
 import { useCourseContext } from "../contexts/CourseContext"
 import { ConfirmBox } from '../ConfirmBox/ConfirmBox'
 import * as likeService from "../Services/likeService"
 import { useAuthContext } from "../contexts/UserContext"
 import { useEffect } from "react"
-import axios from 'axios'
+import {BiLike} from "react-icons/bi"
+
+
 export const OneCourse = ({
     imageUrl,
     firstName,
@@ -23,13 +23,13 @@ export const OneCourse = ({
     courseName,
     comments,
     onCommentSubmit,
-_ownerId
+    _ownerId
 
 }) => {
 
- 
-    const { userId,} = useAuthContext()
-   
+
+    const { userId, } = useAuthContext()
+
     const { courseId } = useParams()
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
@@ -37,13 +37,15 @@ _ownerId
     const [likeCounter, setLikeCounter] = useState(0)
     const [likeUser, setLikeUser] = useState([])
     const { onDeleteClick, } = useCourseContext()
+
+
     useEffect(() => {
         likeService.getAllLikes(courseId)
             .then(response => {
                 console.log("response", response)
-          
+
                 const likesCourse = (response.filter(like => like.courseId === courseId));
-                console.log("likeCourse",likesCourse)
+                console.log("likeCourse", likesCourse)
                 setLikeCounter(likesCourse.length);
                 setLiked(likesCourse.some(like => like.userId === userId));
                 setLikeUser(likesCourse.find(like => like.userId === userId));
@@ -51,7 +53,9 @@ _ownerId
             .catch(error => {
                 console.error('Error fetching likes:', error);
             });
-    }, [courseId, userId,likeCounter]);
+    }, [courseId, userId, likeCounter]);
+
+
     const isOwner = _ownerId === userId
 
     // console.log(likeUser)
@@ -82,10 +86,10 @@ _ownerId
         } else if (!liked) {
             // Send a request to add a like
             try {
-              const result= await likeService.createLike(courseId, userId);
-              console.log(result)
+                const result = await likeService.createLike(courseId, userId);
+                console.log(result)
                 setLikeCounter(likeCounter + 1);
-               setLiked(true);
+                setLiked(true);
 
             } catch (error) {
                 console.error('Error adding like:', error);
@@ -101,7 +105,7 @@ _ownerId
             <div className="main_card">
                 <div className="card_left">
 
-                    <div className="card_datails">
+                    <div className="card_details">
 
                         <h1>Course: {courseName}</h1>
                         <h3>Created by an author: {ownerCourse}</h3>
@@ -117,14 +121,19 @@ _ownerId
 
                         <div className="social-btn">
 
-                    {isOwner && (<>
-                              <Link to={`/catalog/${_id}/edit`} className="edit-btn">Edit</Link>
-                              <button onClick={() => openDelete()} className="del-btn">Delete</button> 
-                              </>
-                    )}
-                         
-                         
-                            <p>Likes: {likeCounter}</p>
+                            {isOwner && (<>
+                                <Link to={`/catalog/${_id}/edit`} className="edit-btn">Edit</Link>
+                                <button onClick={() => openDelete()} className="del-btn">Delete</button>
+                            </>
+                            )}
+
+                            <div>
+                            <BiLike style={{size:"60px,", color:"blue"}}/>
+                            <p> {likeCounter}</p>
+                            </div>
+                            <br />
+                
+
                             <div className="divider"></div>
                             <div className="comments-action-buttons">
 
