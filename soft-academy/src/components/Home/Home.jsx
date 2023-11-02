@@ -1,3 +1,5 @@
+import { ChatBox } from "../ChatBox/ChatBox"
+
 export const Home = () => {
     return (
         <>
@@ -151,6 +153,7 @@ export const Home = () => {
                 </div>
 
             </section>
+            <ChatBox/>
         </>
     )
 }

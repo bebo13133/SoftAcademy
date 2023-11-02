@@ -81,7 +81,7 @@ function App() {
 
               <Route path={"/404"} element={<PageNotFound />} />
             </Routes>
-                <ChatBox/>
+               
             <Footer />
           {/* </ErrorBoundary> */}
         </CourseProvider>
