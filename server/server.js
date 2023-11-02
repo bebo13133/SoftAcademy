@@ -1,10 +1,11 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('http'), require('fs'), require('crypto')) :
-    typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
-}(this, (function (http, fs, crypto) { 'use strict';
+        typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
+}(this, (function (http, fs, crypto) {
+    'use strict';
 
-    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+    function _interopDefaultLegacy(e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
     var http__default = /*#__PURE__*/_interopDefaultLegacy(http);
     var fs__default = /*#__PURE__*/_interopDefaultLegacy(fs);
@@ -13,14 +14,14 @@
     class ServiceError extends Error {
         constructor(message = 'Service Error') {
             super(message);
-            this.name = 'ServiceError'; 
+            this.name = 'ServiceError';
         }
     }
 
     class NotFoundError extends ServiceError {
         constructor(message = 'Resource not found') {
             super(message);
-            this.name = 'NotFoundError'; 
+            this.name = 'NotFoundError';
             this.status = 404;
         }
     }
@@ -28,7 +29,7 @@
     class RequestError extends ServiceError {
         constructor(message = 'Request error') {
             super(message);
-            this.name = 'RequestError'; 
+            this.name = 'RequestError';
             this.status = 400;
         }
     }
@@ -36,7 +37,7 @@
     class ConflictError extends ServiceError {
         constructor(message = 'Resource conflict') {
             super(message);
-            this.name = 'ConflictError'; 
+            this.name = 'ConflictError';
             this.status = 409;
         }
     }
@@ -44,7 +45,7 @@
     class AuthorizationError extends ServiceError {
         constructor(message = 'Unauthorized') {
             super(message);
-            this.name = 'AuthorizationError'; 
+            this.name = 'AuthorizationError';
             this.status = 401;
         }
     }
@@ -52,7 +53,7 @@
     class CredentialError extends ServiceError {
         constructor(message = 'Forbidden') {
             super(message);
-            this.name = 'CredentialError'; 
+            this.name = 'CredentialError';
             this.status = 403;
         }
     }
@@ -96,7 +97,7 @@
                     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                     'Access-Control-Allow-Credentials': false,
                     'Access-Control-Max-Age': '86400',
-                    'Access-Control-Allow-Headers': 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, X-Authorization'
+                    'Access-Control-Allow-Headers': 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, X-Authorization, X-Admin'
                 });
             } else {
                 try {
@@ -146,10 +147,13 @@
                     result = await service(context, { method, tokens, query, body });
                 }
 
-                // NOTE: currently there is no scenario where result is undefined - it will either be data, or an error object;
-                // this may change with further extension of the services, so this check should stay in place
+                // NOTE: logout does not return a result
+                // in this case the content type header should be omitted, to allow checks on the client
                 if (result !== undefined) {
                     result = JSON.stringify(result);
+                } else {
+                    status = 204;
+                    delete headers['Content-Type'];
                 }
             }
         };
@@ -212,7 +216,7 @@
          * @param {{method: string, tokens: string[], query: *, body: *}} request Request parameters
          */
         async parseRequest(context, request) {
-            for (let {method, name, handler} of this._actions) {
+            for (let { method, name, handler } of this._actions) {
                 if (method === request.method && matchAndAssignParams(context, request.tokens[0], name)) {
                     return await handler(context, request.tokens.slice(1), request.query, request.body);
                 }
@@ -226,7 +230,7 @@
          * @param {(context, tokens: string[], query: *, body: *)} handler Request handler
          */
         registerAction(method, name, handler) {
-            this._actions.push({method, name, handler});
+            this._actions.push({ method, name, handler });
         }
 
         /**
@@ -254,6 +258,15 @@
          */
         put(name, handler) {
             this.registerAction('PUT', name, handler);
+        }
+
+        /**
+         * Register PATCH action
+         * @param {string} name Action name. Can be a glob pattern.
+         * @param {(context, tokens: string[], query: *, body: *)} handler Request handler
+         */
+        patch(name, handler) {
+            this.registerAction('PATCH', name, handler);
         }
 
         /**
@@ -296,7 +309,7 @@
     const uuid$1 = util.uuid;
 
 
-    const data = fs__default['default'].readdirSync('./data').reduce((p, c) => {
+    const data = fs__default['default'].existsSync('./data') ? fs__default['default'].readdirSync('./data').reduce((p, c) => {
         const content = JSON.parse(fs__default['default'].readFileSync('./data/' + c));
         const collection = c.slice(0, -5);
         p[collection] = {};
@@ -304,7 +317,7 @@
             p[collection][endpoint] = content[endpoint];
         }
         return p;
-    }, {});
+    }, {}) : {};
 
     const actions = {
         get: (context, tokens, query, body) => {
@@ -335,6 +348,21 @@
             return responseData[newId];
         },
         put: (context, tokens, query, body) => {
+            tokens = [context.params.collection, ...tokens];
+            console.log('Request body:\n', body);
+
+            let responseData = data;
+            for (let token of tokens.slice(0, -1)) {
+                if (responseData !== undefined) {
+                    responseData = responseData[token];
+                }
+            }
+            if (responseData !== undefined && responseData[tokens.slice(-1)] !== undefined) {
+                responseData[tokens.slice(-1)] = body;
+            }
+            return responseData[tokens.slice(-1)];
+        },
+        patch: (context, tokens, query, body) => {
             tokens = [context.params.collection, ...tokens];
             console.log('Request body:\n', body);
 
@@ -373,6 +401,7 @@
     dataService.get(':collection', actions.get);
     dataService.post(':collection', actions.post);
     dataService.put(':collection', actions.put);
+    dataService.patch(':collection', actions.patch);
     dataService.delete(':collection', actions.delete);
 
 
@@ -382,12 +411,27 @@
      * This service requires storage and auth plugins
      */
 
+    const { AuthorizationError: AuthorizationError$1 } = errors;
+
+
+
     const userService = new Service_1();
 
+    userService.get('me', getSelf);
     userService.post('register', onRegister);
     userService.post('login', onLogin);
     userService.get('logout', onLogout);
-    // TODO: get user details
+
+
+    function getSelf(context, tokens, query, body) {
+        if (context.user) {
+            const result = Object.assign({}, context.user);
+            delete result.hashedPassword;
+            return result;
+        } else {
+            throw new AuthorizationError$1();
+        }
+    }
 
     function onRegister(context, tokens, query, body) {
         return context.auth.register(body);
@@ -403,18 +447,17 @@
 
     var users = userService.parseRequest;
 
-    /*
-     * This service requires storage and auth plugins
-     */
-
-    const { NotFoundError: NotFoundError$1, RequestError: RequestError$1, CredentialError: CredentialError$1, AuthorizationError: AuthorizationError$1 } = errors;
+    const { NotFoundError: NotFoundError$1, RequestError: RequestError$1 } = errors;
 
 
-    const dataService$1 = new Service_1();
-    dataService$1.get(':collection', get);
-    dataService$1.post(':collection', post);
-    dataService$1.put(':collection', put);
-    dataService$1.delete(':collection', del);
+    var crud = {
+        get,
+        post,
+        put,
+        patch,
+        delete: del
+    };
+
 
     function validateRequest(context, tokens, query) {
         /*
@@ -487,21 +530,6 @@
                 return context.storage.get();
             }
 
-            if (query.distinct) {
-                const props = query.distinct.split(',').filter(p => p != '');
-                responseData = Object.values(responseData.reduce((distinct, c) => {
-                    const key = props.map(p => c[p]).join('::');
-                    if (distinct.hasOwnProperty(key) == false) {
-                        distinct[key] = c;
-                    }
-                    return distinct;
-                }, {}));
-            }
-
-            if (query.count) {
-                return responseData.length;
-            }
-
             if (query.sortBy) {
                 const props = query.sortBy
                     .split(',')
@@ -509,7 +537,7 @@
                     .map(p => p.split(' ').filter(p => p != ''))
                     .map(([p, desc]) => ({ prop: p, desc: desc ? true : false }));
 
-                // Sorting priority is from first ot last, therefore we sort from last to first
+                // Sorting priority is from first to last, therefore we sort from last to first
                 for (let i = props.length - 1; i >= 0; i--) {
                     let { prop, desc } = props[i];
                     responseData.sort(({ [prop]: propA }, { [prop]: propB }) => {
@@ -528,6 +556,21 @@
             const pageSize = Number(query.pageSize) || 10;
             if (query.pageSize) {
                 responseData = responseData.slice(0, pageSize);
+            }
+
+            if (query.distinct) {
+                const props = query.distinct.split(',').filter(p => p != '');
+                responseData = Object.values(responseData.reduce((distinct, c) => {
+                    const key = props.map(p => c[p]).join('::');
+                    if (distinct.hasOwnProperty(key) == false) {
+                        distinct[key] = c;
+                    }
+                    return distinct;
+                }, {}));
+            }
+
+            if (query.count) {
+                return responseData.length;
             }
 
             if (query.select) {
@@ -569,6 +612,8 @@
             }
         }
 
+        context.canAccess(responseData);
+
         return responseData;
     }
 
@@ -579,14 +624,10 @@
         if (tokens.length > 0) {
             throw new RequestError$1('Use PUT to update records');
         }
+        context.canAccess(undefined, body);
 
+        body._ownerId = context.user._id;
         let responseData;
-
-        if (context.user) {
-            body._ownerId = context.user._id;
-        } else {
-            throw new AuthorizationError$1();
-        }
 
         try {
             responseData = context.storage.add(context.params.collection, body);
@@ -606,11 +647,6 @@
         }
 
         let responseData;
-
-        if (!context.user) {
-            throw new AuthorizationError$1();
-        }
-
         let existing;
 
         try {
@@ -619,12 +655,38 @@
             throw new NotFoundError$1();
         }
 
-        if (context.user._id !== existing._ownerId) {
-            throw new CredentialError$1();
-        }
+        context.canAccess(existing, body);
 
         try {
             responseData = context.storage.set(context.params.collection, tokens[0], body);
+        } catch (err) {
+            throw new RequestError$1();
+        }
+
+        return responseData;
+    }
+
+    function patch(context, tokens, query, body) {
+        console.log('Request body:\n', body);
+
+        validateRequest(context, tokens);
+        if (tokens.length != 1) {
+            throw new RequestError$1('Missing entry ID');
+        }
+
+        let responseData;
+        let existing;
+
+        try {
+            existing = context.storage.get(context.params.collection, tokens[0]);
+        } catch (err) {
+            throw new NotFoundError$1();
+        }
+
+        context.canAccess(existing, body);
+
+        try {
+            responseData = context.storage.merge(context.params.collection, tokens[0], body);
         } catch (err) {
             throw new RequestError$1();
         }
@@ -639,11 +701,6 @@
         }
 
         let responseData;
-
-        if (!context.user) {
-            throw new AuthorizationError$1();
-        }
-
         let existing;
 
         try {
@@ -652,9 +709,7 @@
             throw new NotFoundError$1();
         }
 
-        if (context.user._id !== existing._ownerId) {
-            throw new CredentialError$1();
-        }
+        context.canAccess(existing);
 
         try {
             responseData = context.storage.delete(context.params.collection, tokens[0]);
@@ -665,6 +720,16 @@
         return responseData;
     }
 
+    /*
+     * This service requires storage and auth plugins
+     */
+
+    const dataService$1 = new Service_1();
+    dataService$1.get(':collection', crud.get);
+    dataService$1.post(':collection', crud.post);
+    dataService$1.put(':collection', crud.put);
+    dataService$1.patch(':collection', crud.patch);
+    dataService$1.delete(':collection', crud.delete);
 
     var data$1 = dataService$1.parseRequest;
 
@@ -729,7 +794,7 @@
     }
 
     function onRequest(context, tokens, query, body) {
-        Object.entries(body).forEach(([k,v]) => {
+        Object.entries(body).forEach(([k, v]) => {
             console.log(`${k} ${v ? 'enabled' : 'disabled'}`);
             context.util[k] = v;
         });
@@ -838,13 +903,36 @@
         }
 
         /**
-         * Update entry by ID
+         * Replace entry by ID
+         * @param {string} collection Name of collection to access. Throws error if not found.
+         * @param {number|string} id ID of entry to update. Throws error if not found.
+         * @param {Object} data Value to store. Record will be replaced!
+         * @return {Object} Updated entry.
+         */
+        function set(collection, id, data) {
+            if (!collections.has(collection)) {
+                throw new ReferenceError('Collection does not exist: ' + collection);
+            }
+            const targetCollection = collections.get(collection);
+            if (!targetCollection.has(id)) {
+                throw new ReferenceError('Entry does not exist: ' + id);
+            }
+
+            const existing = targetCollection.get(id);
+            const record = assignSystemProps(deepCopy(data), existing);
+            record._updatedOn = Date.now();
+            targetCollection.set(id, record);
+            return Object.assign(deepCopy(record), { _id: id });
+        }
+
+        /**
+         * Modify entry by ID
          * @param {string} collection Name of collection to access. Throws error if not found.
          * @param {number|string} id ID of entry to update. Throws error if not found.
          * @param {Object} data Value to store. Shallow merge will be performed!
          * @return {Object} Updated entry.
          */
-        function set(collection, id, data) {
+        function merge(collection, id, data) {
             if (!collections.has(collection)) {
                 throw new ReferenceError('Collection does not exist: ' + collection);
             }
@@ -918,7 +1006,27 @@
             return result;
         }
 
-        return { get, add, set, delete: del, query };
+        return { get, add, set, merge, delete: del, query };
+    }
+
+
+    function assignSystemProps(target, entry, ...rest) {
+        const whitelist = [
+            '_id',
+            '_createdOn',
+            '_updatedOn',
+            '_ownerId'
+        ];
+        for (let prop of whitelist) {
+            if (entry.hasOwnProperty(prop)) {
+                target[prop] = deepCopy(entry[prop]);
+            }
+        }
+        if (rest.length > 0) {
+            Object.assign(target, ...rest);
+        }
+
+        return target;
     }
 
 
@@ -953,7 +1061,7 @@
 
     var storage = initPlugin;
 
-    const { ConflictError: ConflictError$1, CredentialError: CredentialError$2, RequestError: RequestError$2 } = errors;
+    const { ConflictError: ConflictError$1, CredentialError: CredentialError$1, RequestError: RequestError$2 } = errors;
 
     function initPlugin$1(settings) {
         const identity = settings.identity;
@@ -979,7 +1087,7 @@
                 if (user !== undefined) {
                     context.user = user;
                 } else {
-                    throw new CredentialError$2('Invalid access token');
+                    throw new CredentialError$1('Invalid access token');
                 }
             }
 
@@ -992,10 +1100,10 @@
                 } else if (context.protectedStorage.query('users', { [identity]: body[identity] }).length !== 0) {
                     throw new ConflictError$1(`A user with the same ${identity} already exists`);
                 } else {
-                    const newUser = {
+                    const newUser = Object.assign({}, body, {
                         [identity]: body[identity],
                         hashedPassword: hash(body.password)
-                    };
+                    });
                     const result = context.protectedStorage.add('users', newUser);
                     delete result.hashedPassword;
 
@@ -1018,10 +1126,10 @@
 
                         return result;
                     } else {
-                        throw new CredentialError$2('Email or password don\'t match');
+                        throw new CredentialError$1('Login or password don\'t match');
                     }
                 } else {
-                    throw new CredentialError$2('Email or password don\'t match');
+                    throw new CredentialError$1('Login or password don\'t match');
                 }
             }
 
@@ -1032,7 +1140,7 @@
                         context.protectedStorage.delete('sessions', session._id);
                     }
                 } else {
-                    throw new CredentialError$2('User session does not exist');
+                    throw new CredentialError$1('User session does not exist');
                 }
             }
 
@@ -1076,205 +1184,210 @@
 
     var util$2 = initPlugin$2;
 
+    /*
+     * This plugin requires auth and storage plugins
+     */
+
+    const { RequestError: RequestError$3, ConflictError: ConflictError$2, CredentialError: CredentialError$2, AuthorizationError: AuthorizationError$2 } = errors;
+
+    function initPlugin$3(settings) {
+        const actions = {
+            'GET': '.read',
+            'POST': '.create',
+            'PUT': '.update',
+            'PATCH': '.update',
+            'DELETE': '.delete'
+        };
+        const rules = Object.assign({
+            '*': {
+                '.create': ['User'],
+                '.update': ['Owner'],
+                '.delete': ['Owner']
+            }
+        }, settings.rules);
+
+        return function decorateContext(context, request) {
+            // special rules (evaluated at run-time)
+            const get = (collectionName, id) => {
+                return context.storage.get(collectionName, id);
+            };
+            const isOwner = (user, object) => {
+                return user._id == object._ownerId;
+            };
+            context.rules = {
+                get,
+                isOwner
+            };
+            const isAdmin = request.headers.hasOwnProperty('x-admin');
+
+            context.canAccess = canAccess;
+
+            function canAccess(data, newData) {
+                const user = context.user;
+                const action = actions[request.method];
+                let { rule, propRules } = getRule(action, context.params.collection, data);
+
+                if (Array.isArray(rule)) {
+                    rule = checkRoles(rule, data);
+                } else if (typeof rule == 'string') {
+                    rule = !!(eval(rule));
+                }
+                if (!rule && !isAdmin) {
+                    throw new CredentialError$2();
+                }
+                propRules.map(r => applyPropRule(action, r, user, data, newData));
+            }
+
+            function applyPropRule(action, [prop, rule], user, data, newData) {
+                // NOTE: user needs to be in scope for eval to work on certain rules
+                if (typeof rule == 'string') {
+                    rule = !!eval(rule);
+                }
+
+                if (rule == false) {
+                    if (action == '.create' || action == '.update') {
+                        delete newData[prop];
+                    } else if (action == '.read') {
+                        delete data[prop];
+                    }
+                }
+            }
+
+            function checkRoles(roles, data, newData) {
+                if (roles.includes('Guest')) {
+                    return true;
+                } else if (!context.user && !isAdmin) {
+                    throw new AuthorizationError$2();
+                } else if (roles.includes('User')) {
+                    return true;
+                } else if (context.user && roles.includes('Owner')) {
+                    return context.user._id == data._ownerId;
+                } else {
+                    return false;
+                }
+            }
+        };
+
+
+
+        function getRule(action, collection, data = {}) {
+            let currentRule = ruleOrDefault(true, rules['*'][action]);
+            let propRules = [];
+
+            // Top-level rules for the collection
+            const collectionRules = rules[collection];
+            if (collectionRules !== undefined) {
+                // Top-level rule for the specific action for the collection
+                currentRule = ruleOrDefault(currentRule, collectionRules[action]);
+
+                // Prop rules
+                const allPropRules = collectionRules['*'];
+                if (allPropRules !== undefined) {
+                    propRules = ruleOrDefault(propRules, getPropRule(allPropRules, action));
+                }
+
+                // Rules by record id 
+                const recordRules = collectionRules[data._id];
+                if (recordRules !== undefined) {
+                    currentRule = ruleOrDefault(currentRule, recordRules[action]);
+                    propRules = ruleOrDefault(propRules, getPropRule(recordRules, action));
+                }
+            }
+
+            return {
+                rule: currentRule,
+                propRules
+            };
+        }
+
+        function ruleOrDefault(current, rule) {
+            return (rule === undefined || rule.length === 0) ? current : rule;
+        }
+
+        function getPropRule(record, action) {
+            const props = Object
+                .entries(record)
+                .filter(([k]) => k[0] != '.')
+                .filter(([k, v]) => v.hasOwnProperty(action))
+                .map(([k, v]) => [k, v[action]]);
+
+            return props;
+        }
+    }
+
+    var rules = initPlugin$3;
+
     var identity = "email";
     var protectedData = {
-    	users: {
-    		"35c62d76-8152-4626-8712-eeb96381bea8": {
-    			email: "peter@abv.bg",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"847ec027-f659-4086-8032-5173e2f9c93a": {
-    			email: "george@abv.bg",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
-    			email: "admin@abv.bg",
-    			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-    		}
-    	},
-    	sessions: {
-    	}
+        users: {
+            "35c62d76-8152-4626-8712-eeb96381bea8": {
+                email: "peter@abv.bg",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "847ec027-f659-4086-8032-5173e2f9c93a": {
+                email: "john@abv.bg",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            }
+        },
+        sessions: {
+        }
     };
     var seedData = {
-    	recipes: {
-    		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Easy Lasagna",
-    			img: "assets/lasagna.jpg",
-    			ingredients: [
-    				"1 tbsp Ingredient 1",
-    				"2 cups Ingredient 2",
-    				"500 g  Ingredient 3",
-    				"25 g Ingredient 4"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551279012
-    		},
-    		"8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Grilled Duck Fillet",
-    			img: "assets/roast.jpg",
-    			ingredients: [
-    				"500 g  Ingredient 1",
-    				"3 tbsp Ingredient 2",
-    				"2 cups Ingredient 3"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551344360
-    		},
-    		"985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Roast Trout",
-    			img: "assets/fish.jpg",
-    			ingredients: [
-    				"4 cups Ingredient 1",
-    				"1 tbsp Ingredient 2",
-    				"1 tbsp Ingredient 3",
-    				"750 g  Ingredient 4",
-    				"25 g Ingredient 5"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551388703
-    		}
-    	},
-    	comments: {
-    		"0a272c58-b7ea-4e09-a000-7ec988248f66": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			content: "Great recipe!",
-    			recipeId: "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
-    			_createdOn: 1614260681375,
-    			_id: "0a272c58-b7ea-4e09-a000-7ec988248f66"
-    		}
-    	},
-    	records: {
-    		i01: {
-    			name: "John1",
-    			val: 1,
-    			_createdOn: 1613551388703
-    		},
-    		i02: {
-    			name: "John2",
-    			val: 1,
-    			_createdOn: 1613551388713
-    		},
-    		i03: {
-    			name: "John3",
-    			val: 2,
-    			_createdOn: 1613551388723
-    		},
-    		i04: {
-    			name: "John4",
-    			val: 2,
-    			_createdOn: 1613551388733
-    		},
-    		i05: {
-    			name: "John5",
-    			val: 2,
-    			_createdOn: 1613551388743
-    		},
-    		i06: {
-    			name: "John6",
-    			val: 3,
-    			_createdOn: 1613551388753
-    		},
-    		i07: {
-    			name: "John7",
-    			val: 3,
-    			_createdOn: 1613551388763
-    		},
-    		i08: {
-    			name: "John8",
-    			val: 2,
-    			_createdOn: 1613551388773
-    		},
-    		i09: {
-    			name: "John9",
-    			val: 3,
-    			_createdOn: 1613551388783
-    		},
-    		i10: {
-    			name: "John10",
-    			val: 1,
-    			_createdOn: 1613551388793
-    		}
-    	},
-    	catches: {
-    		"07f260f4-466c-4607-9a33-f7273b24f1b4": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			angler: "Paulo Admorim",
-    			weight: 636,
-    			species: "Atlantic Blue Marlin",
-    			location: "Vitoria, Brazil",
-    			bait: "trolled pink",
-    			captureTime: 80,
-    			_createdOn: 1614760714812,
-    			_id: "07f260f4-466c-4607-9a33-f7273b24f1b4"
-    		},
-    		"bdabf5e9-23be-40a1-9f14-9117b6702a9d": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			angler: "John Does",
-    			weight: 554,
-    			species: "Atlantic Blue Marlin",
-    			location: "Buenos Aires, Argentina",
-    			bait: "trolled pink",
-    			captureTime: 120,
-    			_createdOn: 1614760782277,
-    			_id: "bdabf5e9-23be-40a1-9f14-9117b6702a9d"
-    		}
-    	},
-    	furniture: {
-    	},
-    	movies: {
-    		"1240549d-f0e0-497e-ab99-eb8f703713d7": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Black Widow",
-    			description: "Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Comes on the screens 2020.",
-    			img: "https://miro.medium.com/max/735/1*akkAa2CcbKqHsvqVusF3-w.jpeg",
-    			_createdOn: 1614935055353,
-    			_id: "1240549d-f0e0-497e-ab99-eb8f703713d7"
-    		},
-    		"143e5265-333e-4150-80e4-16b61de31aa0": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Wonder Woman 1984",
-    			description: "Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient artifact that grants wishes goes missing.",
-    			img: "https://pbs.twimg.com/media/ETINgKwWAAAyA4r.jpg",
-    			_createdOn: 1614935181470,
-    			_id: "143e5265-333e-4150-80e4-16b61de31aa0"
-    		},
-    		"a9bae6d8-793e-46c4-a9db-deb9e3484909": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Top Gun 2",
-    			description: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him.",
-    			img: "https://i.pinimg.com/originals/f2/a4/58/f2a458048757bc6914d559c9e4dc962a.jpg",
-    			_createdOn: 1614935268135,
-    			_id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
-    		}
-    	},
-    	likes: {
-    	}
+        games: {
+            "ff436770-76c5-40e2-b231-77409eda7a61": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "CoverFire",
+                "category": "Action",
+                "maxLevel": "70",
+                "imageUrl": "/images/CoverFire.png",
+                "summary": "Best action shooter game, easy controls, realistic 3D graphics and fun offline missions. Get your best shooting gun and take to action!",
+                "_createdOn": 1617194128618,
+            },
+            "1840a313-225c-416a-817a-9954d4609f7c": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "MineCraft",
+                "category": "Arcade",
+                "maxLevel": "250",
+                "imageUrl": "/images/MineCraft.png",
+                "summary": "Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for. Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for.",
+                "_createdOn": 1617194210928,
+            },
+            "126777f5-3277-42ad-b874-76d043b069cb": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "Zombie Lang",
+                "category": "Vertical Shooter",
+                "maxLevel": "100",
+                "imageUrl": "/images/ZombieLang.png",
+                "summary": "With it’s own unique story, set between the events of the first movie, Zombieland: Double Tap- Road Trip is a ridiculously fun top-down twin-stick shooter featuring local co-op multiplayer for up to four players. Play as your favorite heroes from the original — Tallahassee, Columbus, Wichita and Little Rock — as well as new unlockable characters from the upcoming sequel.  The game embraces the game-like elements seen in the film by  incorporating everything from the “Rules” to “Zombie Kill of the Week”.  Use your special abilities, an arsenal of weapons and the essential Zombieland rules for survival to stay alive against huge numbers of uniquely grotesque and dangerous undead monstrosities in Zombieland: Double Tap- Road Trip’s story-based campaign mode, wave-based horde mode, and boss battles.",
+                "_createdOn": 1617194295474,
+            }
+        },
+        comments: {
+        
+        }
+    };
+    var rules$1 = {
+        users: {
+            ".create": false,
+            ".read": [
+                "Owner"
+            ],
+            ".update": false,
+            ".delete": false
+        }
     };
     var settings = {
-    	identity: identity,
-    	protectedData: protectedData,
-    	seedData: seedData
+        identity: identity,
+        protectedData: protectedData,
+        seedData: seedData,
+        rules: rules$1
     };
 
     const plugins = [
         storage(settings),
         auth(settings),
-        util$2()
+        util$2(),
+        rules(settings)
     ];
 
     const server = http__default['default'].createServer(requestHandler(plugins, services));

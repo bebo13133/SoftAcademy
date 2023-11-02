@@ -20,7 +20,7 @@ const {courses} = useContext(CourseContext)
                            
                               
                                 
-                                {courses.length>0 ? courses.map(course=><OneCourse key={course._id}{...course}/>): <h3 className="no-articles">No articles yet</h3>}
+                                {courses.length>0 ? courses.map(course=><OneCourse key={course._id} {...course}/>): <h3 className="no-articles">No articles yet</h3>}
 
                                  
                              

@@ -3,7 +3,7 @@ import { useCourseContext } from "../contexts/CourseContext"
 import { useAuthContext } from "../contexts/UserContext"
 
 export const IsOwnerCourse = ({ children }) => {
-    const { courseId } = useParams
+    const { courseId } = useParams()
     const { selectCourse } = useCourseContext()
     const { userId } = useAuthContext()
     const currentCourse = selectCourse(courseId) // взимаме курса от стейта //

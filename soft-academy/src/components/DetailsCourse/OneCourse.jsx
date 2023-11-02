@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { CommentsPopUp } from "../Comments/CommentsPopUp"
 import { useState } from "react"
 import { IsOwnerCourse } from "../common/isOwnerCourse"
 import { RouteGuard } from "../common/RouteGuard"
 import { useCourseContext } from "../contexts/CourseContext"
 import { ConfirmBox } from '../ConfirmBox/ConfirmBox'
+import * as likeService from "../Services/likeService"
+import { useAuthContext } from "../contexts/UserContext"
+import { useEffect } from "react"
+import axios from 'axios'
 export const OneCourse = ({
     imageUrl,
     firstName,
@@ -19,16 +23,39 @@ export const OneCourse = ({
     courseName,
     comments,
     onCommentSubmit,
+_ownerId
 
 }) => {
 
+ 
+    const { userId,} = useAuthContext()
+   
+    const { courseId } = useParams()
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-    const [liked,setLiked]=useState(false)
-    const [likeCounter,setLikeCounter]= useState(0)
-
+    const [liked, setLiked] = useState(false)
+    const [likeCounter, setLikeCounter] = useState(0)
+    const [likeUser, setLikeUser] = useState([])
     const { onDeleteClick, } = useCourseContext()
-    
+    useEffect(() => {
+        likeService.getAllLikes(courseId)
+            .then(response => {
+                console.log("response", response)
+          
+                const likesCourse = (response.filter(like => like.courseId === courseId));
+                console.log("likeCourse",likesCourse)
+                setLikeCounter(likesCourse.length);
+                setLiked(likesCourse.some(like => like.userId === userId));
+                setLikeUser(likesCourse.find(like => like.userId === userId));
+            })
+            .catch(error => {
+                console.error('Error fetching likes:', error);
+            });
+    }, [courseId, userId,likeCounter]);
+    const isOwner = _ownerId === userId
+
+    // console.log(likeUser)
+    const likeId = likeUser?._id
     const openCommentsPopUp = () => {
         setCommentsPopUp(true)
     }
@@ -42,14 +69,31 @@ export const OneCourse = ({
         setIsOpen(false)
     }
 
-    const handleLikeToggle=()=>{
-        if(liked){
-            setLikeCounter(likeCounter-1)
-        }else{
-            setLikeCounter(likeCounter+1)
+    const handleLikeToggle = async () => {
+        if (liked) {
+            // Send a request to remove the like
+            try {
+                await likeService.deleteLike(likeId);
+                setLikeCounter(likeCounter - 1);
+                setLiked(false);
+            } catch (error) {
+                console.error('Error removing like:', error);
+            }
+        } else if (!liked) {
+            // Send a request to add a like
+            try {
+              const result= await likeService.createLike(courseId, userId);
+              console.log(result)
+                setLikeCounter(likeCounter + 1);
+               setLiked(true);
+
+            } catch (error) {
+                console.error('Error adding like:', error);
+            }
         }
-        setLiked(!liked)
-    }
+    };
+
+
 
     return (
         <>
@@ -73,15 +117,18 @@ export const OneCourse = ({
 
                         <div className="social-btn">
 
-                            <IsOwnerCourse>
-                                <Link to={`/catalog/${_id}/edit`} className="edit-btn">Edit</Link>
-                                <button onClick={() => openDelete()} className="del-btn">Delete</button>
-                            </IsOwnerCourse>
+                    {isOwner && (<>
+                              <Link to={`/catalog/${_id}/edit`} className="edit-btn">Edit</Link>
+                              <button onClick={() => openDelete()} className="del-btn">Delete</button> 
+                              </>
+                    )}
+                         
+                         
                             <p>Likes: {likeCounter}</p>
                             <div className="divider"></div>
                             <div className="comments-action-buttons">
 
-                                <button className="like-button" onClick={handleLikeToggle}>{liked ? "Unlike":"Like"}</button>
+                                <button className="like-button" onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</button>
                                 <button className="comment-button" onClick={openCommentsPopUp} >Comments</button>
                             </div>
 
@@ -100,7 +147,7 @@ export const OneCourse = ({
                 {/* src="../DetailsCourse/img/npm_trends_logo.png"  */}
                 <div className="card_right">
                     <img src={imageUrl} alt="image" />
-                    <br/>
+                    <br />
                     <a href="https://npmtrends.com/" className="trend-btn">
                         <img className="trend-btn" src="https://seeklogo.com/images/N/npm-logo-01B8642EDD-seeklogo.com.png" alt="npm trends icon" />
                     </a>
@@ -119,9 +166,9 @@ export const OneCourse = ({
 
             <ConfirmBox
                 open={isOpen}
-                closeDialog={()=>onCloseDelete()}
+                closeDialog={() => onCloseDelete()}
                 // title={deleteData?.name}
-                deleteFunction={() => {setIsOpen(false),onDeleteClick(_id)}}
+                deleteFunction={() => { setIsOpen(false), onDeleteClick(_id) }}
             />
 
         </>

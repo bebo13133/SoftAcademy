@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { Fragment } from "react"
-
+import { NavLink } from "react-router-dom"
 export const OneCourse = ({
     imageUrl,
     description,
@@ -12,8 +12,6 @@ export const OneCourse = ({
     lastName,
     _id,
 }) => {
-
-
 
     return (
         <>

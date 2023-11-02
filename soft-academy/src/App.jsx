@@ -64,7 +64,7 @@ function App() {
 
 
               {/* Route Guard */}
-              <Route element={<RouteGuard />}>
+              {/* <Route element={<RouteGuard />}> */}
 
                 <Route path={"/logout"} element={<Logout />} />
                 <Route path={"/create"} element={<CreateCourse />} />
@@ -75,7 +75,7 @@ function App() {
                 </IsOwnerCourse>
                 } />
 
-              </Route>
+              {/* </Route> */}
               {/* End RouteGuard */}
 
               <Route path={"/404"} element={<PageNotFound />} />
