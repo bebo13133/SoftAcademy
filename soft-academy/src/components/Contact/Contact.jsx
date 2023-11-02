@@ -2,6 +2,10 @@ import { Fragment, useRef, useState } from "react"
 import emailjs from '@emailjs/browser'
 export const Contact = () => {
     const [emails, setEmails] = useState({})
+    const [userName, setUserName] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+    const [userSubject, setUserSubject] = useState("");
+    const [message, setMessage] = useState("");
 
     const form = useRef() // връща стоиност , която ще се използва сам о1 път
 
@@ -16,15 +20,21 @@ export const Contact = () => {
                 "iRYFR4BuAXZEBF1ld",
             )
             .then(result => {
-// setEmails(state=>[{...state,[e.target.name]: e.target.value}]);   
+                // setEmails(state=>[{...state,[e.target.name]: e.target.value}]);   
+            }).then(
+                (result) => {
+                    console.log("Email sent successfully:", result);
+                    setUserName(""); // Clear the form inputs
+                    setUserEmail("");
+                    setUserSubject("");
+                    setMessage("");
+                },       
 
-                console.log(emails)
-                console.log("message: ")
-            }, (err) => {
+            (err) => {
                 throw new Error(err)
             }
             )
-            console.log(form.current)
+        console.log(form.current)
 
     }
 
@@ -46,17 +56,17 @@ export const Contact = () => {
                             <form ref={form} onSubmit={sendEmail} className="mb-4 mb-lg-0">
                                 <div className="form-row">
                                     <div className="col-md-6 form-group">
-                                        <input type="text" name="user_name" className="form-control" id="name" placeholder="Your Name" />
+                                        <input type="text" name="user_name" className="form-control" id="name" placeholder="Your Name" value={userName} onChange={(e) => setUserName(e.target.value)}/>
                                     </div>
                                     <div className="col-md-6 form-group">
-                                        <input type="email" className="form-control" name="user_email" id="email" placeholder="Your Email" />
+                                        <input type="email" className="form-control" name="user_email" id="email" placeholder="Your Email" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" className="form-control" name="user_subject" id="subject" placeholder="Subject" />
+                                    <input type="text" className="form-control" name="user_subject" id="subject" placeholder="Subject" value={userSubject} onChange={(e) => setUserSubject(e.target.value)} />
                                 </div>
                                 <div className="form-group">
-                                    <textarea className="form-control" name="message" placeholder="Type Message"></textarea>
+                                    <textarea className="form-control" name="message" placeholder="Type Message" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                                 </div>
                                 <button type="submit" className="btn btn-light">Send</button>
                             </form>

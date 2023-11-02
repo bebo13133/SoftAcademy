@@ -19,16 +19,16 @@
       z-index: 2;
       } */
       .testbox p{
-        font-size: 22px;
+        font-size: 16px;
         color: #bd6813;
       }
       .testbox,input p{
-        font-size: 22px;
+        font-size: 16px;
       }
       #root > div > form > h2:nth-child(2) {
       font-weight: 400;
       padding-top: 42px;
-      font-size: 40px;
+      font-size: 26px;
       }
       .testbox {
       display: flex;
@@ -38,15 +38,15 @@
       padding: 20px;
       }
       #root > div > form {
-      width: 60%;
-      padding: 20px;
+      width: 40%;
+      padding: 16px;
       border-radius: 65px;
       background: #fff;
       box-shadow: 0 0 20px 0 #095484; 
       }
       .banner {
       position: relative;
-      height: 550px;
+      height: 350px;
       background-image: url("../img/students.png");  
       background-size: cover;
       display: flex;
@@ -157,20 +157,20 @@
       
       }
       #root > div > form > div.btn-block > button{
-        font-size: 36px;
+        font-size: 26px;
 
       }
-      button {
+      #root > div > form > div.btn-block > button {
       width: 150px;
       padding: 10px;
       border:solid;
-      border-radius: 5px; 
-      background: #095484;
+      border-radius: 15px; 
+      background: #7fc7f4;
       font-size: 16px;
-      color: #ee0a0a;
+      color: #2f2d2d;
       cursor: pointer;
       }
-      button:hover {
+      #root > div > form > div.btn-block > button:hover {
       background: #0666a3;
       }
       @media (min-width: 568px) {
@@ -194,5 +194,5 @@
       
       .image-container img {
         max-width: 100%;
-        max-height: 200px; /* Adjust to your preferred height */
+        max-height: 120px; /* Adjust to your preferred height */
       }
