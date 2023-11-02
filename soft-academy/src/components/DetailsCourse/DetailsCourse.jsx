@@ -5,6 +5,7 @@ import { courseServiceFactory } from "../Services/courseService"
 import { useService } from "../Hooks/useService"
 import { OneCourse } from "./OneCourse"
 import { AddComments } from "../Comments/AddComments"
+import { LectorPage } from "./LectorsPage"
 
 
 export const DetailsCourse = () => {
@@ -42,6 +43,7 @@ export const DetailsCourse = () => {
         <section id="details-page">
 
             <OneCourse {...details} comments={comments} onCommentSubmit={onCommentSubmit} />
+            <LectorPage/>
             <AddComments onCommentSubmit={onCommentSubmit} />
 
         </section>

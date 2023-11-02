@@ -14,10 +14,13 @@
 
 .create-comment {
     margin: 150px auto;
+    margin-left: 0px;
+    grid-column: col1-start;
+    grid-row: row2-start ;
     margin-top: 60px;
     position: relative;
     text-align: center;
-    width: 890px;
+    width: 810px;
     height: auto;
     border-radius: 10px;
     padding: 40px;
@@ -25,7 +28,9 @@
     background: linear-gradient(to right, #f1f1f1, #d9e7ea);
     -webkit-box-shadow: 0 0 40px rgba(68, 68, 68, 0.3);
      box-shadow: 0 0 40px rgba(78, 70, 70, 0.3); 
-}
+     flex:none;
+
+    }
 
 .create-comment>label {
   
