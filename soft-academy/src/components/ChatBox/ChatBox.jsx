@@ -11,6 +11,7 @@ import FormControl from "react-bootstrap/FormControl"
 
 export const ChatBox = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const[messageBody,setMessageBody] = useState("")
 
     const supportHandler = () => {
 
@@ -21,6 +22,12 @@ export const ChatBox = () => {
     const closeHandler = () => {
 
         setIsOpen(false)
+    }
+
+
+    const submitHandler=(e)=>{
+
+
     }
     return (
         <>
@@ -54,9 +61,14 @@ export const ChatBox = () => {
                             <ListGroup.Item>no message</ListGroup.Item>
                             <form onSubmit={submitHandler}>
                                 <InputGroup className="col-6">
-                                <FormControl>
-
-                                </FormControl>
+                                <FormControl value={messageBody}
+                                onChange={(e) =>setMessageBody(e.target.value)}
+                                type="text"
+                                placeholder="type message"
+                                ></FormControl>
+                                <Button type="submit" variant="primary">
+                                Send
+                                </Button>
                                 </InputGroup>
                             </form>
                             </Card.Body>
