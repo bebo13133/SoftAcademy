@@ -23,6 +23,7 @@ import { PageNotFound } from './components/404/PageNotFound'
 import { GuardLoginRegister } from './components/common/GuardLoginRegister'
 import { EditCourse } from './components/EditCourse/EditCourse'
 import { IsOwnerCourse } from './components/common/isOwnerCourse'
+import { ChatBox } from './components/ChatBox/ChatBox'
 
 function App() {
 
@@ -80,7 +81,7 @@ function App() {
 
               <Route path={"/404"} element={<PageNotFound />} />
             </Routes>
-
+                <ChatBox/>
             <Footer />
           {/* </ErrorBoundary> */}
         </CourseProvider>
