@@ -456,5 +456,20 @@ span {
     float: right;
 
   }
-  /* ... (existing CSS) ... */
-  
+  /* ... lector card... */
+  .lector-card {
+    max-width: 200px;
+    border: 2px solid #333; 
+    padding: 10px; 
+}
+.lector-card p{
+
+    font-size: 16px;
+}
+.lector-img{
+    border: none;
+    max-width: 65%;
+    height: auto;
+    object-fit: cover;
+    float: inline-end;
+}
