@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import Row from "react-bootstrap/Row"
@@ -8,10 +8,19 @@ import InputGroup from "react-bootstrap/InputGroup"
 import FormControl from "react-bootstrap/FormControl"
 
 
-
+const ENDPOINT = 
+window.location.host.indexOf('localhost')>=0
+? "http://127.0.0.1:3030"
+: window.location.host
 export const ChatBox = () => {
+const uiMessageRef = useRef(null)
+    const[username,setUsername] = useState("")
+    const[message,setMessage] = useState([
+        {from: "System",body: "Hello there, Please ask your question"}
+    ])
+
     const [isOpen, setIsOpen] = useState(false)
-    const[messageBody,setMessageBody] = useState("")
+    const [messageBody, setMessageBody] = useState("")
 
     const supportHandler = () => {
 
@@ -25,15 +34,17 @@ export const ChatBox = () => {
     }
 
 
-    const submitHandler=(e)=>{
-
-
-    }
+    const submitHandler = (e) => {
+        e.preventDefault();
+        if(!messageBody.trim()) {
+            alert("Error.Please enter a message")
+    }else{}
+}
     return (
-        <>
+    
 
 
-            <div className="chatbox">
+            <div className="chatbox1">
                 {!isOpen ?
                     <Button onClick={supportHandler} variant="primary">chat us</Button>
                     : (
@@ -44,7 +55,7 @@ export const ChatBox = () => {
                                         <strong>Support</strong>
 
                                     </Col>
-                                    <Col>
+                                    <Col className="text-end1">
                                         <Button
                                             className="btn-sm btn-secondary"
                                             type="button"
@@ -56,26 +67,26 @@ export const ChatBox = () => {
                                 </Row>
                                 <hr />
                                 <ListGroup>
-                                    
+
                                 </ListGroup>
-                            <ListGroup.Item>no message</ListGroup.Item>
-                            <form onSubmit={submitHandler}>
-                                <InputGroup className="col-6">
-                                <FormControl value={messageBody}
-                                onChange={(e) =>setMessageBody(e.target.value)}
-                                type="text"
-                                placeholder="type message"
-                                ></FormControl>
-                                <Button type="submit" variant="primary">
-                                Send
-                                </Button>
-                                </InputGroup>
-                            </form>
+                                <ListGroup.Item>no message</ListGroup.Item>
+                                <form onSubmit={submitHandler}>
+                                    <InputGroup className="col-6">
+                                        <FormControl value={messageBody}
+                                            onChange={(e) => setMessageBody(e.target.value)}
+                                            type="text"
+                                            placeholder="type message"
+                                        ></FormControl>
+                                        <Button type="submit" variant="primary">
+                                            Send
+                                        </Button>
+                                    </InputGroup>
+                                </form>
                             </Card.Body>
                         </Card>
                     )}
             </div>
-        </>
+ 
     )
 
 }

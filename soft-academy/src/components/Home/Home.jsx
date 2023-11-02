@@ -153,7 +153,6 @@ export const Home = () => {
                 </div>
 
             </section>
-            <ChatBox/>
         </>
     )
 }
