@@ -1,4 +1,6 @@
-import { useRef, useState } from "react"
+import socketIOClient from"socket.io-client"
+
+import { useEffect, useRef, useState } from "react"
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import Row from "react-bootstrap/Row"
@@ -14,18 +16,39 @@ const ENDPOINT =
         : window.location.host
 export const ChatBox = () => {
     const uiMessageRef = useRef(null)
-    const [username, setUsername] = useState("")
-    const [message, setMessage] = useState([
+    const [userName, setUsername] = useState("")
+    const [messages, setMessages] = useState([
         { from: "System", body: "Hello there, Please ask your question" }
     ])
     const [socket , setSocket] = useState(null)
     const [isOpen, setIsOpen] = useState(false)
     const [messageBody, setMessageBody] = useState("")
 
+useEffect(()=>{
+if(uiMessageRef.current){
+    uiMessageRef.current.scrollBy({
+        top:uiMessageRef.current.scrollHeight,
+        left:0,
+        behavior:"smooth",
+    })
+}
+if(socket){
+    socket.emit("onLogin", {name: username})
+    socket.on("message", (data)=>{
+        console.log(messages)
+        setMessages([...messages, data])
+    })
+}
+},[messages,userName,socket])
+
+
     const supportHandler = () => {
-
-
         setIsOpen(true)
+        if(!userName){
+            setUsername(prompt("Please enter your name"))
+        }
+        const sk = socketIOClient(ENDPOINT)
+        setSocket(sk)
     }
 
     const closeHandler = () => {
@@ -66,10 +89,10 @@ export const ChatBox = () => {
                                 </Col>
                             </Row>
                             <hr />
-                            <ListGroup>
-
-                            </ListGroup>
+                            <ListGroup ref={uiMessageRef}>
                             <ListGroup.Item>no message</ListGroup.Item>
+
+                            </ListGroup >
                             <form onSubmit={submitHandler}>
                                 <InputGroup className="col-6">
                                     <FormControl value={messageBody}

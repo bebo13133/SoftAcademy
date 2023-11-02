@@ -10,3 +10,7 @@
     max-height: 20rem;
     margin-bottom: 1rem;
   }
+  #root > div > div {
+    height: 231px;
+    width: 263px;
+  }
