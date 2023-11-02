@@ -45,6 +45,7 @@ export const CreateCourse = () => {
         price:"",
         description: "",
         imageUrl2:"",
+        lectorDescription:"",
         selectOption,
         imageUrl,
     }, onCreateCourseSubmit)
@@ -71,7 +72,11 @@ export const CreateCourse = () => {
                             <input type="text" name="lastName" placeholder="Last" value={values.lastName} onChange={onChangeHandler} />
                         </div>
                     </div>
-
+                    {/* <h2>Lector Description</h2> */}
+                    <div className="item">
+                        <p>Lector Description</p>
+                        <input type="text" name="lectorDescription" placeholder="Lector Description" value={values.lectorDescription} onChange={onChangeHandler} />
+                    </div>
 
                     <div className="item">
                         <p>Email</p>
