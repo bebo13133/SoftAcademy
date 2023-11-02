@@ -6,7 +6,7 @@ import { ConfirmBox } from '../ConfirmBox/ConfirmBox'
 import * as likeService from "../Services/likeService"
 import { useAuthContext } from "../contexts/UserContext"
 import { useEffect } from "react"
-import {BiLike} from "react-icons/bi"
+import { BiLike } from "react-icons/bi"
 
 
 export const OneCourse = ({
@@ -128,11 +128,11 @@ export const OneCourse = ({
                             )}
 
                             <div>
-                            <BiLike style={{size:"60px,", color:"blue"}}/>
-                            <p> {likeCounter}</p>
+                                <BiLike style={{ size: "60px,", color: "blue" }} />
+                                <p> {likeCounter}</p>
                             </div>
                             <br />
-                
+
 
                             <div className="divider"></div>
                             <div className="comments-action-buttons">
@@ -153,7 +153,8 @@ export const OneCourse = ({
                     </div>
 
                 </div>
-                {/* src="../DetailsCourse/img/npm_trends_logo.png"  */}
+           
+
                 <div className="card_right">
                     <img src={imageUrl} alt="image" />
                     <br />
@@ -171,6 +172,17 @@ export const OneCourse = ({
                 </div>
 
             </div>
+                 {/* Lector */}
+                 <div>
+                    <div className="lector-card">
+                        <img src="https://seeklogo.com/images/N/npm-logo-01B8642EDD-seeklogo.com.png" alt="lector-img" />
+                        <h2>Course: <span>{firstName} {lastName}</span> </h2>
+                        <p className="lector-disc">{description}</p>
+                    </div>
+
+
+                </div>
+
             <CommentsPopUp onCommentSubmit={onCommentSubmit} isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} comments={comments} />
 
             <ConfirmBox

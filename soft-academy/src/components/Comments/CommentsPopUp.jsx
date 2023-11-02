@@ -52,7 +52,10 @@ export const CommentsPopUp = ({
                         {showAll ? 'Show Less' : 'Show More'}
                     </button>
                 )}
-                <RouteGuard>
+              
+            </div>
+            <div className="popup-form"></div>
+            <RouteGuard>
                     <article className="create-comment">
                         <label>Add new comment:</label>
                         <form className="form-comment" onSubmit={onSubmit}>
@@ -61,8 +64,6 @@ export const CommentsPopUp = ({
                         </form>
                     </article>
                 </RouteGuard>
-            </div>
-
 
         </div>
     );

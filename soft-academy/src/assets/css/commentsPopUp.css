@@ -1,20 +1,44 @@
 .comments-popup {
-
+  flex-direction: column ; 
     position: fixed;
+    flex-wrap: nowrap;
+    align-content: center;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;
+    /* justify-content:  flex-start; */
     align-items: center;
     z-index: 999;
   }
   .create-comment label {
     display: block;
   }
-  .create-comment{
+
+
+
+
+
+
+  #details-page > div.comments-popup > article{
+    margin: 270px auto;
+    justify-content: flex-start;
+    /* margin: 150px auto; */
+    /* margin-top: 60px; */
+
+    align-items: center;
+    position: relative;
+    text-align: center;
+     width: 725px; 
+    /* height: auto; */
+    border-radius: 10px;
+    /* padding: 40px; */
+    /* box-sizing: border-box; */
+    background: linear-gradient(to right, #f1f1f1, #d9e7ea);
+    -webkit-box-shadow: 0 0 40px rgba(68, 68, 68, 0.3);
+    box-shadow: 0 0 40px rgba(78, 70, 70, 0.3);
     border-radius: 5px;
 
   }
@@ -40,6 +64,9 @@
     width: 300px; 
   }
   #details-page > div.comments-popup > div{
+    top: 62px;
+    position: relative;
+    width: 40%;
     max-height: 40%; 
     overflow-y:scroll;
   }
@@ -91,9 +118,9 @@
    */
    /* поле коментари */
    #details-page > div.comments-popup > div > article{
-
+    /* margin: 272px auto; */
     padding:20px;
-    margin: 0px auto;
+    margin: auto;
     width: 730px;
     height: 180px;
     margin: 10px auto;

@@ -3,6 +3,12 @@
     left: 70%;
     font-family: 'Times New Roman', serif;
 
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
 }
 
 .main_card {
@@ -11,7 +17,7 @@
     margin: -50px auto;
     display: flex;
     left: 60%;
-    max-width: 1050px;
+    max-width: 950px;
     border-radius: 10px;
 
     /* background: #e4a1a9; */
@@ -30,7 +36,7 @@
 } */
 
 .card_left {
-    width: 770px;
+    width: 700px;
 }
 
 .card_details {
