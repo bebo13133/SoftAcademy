@@ -242,22 +242,6 @@ color: #060606;
     cursor: pointer; 
   } */
 
-.vote-up {
-    background-color: #9B2335;
-}
-
-.thanks-for-vote {
-    width: 185px;
-    background-color: rgba(116, 153, 226, 0.89);
-}
-
-.get-statistics {
-    background-color: darksalmon;
-}
-
-.vote-down {
-    background-color: #5B5EA6;
-}
 
 .edit-btn:hover,
 .del-btn:hover
@@ -441,7 +425,7 @@ span {
     border: none;
     font-size: 16px;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 6px 20px;
     margin: 0 10px;
     cursor: pointer;
     transition: background-color 0.3s;
