@@ -5,7 +5,7 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { ResponsiveAppBar } from "../ResponsiveAppBar";
-
+import { InfinitySlide } from "../InfinitySlide/InfinitySlide";
 
 export const Header = () => {
 	const { isAuthentication } = useContext(UserContext)
@@ -97,8 +97,9 @@ export const Header = () => {
 
 				</div>
 				<div className="clearfix"></div>
-
+			
 			</section>
+			
 		</>
 	)
 }

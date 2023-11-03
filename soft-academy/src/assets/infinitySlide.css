@@ -1,0 +1,21 @@
+.mainContainer-slide{
+    margin: 10px;
+  }
+  
+  .mainContainer-slide .container-slide{
+    padding: 40px 0;
+  }
+  
+  .mainContainer-slide .container-slide img{
+    height: 90px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+.slick-dots li button:before{
+    font-size: 16px;
+}

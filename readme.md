@@ -9,6 +9,11 @@ isOwner
 Lazy Loading page
 page 404 css
 
+For infinite slide i use :
+npm install react-slick --save
+npm install slick-carousel
+
+
 
 For start server: 
 1. Start in server terminal server.js with use command: node server.js

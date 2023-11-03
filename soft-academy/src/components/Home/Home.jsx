@@ -1,4 +1,5 @@
 import { ChatBox } from "../ChatBox/ChatBox"
+import { InfinitySlide } from "../InfinitySlide/InfinitySlide"
 
 export const Home = () => {
     return (
@@ -150,8 +151,9 @@ export const Home = () => {
                             </div>
                         </div>
                     </div>
+                   
                 </div>
-
+                <InfinitySlide/>
             </section>
         </>
     )
