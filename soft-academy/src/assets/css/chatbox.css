@@ -2,8 +2,9 @@
 .chatbox1{
     color:#000000;
     position: fixed;
-    right: 2rem;
-    bottom: 3rem;
+    right: 5rem;
+    bottom: 17rem;
+    z-index: 999;
   }
   .chatbox1 .list-group{
     overflow: scroll;
@@ -11,6 +12,53 @@
     margin-bottom: 2rem;
   }
   #root > div > div {
-    height: 231px;
+    height: 267px;
     width: 263px;
   }
+  #root > div > div > div{
+    margin-bottom: 2rem;
+  }
+  .list-group-item:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.list-group-item {
+  padding: 10px 22px;
+  background-color: #e5e0e0;
+    border: 1px solid #040404;
+
+}
+.btn-sm1 .btn-sm1{
+font-size: 16px;
+}
+
+  /* margin-left: 4em;
+  width: 420px;
+  height: 510px; */
+  /* background: rgb(228, 7, 7);
+  text-decoration: none;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  position: relative;
+  top: 0;
+  transition: all .1s ease-in;
+  justify-content: space-evenly; */
+
+
+#root > div > div > div > div.row > div{
+  display: flex;
+  font-size: 21px;
+  margin-left: 44px;
+  justify-content: space-around;
+}
+.admin .list-group {
+  overflow: scroll;
+ font-size: 22px;
+  height: 68vh;
+  margin-bottom: 1rem;
+  background: aliceblue;
+  position: relative;
+  z-index: 999;
+  width: 120vh;
+}

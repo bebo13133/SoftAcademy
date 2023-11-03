@@ -24,6 +24,7 @@ import { GuardLoginRegister } from './components/common/GuardLoginRegister'
 import { EditCourse } from './components/EditCourse/EditCourse'
 import { IsOwnerCourse } from './components/common/isOwnerCourse'
 import { ChatBox } from './components/ChatBox/ChatBox'
+import { AdminPage } from './components/AdminPage/AdminPage'
 
 function App() {
 
@@ -80,6 +81,8 @@ function App() {
               {/* End RouteGuard */}
 
               <Route path={"/404"} element={<PageNotFound />} />
+              <Route path={"/admin"} element={<AdminPage />} />
+
             </Routes>
             <ChatBox/>
                

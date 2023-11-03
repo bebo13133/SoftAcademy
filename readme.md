@@ -8,3 +8,9 @@ isOwner
 Да направя коментарите ако си owner да можеш да ги изтриеш
 Lazy Loading page
 page 404 css
+
+
+For start server: 
+1. Start in server terminal server.js with use command: node server.js
+2. In project terminal start project use command: npm start
+3. Run project on http://localhost:4000
