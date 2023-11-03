@@ -1,4 +1,4 @@
-import socketIOClient from"socket.io-client"
+import socketIOClient from "socket.io-client"
 
 import { useEffect, useRef, useState } from "react"
 import Button from "react-bootstrap/Button"
@@ -12,7 +12,7 @@ import FormControl from "react-bootstrap/FormControl"
 
 const ENDPOINT =
     window.location.host.indexOf('localhost') >= 0
-        ? "http://127.0.0.1:3030"
+        ? "http://127.0.0.1:4000"
         : window.location.host
 export const ChatBox = () => {
     const uiMessageRef = useRef(null)
@@ -20,31 +20,31 @@ export const ChatBox = () => {
     const [messages, setMessages] = useState([
         { from: "System", body: "Hello there, Please ask your question" }
     ])
-    const [socket , setSocket] = useState(null)
+    const [socket, setSocket] = useState(null)
     const [isOpen, setIsOpen] = useState(false)
     const [messageBody, setMessageBody] = useState("")
 
-useEffect(()=>{
-if(uiMessageRef.current){
-    uiMessageRef.current.scrollBy({
-        top:uiMessageRef.current.scrollHeight,
-        left:0,
-        behavior:"smooth",
-    })
-}
-if(socket){
-    socket.emit("onLogin", {name: username})
-    socket.on("message", (data)=>{
-        console.log(messages)
-        setMessages([...messages, data])
-    })
-}
-},[messages,userName,socket])
+    useEffect(() => {
+        if (uiMessageRef.current) {
+            uiMessageRef.current.scrollBy({
+                top: uiMessageRef.current.scrollHeight,
+                left: 0,
+                behavior: "smooth",
+            })
+        }
+        if (socket) {
+            socket.emit("onLogin", { name: userName })
+            socket.on("message", (data) => {
+                console.log(messages)
+                setMessages([...messages, data])
+            })
+        }
+    }, [messages, userName, socket])
 
 
     const supportHandler = () => {
         setIsOpen(true)
-        if(!userName){
+        if (!userName) {
             setUsername(prompt("Please enter your name"))
         }
         const sk = socketIOClient(ENDPOINT)
@@ -61,7 +61,21 @@ if(socket){
         e.preventDefault();
         if (!messageBody.trim()) {
             alert("Error.Please enter a message")
-        } else { }
+        } else {
+            setMessages([
+                ...messages,
+                { body: messageBody, from: userName, to: "Admin" },
+            ]);
+            setTimeout(() => {
+                socket.emit('onMessage', {
+                    body: messageBody,
+                    from: userName,
+                    to: "Admin"
+                })
+
+            }, 1000)
+            setMessages("")
+        }
     }
     return (
 
@@ -76,7 +90,6 @@ if(socket){
                             <Row>
                                 <Col>
                                     <strong>Support</strong>
-
                                 </Col>
                                 <Col className="text-end1">
                                     <Button
@@ -90,7 +103,14 @@ if(socket){
                             </Row>
                             <hr />
                             <ListGroup ref={uiMessageRef}>
-                            <ListGroup.Item>no message</ListGroup.Item>
+                                {messages.map((msg, index) => (
+                                    <ListGroup.Item key={index}>
+                                        <strong>{`${msg.from}: `}</strong>{msg.body}
+
+                                    </ListGroup.Item>
+
+                                ))}
+
 
                             </ListGroup >
                             <form onSubmit={submitHandler}>
