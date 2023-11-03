@@ -82,11 +82,15 @@ function App() {
 
               <Route path={"/404"} element={<PageNotFound />} />
               <Route path={"/admin"} element={<AdminPage />} />
-
             </Routes>
-            <ChatBox/>
+           
+              <ChatBox/>
                
-            <Footer />
+              <Footer />
+           
+            <Routes>
+            <Route path={"/admin"} element={<AdminPage />} />
+            </Routes>
           {/* </ErrorBoundary> */}
         </CourseProvider>
       </UserProvider>

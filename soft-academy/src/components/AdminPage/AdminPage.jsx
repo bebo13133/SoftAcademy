@@ -106,88 +106,78 @@ export const AdminPage=()=>{
       setMessageBody("");
     }
   };
-
+  function userStatusClass(user) {
+    if (user.name === selectedUser.name) {
+      return user.online ? "status-online" : "status-offline";
+    } else {
+      return user.unread ? "status-new" : user.online ? "status-online" : "status-offline";
+    }
+  }
+  function userStatusText(user) {
+    if (user.name === selectedUser.name) {
+      return user.online ? "Online" : "Offline";
+    } else {
+      return user.unread ? "New" : user.online ? "Online" : "Offline";
+    }
+  }
   return (
-    <Row>
-      <Col sm={3}>
-        {users.filter((x) => x.name !== "Admin").length === 0 && (
-          <Alert variant="info">No User Found</Alert>
-        )}
-        <ListGroup>
-          {users
-            .filter((x) => x.name !== "Admin")
-            .map((user) => (
-              <ListGroup.Item
-                action
-                key={user.name}
-                variant={user.name === selectedUser.name ? "info" : ""}
-                onClick={() => selectUser(user)}
-              >
-                <Badge
-                  bg={
-                    selectedUser.name === user.name
-                      ? user.online
-                        ? "primary"
-                        : "secondary"
-                      : user.unread
-                      ? "danger"
-                      : user.online
-                      ? "primary"
-                      : "secondary"
-                  }
-                >
-                  {selectedUser.name === user.name
-                    ? user.online
-                      ? "Online"
-                      : "Offline"
-                    : user.unread
-                    ? "New"
-                    : user.online
-                    ? "Online"
-                    : "Offline"}
-                </Badge>
-                &nbsp;
-                {user.name}
-              </ListGroup.Item>
-            ))}
-        </ListGroup>
-      </Col>
-      <Col sm={9}>
-        <div className="admin">
-          {!selectedUser.name ? (
-            <Alert variant="info">Select a user to start chat</Alert>
-          ) : (
-            <div>
-              <h2>Chat with {selectedUser.name}</h2>
-              <ListGroup ref={uiMessagesRef}>
-                {messages.length === 0 && (
-                  <ListGroup.Item>No message</ListGroup.Item>
-                )}
-                {messages.map((msg, index) => (
-                  <ListGroup.Item key={index}>
-                    <strong>{`${msg.from}: `}</strong> {msg.body}
-                  </ListGroup.Item>
-                ))}
-              </ListGroup>
-              <div>
-                <form onSubmit={submitHandler}>
-                  <InputGroup className="col-6">
-                    <FormControl
-                      value={messageBody}
-                      onChange={(e) => setMessageBody(e.target.value)}
-                      type="text"
-                      placeholder="type message"
-                    ></FormControl>
-                    <Button type="submit" variant="primary">
-                      Send
-                    </Button>
-                  </InputGroup>
-                </form>
-              </div>
+    <div className="chat-admin-container">
+    <div className="chat-admin-sidebar">
+      {users.filter((x) => x.name !== "Admin").length === 0 && (
+        <div className="alert">No User Found</div>
+      )}
+      <ul className="user-list">
+        {users
+          .filter((x) => x.name !== "Admin")
+          .map((user) => (
+            <li
+              key={user.name}
+              onClick={() => selectUser(user)}
+              className={`user-list-item ${
+                user.name === selectedUser.name ? "selected" : ""
+              }`}
+            >
+              <span className={`status-badge ${userStatusClass(user)}`}>
+                {userStatusText(user)}
+              </span>
+              {user.name}
+            </li>
+          ))}
+      </ul>
+    </div>
+    <div className="chat-admin-content">
+      <div className="chat-admin">
+        {!selectedUser.name ? (
+          <div className="alert">Select a user to start chat</div>
+        ) : (
+          <div>
+            <h2>Chat with {selectedUser.name}</h2>
+            <ul ref={uiMessagesRef} className="chat-messages">
+              {messages.length === 0 && <li>No message</li>}
+              {messages.map((msg, index) => (
+                <li key={index}>
+                  <strong>{`${msg.from}: `}</strong> {msg.body}
+                </li>
+              ))}
+            </ul>
+            <div className="admin-message-input">
+              <form onSubmit={submitHandler}>
+                <input
+                  value={messageBody}
+                  onChange={(e) => setMessageBody(e.target.value)}
+                  type="text"
+                  placeholder="Type a message"
+                  className="message-input"
+                />
+                <button type="submit" className="send-button">
+                  Send
+                </button>
+              </form>
             </div>
-          )}
-        </div>
-      </Col>
-    </Row>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
   );
 }

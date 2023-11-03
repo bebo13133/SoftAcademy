@@ -76,50 +76,38 @@ export const ChatBox=()=>{
   return (
     <div className="chatbox1">
       {!isOpen ? (
-        <Button onClick={supportHandler} variant="primary">
+        <button onClick={supportHandler} className="open-chat-button">
           Chat with us
-        </Button>
+        </button>
       ) : (
-        <Card>
-          <Card.Body>
-            <Row>
-              {/* <Col>
-                <strong className="s">Support</strong>
-              </Col> */}
-              <Col className="text-end">
-              <strong className="s">Support</strong>
-                <Button
-                  className="btn-sm btn-secondary"
-                  type="button"
-                  onClick={closeHandler}
-                >
-                  x
-                </Button>
-              </Col>
-            </Row>
-            <hr />
-            <ListGroup ref={uiMessagesRef}>
-              {messages.map((msg, index) => (
-                <ListGroup.Item key={index}>
-                  <strong>{`${msg.from}: `}</strong> {msg.body}
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-            <form onSubmit={submitHandler}>
-              <InputGroup className="col-6">
-                <FormControl
-                  value={messageBody}
-                  onChange={(e) => setMessageBody(e.target.value)}
-                  type="text"
-                  placeholder="type message"
-                ></FormControl>
-                <Button type="submit" variant="primary">
-                  Send
-                </Button>
-              </InputGroup>
-            </form>
-          </Card.Body>
-        </Card>
+        <div className="chat-container">
+          <div className="chat-header">
+            <strong>Support</strong>
+            <button className="close-chat-button" onClick={closeHandler}>
+              x
+            </button>
+          </div>
+          <hr />
+          <div className="chat-messages" ref={uiMessagesRef}>
+            {messages.map((msg, index) => (
+              <div key={index} className="chat-message">
+                <strong>{`${msg.from}: `}</strong> {msg.body}
+              </div>
+            ))}
+          </div>
+          <form onSubmit={submitHandler}>
+            <input
+              value={messageBody}
+              onChange={(e) => setMessageBody(e.target.value)}
+              type="text"
+              placeholder="Type a message"
+              className="message-input"
+            />
+            <button type="submit" className="send-button">
+              Send
+            </button>
+          </form>
+        </div>
       )}
     </div>
   );
