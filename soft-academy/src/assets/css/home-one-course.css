@@ -1,11 +1,13 @@
-#works > div > div.works-content > div > div> div > p{
+#works>div>div.works-content>div>div>div>p {
     color: #084778;
 }
-#works > div > div.works-content > div > div > div > h2 > a > span{
+
+#works>div>div.works-content>div>div>div>h2>a>span {
     text-transform: uppercase;
     font-size: 18px;
     color: #f10000;
 }
-#works > div > div.works-content > div > div > div{
+
+#works>div>div.works-content>div>div>div {
     box-shadow: 3px 8px 20px 0px rgb(57 9 231 / 40%);
 }
