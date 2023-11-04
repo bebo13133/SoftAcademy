@@ -11,13 +11,15 @@ export const UserContext = createContext()
 export const UserProvider = ({ children }) => {
 
     const [isAuth, setIsAuth] = useLocalStorage('auth', {})
-   
+
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
-    
+
     const onLoginSubmit = async (data) => {
 
         try {
+            if (!data.password || !data.email) return alert("Some fields is empty")
+            if (data.password.length <= 5) return alert("Minimum characters is 6")
             const newUser = await userService.login(data)
             setIsAuth(newUser)
             navigate("/catalog")
@@ -33,9 +35,10 @@ export const UserProvider = ({ children }) => {
 
         try {
             const { confirmPassword, ...registerData } = data
-     
+
             if (confirmPassword !== registerData.password) return alert("Please enter a valid passwordor email")
-            if(!confirmPassword || !registerData.password || !registerData.email) return alert("Some fields is empty")
+            if (!confirmPassword || !registerData.password || !registerData.email) return alert("Some fields is empty")
+            if (confirmPassword.length <= 5 || registerData.password.length <= 5) return alert("Minimum characters is 6")
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
             navigate("/catalog")
@@ -48,10 +51,10 @@ export const UserProvider = ({ children }) => {
 
     const onLogout = () => {
         try {
-             userService.logout()
+            userService.logout()
 
             setIsAuth({})
-            
+
         } catch (err) {
             throw new Error(err.message)
 
