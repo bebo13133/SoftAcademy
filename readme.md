@@ -11,7 +11,7 @@ page 404 css
 add cookies police 
 
 
-
+useRef = лесен анчин да получан референция до друг елемент
 
 
 

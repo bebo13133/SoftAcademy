@@ -144,7 +144,7 @@ export const Home = () => {
 
             </section>
             <div className="section-header">
-                <h2 style={{ color: "#BD6813" }}>Our partners</h2>
+                <h2 style={{ color: "#BD6813" }}>we partner with</h2>
                 <InfinitySlide />
             </div>
             <br />
