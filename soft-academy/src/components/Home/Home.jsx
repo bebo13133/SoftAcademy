@@ -23,10 +23,10 @@ export const Home = () => {
                 //   // Sort the courses by date in ascending order (oldest first)
 
                 console.log(result)
-                //   result.sort((a, b) => new Date(a.date) - new Date(b.date));
+                  result.sort((a, b) =>(b._createdOn) - (a._createdOn));
 
                 // Get the last 3 courses
-                const lastThreeCourses = result.slice(result.length - 1)
+                const lastThreeCourses = result.slice(length-1,3)
 
                 setCourses(lastThreeCourses)
                 setIsLoading(false)
@@ -158,10 +158,9 @@ export const Home = () => {
                     <div className="works-content">
                         <div className="row">
                             {/* one course */}
-                            {courses.length > 0 ? courses.map(course => <HomeOneCourse key={course._id} {...courses} />) : <h2 className="no-articles">No courses yet</h2>}
+                            {courses.length > 0 ? courses.map(course => <HomeOneCourse key={course._id} {...course} />) : <h2 className="no-articles">No courses yet</h2>}
                         </div>
                     </div>
-
                 </div>
 
             </section>
