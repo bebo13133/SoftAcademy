@@ -46,7 +46,7 @@ function App() {
 
       <UserProvider>
         <CourseProvider>
-          {/* <ErrorBoundary> */}
+          <ErrorBoundary>
             <Header />
             <Routes>
               <Route path={"/"} element={<Home />} />
@@ -98,7 +98,7 @@ function App() {
             <Routes>
             <Route path={"/admin"} element={<AdminPage />} />
             </Routes>
-          {/* </ErrorBoundary> */}
+          </ErrorBoundary>
         </CourseProvider>
       </UserProvider>
       </>

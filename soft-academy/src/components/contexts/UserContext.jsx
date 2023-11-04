@@ -22,7 +22,7 @@ export const UserProvider = ({ children }) => {
             if (data.password.length <= 5) return alert("Minimum characters is 6")
             const newUser = await userService.login(data)
             setIsAuth(newUser)
-            navigate("/catalog")
+            navigate("/")
         } catch (err) {
             console.log("PROBLEM")
 

@@ -2,11 +2,7 @@ import { Link } from "react-router-dom"
 import { UserContext } from "../contexts/UserContext"
 import { useContext } from "react"
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import { ResponsiveAppBar } from "../ResponsiveAppBar";
-import { InfinitySlide } from "../InfinitySlide/InfinitySlide";
-import { WaveAnimation } from "../tools/WaveAnimation"
+
 
 export const Header = () => {
 	const { isAuthentication } = useContext(UserContext)
@@ -78,7 +74,7 @@ export const Header = () => {
 
 							<div className="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 								<ul className="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-									<li className=" scroll active"><Link to="/">home</Link></li>
+									<li className=" scroll active"><Link to={"/"}>home</Link></li>
 									{/* <li className="scroll"><Link to={"/works"}>how it works</Link></li> */}
 									<li className="scroll"><Link to={"/catalog"}>courses</Link></li>
 									{isAuthentication && (<>
