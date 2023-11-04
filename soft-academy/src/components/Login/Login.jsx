@@ -1,5 +1,4 @@
 import { UserContext, useAuthContext } from '../contexts/UserContext'
-import { useContext } from 'react'
 
 import { useForm } from '../Hooks/useForm'
 import { Link } from 'react-router-dom'

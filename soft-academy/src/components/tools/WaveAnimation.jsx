@@ -5,14 +5,14 @@ export const WaveAnimation=()=>{
 
     return (
         <Wave fill="url(#gradient)" 
-        
+    
         paused={false}
-        style={{ display: 'flex' }}
+        style={{ display: 'flex'}}
         options={{
-          height: 35,
-          amplitude: 40,
+          height: 15,
+          amplitude: 60,
           speed: 0.10,
-          points: 5
+          points: 8
         }}
         >
     <defs>

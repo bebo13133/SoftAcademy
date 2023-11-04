@@ -1,14 +1,26 @@
-import { useContext } from "react"
-import { CourseContext, useCourseContext } from "../contexts/CourseContext"
+import { useContext,useState,useEffect } from "react"
 
+
+import { CourseContext, useCourseContext } from "../contexts/CourseContext"
+import { IsLoading } from "../IsLoading/IsLoading"
 import { OneCourse } from "./OneCourse"
 
 export const CatalogCourses = () => {
 
 const {courses} = useContext(CourseContext)
+const[isLoading,setIsLoading]= useState(true)
+
+
+useEffect(() => {
+
+  setIsLoading(false)
+
+}, [])
 
     return (
         <>
+          {isLoading && <IsLoading/>}
+        
             <section id="explore" className="explore">
                 <div className="container">
                     <div className="section-header">

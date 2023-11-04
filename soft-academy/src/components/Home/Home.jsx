@@ -1,11 +1,26 @@
 import { Link } from "react-router-dom"
-import { ChatBox } from "../ChatBox/ChatBox"
+import { useState,useEffect } from "react"
+
+// import { ChatBox } from "../ChatBox/ChatBox"
 import { InfinitySlide } from "../InfinitySlide/InfinitySlide"
 import { WaveAnimation } from "../tools/WaveAnimation"
+import { IsLoading } from "../IsLoading/IsLoading"
 
 export const Home = () => {
+
+    const[isLoading,setIsLoading]= useState(true)
+
+
+    useEffect(() => {
+  
+      setIsLoading(false)
+  
+    }, [])
+
+
     return (
         <>
+          {isLoading && <IsLoading/>}
 
             <section id="home" className="welcome-hero">
                 <div className="container">

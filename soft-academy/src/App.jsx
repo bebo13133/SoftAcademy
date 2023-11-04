@@ -1,5 +1,5 @@
 // import { useState,useEffect } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import ErrorBoundary from './components/ErrorBoundary'
 // import './App.css'
@@ -25,10 +25,15 @@ import { EditCourse } from './components/EditCourse/EditCourse'
 import { IsOwnerCourse } from './components/common/isOwnerCourse'
 import { ChatBox } from './components/ChatBox/ChatBox'
 import { AdminPage } from './components/AdminPage/AdminPage'
+import { IsLoading } from './components/IsLoading/IsLoading'
 
 function App() {
+  const[isLoading,setIsLoading]= useState(true)
+
 
   useEffect(() => {
+
+    setIsLoading(false)
 
   }, [])
 
@@ -36,6 +41,8 @@ function App() {
 
   return (
     
+    <>
+          {isLoading && <IsLoading/>}
 
       <UserProvider>
         <CourseProvider>
@@ -94,7 +101,7 @@ function App() {
           {/* </ErrorBoundary> */}
         </CourseProvider>
       </UserProvider>
-  
+      </>
   )
 }
 

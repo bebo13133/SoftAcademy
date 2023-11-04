@@ -41,7 +41,7 @@ export const UserProvider = ({ children }) => {
             if (confirmPassword.length <= 5 || registerData.password.length <= 5) return alert("Minimum characters is 6")
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
-            navigate("/catalog")
+            navigate("/")
 
         } catch (err) {
             throw new Error(err.message)
