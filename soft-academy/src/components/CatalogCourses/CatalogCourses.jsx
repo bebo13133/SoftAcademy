@@ -1,4 +1,4 @@
-import { useContext,useState,useEffect } from "react"
+import { useContext, useState, useEffect } from "react"
 
 
 import { CourseContext, useCourseContext } from "../contexts/CourseContext"
@@ -7,20 +7,20 @@ import { OneCourse } from "./OneCourse"
 
 export const CatalogCourses = () => {
 
-const {courses} = useContext(CourseContext)
-const[isLoading,setIsLoading]= useState(true)
+    const { courses } = useContext(CourseContext)
+    const [isLoading, setIsLoading] = useState(true)
 
 
-useEffect(() => {
+    useEffect(() => {
 
-  setIsLoading(false)
+        setIsLoading(false)
 
-}, [])
+    }, [])
 
     return (
         <>
-          {isLoading && <IsLoading/>}
-        
+            {isLoading && <IsLoading />}
+
             <section id="explore" className="explore">
                 <div className="container">
                     <div className="section-header">
@@ -29,19 +29,19 @@ useEffect(() => {
                     </div>
                     <div className="explore-content">
                         <div className="row">
-                           
-                              
-                                
-                                {courses.length>0 ? courses.map(course=><OneCourse key={course._id} {...course}/>): <h3 className="no-articles">No articles yet</h3>}
 
-                                 
-                             
-                            </div>
-                    
-                    
+
+
+                            {courses.length > 0 ? courses.map(course => <OneCourse key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
+
+
+
                         </div>
+
+
                     </div>
-               
+                </div>
+
 
             </section>
         </>
