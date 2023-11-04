@@ -8,6 +8,12 @@ isOwner -->
 Да направя коментарите ако си owner да можеш да ги изтриеш
 Lazy Loading page
 page 404 css
+add cookies police 
+
+
+
+
+
 
 For infinite slide i use :
 npm install react-slick --save
