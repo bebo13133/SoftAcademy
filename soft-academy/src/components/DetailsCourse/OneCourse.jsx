@@ -102,7 +102,7 @@ export const OneCourse = ({
 
     return (
         <>
-            
+
             <div className="main_card">
                 <div className="card_left">
 
@@ -154,7 +154,7 @@ export const OneCourse = ({
                     </div>
 
                 </div>
-           
+
 
                 <div className="card_right">
                     <img src={imageUrl ? imageUrl : imageUrl2} alt="images" />
@@ -173,8 +173,8 @@ export const OneCourse = ({
                 </div>
 
             </div>
-                 {/* Lector */}
-             
+            {/* Lector */}
+
 
             <CommentsPopUp onCommentSubmit={onCommentSubmit} isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} comments={comments} />
 
