@@ -20,7 +20,7 @@ export const Home = () => {
     useEffect(() => {
         courseService.getAll()
             .then(result => {
-                //   // Sort the courses by date in ascending order (oldest first)
+           
 
                 console.log(result)
                   result.sort((a, b) =>(b._createdOn) - (a._createdOn));
