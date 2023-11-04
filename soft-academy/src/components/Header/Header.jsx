@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { ResponsiveAppBar } from "../ResponsiveAppBar";
 import { InfinitySlide } from "../InfinitySlide/InfinitySlide";
+import { WaveAnimation } from "../tools/WaveAnimation"
 
 export const Header = () => {
 	const { isAuthentication } = useContext(UserContext)
@@ -13,6 +14,7 @@ export const Header = () => {
 	return (
 		<>
 			<header id="header-top" className="header-top">
+				
 				<ul>
 					<li>
 						<div className="header-top-left">
@@ -30,7 +32,7 @@ export const Header = () => {
 						<div className="header-top-right">
 							<ul>
 							
-								{!isAuthentication && (<>
+								{!isAuthentication && (<> 
 									<li className="header-top-contact">
 										<Link to={"/login"}>sign in</Link>
 									</li>

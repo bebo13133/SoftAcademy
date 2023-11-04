@@ -31,6 +31,10 @@ font-family: 'Roboto', sans-serif;
 @import "commentsPopUp.css";
 @import "conatct-form.css";
 @import "chatbox.css";
+@import "infinitySlide.css";
+@import "home-tp-lang.css";
+
+
 
 *{
     padding: 0;
@@ -104,12 +108,16 @@ html,body{height: 100%;}
 
 /* section-header */
 .section-header{
+    margin-top: 120px;
     position: relative;
     text-align: center;
 }
 .section-header h2{
-    color: #505866;
-    font-size:24px;
+    margin-top: -10rem;
+
+
+    color: rgb(189, 104, 19);
+    font-size:32px;
     font-weight: 500;
     margin-bottom: 24px;
     text-transform: uppercase;
@@ -178,7 +186,7 @@ html,body{height: 100%;}
         3. Top-area
 --------------------------------------*/
 nav.navbar.bootsnav {
-    background-color:#fff;
+    background-color:rgb(221 221 221);
     border-bottom: transparent;
 }
 .wrap-sticky nav.navbar.bootsnav.sticked {background-color: #fff;box-shadow: 0 2px 5px rgba(0,0,0,.2);}
@@ -367,8 +375,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     justify-content: center;
     width: 205px;
     height: 170px;
-    background:#fff;
-    border-radius: 3px;
+    background:#e9e8e5;
+    border-radius: 45px;
     margin-right: 20px;
     margin-bottom: 20px;
     box-shadow: 0 0px 10px rgba(71,71,71,.2);
@@ -398,9 +406,10 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 .works-content {margin-top: 73px;}
 
 .single-how-works{
+    background: linear-gradient(to right, #ebd28e, #f6cd93);;
     text-align: center;
     padding:50px 42px;
-    border-radius: 3px;
+    border-radius: 18px;
     box-shadow: 0 0px 5px rgba(71,71,71,.2);
     margin-bottom: 30px;
     -webkit-transition: .3s linear; 
@@ -1044,4 +1053,11 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 @keyframes example {
     0%   {bottom:0px;}
     100%  {bottom:7px;}
+}
+/* wave */
+#list-topics{
+    z-index: 89;
+    margin-top: -94px;
+    position: relative;
+
 }

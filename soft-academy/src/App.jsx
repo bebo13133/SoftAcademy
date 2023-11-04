@@ -13,7 +13,7 @@ import { Contact } from './components/Contact/Contact'
 import { Login } from './components/Login/Login'
 import { Register } from './components/Register/Register'
 import { UserProvider } from './components/contexts/UserContext'
-import { useContext } from 'react'
+
 import { Logout } from './components/Logout/Logout'
 import { CreateCourse } from './components/CreateCourse/CreateCourse'
 import { CourseProvider } from './components/contexts/CourseContext'
@@ -35,7 +35,7 @@ function App() {
 
 
   return (
-    <>
+    
 
       <UserProvider>
         <CourseProvider>
@@ -66,7 +66,7 @@ function App() {
 
 
               {/* Route Guard */}
-              {/* <Route element={<RouteGuard />}> */}
+              <Route element={<RouteGuard />}>
 
                 <Route path={"/logout"} element={<Logout />} />
                 <Route path={"/create"} element={<CreateCourse />} />
@@ -77,7 +77,7 @@ function App() {
                 </IsOwnerCourse>
                 } />
 
-              {/* </Route> */}
+              </Route>
               {/* End RouteGuard */}
 
               <Route path={"/404"} element={<PageNotFound />} />
@@ -94,7 +94,7 @@ function App() {
           {/* </ErrorBoundary> */}
         </CourseProvider>
       </UserProvider>
-    </>
+  
   )
 }
 

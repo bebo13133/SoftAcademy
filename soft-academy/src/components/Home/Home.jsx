@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom"
 import { ChatBox } from "../ChatBox/ChatBox"
 import { InfinitySlide } from "../InfinitySlide/InfinitySlide"
+import { WaveAnimation } from "../tools/WaveAnimation"
 
 export const Home = () => {
     return (
@@ -12,6 +14,7 @@ export const Home = () => {
                         <p>
                             Find Best Place, Restaurant, Hotel, Real State and many more think in just One click
                         </p>
+                   
                     </div>
                     <div className="welcome-hero-serch-box">
                         <div className="welcome-hero-form">
@@ -40,70 +43,83 @@ export const Home = () => {
                             </button> */}
                         </div>
                     </div>
+                    
                 </div>
-
+               
             </section>
 
-
+          
             <section id="list-topics" className="list-topics">
+            <WaveAnimation/>
                 <div className="container">
                     <div className="list-topics-content">
                         <ul>
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                        <i className="flaticon-restaurant"></i>
+                                        <img className="home-top-lang"src="./img/javascript-7308311-5938360.webp"/>
                                     </div>
-                                    <h2><a href="#">resturent</a></h2>
-                                    <p>150 listings</p>
+                                    <h2><Link to={"https://www.javascript.com/"}target="_blank" rel="noopener noreferrer">JavaScript</Link></h2>
+                                    <p>1 444 231 Libraries</p>
                                 </div>
                             </li>
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                        <i className="flaticon-travel"></i>
+                                    <img className="home-top-lang"src="./img/c-sharp.png"/>
                                     </div>
-                                    <h2><a href="#">destination</a></h2>
-                                    <p>214 listings</p>
+                                    <h2><Link to={"https://learn.microsoft.com/en-us/dotnet/csharp/"} target="_blank" rel="noopener noreferrer">c-sharp</Link></h2>
+                                    <p>214223 listings</p>
                                 </div>
                             </li>
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                        <i className="flaticon-building"></i>
+                                    <img className="home-top-lang"src="./img/java.webp"/>
+
                                     </div>
-                                    <h2><a href="#">hotels</a></h2>
-                                    <p>185 listings</p>
+                                    <h2><Link to={"https://www.java.com/en/"} target="_blank" rel="noopener noreferrer">Java</Link></h2>
+
+                                    <p>1118543 listings</p>
                                 </div>
                             </li>
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                        <i className="flaticon-pills"></i>
+                                    <img className="home-top-lang"src="./img/Python-logo-notext.svg.png"/>
+
                                     </div>
-                                    <h2><a href="#">healthcaree</a></h2>
-                                    <p>200 listings</p>
+                                    <h2><Link to={"https://www.python.org/"} target="_blank" rel="noopener noreferrer">Python</Link></h2>
+
+                                    <p>200323 listings</p>
                                 </div>
                             </li>
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                        <i className="flaticon-transport"></i>
+                                    <img className="home-top-lang"src="./img/react.png"/>
+
                                     </div>
-                                    <h2><a href="#">automotion</a></h2>
-                                    <p>120 listings</p>
+                                    <h2><Link to={"https://legacy.reactjs.org/"} target="_blank" rel="noopener noreferrer">ReactJs</Link></h2>
+                                    <p>1604301 listings</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
+   
             </section>
-
+            <div className="section-header">
+            <h2 style={{color: "#BD6813"}}>Our partners</h2>
+            <InfinitySlide/>
+            </div>
+          <br/>
+          <br/>
             <section id="works" className="works">
                 <div className="container">
                     <div className="section-header">
-                        <h2>how it works</h2>
-                        <p>Learn More about how our website works</p>
+                        <h2>last courses</h2>
+                        <p>Learn More about courses our website </p>
                     </div>
                     <div className="works-content">
                         <div className="row">
@@ -153,7 +169,7 @@ export const Home = () => {
                     </div>
                    
                 </div>
-                <InfinitySlide/>
+               
             </section>
         </>
     )

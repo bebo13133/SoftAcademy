@@ -34,8 +34,8 @@ export const UserProvider = ({ children }) => {
         try {
             const { confirmPassword, ...registerData } = data
      
-            if (confirmPassword !== registerData.password) throw new Error("Please enter a password")
-
+            if (confirmPassword !== registerData.password) return alert("Please enter a valid passwordor email")
+            if(!confirmPassword || !registerData.password || !registerData.email) return alert("Some fields is empty")
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
             navigate("/catalog")

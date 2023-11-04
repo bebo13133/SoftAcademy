@@ -7,8 +7,8 @@
   }
   
   .mainContainer-slide .container-slide img{
-    height: 90px;
-    width: 180px;
+    height: 110px;
+    width: 260px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,6 +16,9 @@
     text-align: center;
   }
 
-.slick-dots li button:before{
+/* .slick-dots li button:before{
     font-size: 16px;
+} */
+.slick-list{
+  height: 267px;
 }
