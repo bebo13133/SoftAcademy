@@ -18,12 +18,12 @@ grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
     flex-direction: row; */
 }
 
-.main_card {
+#details-page > div.main_card {
     grid-column: col1-start / col3-start;
     grid-row: row1-start ;
     color: #060606;
     height: 300px auto;
-    margin: -50px auto;
+    margin: -10px auto;
     display: flex;
     left: 60%;
     max-width: 950px;

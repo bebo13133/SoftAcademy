@@ -1,26 +1,45 @@
 import { Link } from "react-router-dom"
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 
 // import { ChatBox } from "../ChatBox/ChatBox"
 import { InfinitySlide } from "../InfinitySlide/InfinitySlide"
 import { WaveAnimation } from "../tools/WaveAnimation"
 import { IsLoading } from "../IsLoading/IsLoading"
+import { useCourseContext } from "../contexts/CourseContext"
+import { courseServiceFactory } from "../Services/courseService"
+import { HomeOneCourse } from "./HomeOneCourse"
 
 export const Home = () => {
 
-    const[isLoading,setIsLoading]= useState(true)
+    const [isLoading, setIsLoading] = useState(true)
+    const [courses, setCourses] = useState([])
 
+    const courseService = courseServiceFactory()
+    const { } = useCourseContext()
 
     useEffect(() => {
-  
-      setIsLoading(false)
-  
-    }, [])
+        courseService.getAll()
+            .then(result => {
+                //   // Sort the courses by date in ascending order (oldest first)
+
+                console.log(result)
+                //   result.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+                // Get the last 3 courses
+                const lastThreeCourses = result.slice(result.length - 1)
+
+                setCourses(lastThreeCourses)
+                setIsLoading(false)
+            })
+            .catch(err => {
+                throw new Error(err.message || err)
+            });
+    }, []);
 
 
     return (
         <>
-          {isLoading && <IsLoading/>}
+            {isLoading && <IsLoading />}
 
             <section id="home" className="welcome-hero">
                 <div className="container">
@@ -29,7 +48,7 @@ export const Home = () => {
                         <p>
                             Find Best Place, Restaurant, Hotel, Real State and many more think in just One click
                         </p>
-                   
+
                     </div>
                     <div className="welcome-hero-serch-box">
                         <div className="welcome-hero-form">
@@ -58,30 +77,30 @@ export const Home = () => {
                             </button> */}
                         </div>
                     </div>
-                    
+
                 </div>
-               
+
             </section>
 
-          
+
             <section id="list-topics" className="list-topics">
-            <WaveAnimation/>
+                <WaveAnimation />
                 <div className="container">
                     <div className="list-topics-content">
                         <ul>
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                        <img className="home-top-lang"src="./img/javascript-7308311-5938360.webp"/>
+                                        <img className="home-top-lang" src="./img/javascript-7308311-5938360.webp" />
                                     </div>
-                                    <h2><Link to={"https://www.javascript.com/"}target="_blank" rel="noopener noreferrer">JavaScript</Link></h2>
+                                    <h2><Link to={"https://www.javascript.com/"} target="_blank" rel="noopener noreferrer">JavaScript</Link></h2>
                                     <p>1 444 231 Libraries</p>
                                 </div>
                             </li>
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                    <img className="home-top-lang"src="./img/c-sharp.png"/>
+                                        <img className="home-top-lang" src="./img/c-sharp.png" />
                                     </div>
                                     <h2><Link to={"https://learn.microsoft.com/en-us/dotnet/csharp/"} target="_blank" rel="noopener noreferrer">c-sharp</Link></h2>
                                     <p>214223 listings</p>
@@ -90,7 +109,7 @@ export const Home = () => {
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                    <img className="home-top-lang"src="./img/java.webp"/>
+                                        <img className="home-top-lang" src="./img/java.webp" />
 
                                     </div>
                                     <h2><Link to={"https://www.java.com/en/"} target="_blank" rel="noopener noreferrer">Java</Link></h2>
@@ -101,7 +120,7 @@ export const Home = () => {
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                    <img className="home-top-lang"src="./img/Python-logo-notext.svg.png"/>
+                                        <img className="home-top-lang" src="./img/Python-logo-notext.svg.png" />
 
                                     </div>
                                     <h2><Link to={"https://www.python.org/"} target="_blank" rel="noopener noreferrer">Python</Link></h2>
@@ -112,7 +131,7 @@ export const Home = () => {
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                    <img className="home-top-lang"src="./img/react.png"/>
+                                        <img className="home-top-lang" src="./img/react.png" />
 
                                     </div>
                                     <h2><Link to={"https://legacy.reactjs.org/"} target="_blank" rel="noopener noreferrer">ReactJs</Link></h2>
@@ -122,14 +141,14 @@ export const Home = () => {
                         </ul>
                     </div>
                 </div>
-   
+
             </section>
             <div className="section-header">
-            <h2 style={{color: "#BD6813"}}>Our partners</h2>
-            <InfinitySlide/>
+                <h2 style={{ color: "#BD6813" }}>Our partners</h2>
+                <InfinitySlide />
             </div>
-          <br/>
-          <br/>
+            <br />
+            <br />
             <section id="works" className="works">
                 <div className="container">
                     <div className="section-header">
@@ -138,53 +157,13 @@ export const Home = () => {
                     </div>
                     <div className="works-content">
                         <div className="row">
-                            <div className="col-md-4 col-sm-6">
-                                <div className="single-how-works">
-                                    <div className="single-how-works-icon">
-                                        <i className="flaticon-lightbulb-idea"></i>
-                                    </div>
-                                    <h2><a href="#">choose <span> what to</span> do</a></h2>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut laboremagna aliqua.
-                                    </p>
-                                    {/* <button className="welcome-hero-btn how-work-btn" onClick="window.location.href='#'">
-									read more
-								</button> */}
-                                </div>
-                            </div>
-                            <div className="col-md-4 col-sm-6">
-                                <div className="single-how-works">
-                                    <div className="single-how-works-icon">
-                                        <i className="flaticon-networking"></i>
-                                    </div>
-                                    <h2><a href="#">find <span> what you want</span></a></h2>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut laboremagna aliqua.
-                                    </p>
-                                    {/* <button className="welcome-hero-btn how-work-btn" onClick="window.location.href='#'">
-									read more
-								</button> */}
-                                </div>
-                            </div>
-                            <div className="col-md-4 col-sm-6">
-                                <div className="single-how-works">
-                                    <div className="single-how-works-icon">
-                                        <i className="flaticon-location-on-road"></i>
-                                    </div>
-                                    <h2><a href="#">explore <span> amazing</span> place</a></h2>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt ut laboremagna aliqua.
-                                    </p>
-                                    {/* <button className="welcome-hero-btn how-work-btn" onClick="window.location.href='#'">
-									read more
-								</button> */}
-                                </div>
-                            </div>
+                            {/* one course */}
+                            {courses.length > 0 ? courses.map(course => <HomeOneCourse key={course._id} {...courses} />) : <h2 className="no-articles">No courses yet</h2>}
                         </div>
                     </div>
-                   
+
                 </div>
-               
+
             </section>
         </>
     )

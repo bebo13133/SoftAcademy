@@ -1,6 +1,6 @@
 TODO :
 
-Loading
+<!-- Loading -->
 <!-- RouteGuard -->
 <!-- Validation login, register -->
 <!-- Try/catch на заявките
