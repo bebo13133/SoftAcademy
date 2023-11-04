@@ -20,9 +20,9 @@ export const DetailsCourse = () => {
                 return commentsService.getAllComments(courseId)
 
             }).then(course => {
-                
+
                 setComments(course)
-            
+
             })
 
     }, [courseId])
@@ -41,9 +41,9 @@ export const DetailsCourse = () => {
     return (
 
         <section id="details-page">
-                
+
             <OneCourse {...details} comments={comments} onCommentSubmit={onCommentSubmit} />
-            <LectorPage {...details}/>
+            <LectorPage {...details} />
             <AddComments onCommentSubmit={onCommentSubmit} />
         </section>
     )
