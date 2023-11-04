@@ -84,6 +84,7 @@ text-transform:none;
     position: relative;
     max-width: 250px;
     border-radius: 2px;
+    width: 170px;
 }
 
 
@@ -322,7 +323,7 @@ color: #060606;
 }
 
 .thumb>img {
-    height: 370px;
+    height: 190px;
     width: 100%;
 }
 
@@ -462,10 +463,10 @@ span {
     
 }
 .lector-img{
-    
+    border-radius: 50%;
     border: none;
     max-width: 100%;
-    height: 155px;
+    height: 90px;
     object-fit: cover;
     float: inline-end;
     transition: transform 0.3s;
@@ -477,4 +478,18 @@ span {
     margin: 20px;
     font-size: 26px;
     
+}
+
+
+/* Promqna 4.11.2023 */
+#explore > div > div.explore-content > div > div > div > div.single-explore-img > img{
+    border: none;
+ max-width: 100%;
+    height: 147px;
+}
+#explore > div > div.explore-content > div > div{
+    width: 26.333333%;
+}
+#explore > div > div.explore-content > div > div:nth-child(4) > div > div{
+    padding: -19px 25px 24px 15px;
 }

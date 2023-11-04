@@ -23,7 +23,8 @@ export const OneCourse = ({
     courseName,
     comments,
     onCommentSubmit,
-    _ownerId
+    _ownerId,
+    imageUrl2
 
 }) => {
 
@@ -156,7 +157,7 @@ export const OneCourse = ({
            
 
                 <div className="card_right">
-                    <img src={imageUrl} alt="image" />
+                    <img src={imageUrl ? imageUrl : imageUrl2} alt="images" />
                     <br />
                     <a href="https://npmtrends.com/" className="trend-btn">
                         <img className="trend-btn" src="https://seeklogo.com/images/N/npm-logo-01B8642EDD-seeklogo.com.png" alt="npm trends icon" />

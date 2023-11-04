@@ -10,6 +10,7 @@ export const OneCourse = ({
     firstName,
     lastName,
     _id,
+    lectorImage
 }) => {
 
     return (
@@ -39,7 +40,7 @@ export const OneCourse = ({
                     <div className="single-explore-txt bg-theme-1">
                         <h2><a href="#">{courseName}</a></h2>
                         <p className="explore-rating-price">
-                        
+
                             <a href="#"> 10 Likes</a>
                             <span className="explore-price-box">
                                 Price &ensp;
@@ -52,7 +53,7 @@ export const OneCourse = ({
                                 <div className="col-sm-2">
                                     <div className="explore-person-img">
                                         <a href="#">
-                                            <img src="./src/assets/images/explore/person.png" alt="explore person" />
+                                            <img src={lectorImage} alt="explore person" />
                                         </a>
                                     </div>
                                 </div>
@@ -68,13 +69,7 @@ export const OneCourse = ({
                                 <Link to={`/catalog/${_id}`}><button className="close-btn" >Read more...</button></Link>
                                     
                                 </div>
-                                <div className="col-sm-7">
-                                    <div className="explore-map-icon">
-                                        <a href="#"><i data-feather="map-pin"></i></a>
-                                        <a href="#"><i data-feather="upload"></i></a>
-                                        <a href="#"><i data-feather="heart"></i></a>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>

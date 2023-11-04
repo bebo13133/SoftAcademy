@@ -1,0 +1,10 @@
+.explore-person .explore-person-img img{
+    border-radius: 50%;
+    border:none;
+    max-width: 100%;
+    height: 40px;
+}
+#explore > div > div.explore-content > div > div > div > div.single-explore-txt.bg-theme-1{
+    padding: 22px 25px 18px 0px;
+ 
+}

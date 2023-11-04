@@ -43,9 +43,8 @@ export const DetailsCourse = () => {
         <section id="details-page">
                 
             <OneCourse {...details} comments={comments} onCommentSubmit={onCommentSubmit} />
-            <LectorPage/>
+            <LectorPage {...details}/>
             <AddComments onCommentSubmit={onCommentSubmit} />
-
         </section>
     )
 }
