@@ -1,0 +1,20 @@
+.privacy-policy {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+    text-align: left;
+  }
+  
+  .privacy-policy h2 {
+    margin: 9px;
+    font-size: 20px;
+    margin: 0 10px 10px;
+  }
+  
+  .privacy-policy p {
+    font-size: 18px;
+    margin: 15px 0 10px;
+  }
+  

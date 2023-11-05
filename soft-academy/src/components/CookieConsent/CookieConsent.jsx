@@ -1,20 +1,33 @@
 import Button from '@mui/material/Button'
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCookies } from 'react-cookie'
 
 export const CookieConsent = () => {
 
     const [cookies, setCookies] = useCookies(["cookieConsent"]);
+    const [isVisible, setIsVisible] = useState(false); // използвам стейт за таймаоута за да моаг да регурирам  показването 
 
     const setCookieConsent = () => {
 
         setCookies("cookieConsent", true, { path: "/" })
+        setIsVisible(false);
     }
 
+    useEffect(() => {
 
+        const timeout = setTimeout(() => {
+            setIsVisible(true);
+        }, 3000);
 
-    return (
-        <div className="cookie-consent">
+        return () => {
+            clearTimeout(timeout); // изчиствам таймаута
+        };
+    }, [])
+
+    return isVisible ? (
+        <div className={`cookie-consent ${isVisible ? 'show' : ''}`}>   
+        {/* горният клас го ползвам за анимацията в css */}
             <p>
                 We use cookies to enhance your user experience. By using our website,
                 you agree to our use of cookies.{" "}
@@ -24,5 +37,5 @@ export const CookieConsent = () => {
                 Accept
             </Button>
         </div>
-    )
+    ) : null
 }

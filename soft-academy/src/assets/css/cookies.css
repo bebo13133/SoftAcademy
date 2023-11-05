@@ -17,13 +17,28 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #333; /* Background color for the banner */
-    color: #fff; /* Text color */
+    background-color: #333; 
+    color: #fff; 
     padding: 10px;
     text-align: center;
-    z-index: 999; /* Ensure it appears on top of other content */
-  }
-  
+    z-index: 999;
+    /* transform: translateY(100%); */
+}
+.cookie-consent.show {
+    display: block;
+    animation: slide-up 1.5s ease-in-out;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
   .cookie-consent p {
     margin: 0;
     padding: 5px 0;
@@ -50,4 +65,3 @@ color:  #157ed5;
   .cookie-consent button:hover {
     background-color: #006600; /* Darker background color on hover */
   }
-  

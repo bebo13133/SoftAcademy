@@ -28,6 +28,7 @@ import { ChatBox } from './components/ChatBox/ChatBox'
 import { AdminPage } from './components/AdminPage/AdminPage'
 import { IsLoading } from './components/IsLoading/IsLoading'
 import { CookieConsent } from './components/CookieConsent/CookieConsent'
+import { PrivacyPolicy } from './components/CookieConsent/PrivacyPolicy'
 
 
 function App() {
@@ -52,10 +53,12 @@ console.log("cookie",cookies)
           <ErrorBoundary>
 
             <Header />
+            {!cookies.cookieConsent && <CookieConsent/>}
 
             <Routes>
               <Route path={"/"} element={<Home />} />
-
+              <Route path={"/privacy-policy"} element={<PrivacyPolicy />} />
+              
 
               <Route path={"/catalog"} element={<CatalogCourses />} />
               <Route path={"/reviews"} element={<StudentReview />} />
@@ -108,7 +111,6 @@ console.log("cookie",cookies)
           </ErrorBoundary>
         </CourseProvider>
       </UserProvider>
-            { <CookieConsent/>}
 
       </>
   )
