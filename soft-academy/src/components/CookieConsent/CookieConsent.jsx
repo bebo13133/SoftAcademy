@@ -12,7 +12,7 @@ export const CookieConsent = () => {
         const expirationDate = new Date();
         expirationDate.setDate(expirationDate.getDate() + 14);   //взимам датата и добавям 14 дена след което да се изтрията кукитата
 
-        setCookies("cookieConsent", true, { path: "/" ,expires: expirationDate })
+        setCookies("cookieConsent", true, { path: "/", expires: expirationDate })   //WARNING!
         setIsVisible(false);
     }
 
@@ -28,8 +28,8 @@ export const CookieConsent = () => {
     }, [])
 
     return isVisible ? (
-        <div className={`cookie-consent ${isVisible ? 'show' : ''}`}>   
-        {/* горният клас го ползвам за анимацията в css */}
+        <div className={`cookie-consent ${isVisible ? 'show' : ''}`}>
+            {/* горният клас го ползвам за анимацията в css */}
             <p>
                 We use cookies to enhance your user experience. By using our website,
                 you agree to our use of cookies.{" "}
