@@ -1,0 +1,53 @@
+/* .cookie-consent{
+    display: flex;
+    width: 533px;
+
+    margin-left: 392px;
+    margin-bottom: 100px;
+    background: rgb(207, 207, 207);
+} */
+/* .cookie-consent button{
+    font-size: 18px;
+}
+.cookie-consent p{
+    font-size: 18px;
+} */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Background color for the banner */
+    color: #fff; /* Text color */
+    padding: 10px;
+    text-align: center;
+    z-index: 999; /* Ensure it appears on top of other content */
+  }
+  
+  .cookie-consent p {
+    margin: 0;
+    padding: 5px 0;
+  }
+  .cookie-consent a {
+color:  #157ed5;
+  }
+  .cookie-consent a:hover {
+    color:  #f51809;
+    
+      }
+  /* Style for the "Accept" button */
+  .cookie-consent button {
+    background-color: #008000; /* Background color for the button */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Hover effect for the "Accept" button */
+  .cookie-consent button:hover {
+    background-color: #006600; /* Darker background color on hover */
+  }
+  
