@@ -80,7 +80,7 @@ export const PrivacyPolicy = () => {
                     9. Contact Us
 
                     If you have any questions or concerns about this Privacy Policy, please contact us at  <Link to={`/contact`} className="edit-btn">Contact</Link>.
-                    
+
                     This is a general template.Please consult with a legal professional to ensure that your privacy policy complies with all applicable laws and regulations in your jurisdiction and is tailored to your specific website or application.
 
                 </p>
