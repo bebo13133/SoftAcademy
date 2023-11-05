@@ -9,8 +9,10 @@ export const CookieConsent = () => {
     const [isVisible, setIsVisible] = useState(false); // използвам стейт за таймаоута за да моаг да регурирам  показването 
 
     const setCookieConsent = () => {
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 14);   //взимам датата и добавям 14 дена след което да се изтрията кукитата
 
-        setCookies("cookieConsent", true, { path: "/" })
+        setCookies("cookieConsent", true, { path: "/" ,expires: expirationDate })
         setIsVisible(false);
     }
 
