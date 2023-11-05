@@ -50,6 +50,7 @@ export const OneCourse = ({
                         </p>
                         <div className="explore-person">
                             <div className="row">
+                                <h2>Lector name:</h2>
                                 <div className="col-sm-2">
                                     <div className="explore-person-img">
                                         <a href="#">

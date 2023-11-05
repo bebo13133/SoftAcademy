@@ -159,9 +159,11 @@ export const OneCourse = ({
                 <div className="card_right">
                     <img src={imageUrl ? imageUrl : imageUrl2} alt="images" />
                     <br />
-                    <a href="https://npmtrends.com/" className="trend-btn">
-                        <img className="trend-btn" src="https://seeklogo.com/images/N/npm-logo-01B8642EDD-seeklogo.com.png" alt="npm trends icon" />
-                    </a>
+                    <div className="footer-social social-details ">
+                        <a href="#"><i className="fa fa-facebook"></i></a>
+                        <a href="#"><i className="fa fa-twitter"></i></a>
+                        <a href="#"><i className="fa fa-instagram"></i></a>
+                    </div>            
                     <br />
                     <br />
                     <p className="card-keyword">Lector: <span>{firstName} {lastName}</span> </p>

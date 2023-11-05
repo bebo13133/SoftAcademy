@@ -493,3 +493,27 @@ span {
 #explore > div > div.explore-content > div > div:nth-child(4) > div > div{
     padding: -19px 25px 24px 15px;
 }
+.social-details {
+    padding-left:0px;
+    margin-left: 15px;
+}
+.social-details a{
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background: #eef2f6;
+    text-align: center;
+    border-radius: 50%;
+    display: inline-block;
+    color: #afb4bf;
+    font-size: 24px;
+   
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+
+    font-size:22px;
+    padding-left:0px
+}
