@@ -1,10 +1,68 @@
 .explore-person .explore-person-img img{
+    margin-left: 46px;
     border-radius: 50%;
     border:none;
     max-width: 100%;
     height: 40px;
 }
+#explore > div > div.explore-content > div > div > div > div.single-explore-img > img{
+    border: none;
+    max-width: 100%;
+    height: 147px;
+}
+#explore > div > div.explore-content > div > div > div > div.single-explore-img::before{
+    /* position: absolute; */
+  
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(162,172,177,.2);
+}
+
 #explore > div > div.explore-content > div > div > div > div.single-explore-txt.bg-theme-1{
-    padding: 22px 25px 18px 0px;
- 
+    padding: 29px 0px 57px 0px;
+    box-shadow: 3px 8px 20px 0px rgb(57 9 231 / 40%);
+    border-radius: 133% 130% 110% 160%;
+    line-height: 2.428571;
+
+}
+#explore > div > div.explore-content > div > div > div{
+    box-shadow: 3px 8px 20px 0px rgb(57 9 231 / 40%);
+    border-radius: 133% 130% 110% 160%;
+
+}
+#footer > div.container{
+    width: 750px;
+}
+#explore > div > div.explore-content > div > div{
+    width: 33.333333%;
+    padding-left: 48px;
+
+}
+#explore > div > div.explore-content > div > div > div > div.single-explore-txt.bg-theme-1 > div.explore-person > div > div.col-sm-10 > p{
+    text-align:left;
+    margin: 0px;
+    color: #767f86;
+    font-size: 14px;
+    line-height: 1.8;
+    text-transform: initial;
+    margin-left: 1px;
+    line-height: 3;
+}
+#explore > div > div.explore-content > div > div > div > div.single-explore-txt.bg-theme-1 > div.explore-person > div > div.col-sm-10{
+    width: 54.333333%;
+}
+#explore > div > div.explore-content > div > div > div > div.single-explore-txt.bg-theme-1 > div.explore-person > div > div.col-sm-2{
+    width: 34.666666%;
+}
+
+#explore > div > div.explore-content > div > div > div > div.single-explore-txt.bg-theme-1 > div.explore-open-close-part > div > div > a > button{
+    margin-left: 109px;
+}
+#explore > div > div.explore-content > div > div> div > div.single-explore-txt.bg-theme-1 > p > span > span{
+    font-size:16px;
+}
+#explore > div > div.explore-content > div > div> div > div.single-explore-txt.bg-theme-1 > div.explore-person{
+    margin-left: 25px;
 }

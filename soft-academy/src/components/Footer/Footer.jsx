@@ -8,7 +8,7 @@ export const Footer = () => {
                         <div className="row">
                             <div className="col-sm-3">
                                 <div className="navbar-header">
-                                    <a className="navbar-brand" href="index.html">Soft<span>academy</span></a>
+                                    {/* <a className="navbar-brand" href="index.html">Soft<span>academy</span></a> */}
                                 </div>
                             </div>
                             <div className="col-sm-9">
