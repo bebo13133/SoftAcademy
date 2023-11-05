@@ -8,7 +8,7 @@ export const PrivacyPolicy = () => {
             <div className="privacy-policy">
                 <h2>Privacy Policy</h2>
                 <p>
-                    Last updated: [Date]
+                    Last updated: 05.11.2023
                 </p>
                 <p>
                     1. Introduction
@@ -20,13 +20,13 @@ export const PrivacyPolicy = () => {
 
                 </p>
                 <p>
-                    2.1.Personal Information
+                    2.1. Personal Information
                     We may collect personal information that you voluntarily provide, such as your name, email address, and other contact information, when you fill out forms on the Site or contact us.
 
                 </p>
                 <p>
 
-                    2.2.Non - Personal Information
+                    2.2. Non - Personal Information
                     We may collect non - personal information about your interaction with the Site, such as your IP address, browser type, and usage data.
 
                 </p>
@@ -36,19 +36,19 @@ export const PrivacyPolicy = () => {
 
                 </p>
                 <p>
-                    3.1.To provide and maintain the Site.
+                    3.1. To provide and maintain the Site.
 
                 </p>
                 <p>
-                    3.2.To respond to your requests, comments, or questions.
+                    3.2. To respond to your requests, comments, or questions.
 
                 </p>
                 <p>
-                    3.3.To send periodic emails, updates, or other communications.
+                    3.3. To send periodic emails, updates, or other communications.
 
                 </p>
                 <p>
-                    3.4.To improve our services and your experience on the Site.
+                    3.4. To improve our services and your experience on the Site.
 
                 </p>
                 <p>
