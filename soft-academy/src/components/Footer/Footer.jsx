@@ -4,11 +4,11 @@ export const Footer = () => {
         <>
             <footer id="footer" className="footer">
                 <div className="container">
-                    <div className="footer-menu">
+                    {/* <div className="footer-menu">
                         <div className="row">
                             <div className="col-sm-3">
                                 <div className="navbar-header">
-                                    {/* <a className="navbar-brand" href="index.html">Soft<span>academy</span></a> */}
+                                    <a className="navbar-brand" href="index.html">Soft<span>academy</span></a>
                                 </div>
                             </div>
                             <div className="col-sm-9">
@@ -22,7 +22,7 @@ export const Footer = () => {
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="hm-footer-copyright">
                         <div className="row">
                             <div className="col-sm-5">

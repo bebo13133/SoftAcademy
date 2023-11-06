@@ -160,7 +160,7 @@ export const OneCourse = ({
                     <img src={imageUrl ? imageUrl : imageUrl2} alt="images" />
                     <br />
                     <div className="footer-social social-details ">
-                        <a href="#"><i className="fa fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/groups/706263354783010"><i className="fa fa-facebook"></i></a>
                         <a href="#"><i className="fa fa-twitter"></i></a>
                         <a href="#"><i className="fa fa-instagram"></i></a>
                     </div>            

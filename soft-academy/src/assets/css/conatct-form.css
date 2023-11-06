@@ -63,7 +63,7 @@
 .contact-us-softacademy #subject {
     font-size: 22px;
 }
-#root > section.contact-us-softacademy > div > div:nth-child(2) > div.col-lg-7 > form > div.form-row > div:nth-child(1){
+#root > section.contact-us-softacademy > div > div:nth-child(2) > div.col-lg-7 > form > div.form-row > div{
     padding-left: 0px;
     padding-right:0px;
 }

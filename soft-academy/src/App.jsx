@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom'
 import ErrorBoundary from './components/ErrorBoundary'
 import { UserProvider } from './components/contexts/UserContext'
 import { useCookies } from 'react-cookie'
-
 import { StudentReview } from './components/StudentsReview/StudentReview'
 import { Contact } from './components/Contact/Contact'
 
@@ -84,10 +83,12 @@ console.log("cookie",cookies)
 
               {/* Route Guard */}
               <Route element={<RouteGuard />}>
-
+           
                 <Route path={"/logout"} element={<Logout />} />
+             
                 <Route path={"/create"} element={<CreateCourse />} />
                 <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
+                
                 <Route path={"/catalog/:courseId/edit"} element={
                   <IsOwnerCourse>
                 <EditCourse />

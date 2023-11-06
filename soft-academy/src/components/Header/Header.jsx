@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink, Route, Routes } from "react-router-dom"
 import { UserContext } from "../contexts/UserContext"
 import { useContext } from "react"
 import * as React from 'react';
 
+import { ResponsiveUserBar } from "../ResponsiveUserBar";
+// import { Logout } from "../Logout/Logout";
 
 export const Header = () => {
 	const { isAuthentication } = useContext(UserContext)
@@ -10,25 +12,25 @@ export const Header = () => {
 	return (
 		<>
 			<header id="header-top" className="header-top">
-				
+
 				<ul>
 					<li>
 						<div className="header-top-left">
 							<ul>
-							
-							
+
+
 								<li className="select-opt">
 									<a href="#"><span className="lnr lnr-magnifier"></span></a>
 								</li>
-								<li className="navbar-brand "style={{fontSize:"20px", fontWeight:"bold", color:"#ff545a"}} href="/">Soft<span style={{fontSize:"20px", textTransform:"none", color:"black"}}>Academy</span></li>
+								<li className="navbar-brand " style={{ fontSize: "20px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "20px", textTransform: "none", color: "black" }}>Academy</span></li>
 							</ul>
 						</div>
 					</li>
 					<li className="head-responsive-right pull-right">
 						<div className="header-top-right">
 							<ul>
-							
-								{!isAuthentication && (<> 
+
+								{!isAuthentication && (<>
 									<li className="header-top-contact">
 										<Link to={"/login"}>sign in</Link>
 									</li>
@@ -40,12 +42,26 @@ export const Header = () => {
 
 								</>)}
 								{isAuthentication && <>
-									
-									<li className="header-top-contact">
-										<Link to={"/logout"}>logout</Link>
-									</li>
 
-							
+									{/* <li className="header-top-contact">
+										<Link to={"/logout"}>logout</Link>
+									</li> */}
+								
+								
+											<ResponsiveUserBar />
+									
+									
+
+
+
+
+
+									{/* console.log(<ResponsiveUserBar />) */}
+
+
+
+
+
 								</>}
 
 
@@ -66,7 +82,7 @@ export const Header = () => {
 								<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 									<i className="fa fa-bars"></i>
 								</button>
-							
+
 
 							</div>
 
@@ -86,7 +102,7 @@ export const Header = () => {
 
 									</>)}
 									<li className="scroll"><Link to={"/contact"}>contact</Link></li>
-								
+
 
 								</ul>
 							</div>
@@ -95,9 +111,9 @@ export const Header = () => {
 
 				</div>
 				<div className="clearfix"></div>
-			
+
 			</section>
-			
+
 		</>
 	)
 }
