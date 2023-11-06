@@ -17,7 +17,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 
 // const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Profile", "Settings", "Logout"];
 
 export const ResponsiveUserBar = () => {
   const navigate = useNavigate();
@@ -34,8 +34,13 @@ export const ResponsiveUserBar = () => {
   };
 
   const handleLogout = () => {
-
     navigate('/logout', { replace: true });
+  };
+  const handleProfile = () => {
+    navigate('/profile', { replace: true });
+  };
+  const handleSettings = () => {
+    navigate('/settings', { replace: true });
   };
 
   return (
@@ -67,7 +72,10 @@ export const ResponsiveUserBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogout : handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={  setting === 'Profile' ? handleProfile :
+                setting === 'Settings' ? handleSettings :
+                setting === 'Logout' ? handleLogout :
+                handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

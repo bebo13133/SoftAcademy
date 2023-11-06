@@ -1,4 +1,9 @@
+import { useState,useEffect } from "react"
 import { Link } from "react-router-dom"
+import * as likeService from "../Services/likeService"
+import { useAuthContext } from "../contexts/UserContext"
+import (useAuthContext)
+
 
 export const OneCourse = ({
     imageUrl,
@@ -12,6 +17,24 @@ export const OneCourse = ({
     _id,
     lectorImage
 }) => {
+
+    const [likes, setLikes]=useState([])
+    // const { courseId } = useParams()
+    const courseId = _id
+
+useEffect(() => {
+    likeService.getAllLikes()
+    .then(result=>{
+    const likesCourse = (result.filter(like => like.courseId === courseId));
+      setLikes(likesCourse)
+
+        
+    })
+        
+
+},[])
+
+console.log(likes)
 
     return (
         <>
@@ -41,7 +64,7 @@ export const OneCourse = ({
                         <h2><a href="#">{courseName}</a></h2>
                         <p className="explore-rating-price">
 
-                            <a href="#"> 10 Likes</a>
+                            <a href="#"> {likes.length} Likes</a>
                             <span className="explore-price-box">
                                 Price &ensp;
                                 <span className="explore-price">{price}$</span>
