@@ -30,7 +30,7 @@ export const CreateCourse = () => {
         ReactJS: "https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png",
         "Java Script":"https://cdn3d.iconscout.com/3d/premium/thumb/javascript-7308311-5938360.png",
         'C#': "https://seeklogo.com/images/C/c-sharp-c-logo-02F17714BA-seeklogo.com.png",
-        "VueJs": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png",
+        "VueJs": "https://user-images.githubusercontent.com/7110136/29002858-a09570d2-7ab4-11e7-8faa-5dd6d4458b0d.png",
         "Type Script": "https://cdn-icons-png.flaticon.com/512/919/919832.png",
         "HTML&CSS": "https://www.clipartmax.com/png/middle/291-2918933_html-and-css-logo.png",
         "Angular": "https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg",
@@ -169,7 +169,6 @@ export const CreateCourse = () => {
                     </div>
                 </form>
             </div>
-
         </>
     )
 }

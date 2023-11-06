@@ -61,6 +61,8 @@ export const OneCourse = ({
 
     // console.log(likeUser)
     const likeId = likeUser?._id
+
+    
     const openCommentsPopUp = () => {
         setCommentsPopUp(true)
     }
@@ -143,13 +145,6 @@ export const OneCourse = ({
                             </div>
 
 
-                            {/*                 
-                        <p className="thanks-for-vote">Thanks For Voting</p>
-        
-                        <a href="/photos/{{photo._id}}/voteUp" className="vote-up">UpVote +1</a>
-                        <a href="/photos/{{photo._id}}/voteDown" className="vote-down">DownVote -1</a> */}
-
-
                         </div>
                     </div>
 
@@ -163,7 +158,7 @@ export const OneCourse = ({
                         <a href="https://www.facebook.com/groups/706263354783010"><i className="fa fa-facebook"></i></a>
                         <a href="#"><i className="fa fa-twitter"></i></a>
                         <a href="#"><i className="fa fa-instagram"></i></a>
-                    </div>            
+                    </div>
                     <br />
                     <br />
                     <p className="card-keyword">Lector: <span>{firstName} {lastName}</span> </p>

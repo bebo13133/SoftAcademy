@@ -42,26 +42,10 @@ export const Header = () => {
 
 								</>)}
 								{isAuthentication && <>
-
-									{/* <li className="header-top-contact">
-										<Link to={"/logout"}>logout</Link>
-									</li> */}
-								
-								
+							
+								{/* <li className="header-top-contact"> */}
 											<ResponsiveUserBar />
-									
-									
-
-
-
-
-
-									{/* console.log(<ResponsiveUserBar />) */}
-
-
-
-
-
+											{/* </li> */}
 								</>}
 
 
