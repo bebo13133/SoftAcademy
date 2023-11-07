@@ -22,10 +22,10 @@ return result
 
 
 
-export const deleteLike=(likeId)=>{
+export const deleteBookmark=(markId)=>{
    
   
-    const result =  request.del(`${baseUrl}/${likeId}`);
+    const result =  request.del(`${baseUrl}/${markId}`);
     return result 
     
     }

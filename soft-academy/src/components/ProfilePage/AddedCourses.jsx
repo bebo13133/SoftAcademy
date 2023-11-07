@@ -32,8 +32,12 @@ useEffect(() =>{
     return (
 
         <>
-          <ProfileSidebar style={{top:'0px', width:'215px', zIndex:"40"}} />
-            <section id="explore" className="explore">
+          <ProfileSidebar style={{
+            top:0, 
+            width:'215px', 
+            zIndex:40,
+            }} />
+            <section id="explore" className="explore" style={{height: "376px"}}>
                 <div className="container">
                     <div className="section-header">
                         <h2>Courses</h2>

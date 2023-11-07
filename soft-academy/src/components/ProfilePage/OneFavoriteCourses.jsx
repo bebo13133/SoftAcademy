@@ -3,10 +3,9 @@ import { Link } from "react-router-dom"
 import * as likeService from "../Services/likeService"
 import * as bookmarkService from "../Services/bookmarkService"
 import { useAuthContext } from "../contexts/UserContext";
-import './bookMark.css'
 
 
-export const OneCourse = ({
+export const OneFavoriteCourses = ({
     imageUrl,
     description,
     price,
@@ -23,63 +22,64 @@ export const OneCourse = ({
     const [isBookmarked, setBookmarked] = useState(false);
     const [bookMarkUser, setBookmarkUser] = useState([])
     const { userId } = useAuthContext()
+   
+
+
     const courseId = _id
 
-    const markId = bookMarkUser?._id
+    // const markId = bookMarkUser?._id
 
-    
+
     useEffect(() => {
         likeService.getAllLikes()
             .then(result => {
                 const likesCourse = (result.filter(like => like.courseId === courseId));
                 setLikes(likesCourse)
 
-
             })
 
 
     }, [])
-  
-
-    const handleBookmarkToggle =  async(courseId, userId, markId) => {
-        // setBookmarked(!isBookmarked);
 
 
+    // const handleBookmarkToggle = async (courseId, userId, markId) => {
+      
+    //     if (isBookmarked) {
 
-        if (isBookmarked) {
+    //         const result = bookmarkService.deleteBookmark(markId);
+    //         setBookmarked(false);
+    //         setBookmarkUser(result)
+    //     } else if (!isBookmarked) {
 
-             const result = bookmarkService.deleteBookmark(markId);
-            setBookmarked(false);
-         setBookmarkUser(result)
-        } else if (!isBookmarked) {
-          
-           const result =  await bookmarkService.createBookmark(courseId, userId);
-            setBookmarked(true);
-            return setBookmarkUser(result)
-
-
-        }
+    //         const result = await bookmarkService.createBookmark(courseId, userId);
+    //         setBookmarked(true);
+    //         return setBookmarkUser(result)
 
 
-    }
+    //     }
 
-    useEffect(() => {
-        bookmarkService.getAllMarks(courseId)
-
-            .then(response => {
+    // }
 
 
-                const bookMarkCourse = (response.filter(like => like.courseId === courseId));
-                console.log("bookMarkCourse", bookMarkCourse)
+    // useEffect(() => {
+    //     bookmarkService.getAllMarks(courseId)
 
-                setBookmarked(bookMarkCourse.some(like => like.userId === userId));
-                setBookmarkUser(bookMarkCourse.find(like => like._ownerId === userId));
-            })
-            .catch(error => {
-                console.error('Error fetching likes:', error);
-            });
-    }, [setBookmarkUser]);
-    console.log("markId", markId)
+    //         .then(response => {
+    //             const bookMarkCourse = (response.filter(like => like.courseId === courseId));
+    //             // console.log("bookMarkCourse", bookMarkCourse)
+
+    //             setBookmarked(bookMarkCourse.some(like => like.userId === userId));
+    //             setBookmarkUser(bookMarkCourse.find(like => like._ownerId === userId));
+
+
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching likes:', error);
+    //         });
+    // }, [setBookmarkUser]);
+
+
+    // console.log("markId", markId)
 
     // console.log(`Bookmark`,bookMarkUser)
 
@@ -89,23 +89,20 @@ export const OneCourse = ({
 
     return (
         <>
+
+
             <div className=" col-md-4 col-sm-6">
                 <div className="single-explore-item">
                     <div className="single-explore-img">
                         <img src={imageUrl ? imageUrl : imageUrl2} alt="explore image" />
                         <div className="single-explore-img-info">
-                            {/* <button onClick="window.location.href='#'">best rated</button> */}
                             <div className="single-explore-image-icon-box">
                                 <ul>
-                                    {/* <li>
-                                        <div className="single-explore-image-icon">
-                                            <i className="fa fa-arrows-alt"></i>
-                                        </div>
-                                    </li> */}
+
                                     <li>
-                                        <div className={`single-explore-image-icon ${isBookmarked ? 'bookmarked' : ''}`} >
-                                            <i className={`fa ${isBookmarked ? 'fa-heart' : 'fa-heart-o'}`} onClick={()=>handleBookmarkToggle(courseId, userId, markId)} style={{ color: isBookmarked ? 'red' : 'blue', background: "none", fontSize: "32px", marginLeft: "-40px" }}></i>
-                                        </div>
+                                        {/* <div className={`single-explore-image-icon ${isBookmarked ? 'bookmarked' : ''}`} >
+                                            <i className={`fa ${isBookmarked ? 'fa-heart' : 'fa-heart-o'}`} onClick={() => handleBookmarkToggle(courseId, userId, markId)} style={{ color: isBookmarked ? 'red' : 'blue', background: "none", fontSize: "32px", marginLeft: "-40px" }}></i>
+                                        </div> */}
                                     </li>
                                 </ul>
                             </div>
@@ -114,8 +111,8 @@ export const OneCourse = ({
                     <div className="single-explore-txt bg-theme-1">
                         <h2><a href="#">{courseName}</a></h2>
                         <p className="explore-rating-price">
-
-                            <a href="#"> {Math.floor(Math.random() * 10 + likes.length+1 ) + likes.length} Likes</a>
+                            {/* използвам нарочно math random за да ми показва различен брой лайкове и по голям от 1 , кат о запазвам state-а реален   */}
+                            <a href="#"> {Math.floor(Math.random() * 10 + likes.length + 1) + likes.length} Likes</a>
                             <span className="explore-price-box">
                                 Price &ensp;
                                 <span className="explore-price">{price}$</span>

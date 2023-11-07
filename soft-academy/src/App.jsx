@@ -1,6 +1,6 @@
 // import { useState,useEffect } from 'react'
 import { useEffect, useState } from 'react'
-import { Route, Routes,useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import ErrorBoundary from './components/ErrorBoundary'
 import { UserProvider } from './components/contexts/UserContext'
 import { useCookies } from 'react-cookie'
@@ -33,12 +33,13 @@ import { PrivacyPolicy } from './components/CookieConsent/PrivacyPolicy'
 import { ProfilePage } from './components/ProfilePage/ProfilePage'
 import { ChangePassword } from './components/ProfilePage/ChangePassword'
 import { AddedCourses } from './components/ProfilePage/AddedCourses'
+import { FavoriteCourses } from './components/ProfilePage/FavoriteCourses'
 
 function App() {
-  const[isLoading,setIsLoading]= useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   const [cookies] = useCookies(["cookieConsent"]);
-console.log("cookie",cookies)
+  console.log("cookie", cookies)
   useEffect(() => {
     setIsLoading(false)
 
@@ -46,65 +47,67 @@ console.log("cookie",cookies)
 
   const location = useLocation(); // Get the current location
 
-  const isProfilePage = location.pathname.startsWith('/profile') ||  location.pathname.startsWith("/change-password") || location.pathname.startsWith("/my-added-courses")
+  const isProfilePage = location.pathname.startsWith('/profile') || location.pathname.startsWith("/change-password")
+    || location.pathname.startsWith("/my-added-courses") || location.pathname.startsWith("/favorite-courses")
 
   return (
-    
+
     <>
-          {isLoading && <IsLoading/>}
+      {isLoading && <IsLoading />}
 
       <UserProvider>
         <CourseProvider>
           <ErrorBoundary>
 
             <Header />
-            {!cookies.cookieConsent && <CookieConsent/>}
+            {!cookies.cookieConsent && <CookieConsent />}
 
             <Routes>
               <Route path={"/"} element={<Home />} />
               <Route path={"/privacy-policy"} element={<PrivacyPolicy />} />
-              
+
 
               <Route path={"/catalog"} element={<CatalogCourses />} />
               <Route path={"/reviews"} element={<StudentReview />} />
               <Route path={"/blog"} element={<Blog />} />
               <Route path={"/contact"} element={<Contact />} />
-             
+
 
               {/* loginRegisterGuard */}
-          
-                <Route path={"/login"} element={
-                     <GuardLoginRegister>
-                <Login />
-                </GuardLoginRegister>
-                } />
 
-                <Route path={"/register"} element={
-                     <GuardLoginRegister>
+              <Route path={"/login"} element={
+                <GuardLoginRegister>
+                  <Login />
+                </GuardLoginRegister>
+              } />
+
+              <Route path={"/register"} element={
+                <GuardLoginRegister>
                   <Register />
-                    </GuardLoginRegister>
-                  } />           
+                </GuardLoginRegister>
+              } />
               {/* Edn LoginRegisterGuard */}
 
 
               {/* Route Guard */}
               <Route element={<RouteGuard />}>
-           
+
                 <Route path={"/logout"} element={<Logout />} />
-             
+
                 <Route path={"/create"} element={<CreateCourse />} />
                 <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
-                
+
                 <Route path={"/catalog/:courseId/edit"} element={
                   <IsOwnerCourse>
-                <EditCourse />
-                </IsOwnerCourse>
+                    <EditCourse />
+                  </IsOwnerCourse>
                 } />
-                
-                <Route path={"/profile"} element={ <ProfilePage/>} />
 
-<Route path="/change-password" element={<ChangePassword />} />
-<Route path="/my-added-courses" element={<AddedCourses />} />
+                <Route path={"/profile"} element={<ProfilePage />} />
+
+                <Route path="/change-password" element={<ChangePassword />} />
+                <Route path="/my-added-courses" element={<AddedCourses />} />
+                <Route path="/favorite-courses" element={<FavoriteCourses />} />
 
 
               </Route>
@@ -113,20 +116,20 @@ console.log("cookie",cookies)
               <Route path={"/404"} element={<PageNotFound />} />
               <Route path={"/admin"} element={<AdminPage />} />
             </Routes>
-           
-              <ChatBox/>
-               
-              {!isProfilePage && <Footer />}  
 
-           
+            <ChatBox />
+
+            {!isProfilePage && <Footer />}
+
+
             <Routes>
-            <Route path={"/admin"} element={<AdminPage />} />
+              <Route path={"/admin"} element={<AdminPage />} />
             </Routes>
           </ErrorBoundary>
         </CourseProvider>
       </UserProvider>
 
-      </>
+    </>
   )
 }
 

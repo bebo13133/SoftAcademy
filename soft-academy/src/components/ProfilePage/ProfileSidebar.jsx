@@ -16,6 +16,9 @@ export const ProfileSidebar=()=>{
             <Link to="/my-added-courses">Added Courses</Link>
           </li>
           <li>
+            <a href="/favorite-courses">Favorite Courses</a>
+          </li>
+          <li>
             <a href="/change-username">Change Username</a>
           </li>
           <li>

@@ -90,7 +90,7 @@ export const OneCourse = ({
             // Send a request to add a like
             try {
                 const result = await likeService.createLike(courseId, userId);
-                console.log(result)
+                // console.log(result)
                 setLikeCounter(likeCounter + 1);
                 setLiked(true);
 
