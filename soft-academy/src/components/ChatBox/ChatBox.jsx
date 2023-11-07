@@ -1,12 +1,6 @@
  import React, { useEffect, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import ListGroup from "react-bootstrap/ListGroup";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
+
 
 const ENDPOINT =
   window.location.host.indexOf("localhost") >= 0
