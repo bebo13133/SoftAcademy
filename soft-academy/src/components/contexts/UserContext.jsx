@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react"
 import { useLocalStorage } from "../Hooks/useLocalStorage"
-import { userServiceFactory } from "../Services/UserService"
+import { userServiceFactory } from "../Services/userService"
 import { useNavigate } from "react-router-dom"
 // import { Login } from "../Login/Login"
 // import { Register } from "../Register/Register"
@@ -24,8 +24,8 @@ export const UserProvider = ({ children }) => {
             setIsAuth(newUser)
             navigate("/")
         } catch (err) {
-            console.log("PROBLEM")
-
+            // console.log("PROBLEM")
+            throw new Error(err.message)
         }
 
     }
@@ -49,18 +49,33 @@ export const UserProvider = ({ children }) => {
 
     };
 
+    const onChangePassword = async (data)=>{
+
+        const {oldPassword, confirmPassword, ...registerData } = data
+console.log("registerData",registerData.newPassword)
+        try{
+
+            const userId = isAuth._id
+            const newPass = await userService.changePassword(userId, registerData.newPassword)
+                 console.log("newpassword",newPass)
+        }catch (err) {
+            throw new Error(err.message)
+        }
+
+    }
+
+
     const onLogout = () => {
         try {
             userService.logout()
-
             setIsAuth({})
-
         } catch (err) {
             throw new Error(err.message)
 
         }
-
     }
+
+
     const contextService = {
         onLoginSubmit,
         userId: isAuth._id,
@@ -68,9 +83,8 @@ export const UserProvider = ({ children }) => {
         token: isAuth.accessToken,
         isAuthentication: !!isAuth.accessToken,
         onRegisterSubmit,
-        onLogout
-
-
+        onLogout,
+        onChangePassword
     }
 
     return (

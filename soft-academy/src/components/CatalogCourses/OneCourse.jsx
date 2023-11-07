@@ -1,8 +1,7 @@
 import { useState,useEffect } from "react"
 import { Link } from "react-router-dom"
 import * as likeService from "../Services/likeService"
-import { useAuthContext } from "../contexts/UserContext"
-import (useAuthContext)
+
 
 
 export const OneCourse = ({
@@ -64,7 +63,7 @@ console.log(likes)
                         <h2><a href="#">{courseName}</a></h2>
                         <p className="explore-rating-price">
 
-                            <a href="#"> {likes.length} Likes</a>
+                            <a href="#"> {Math.floor(Math.random()*5)+likes.length} Likes</a>
                             <span className="explore-price-box">
                                 Price &ensp;
                                 <span className="explore-price">{price}$</span>

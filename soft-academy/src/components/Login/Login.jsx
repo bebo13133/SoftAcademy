@@ -7,9 +7,9 @@ export const Login = () => {
 
 
 
-    const { onLoginSubmit,token } = useAuthContext()
-const {isAuthentication} =useAuthContext()
-console.log(`Login ${token}`)
+    const { onLoginSubmit } = useAuthContext()
+
+
     const { onSubmit, values, onChangeHandler } = useForm({
         email: "",
         password: "",

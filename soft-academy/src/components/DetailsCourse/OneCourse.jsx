@@ -43,7 +43,7 @@ export const OneCourse = ({
     useEffect(() => {
         likeService.getAllLikes(courseId)
             .then(response => {
-                console.log("response", response)
+                // console.log("response", response)
 
                 const likesCourse = (response.filter(like => like.courseId === courseId));
                 console.log("likeCourse", likesCourse)

@@ -1,11 +1,13 @@
 // import { useState,useEffect } from 'react'
 import { useEffect, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes,useLocation } from 'react-router-dom'
 import ErrorBoundary from './components/ErrorBoundary'
 import { UserProvider } from './components/contexts/UserContext'
 import { useCookies } from 'react-cookie'
 import { StudentReview } from './components/StudentsReview/StudentReview'
 import { Contact } from './components/Contact/Contact'
+
+
 
 import { Blog } from './components/Blog/Blog'
 import { CatalogCourses } from './components/CatalogCourses/CatalogCourses'
@@ -28,7 +30,9 @@ import { AdminPage } from './components/AdminPage/AdminPage'
 import { IsLoading } from './components/IsLoading/IsLoading'
 import { CookieConsent } from './components/CookieConsent/CookieConsent'
 import { PrivacyPolicy } from './components/CookieConsent/PrivacyPolicy'
-
+import { ProfilePage } from './components/ProfilePage/ProfilePage'
+import { ChangePassword } from './components/ProfilePage/ChangePassword'
+import { AddedCourses } from './components/ProfilePage/AddedCourses'
 
 function App() {
   const[isLoading,setIsLoading]= useState(true)
@@ -40,7 +44,9 @@ console.log("cookie",cookies)
 
   }, [])
 
+  const location = useLocation(); // Get the current location
 
+  const isProfilePage = location.pathname.startsWith('/profile') ||  location.pathname.startsWith("/change-password") || location.pathname.startsWith("/my-added-courses")
 
   return (
     
@@ -94,6 +100,12 @@ console.log("cookie",cookies)
                 <EditCourse />
                 </IsOwnerCourse>
                 } />
+                
+                <Route path={"/profile"} element={ <ProfilePage/>} />
+
+<Route path="/change-password" element={<ChangePassword />} />
+<Route path="/my-added-courses" element={<AddedCourses />} />
+
 
               </Route>
               {/* End RouteGuard */}
@@ -104,7 +116,8 @@ console.log("cookie",cookies)
            
               <ChatBox/>
                
-              <Footer />
+              {!isProfilePage && <Footer />}  
+
            
             <Routes>
             <Route path={"/admin"} element={<AdminPage />} />
