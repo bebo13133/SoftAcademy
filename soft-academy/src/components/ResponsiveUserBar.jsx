@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage"
+
+
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -14,6 +17,8 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { AvatarChange } from "./ProfilePage/AvatarChange";
+import { storage } from "./config/firebase-config";
+import { useAuthContext } from "./contexts/UserContext";
 
 
 
@@ -23,8 +28,47 @@ const settings = ["Profile", "Settings", "Logout"];
 export const ResponsiveUserBar = () => {
   const navigate = useNavigate();
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [avatar, setAvatar] = useState('./img/avatar-user.png');
-  
+  const [avatars, setAvatar] = useState([]);
+  const [urlAvatar, setUrlAvatar] = useState([]);
+
+  const { userId, avatarUrl} = useAuthContext()
+// console.log("avatar",avatarUrl)
+  const avatarImageList = ref(storage, `avatarImages/`)
+
+
+ const fetchUserLastAvatar = (userId) => {
+    listAll(avatarImageList)
+      .then((response) => {
+        const userAvatarItems = response.items.filter((item) => item.name.startsWith(userId));
+        if (userAvatarItems.length > 0) {
+          const lastUserAvatarItem = userAvatarItems[userAvatarItems.length - 1];
+          getDownloadURL(lastUserAvatarItem).then((url) => {
+            setAvatar((prevAvatar) => {
+         
+              return[ prevAvatar.filter((avatar) => avatar.userId === userId), { userId, url }];
+            });
+          });
+        }
+      });
+  };
+
+
+  useEffect(() => {
+    fetchUserLastAvatar(userId);
+
+
+  }, []);
+
+  const urlAv = (avatars.map(avatar => avatar.url))
+  // setUrlAvatar(urlAv);
+  console.log("urlAvatar", urlAv[1])
+
+
+
+
+
+
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -44,9 +88,10 @@ export const ResponsiveUserBar = () => {
   };
 
 
-  const handleAvatarChange = (newAvatar)=>{
-    setAvatar(newAvatar)
-  }
+
+
+
+  // export { fetchUserLastAvatar };
 
   return (
     <AppBar position="static" style={{ boxShadow: 'none', backgroundColor: 'white' }}>
@@ -58,8 +103,8 @@ export const ResponsiveUserBar = () => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
 
-              <AvatarChange currentAvatar={avatar} onAvatarChange={handleAvatarChange} alt="Remy Sharp"/>
-                {/* <Avatar alt="Remy Sharp" src="./img/avatar-user.png" /> */}
+          
+                <Avatar alt="Remy Sharp" src={avatarUrl || urlAv[1] || "./img/avatar-user.png"} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -79,10 +124,10 @@ export const ResponsiveUserBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={  setting === 'Profile' ? handleProfile :
-                setting === 'Settings' ? handleSettings :
-                setting === 'Logout' ? handleLogout :
-                handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={setting === 'Profile' ? handleProfile :
+                  setting === 'Settings' ? handleSettings :
+                    setting === 'Logout' ? handleLogout :
+                      handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

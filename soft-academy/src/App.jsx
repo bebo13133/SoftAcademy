@@ -34,7 +34,7 @@ import { ProfilePage } from './components/ProfilePage/ProfilePage'
 import { ChangePassword } from './components/ProfilePage/ChangePassword'
 import { AddedCourses } from './components/ProfilePage/AddedCourses'
 import { FavoriteCourses } from './components/ProfilePage/FavoriteCourses'
-import { AvatarChange } from './components/ProfilePage/AvatarChange'
+import { AvatarHeader } from './components/ProfilePage/AvatarHeader'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -109,7 +109,7 @@ function App() {
                 <Route path="/change-password" element={<ChangePassword />} />
                 <Route path="/my-added-courses" element={<AddedCourses />} />
                 <Route path="/favorite-courses" element={<FavoriteCourses />} />
-                <Route path="/change-avatar" element={<AvatarChange />} />
+                <Route path="/change-avatar" element={<AvatarHeader />} />
 
 
               </Route>

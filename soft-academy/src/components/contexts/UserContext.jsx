@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react"
+import { createContext, useContext, useState,useCallback } from "react"
 import { useLocalStorage } from "../Hooks/useLocalStorage"
 import { userServiceFactory } from "../Services/userService"
 import { useNavigate } from "react-router-dom"
@@ -11,6 +11,7 @@ export const UserContext = createContext()
 export const UserProvider = ({ children }) => {
 
     const [isAuth, setIsAuth] = useLocalStorage('auth', {})
+    const [avatarUrl, setAvatarUrl] = useState(null);
 
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
@@ -75,9 +76,17 @@ console.log("registerData",registerData.newPassword)
         }
     }
 
+    const updateAvatarUrl = useCallback((newUrl) => {
+      setAvatarUrl(newUrl);
+    }, []);   // ползвам го за да сменя снимката на аватара в реално време ,като при зареждане на сайта съм сложил заявка която да я вземе от firebase
+  
+
+
 
     const contextService = {
         onLoginSubmit,
+        avatarUrl,
+        updateAvatarUrl,
         userId: isAuth._id,
         userEmail: isAuth.email,
         token: isAuth.accessToken,
