@@ -2,7 +2,8 @@
 
 
 
-1.**<span style="color:red">For start the two main servers:</span>**    in root directory terminal write npm start , just like that!
+1.**<span style="color:red">For start the two main servers:</span>**    in root directory terminal write npm start ,
+ just like that!
 
 2. **<span style="color:red">Run project</span>**  - start the project by entering its 
 1. directory (soft-academy folder), in the terminal and typing - **<span style="color:red">npm run dev</span>**
