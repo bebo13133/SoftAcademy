@@ -42,11 +42,7 @@ export const OneCourse = ({
 
 
     const handleBookmarkToggle = async (courseId, userId, markId) => {
-        // setBookmarked(!isBookmarked);
-
-
-
-        if (isBookmarked) {
+            if (isBookmarked) {
 
             const result = bookmarkService.deleteBookmark(markId);
             setBookmarked(false);
@@ -57,10 +53,7 @@ export const OneCourse = ({
             setBookmarked(true);
             return setBookmarkUser(result)
 
-
         }
-
-
     }
 
     useEffect(() => {
