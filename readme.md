@@ -2,7 +2,7 @@
 
 
 
-1.**<span style="color:red">For start the two main servers:</span>**    in root directory terminal write npm start ,
+1.**<span style="color:red">For start the two main servers:</span>**    in root directory terminal write **<span style="color:red">npm start</span>**   ,
  just like that!
 
 2. **<span style="color:red">Run project</span>**  - start the project by entering its 
