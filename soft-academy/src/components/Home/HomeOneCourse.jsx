@@ -60,16 +60,6 @@ export const HomeOneCourse = ({
     }, [setBookmarkUser]);
 
 
-
-
-
-
-
-
-
-
-
-
     return (
         <>
             <div className="col-md-4 col-sm-6 " >
