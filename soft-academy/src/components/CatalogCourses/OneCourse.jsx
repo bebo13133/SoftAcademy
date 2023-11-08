@@ -79,7 +79,7 @@ export const OneCourse = ({
                 console.error('Error fetching likes:', error);
             });
     }, [setBookmarkUser]);
-    console.log("markId", markId)
+    // console.log("markId", markId)
 
     // console.log(`Bookmark`,bookMarkUser)
 

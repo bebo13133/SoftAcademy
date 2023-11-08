@@ -58,7 +58,7 @@ const [isLoading,setIsLoading] = useState(true);
     fetchUserLastAvatar(userId);
 
 setIsLoading(false)
-  }, []);
+  }, [userId]);
 
   const urlAv = (avatars.map(avatar => avatar.url))
   // setUrlAvatar(urlAv);
