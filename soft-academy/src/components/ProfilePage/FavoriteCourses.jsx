@@ -5,12 +5,15 @@ import { useAuthContext } from "../contexts/UserContext";
 import * as bookmarkService from "../Services/bookmarkService"
 import '../CatalogCourses/bookMark.css'
 import { OneFavoriteCourses } from "./OneFavoriteCourses";
+import { IsLoading } from "../IsLoading/IsLoading"
+import { useLoading } from "../Hooks/useLoading"
 
 export const FavoriteCourses = () => {
     const { userId } = useAuthContext()
     const { courses } = useContext(CourseContext)
     const [favorites, setFavorites] = useState([])
     const [favCourses, setFavCourses] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect(() => {
@@ -41,7 +44,7 @@ export const FavoriteCourses = () => {
     });
 
     setFavCourses(userLikedCourses)
-
+    setIsLoading(false)
 }, [courses, favorites]);
 
     console.log("userLikedCourses", favCourses);
@@ -54,10 +57,11 @@ export const FavoriteCourses = () => {
     return (
         <>
 
-
+{isLoading && <IsLoading/>}
             <ProfileSidebar />
-
+            
             <section id="explore" className="explore" style={{height: "376px"}}>
+                
                 <div className="container">
                     <div className="section-header">
                         <h2>Courses</h2>
@@ -65,11 +69,11 @@ export const FavoriteCourses = () => {
                     </div>
                     <div className="explore-content">
                         <div className="row">
-
+                            
+                        {/* {isLoading && <IsLoading /> } */}
                             {favCourses.length > 0 ? favCourses.map(course => <OneFavoriteCourses key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
 
                         </div>
-
                     </div>
                 </div>
 

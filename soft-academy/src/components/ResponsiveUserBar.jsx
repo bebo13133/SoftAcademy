@@ -19,6 +19,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { AvatarChange } from "./ProfilePage/AvatarChange";
 import { storage } from "./config/firebase-config";
 import { useAuthContext } from "./contexts/UserContext";
+import { IsLoading } from "./IsLoading/IsLoading";
 
 
 
@@ -30,7 +31,7 @@ export const ResponsiveUserBar = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [avatars, setAvatar] = useState([]);
   const [urlAvatar, setUrlAvatar] = useState([]);
-
+const [isLoading,setIsLoading] = useState(true);
   const { userId, avatarUrl} = useAuthContext()
 // console.log("avatar",avatarUrl)
   const avatarImageList = ref(storage, `avatarImages/`)
@@ -56,7 +57,7 @@ export const ResponsiveUserBar = () => {
   useEffect(() => {
     fetchUserLastAvatar(userId);
 
-
+setIsLoading(false)
   }, []);
 
   const urlAv = (avatars.map(avatar => avatar.url))
@@ -94,7 +95,9 @@ export const ResponsiveUserBar = () => {
   // export { fetchUserLastAvatar };
 
   return (
-    <AppBar position="static" style={{ boxShadow: 'none', backgroundColor: 'white' }}>
+    <>
+    {isLoading && <IsLoading/>}
+    <AppBar position="static" style={{ boxShadow: 'none', backgroundColor: 'white',}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
@@ -104,7 +107,7 @@ export const ResponsiveUserBar = () => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
 
           
-                <Avatar alt="Remy Sharp" src={avatarUrl || urlAv[1] || "./img/avatar-user.png"} />
+                <Avatar alt="Remy Sharp" src={avatarUrl || urlAv[1] || "./img/avatar-user.png"} style={{ width: 50, height: 50 }}/>
               </IconButton>
             </Tooltip>
             <Menu
@@ -128,7 +131,7 @@ export const ResponsiveUserBar = () => {
                   setting === 'Settings' ? handleSettings :
                     setting === 'Logout' ? handleLogout :
                       handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center" style={{fontSize:"1.4rem"}}>{setting}</Typography>
                 </MenuItem>
               ))}
 
@@ -137,7 +140,7 @@ export const ResponsiveUserBar = () => {
         </Toolbar>
       </Container>
     </AppBar>
-
+    </>
   );
 }
 
