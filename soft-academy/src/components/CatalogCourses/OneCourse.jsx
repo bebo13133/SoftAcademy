@@ -27,7 +27,7 @@ export const OneCourse = ({
 
     const markId = bookMarkUser?._id
 
-    
+
     useEffect(() => {
         likeService.getAllLikes()
             .then(result => {
@@ -39,21 +39,21 @@ export const OneCourse = ({
 
 
     }, [])
-  
 
-    const handleBookmarkToggle =  async(courseId, userId, markId) => {
+
+    const handleBookmarkToggle = async (courseId, userId, markId) => {
         // setBookmarked(!isBookmarked);
 
 
 
         if (isBookmarked) {
 
-             const result = bookmarkService.deleteBookmark(markId);
+            const result = bookmarkService.deleteBookmark(markId);
             setBookmarked(false);
-         setBookmarkUser(result)
+            setBookmarkUser(result)
         } else if (!isBookmarked) {
-          
-           const result =  await bookmarkService.createBookmark(courseId, userId);
+
+            const result = await bookmarkService.createBookmark(courseId, userId);
             setBookmarked(true);
             return setBookmarkUser(result)
 
@@ -94,17 +94,13 @@ export const OneCourse = ({
                     <div className="single-explore-img">
                         <img src={imageUrl ? imageUrl : imageUrl2} alt="explore image" />
                         <div className="single-explore-img-info">
-                            {/* <button onClick="window.location.href='#'">best rated</button> */}
+
                             <div className="single-explore-image-icon-box">
                                 <ul>
-                                    {/* <li>
-                                        <div className="single-explore-image-icon">
-                                            <i className="fa fa-arrows-alt"></i>
-                                        </div>
-                                    </li> */}
+
                                     <li>
                                         <div className={`single-explore-image-icon ${isBookmarked ? 'bookmarked' : ''}`} >
-                                            <i className={`fa ${isBookmarked ? 'fa-heart' : 'fa-heart-o'}`} onClick={()=>handleBookmarkToggle(courseId, userId, markId)} style={{ color: isBookmarked ? 'red' : 'blue', background: "none", fontSize: "32px", marginLeft: "-40px" }}></i>
+                                            <i className={`fa ${isBookmarked ? 'fa-heart' : 'fa-heart-o'}`} onClick={() => handleBookmarkToggle(courseId, userId, markId)} style={{ color: isBookmarked ? 'red' : 'blue', background: "none", fontSize: "32px", marginLeft: "-40px" }}></i>
                                         </div>
                                     </li>
                                 </ul>
@@ -115,7 +111,7 @@ export const OneCourse = ({
                         <h2><a href="#">{courseName}</a></h2>
                         <p className="explore-rating-price">
 
-                            <a href="#"> {Math.floor(Math.random() * 10 + likes.length+1 ) + likes.length} Likes</a>
+                            <a href="#"> {Math.floor(Math.random() * 10 + likes.length + 1) + likes.length} Likes</a>
                             <span className="explore-price-box">
                                 Price &ensp;
                                 <span className="explore-price">{price}$</span>
