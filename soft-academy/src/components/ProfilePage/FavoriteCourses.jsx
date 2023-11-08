@@ -57,7 +57,7 @@ export const FavoriteCourses = () => {
 
             <ProfileSidebar />
 
-            <section id="explore" className="explore">
+            <section id="explore" className="explore" style={{height: "376px"}}>
                 <div className="container">
                     <div className="section-header">
                         <h2>Courses</h2>

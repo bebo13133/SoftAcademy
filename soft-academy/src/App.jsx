@@ -34,6 +34,7 @@ import { ProfilePage } from './components/ProfilePage/ProfilePage'
 import { ChangePassword } from './components/ProfilePage/ChangePassword'
 import { AddedCourses } from './components/ProfilePage/AddedCourses'
 import { FavoriteCourses } from './components/ProfilePage/FavoriteCourses'
+import { AvatarChange } from './components/ProfilePage/AvatarChange'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -48,7 +49,7 @@ function App() {
   const location = useLocation(); // Get the current location
 
   const isProfilePage = location.pathname.startsWith('/profile') || location.pathname.startsWith("/change-password")
-    || location.pathname.startsWith("/my-added-courses") || location.pathname.startsWith("/favorite-courses")
+    || location.pathname.startsWith("/my-added-courses") || location.pathname.startsWith("/favorite-courses") || location.pathname.startsWith("/change-avatar")
 
   return (
 
@@ -108,6 +109,7 @@ function App() {
                 <Route path="/change-password" element={<ChangePassword />} />
                 <Route path="/my-added-courses" element={<AddedCourses />} />
                 <Route path="/favorite-courses" element={<FavoriteCourses />} />
+                <Route path="/change-avatar" element={<AvatarChange />} />
 
 
               </Route>

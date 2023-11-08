@@ -13,6 +13,7 @@ import Avatar from "@mui/material/Avatar";
 
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { AvatarChange } from "./ProfilePage/AvatarChange";
 
 
 
@@ -21,10 +22,9 @@ const settings = ["Profile", "Settings", "Logout"];
 
 export const ResponsiveUserBar = () => {
   const navigate = useNavigate();
-
-
   const [anchorElUser, setAnchorElUser] = useState(null);
-  console.log(anchorElUser)
+  const [avatar, setAvatar] = useState('./img/avatar-user.png');
+  
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -43,8 +43,13 @@ export const ResponsiveUserBar = () => {
     navigate('/settings', { replace: true });
   };
 
+
+  const handleAvatarChange = (newAvatar)=>{
+    setAvatar(newAvatar)
+  }
+
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ boxShadow: 'none', backgroundColor: 'white' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
@@ -52,7 +57,9 @@ export const ResponsiveUserBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
+              <AvatarChange currentAvatar={avatar} onAvatarChange={handleAvatarChange} alt="Remy Sharp"/>
+                {/* <Avatar alt="Remy Sharp" src="./img/avatar-user.png" /> */}
               </IconButton>
             </Tooltip>
             <Menu

@@ -27,7 +27,7 @@ export const OneFavoriteCourses = ({
 
     const courseId = _id
 
-    // const markId = bookMarkUser?._id
+     const markId = bookMarkUser?._id
 
 
     useEffect(() => {
@@ -42,41 +42,41 @@ export const OneFavoriteCourses = ({
     }, [])
 
 
-    // const handleBookmarkToggle = async (courseId, userId, markId) => {
+    const handleBookmarkToggle = async (courseId, userId, markId) => {
       
-    //     if (isBookmarked) {
+        if (isBookmarked) {
 
-    //         const result = bookmarkService.deleteBookmark(markId);
-    //         setBookmarked(false);
-    //         setBookmarkUser(result)
-    //     } else if (!isBookmarked) {
+            const result = bookmarkService.deleteBookmark(markId);
+            setBookmarked(false);
+            setBookmarkUser(result)
+        } else if (!isBookmarked) {
 
-    //         const result = await bookmarkService.createBookmark(courseId, userId);
-    //         setBookmarked(true);
-    //         return setBookmarkUser(result)
-
-
-    //     }
-
-    // }
+            const result = await bookmarkService.createBookmark(courseId, userId);
+            setBookmarked(true);
+            return setBookmarkUser(result)
 
 
-    // useEffect(() => {
-    //     bookmarkService.getAllMarks(courseId)
+        }
 
-    //         .then(response => {
-    //             const bookMarkCourse = (response.filter(like => like.courseId === courseId));
-    //             // console.log("bookMarkCourse", bookMarkCourse)
-
-    //             setBookmarked(bookMarkCourse.some(like => like.userId === userId));
-    //             setBookmarkUser(bookMarkCourse.find(like => like._ownerId === userId));
+    }
 
 
-    //         })
-    //         .catch(error => {
-    //             console.error('Error fetching likes:', error);
-    //         });
-    // }, [setBookmarkUser]);
+    useEffect(() => {
+        bookmarkService.getAllMarks(courseId)
+
+            .then(response => {
+                const bookMarkCourse = (response.filter(like => like.courseId === courseId));
+                // console.log("bookMarkCourse", bookMarkCourse)
+
+                setBookmarked(bookMarkCourse.some(like => like.userId === userId));
+                setBookmarkUser(bookMarkCourse.find(like => like._ownerId === userId));
+
+
+            })
+            .catch(error => {
+                console.error('Error fetching likes:', error);
+            });
+    }, [setBookmarkUser]);
 
 
     // console.log("markId", markId)
@@ -100,9 +100,9 @@ export const OneFavoriteCourses = ({
                                 <ul>
 
                                     <li>
-                                        {/* <div className={`single-explore-image-icon ${isBookmarked ? 'bookmarked' : ''}`} >
+                                        <div className={`single-explore-image-icon ${isBookmarked ? 'bookmarked' : ''}`} >
                                             <i className={`fa ${isBookmarked ? 'fa-heart' : 'fa-heart-o'}`} onClick={() => handleBookmarkToggle(courseId, userId, markId)} style={{ color: isBookmarked ? 'red' : 'blue', background: "none", fontSize: "32px", marginLeft: "-40px" }}></i>
-                                        </div> */}
+                                        </div>
                                     </li>
                                 </ul>
                             </div>

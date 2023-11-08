@@ -22,7 +22,7 @@ export const ProfileSidebar=()=>{
             <a href="/change-username">Change Username</a>
           </li>
           <li>
-            <a href="/change-photo">Change Profile Photo</a>
+            <a href="/change-avatar">Change Profile Photo</a>
           </li>
         </ul>
       </div>

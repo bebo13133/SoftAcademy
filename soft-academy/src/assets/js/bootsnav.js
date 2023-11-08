@@ -478,33 +478,61 @@
         // ------------------------------------------------------------------------------ //
         // Navbar Sticky
         // ------------------------------------------------------------------------------ //'
-        $(document).ready(function () {
-            // Your code here
-     
-        navbarSticky: function () {
-            var getNav = $("nav.navbar.bootsnav");
-            var navSticky = getNav.hasClass("navbar-sticky");
+        $(document).ready(function() {
+           
+        
+            // Function to make the navigation bar sticky
+            function navbarSticky() {
+                var getNav = $("nav.navbar.bootsnav");
+                var navSticky = getNav.hasClass("navbar-sticky");
+        
+                if (navSticky) {
+                    // Set Height Navigation
+                    var getHeight = getNav.height();
+                    $(".wrap-stickys").height(getHeight);
+                }
+            }
+        
+            // Call the navbarSticky function to initialize the sticky navigation bar
+            navbarSticky()
+        
+            // Attach an event listener to the window for scrolling
+            $(window).scroll(function() {
+                // Check the scroll position
+                var scroll = $(window).scrollTop();
+                if (scroll >= 100) {
+                    // Add a class to make the navigation bar sticky when scrolled down 100 pixels
+                    $("nav.navbar.bootsnav").addClass("scrolled");
+                } else {
+                    // Remove the sticky class when not scrolled
+                    $("nav.navbar.bootsnav").removeClass("scrolled");
+                }
+            })
+        }),
+        // navbarSticky: function () {
+        //     var getNav = $("nav.navbar.bootsnav");
+        //     var navSticky = getNav.hasClass("navbar-sticky");
 
-            if (navSticky) {
-                // Set Height Navigation
-                var getHeight = getNav.height();
-                $(".wrap-stickys").height(getHeight);
+        //     if (navSticky) {
+        //         // Set Height Navigation
+        //         var getHeight = getNav.height();
+        //         $(".wrap-stickys").height(getHeight);
 
-                // Window on scroll
+        //         // Window on scroll
               
 
-                    var getOffset = $(".wrap-stickys").offset().top;
-                    $(window).on("scroll", function () {
+        //             var getOffset = $(".wrap-stickys").offset().top;
+        //             $(window).on("scroll", function () {
                         
-                        var scrollTop = $(window).scrollTop();
-                        if (scrollTop > getOffset) {
-                            getNav.addClass("sticked");
-                        } else {
-                            getNav.removeClass("sticked");
-                        }
-                    });
-                }
-            }   }),
+        //                 var scrollTop = $(window).scrollTop();
+        //                 if (scrollTop > getOffset) {
+        //                     getNav.addClass("sticked");
+        //                 } else {
+        //                     getNav.removeClass("sticked");
+        //                 }
+        //             });
+        //         }
+        //     }   }),
             // ------------------------------------------------------------------------------ //
             // Navbar Scrollspy
             // ------------------------------------------------------------------------------ //

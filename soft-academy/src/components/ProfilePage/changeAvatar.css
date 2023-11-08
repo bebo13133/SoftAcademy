@@ -1,0 +1,60 @@
+.avatar-change-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    border: 1px solid #000;
+    border-radius: 15px;
+    max-width: 400px; 
+    margin: 20px auto; 
+    box-shadow: 10px 20px 30px 0px rgb(57 9 231 / 42%);
+
+  }
+  
+  .avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+    border: 2px solid #3498db; /* Change the border color as needed */
+  }
+  
+  /* Add a border style (e.g., dotted) and color (e.g., #e74c3c) */
+  .avatar-preview {
+    margin-top: 20px;
+    border: 2px dotted #e74c3c;
+  }
+  .avatar-input {
+    display: none;
+  }
+  
+  .avatar-upload-label {
+    background-color: #3498db; /* Change the background color as needed */
+    color: #fff;
+    margin-bottom:20px;
+    margin-top:20px;
+
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .avatar-upload-label:hover {
+    background-color: #2073b3; /* Change the hover background color as needed */
+  }
+  
+  .avatar-save-button {
+    margin-bottom: 20px;
+    background-color: #3498db; /* Change the background color as needed */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .avatar-save-button:hover {
+    background-color: #2073b3; /* Change the hover background color as needed */
+  }
