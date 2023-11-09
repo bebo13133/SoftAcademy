@@ -29,11 +29,12 @@ export const Home = () => {
                 const lastThreeCourses = result.slice(length-1,3)
 
                 setCourses(lastThreeCourses)
-                setIsLoading(false)
+                
             })
             .catch(err => {
                 throw new Error(err.message || err)
             });
+            setIsLoading(false)
     }, []);
 
 

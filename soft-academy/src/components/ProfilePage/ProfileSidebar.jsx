@@ -6,7 +6,7 @@ export const ProfileSidebar=()=>{
     return(
         <div className="profile-sidebar">
         <div className="sidebar-header">
-          <h3>Profile Settings</h3>
+          <h3>Profile </h3>
         </div>
         <ul className="sidebar-menu">
           <li>

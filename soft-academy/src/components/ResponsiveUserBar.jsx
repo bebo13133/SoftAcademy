@@ -107,7 +107,7 @@ setIsLoading(false)
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
 
           
-                <Avatar alt="Remy Sharp" src={avatarUrl || urlAv[1] || "./img/avatar-user.png"} style={{ width: 50, height: 50 }}/>
+                <Avatar alt="Remy Sharp" src={avatarUrl || urlAv[1] || "./img/avatar-user.png"} style={{ width: 45, height: 45 }}/>
               </IconButton>
             </Tooltip>
             <Menu

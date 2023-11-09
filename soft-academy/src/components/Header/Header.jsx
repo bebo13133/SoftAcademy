@@ -19,10 +19,10 @@ export const Header = () => {
 							<ul>
 
 
-								<li className="select-opt">
+								{/* <li className="select-opt">
 									<a href="#"><span className="lnr lnr-magnifier"></span></a>
-								</li>
-								<li className="navbar-brand " style={{ fontSize: "20px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "20px", textTransform: "none", color: "black" }}>Academy</span></li>
+								</li> */}
+								<li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
 							</ul>
 						</div>
 					</li>
