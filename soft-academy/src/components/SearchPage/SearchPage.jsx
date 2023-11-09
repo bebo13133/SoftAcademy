@@ -1,8 +1,10 @@
 import { OneCourse } from "../CatalogCourses/OneCourse"
 import { WaveAnimation } from "../tools/WaveAnimation"
 import { SearchField } from "./SearchField"
-
-export const SearchPage=()=>{
+import { Link } from "react-router-dom"
+export const SearchPage=({
+    // courses,
+})=>{
 
     return(
         <>
@@ -103,7 +105,7 @@ export const SearchPage=()=>{
                     <div className="works-content">
                         <div className="row">
                             {/* one course */}
-                            {courses.length > 0 ? courses.map(course => <OneCourse key={course._id} {...course} />) : <h2 className="no-articles">No courses yet</h2>}
+                            {/* {courses.length > 0 ? courses.map(course => <OneCourse key={course._id} {...course} />) : <h2 className="no-articles">No courses yet</h2>} */}
                         </div>
                     </div>
                 </div>

@@ -43,8 +43,10 @@ console.log("courses",courses)
 
 
 
-
-            {/* <SearchPage/> */}
+{/* 
+           <SearchPage
+            //  courses={courses}
+             />  */}
         </>
     )
 }
