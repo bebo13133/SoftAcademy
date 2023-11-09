@@ -4,14 +4,14 @@ import { SearchField } from "./SearchField"
 import { Link } from "react-router-dom"
 import { useCourseContext } from "../contexts/CourseContext"
 import { HomeOneCourse } from "../Home/HomeOneCourse"
-export const SearchPage=({
+export const SearchPage = ({
 
-})=>{
-    const {  searchResult } = useCourseContext()
+}) => {
+    const { searchResult } = useCourseContext()
 
-    return(
+    return (
         <>
-          <section id="home" className="welcome-hero">
+            <section id="home" className="welcome-hero">
                 <div className="container">
                     <div className="welcome-hero-txt">
                         <h2>best place to find and explore <br /> that all you need </h2>
@@ -20,12 +20,12 @@ export const SearchPage=({
                         </p>
 
                     </div>
-                <SearchField/>
+                    <SearchField />
 
                 </div>
 
             </section>
-        <section id="list-topics" className="list-topics">
+            <section id="list-topics" className="list-topics">
                 <WaveAnimation />
                 <div className="container">
                     <div className="list-topics-content">
@@ -85,7 +85,7 @@ export const SearchPage=({
                 </div>
 
             </section>
-        
+
             <br />
             <br />
             <section id="works" className="works">
@@ -97,15 +97,15 @@ export const SearchPage=({
                     <div className="works-content">
                         <div className="row">
                             {/* one course */}
-                            {searchResult &&  searchResult.map(x=> <HomeOneCourse key={x._id} {...x}/> )}
+                            {searchResult && searchResult.map(x => <HomeOneCourse key={x._id} {...x} />)}
                         </div>
                     </div>
                 </div>
 
             </section>
-        
-        
-        
+
+
+
         </>
     )
 }

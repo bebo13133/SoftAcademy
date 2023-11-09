@@ -38,9 +38,6 @@ export const SearchField = () => {
             </div>
 
 
-            {/* {searchResult.length>0 && <SearchPage searchResult={searchResult} />} */}
-
-
         </>
     )
 }
