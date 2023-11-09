@@ -50,6 +50,7 @@ function App() {
 
   const isProfilePage = location.pathname.startsWith('/profile') || location.pathname.startsWith("/change-password")
     || location.pathname.startsWith("/my-added-courses") || location.pathname.startsWith("/favorite-courses") || location.pathname.startsWith("/change-avatar")
+    || location.pathname.startsWith("/404")
 
   return (
 
