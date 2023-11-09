@@ -25,14 +25,14 @@ export const CreateCourse = () => {
     }
 
     const imageMap = {
-        Java: "https://static.vecteezy.com/system/resources/previ…19/899/953/non_2x/java-free-download-free-png.png",
-        Python: "https://upload.wikimedia.org/wikipedia/commons/thu…logo-notext.svg/1869px-Python-logo-notext.svg.png",
+        Java: "https://static.vecteezy.com/system/resources/previews/019/899/953/non_2x/java-free-download-free-png.png",
+        Python: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
         ReactJS: "https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png",
         "Java Script":"https://cdn3d.iconscout.com/3d/premium/thumb/javascript-7308311-5938360.png",
         'C#': "https://seeklogo.com/images/C/c-sharp-c-logo-02F17714BA-seeklogo.com.png",
         "VueJs": "https://user-images.githubusercontent.com/7110136/29002858-a09570d2-7ab4-11e7-8faa-5dd6d4458b0d.png",
         "Type Script": "https://cdn-icons-png.flaticon.com/512/919/919832.png",
-        "HTML&CSS": "https://www.clipartmax.com/png/middle/291-2918933_html-and-css-logo.png",
+        "HTML&CSS": "https://cdn-icons-png.flaticon.com/512/174/174854.png",
         "Angular": "https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg",
         "FullStack Developer":"https://static.thenounproject.com/png/390336-200.png",
         "Cyber Security": "https://jdimi.com/wp-content/uploads/sites/4/2022/03/Cyber-Security-PNG-Clipart.png",

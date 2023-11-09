@@ -25,8 +25,22 @@ export const CourseProvider = ({ children }) => {
 
     const onCreateCourseSubmit = async (courseData) => {
         try {
+            if(!courseData.courseName ||
+            !courseData.firstName||
+            !courseData.lastName||
+            !courseData.email||
+            !courseData.ownerCourse||
+            !courseData.price||
+            !courseData.description||
+            !courseData.lectorDescription) return alert("Some field is empty")
+
+            if(courseData.courseName.length<4 || courseData.firstName.length<4 
+            || courseData.lastName.length<4 || courseData.email.length<9) return alert("Minimum field length is 4 for names and 9 for email")
+
+            if(courseData.lectorDescription.length<5 || courseData.description.length<5 ) return alert("Minimum field description length is 5")
 
             const newCourse = await courseService.create(courseData)
+
             setCourse(state => [...state, newCourse])
             navigate("/catalog")
 
@@ -64,19 +78,28 @@ export const CourseProvider = ({ children }) => {
             setCourse(courses => courses.map(x => x._id === data._id ? result : x))
             navigate(`/catalog/${data._id}`)
         } catch (err) {
-            throw new Error(err.message || err)
+           
         }
     }
 
 
     const onSearchSubmit = async (data) => {
-        const result = await courseService.getAll()
-        // console.log("result", result)
-        // console.log("result-data", data)
 
-        setSearchResult(result.filter(course => course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())
-            || course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
-        navigate('/searchPage')
+
+        try{
+            const result = await courseService.getAll()
+            // console.log("result", result)
+            // console.log("result-data", data)
+    
+            setSearchResult(result.filter(course => course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())
+                || course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
+            navigate('/searchPage')
+
+        }catch (err) {
+            throw new Error(err.message || err)
+
+        }
+        
 
     }
     // console.log(searchResult)
@@ -99,7 +122,7 @@ export const CourseProvider = ({ children }) => {
         <CourseContext.Provider value={contextCourseValue}>
 
             {children}
-
+            
         </CourseContext.Provider>
 
     )

@@ -32,3 +32,10 @@
 }
 #works > div > div.works-content > div > div > div > button:hover{background: #fff;
     color: #ff545a;}
+    .no-articles{
+        font-size: 32px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    }

@@ -298,19 +298,22 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 
 .welcome-hero-serch-box{margin-top: 78px;display: flex;}
 .welcome-hero-form {
+    
     display: flex;
     background: #fff;
     height: 70px;
-    border-radius: 3px;
+    border-radius: 15px;
     width: 85%;
 }
 .single-welcome-hero-form {
+    border-radius:15px;
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
-    padding: 0 15px;
+    /* padding: 0 15px; */
+    justify-content: space-between;
 }
 .single-welcome-hero-form:first-child{border-right: 1px solid #edeff1;}
 .single-welcome-hero-form input {
@@ -321,8 +324,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     background: transparent;
 }
 .single-welcome-hero-form input[type="text"]{
-    font-size: 14px;
-    color: #859098;
+    font-size: 18px;
+    color: #e79912;
     text-transform: capitalize;
     font-weight: 500;
 }
@@ -1061,4 +1064,19 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     margin-top: -144px;
     position: relative;
 
+}
+#search-form > input[type=text]{
+    margin-bottom: -2px;
+}
+/* 
+search slector */
+#home > div > div.welcome-hero-serch-box > div.welcome-hero-form > div > div > select{
+    width: 100%;
+    padding: 7px 0;
+    background: transparent;
+    margin: 0;
+    font-weight: 500;
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 20px;
 }

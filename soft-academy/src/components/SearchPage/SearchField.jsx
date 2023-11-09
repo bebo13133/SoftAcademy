@@ -11,6 +11,7 @@ export const SearchField = () => {
 
     const { onSubmit, onChangeHandler, values } = useForm({
         searchName: "",
+        criteria:''
     }, onSearchSubmit)
     return (
         <>
@@ -19,11 +20,20 @@ export const SearchField = () => {
             <div className="welcome-hero-serch-box">
                 <div className="welcome-hero-form">
                     <div className="single-welcome-hero-form">
-                        <h3>Find your Course :</h3>
-                        <form if="search-form" onSubmit={onSubmit}>
-                            <input type="text" placeholder="" name="searchName" value={values.searchName} onChange={onChangeHandler} />
+                        {/* <h3>Search :| </h3> */}
+                        <form id="search-form" onSubmit={onSubmit}>
+                            <input type="text" placeholder="find your Course..."  name="searchName" value={values.searchName} onChange={onChangeHandler} />
 
                         </form>
+                        <div className="city-item">
+                            <select value={values.criteria} placeholder="Choice your language" name="criteria" onChange={onChangeHandler} >
+                                <option value="">Select an option</option>
+                                <option value="Java Script">Course name</option>
+                                <option value="Java">Language name</option>
+                                <option value="Python">Lector name</option>
+                             
+                            </select>
+                        </div>
                         {/* <div className="welcome-hero-form-icon">
                     <i className="flaticon-list-with-dots"></i>
                 </div> */}
@@ -31,7 +41,7 @@ export const SearchField = () => {
 
                 </div>
                 <div className="welcome-hero-serch">
-                    <button className="welcome-hero-btn" form="search-form" type="submit" >
+                    <button className="welcome-hero-btn" type="submit" form="search-form" >
                         search
                     </button>
                 </div>
