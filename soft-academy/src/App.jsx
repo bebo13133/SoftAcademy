@@ -35,6 +35,7 @@ import { ChangePassword } from './components/ProfilePage/ChangePassword'
 import { AddedCourses } from './components/ProfilePage/AddedCourses'
 import { FavoriteCourses } from './components/ProfilePage/FavoriteCourses'
 import { AvatarHeader } from './components/ProfilePage/AvatarHeader'
+import { SearchPage } from './components/SearchPage/SearchPage'
 
 function App() {
   // const [isLoading, setIsLoading] = useState(true)
@@ -73,6 +74,7 @@ function App() {
               <Route path={"/reviews"} element={<StudentReview />} />
               <Route path={"/blog"} element={<Blog />} />
               <Route path={"/contact"} element={<Contact />} />
+              <Route path={"/searchPage"} element={<SearchPage />} />
 
 
               {/* loginRegisterGuard */}

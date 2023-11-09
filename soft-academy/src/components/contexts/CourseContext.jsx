@@ -1,6 +1,6 @@
 import { courseServiceFactory } from "../Services/courseService";
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Await, useNavigate } from "react-router-dom";
 
 
 export const CourseContext = createContext()
@@ -9,6 +9,7 @@ export const CourseContext = createContext()
 export const CourseProvider = ({ children }) => {
 
     const [course, setCourse] = useState([])
+    const [searchResult, setSearchResult] = useState([])
 
     const courseService = courseServiceFactory()
     const navigate = useNavigate()
@@ -19,7 +20,7 @@ export const CourseProvider = ({ children }) => {
             .then(result => {
                 setCourse(result)
             })
-            
+
     }, [])
 
     const onCreateCourseSubmit = async (courseData) => {
@@ -67,7 +68,25 @@ export const CourseProvider = ({ children }) => {
         }
     }
 
+
+    const onSearchSubmit = async (data) => {
+        const result = await courseService.getAll()
+        // console.log("result", result)
+        // console.log("result-data", data)
+
+        setSearchResult(result.filter(course => course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())
+            || course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
+        navigate('/searchPage')
+
+    }
+    // console.log(searchResult)
+
+
+
+
     const contextCourseValue = {
+        searchResult,
+        onSearchSubmit,
         onCreateCourseSubmit,
         courses: course,
         selectCourse,

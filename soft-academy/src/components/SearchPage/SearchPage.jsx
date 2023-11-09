@@ -1,10 +1,13 @@
-import { OneCourse } from "../CatalogCourses/OneCourse"
+// import { OneCourse } from "../CatalogCourses/OneCourse"
 import { WaveAnimation } from "../tools/WaveAnimation"
 import { SearchField } from "./SearchField"
 import { Link } from "react-router-dom"
+import { useCourseContext } from "../contexts/CourseContext"
+import { HomeOneCourse } from "../Home/HomeOneCourse"
 export const SearchPage=({
-    // courses,
+
 })=>{
+    const {  searchResult } = useCourseContext()
 
     return(
         <>
@@ -17,18 +20,7 @@ export const SearchPage=({
                         </p>
 
                     </div>
-                    <div className="welcome-hero-serch-box">
-                        <div className="welcome-hero-form">
-                            
-                            <SearchField/>
-
-                        </div>
-                        <div className="welcome-hero-serch">
-                            <button className="welcome-hero-btn" onClick= {(window.location.href='#')}>
-                                search  <i data-feather="search"></i>
-                            </button>
-                        </div>
-                    </div>
+                <SearchField/>
 
                 </div>
 
@@ -105,7 +97,7 @@ export const SearchPage=({
                     <div className="works-content">
                         <div className="row">
                             {/* one course */}
-                            {/* {courses.length > 0 ? courses.map(course => <OneCourse key={course._id} {...course} />) : <h2 className="no-articles">No courses yet</h2>} */}
+                            {searchResult &&  searchResult.map(x=> <HomeOneCourse key={x._id} {...x}/> )}
                         </div>
                     </div>
                 </div>
