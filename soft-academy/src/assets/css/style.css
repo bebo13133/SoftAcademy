@@ -309,8 +309,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 50%;
-    padding: 0 30px;
+    width: 100%;
+    padding: 0 15px;
 }
 .single-welcome-hero-form:first-child{border-right: 1px solid #edeff1;}
 .single-welcome-hero-form input {
@@ -333,6 +333,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     color: #252d32;
 }
 .welcome-hero-btn {
+    border-radius: 15px;
     display:  flex;
     justify-content:  center;
     align-items:  center;
@@ -343,7 +344,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     background:  #ff545a;
     text-transform:  capitalize;
     margin-left:  30px;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     -webkit-transition: 0.3s linear; 
     -moz-transition: 0.3s linear; 
     -ms-transition: 0.3s linear; 

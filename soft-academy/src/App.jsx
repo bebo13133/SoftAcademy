@@ -37,12 +37,12 @@ import { FavoriteCourses } from './components/ProfilePage/FavoriteCourses'
 import { AvatarHeader } from './components/ProfilePage/AvatarHeader'
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true)
+  // const [isLoading, setIsLoading] = useState(true)
 
   const [cookies] = useCookies(["cookieConsent"]);
-  console.log("cookie", cookies)
+  // console.log("cookie", cookies)
   useEffect(() => {
-    setIsLoading(false)
+    // setIsLoading(false)
 
   }, [])
 
@@ -55,7 +55,7 @@ function App() {
   return (
 
     <>
-      {isLoading && <IsLoading />}
+      {/* {isLoading && <IsLoading />} */}
 
       <UserProvider>
         <CourseProvider>
@@ -116,7 +116,7 @@ function App() {
               </Route>
               {/* End RouteGuard */}
 
-              <Route path={"/404"} element={<PageNotFound />} />
+              <Route path={"/404/*"} element={<PageNotFound />} />
               <Route path={"/admin"} element={<AdminPage />} />
             </Routes>
 
