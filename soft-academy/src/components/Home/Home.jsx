@@ -8,6 +8,7 @@ import { IsLoading } from "../IsLoading/IsLoading"
 import { useCourseContext } from "../contexts/CourseContext"
 import { courseServiceFactory } from "../Services/courseService"
 import { HomeOneCourse } from "./HomeOneCourse"
+import { SearchPage } from "../SearchPage"
 
 export const Home = () => {
 
@@ -53,15 +54,9 @@ export const Home = () => {
                     </div>
                     <div className="welcome-hero-serch-box">
                         <div className="welcome-hero-form">
-                            <div className="single-welcome-hero-form">
-                                <h3>what?</h3>
-                                <form action="index.html">
-                                    <input type="text" placeholder="Ex: palce, resturent, food, automobile" />
-                                </form>
-                                <div className="welcome-hero-form-icon">
-                                    <i className="flaticon-list-with-dots"></i>
-                                </div>
-                            </div>
+                            
+                            <SearchPage/>
+
                             <div className="single-welcome-hero-form">
                                 <h3>location</h3>
                                 <form action="index.html">
