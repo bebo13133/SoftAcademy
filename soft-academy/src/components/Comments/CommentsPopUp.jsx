@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import { useForm } from '../Hooks/useForm';
 import { RouteGuard } from '../common/RouteGuard';
+
+
 export const CommentsPopUp = ({
     isOpenComments,
     onCloseComments,
@@ -33,6 +35,8 @@ export const CommentsPopUp = ({
             onCloseComments()
         }
     }
+
+    
     return (
         <div className="comments-popup" onClick={handleClickOutside}>
 

@@ -1,10 +1,11 @@
 import { useCourseContext } from "../contexts/CourseContext"
 import { SearchPage } from "./SearchPage"
+import { useState } from "react"
 
 export const SearchField = () => {
     const [searchResult, setSearchResult] = useState([])
-    const { courses } = useCourseContext
-
+    const { courses } = useCourseContext()
+console.log("courses",courses)
 
     const searchHandler = () => {
 
