@@ -28,14 +28,14 @@ export const CreateCourse = () => {
         Java: "https://static.vecteezy.com/system/resources/previews/019/899/953/non_2x/java-free-download-free-png.png",
         Python: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
         ReactJS: "https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png",
-        "Java Script":"https://cdn3d.iconscout.com/3d/premium/thumb/javascript-7308311-5938360.png",
+        "JavaScript":"https://cdn3d.iconscout.com/3d/premium/thumb/javascript-7308311-5938360.png",
         'C#': "https://seeklogo.com/images/C/c-sharp-c-logo-02F17714BA-seeklogo.com.png",
         "VueJs": "https://user-images.githubusercontent.com/7110136/29002858-a09570d2-7ab4-11e7-8faa-5dd6d4458b0d.png",
-        "Type Script": "https://cdn-icons-png.flaticon.com/512/919/919832.png",
+        "TypeScript": "https://cdn-icons-png.flaticon.com/512/919/919832.png",
         "HTML&CSS": "https://cdn-icons-png.flaticon.com/512/174/174854.png",
         "Angular": "https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg",
-        "FullStack Developer":"https://static.thenounproject.com/png/390336-200.png",
-        "Cyber Security": "https://jdimi.com/wp-content/uploads/sites/4/2022/03/Cyber-Security-PNG-Clipart.png",
+        "FullStackDeveloper":"https://static.thenounproject.com/png/390336-200.png",
+        "CyberSecurity": "https://jdimi.com/wp-content/uploads/sites/4/2022/03/Cyber-Security-PNG-Clipart.png",
     };
 
   
@@ -121,17 +121,17 @@ export const CreateCourse = () => {
                         <div className="city-item">
                             <select value={selectOption} placeholder="Choice your language" name="language" onChange={selectOptionHandler} >
                                 <option value="">Select an option</option>
-                                <option value="Java Script">Java Script</option>
+                                <option value="JavaScript">Java Script</option>
                                 <option value="Java">Java</option>
                                 <option value="Python">Python</option>
                                 <option value="ReactJS">ReactJS</option>
                                 <option value="C#">C#</option>
                                 <option value="VueJs">Vue Js</option>
-                                <option value="Type Script">Type Script</option>
+                                <option value="TypeScript">Type Script</option>
                                 <option value="HTML&CSS">HTML&CSS</option>
                                 <option value="Angular">Angular</option>
-                                <option value="FullStack Developer">FullStack Developer</option>
-                                <option value="Cyber Security">Cyber Security</option>
+                                <option value="FullStackDeveloper">FullStack Developer</option>
+                                <option value="CyberSecurity">Cyber Security</option>
 
                             </select>
                         </div>

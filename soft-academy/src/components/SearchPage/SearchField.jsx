@@ -28,9 +28,9 @@ export const SearchField = () => {
                         <div className="city-item">
                             <select value={values.criteria} placeholder="Choice your language" name="criteria" onChange={onChangeHandler} >
                                 <option value="">Select an option</option>
-                                <option value="Java Script">Course name</option>
-                                <option value="Java">Language name</option>
-                                <option value="Python">Lector name</option>
+                                <option value="courseName">Course name</option>
+                                <option value="language-name">Language name</option>
+                                <option value="lector-name">Lector name</option>
                              
                             </select>
                         </div>

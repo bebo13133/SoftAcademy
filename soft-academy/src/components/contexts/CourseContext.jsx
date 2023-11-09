@@ -88,11 +88,16 @@ export const CourseProvider = ({ children }) => {
 
         try{
             const result = await courseService.getAll()
-            // console.log("result", result)
-            // console.log("result-data", data)
+             console.log("result", result.map(e=>e.firstName))
+            console.log("result-data", data)
+
+            if(data.searchName==='' || data.criteria ==='' ) return  setSearchResult(result.filter(course => course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())
+            || course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
     
-            setSearchResult(result.filter(course => course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())
-                || course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
+            if(data.criteria == "courseName") return setSearchResult(result.filter(course => course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())));
+            if(data.criteria == "language-name")return setSearchResult(result.filter(course => course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
+            if(data.criteria == "lector-name") return setSearchResult(result.filter(course => course.lectorName?.toLowerCase().includes(data.firstName.toLowerCase())));
+            // || course.lectorName?.toLowerCase().includes(data.lastName.toLowerCase().trim())))
             navigate('/searchPage')
 
         }catch (err) {
@@ -122,7 +127,7 @@ export const CourseProvider = ({ children }) => {
         <CourseContext.Provider value={contextCourseValue}>
 
             {children}
-            
+
         </CourseContext.Provider>
 
     )

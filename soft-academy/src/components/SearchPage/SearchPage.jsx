@@ -97,7 +97,7 @@ export const SearchPage = ({
                     <div className="works-content">
                         <div className="row">
                             {/* one course */}
-                            {searchResult.length>0 ? searchResult.map(x => <HomeOneCourse key={x._id} {...x} />): <h2 className="no-articles">No results</h2>}
+                            {searchResult.length >0 ? searchResult.map(x => <HomeOneCourse key={x._id} {...x} />): (<h2 className="no-articles">No results</h2>)}
                         </div>
                     </div>
                 </div>
