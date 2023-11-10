@@ -8,17 +8,17 @@ export const AddForumPost = () => {
 
 
     const { onSubmit, values, onChangeHandler } = useForm({
-        title:"",
-description:"",
-image:"",
-author:"",
-createdAt:"",
+        title: "",
+        description: "",
+        image: "",
+        author: "",
+        createdAt: "",
     })
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setImage(file);
-      };
+    };
 
 
     return (
@@ -30,8 +30,8 @@ createdAt:"",
                     <input type="text" name="title" value={values.title} onChange={onChangeHandler} />
                 </label>
                 <label>
-                   Description: 
-                    <textarea  name="description" value={values.description} onChange={onChangeHandler} />
+                    Description:
+                    <textarea name="description" value={values.description} onChange={onChangeHandler} />
                 </label>
                 <label>
                     Image:
