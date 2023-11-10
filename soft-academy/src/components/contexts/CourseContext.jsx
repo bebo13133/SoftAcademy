@@ -1,17 +1,18 @@
 import { courseServiceFactory } from "../Services/courseService";
 import { createContext, useContext, useEffect, useState } from "react";
 import {useNavigate } from "react-router-dom";
+import { useAuthContext } from "./UserContext";
 
 
 export const CourseContext = createContext()
 
 
 export const CourseProvider = ({ children }) => {
-
+const{token}=useAuthContext()
     const [course, setCourse] = useState([])
     const [searchResult, setSearchResult] = useState([])
 
-    const courseService = courseServiceFactory()
+    const courseService = courseServiceFactory(token)
     const navigate = useNavigate()
 
     useEffect(() => {
