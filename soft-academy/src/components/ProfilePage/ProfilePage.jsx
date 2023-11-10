@@ -16,11 +16,7 @@ export const ProfilePage = () => {
         <div className="profile-page">
            
             <div className="profile-content">
-                {/* <Routes>
-                    <Route path="/change-password" element={<ChangePassword />} /> */}
-                    {/* <Route path="/change-username" component={ChangeUsername} />
-                    <Route path="/change-photo" component={ChangePhoto} /> */}
-                {/* </Routes> */}
+         
             </div>
             <ProfileSidebar />
         </div>

@@ -1,13 +1,20 @@
 .profile-sidebar {
   top: 0;
-  width: '215px';
+  width: 215px;
   z-index: 40;
-  width: 200px;
+  width: 215px;
   background-color: #333;
   color: #fff;
   position: fixed;
   height: 100%;
   overflow-y: auto;
+  border-top-right-radius:3%;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.profile-sidebar.open {
+  transform: translateX(0);
 }
 
 .sidebar-header {
@@ -33,8 +40,12 @@
 .sidebar-menu a {
   text-decoration: none;
   color: #fff;
+  display: block;
+  font-size: 16px;
+  transition: color 0.3s ease-in-out;
 }
 
 .sidebar-menu a:hover {
   background-color: #555;
+  color: #0b78d3;
 }

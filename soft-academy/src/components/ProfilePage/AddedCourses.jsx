@@ -25,10 +25,10 @@ export const AddedCourses = () => {
                 const ownerCourses = result.filter(course => course._ownerId === userId)
                 // console.log(userId)
 
-                console.log(ownerCourses, result)
+                // console.log(ownerCourses, result)
 
                 setCourses(ownerCourses)
-                console.log(courses)
+                // console.log(courses)
 
             })
 
@@ -59,8 +59,8 @@ export const AddedCourses = () => {
                             <div className="row">
 
 
-                                {courses.length > 0 ? courses.map(course => <OneAddedCourse
-                                    // key={course._id} 
+                                {courses.length > 0 ? courses.map(course => <OneAddedCourse 
+                                     key={course._id} 
                                     {...course} />) : <h3 className="no-articles">No articles yet</h3>}
 
 

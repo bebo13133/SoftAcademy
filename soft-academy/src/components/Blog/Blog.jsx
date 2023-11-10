@@ -1,4 +1,48 @@
+import { useEffect, useState } from "react"
+import axios from 'axios';
 export const Blog = () => {
+
+
+    
+
+const [news,setNews] = useState([])
+
+
+const url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=e8c8f368ce6c4bce9ccf3abede163cd5';
+const options = {
+	method: 'GET',
+	// headers: {
+	// 	'content-type': 'application/json',
+	// 	'X-RapidAPI-Key': 'efb7caed40msha9a27397b0db6b5p1705ccjsn892646fc2e57',
+	// 	'X-RapidAPI-Host': 'customjs.p.rapidapi.com'
+	// },
+	// body: {
+	// 	input: {var1: 10},
+	// 	jscode: ' 1 + input.var1'
+	// }
+};
+const newsApi =async()=>{
+try {
+
+
+	const response = await fetch(url, options);
+	const result = await response.json();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
+
+}
+
+useEffect(()=>{
+
+    const result = newsApi()
+    setNews(result)
+
+},[])
+
+console.log("news",news)
     return (
         <>
             <section id="blog" className="blog" >

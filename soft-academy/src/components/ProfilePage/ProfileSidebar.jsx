@@ -1,16 +1,34 @@
 
 import './ProfileSidebar.css'
 import { Link } from 'react-router-dom'
-export const ProfileSidebar=()=>{
+import { useEffect, useState, useRef } from 'react';
 
-    return(
-        <div className="profile-sidebar">
+
+
+
+export const ProfileSidebar = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const sidebarRef = useRef(null);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsOpen(true);
+    }, 300); // Променете времето според вашите предпочитания
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+
+  return (
+    <>
+      <div className={`profile-sidebar ${isOpen ? 'open' : ''}`} ref={sidebarRef}>
         <div className="sidebar-header">
           <h3>Profile </h3>
         </div>
         <ul className="sidebar-menu">
           <li>
-            <Link to="/change-password">Change Password</Link>
+            <Link to="/change-password" >Change Password</Link>
           </li>
           <li>
             <Link to="/my-added-courses">Added Courses</Link>
@@ -26,5 +44,6 @@ export const ProfileSidebar=()=>{
           </li>
         </ul>
       </div>
-    )
+    </>
+  )
 }
