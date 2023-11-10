@@ -1,68 +1,71 @@
 .article-details {
-    flex-grow: 1;
-  }
-  .article-students {
-    display: flex;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-    padding: 10px;
-      top: 50px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid #3498db; 
-    text-align: center;
-    width: 750px; 
-    left: 110;
-  }
-  
-  .article-students img {
-    max-width: 150px;
-    margin-right: 20px;
-  }
-  .article-students h2 {
-    margin-top: 0;
-  }
-  
-  .article-students p {
-    margin: 10px 0;
-  }
-  
-  /* Добавяне на стилове за тени на сянката на бутоните на пагинацията */
-  .pagination {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .pagination button {
-    padding: 8px 12px;
-    background-color: #3498db;
-    border: 1px solid #3498db;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .pagination button:hover {
-    background-color: #2980b9;
-  }
-  
-  .pagination button.active {
-    background-color: #2980b9;
-  }
-  .posts-field {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 150px; 
-    padding: 10px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    font-size: 16px;
-    border-bottom: 1px solid #444;
+  flex-grow: 1;
+}
 
-  }
+.article-students {
+  display: flex;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 10px;
+  top: 50px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #3498db;
+  text-align: center;
+  width: 750px;
+  left: 110;
+}
+
+.article-students img {
+  max-width: 150px;
+  margin-right: 20px;
+}
+
+.article-students h2 {
+  margin-top: 0;
+}
+
+.article-students p {
+  margin: 10px 0;
+}
+
+/* Добавяне на стилове за тени на сянката на бутоните на пагинацията */
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  background-color: #3498db;
+  border: 1px solid #3498db;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pagination button:hover {
+  background-color: #2980b9;
+}
+
+.pagination button.active {
+  background-color: #2980b9;
+}
+
+.posts-field {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 150px;
+  padding: 10px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 1px solid #444;
+
+}
