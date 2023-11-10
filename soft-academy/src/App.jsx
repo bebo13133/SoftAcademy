@@ -38,6 +38,7 @@ import { AvatarHeader } from './components/ProfilePage/AvatarHeader'
 import { SearchPage } from './components/SearchPage/SearchPage'
 import { ForumStudents } from './components/Forum/ForumStudents'
 import { ForumDetails } from './components/Forum/ForumDetails/ForumDetails'
+import { AddForumPost } from './components/Forum/AddForumPost/AddForumPost'
 
 function App() {
   // const [isLoading, setIsLoading] = useState(true)
@@ -110,6 +111,7 @@ function App() {
                 } />
               <Route path={"/forum"} element={<ForumStudents/>} />
               <Route path={"/forum/:forumId"} element={<ForumDetails/>} />
+              <Route path={"/add-new-post"} element={<AddForumPost/>} />
 
                 <Route path={"/profile"} element={<ProfilePage />} />
 
