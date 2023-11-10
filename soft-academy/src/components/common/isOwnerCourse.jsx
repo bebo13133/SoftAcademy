@@ -8,8 +8,8 @@ export const IsOwnerCourse = ({ children }) => {
     const { userId } = useAuthContext()
     const currentCourse = selectCourse(courseId) // взимаме курса от стейта //
 
-    if (currentCourse&& currentCourse._ownerId !== userId) {
-        return <Navigate to={`/catalog/${courseId}` } replace/>
+    if (currentCourse && currentCourse._ownerId !== userId) {
+        return <Navigate to={`/catalog/${courseId}`} replace />
     }
 
     return children ? children : <Outlet />

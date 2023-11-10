@@ -5,7 +5,7 @@ export const Blog = () => {
 
     const [news, setNews] = useState([])
     const [currentPage, setCurrentPage] = useState(1);//начални 
-    const [newsPerPage] = useState(6);
+    const [newsPerPage] = useState(3);
 
 
    useEffect(() => {

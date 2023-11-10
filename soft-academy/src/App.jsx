@@ -119,7 +119,7 @@ function App() {
               {/* End RouteGuard */}
 
               <Route path={"/404/*"} element={<PageNotFound />} />
-              <Route path={"/admin"} element={<AdminPage />} />
+              {/* <Route path={"/admin"} element={<AdminPage />} /> */}
             </Routes>
 
             <ChatBox />
