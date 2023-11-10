@@ -36,6 +36,7 @@ import { AddedCourses } from './components/ProfilePage/AddedCourses'
 import { FavoriteCourses } from './components/ProfilePage/FavoriteCourses'
 import { AvatarHeader } from './components/ProfilePage/AvatarHeader'
 import { SearchPage } from './components/SearchPage/SearchPage'
+import { ForumSutdents } from './components/Forum/ForumStudents'
 
 function App() {
   // const [isLoading, setIsLoading] = useState(true)
@@ -106,6 +107,8 @@ function App() {
                     <EditCourse />
                   </IsOwnerCourse>
                 } />
+              <Route path={"/forum"} element={<ForumSutdents/>} />
+              <Route path={"/forum/:forumId"} element={<ForumDetails/>} />
 
                 <Route path={"/profile"} element={<ProfilePage />} />
 

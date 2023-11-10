@@ -81,6 +81,8 @@ export const Header = () => {
 										<li className="scroll"><Link to={"/reviews"}>review</Link></li>
 										<li className="scroll"><Link to={"/create"}>add course</Link></li>
 										<li className="scroll"><Link to={"/blog"}>news</Link></li>
+										<li className="scroll"><Link to={"/forum"}>forum</Link></li>
+
 										<li className="scroll"><Link to={"/admin"}>admin</Link></li>
 
 
