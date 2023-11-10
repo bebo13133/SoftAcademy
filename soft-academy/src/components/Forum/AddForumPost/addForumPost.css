@@ -1,53 +1,53 @@
 .post-form {
 
-    /* margin-top: 140px; */
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 30px;
-    border: 2px solid #ddd;
-    border-radius: 18px;
-    box-shadow: 0 0 83px rgb(171 99 0 / 29%);
-  }
-  
-  .post-form label {
-    font-size: 22px;
-    display: block;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
-  
-  .post-form input,
-  .post-form textarea {
-    font-size:20px;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
-  }
-  
-  .post-form textarea {
-    resize: vertical;
-  }
-  
-  .post-form button {
-    background-color: #4caf50;
-    font-size: 18px;
-    color: white;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .post-form button:hover {
-    background-color: #45a049;
-  }
-  
-  .post-form img {
-    max-width: 100%;
-    max-height: 250px;
-    margin-top: 15px;
-  }
+  /* margin-top: 140px; */
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 2px solid #ddd;
+  border-radius: 18px;
+  box-shadow: 0 0 83px rgb(171 99 0 / 29%);
+}
+
+.post-form label {
+  font-size: 22px;
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.post-form input,
+.post-form textarea {
+  font-size: 20px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.post-form textarea {
+  resize: vertical;
+}
+
+.post-form button {
+  background-color: #4caf50;
+  font-size: 18px;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.post-form button:hover {
+  background-color: #45a049;
+}
+
+.post-form img {
+  max-width: 100%;
+  max-height: 250px;
+  margin-top: 15px;
+}
