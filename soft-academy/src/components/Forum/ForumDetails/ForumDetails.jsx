@@ -1,7 +1,7 @@
-export const ForumDetails=()=>{
+export const ForumDetails = () => {
 
 
-    return(
+    return (
         <></>
     )
 }
