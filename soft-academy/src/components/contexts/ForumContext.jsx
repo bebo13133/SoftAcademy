@@ -1,5 +1,5 @@
 
-import { createContext, useEffect, useState ,useContext} from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import { forumServiceFactory } from "../Services/forumService";
 import { useAuthContext } from "./UserContext";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ export const ForumProvider = ({ children }) => {
     const [forumPosts, setForumPosts] = useState([])
     const { token } = useAuthContext()
     const forumService = forumServiceFactory(token)
-const navigate=useNavigate()
+    const navigate = useNavigate()
 
     useEffect(() => {
         forumService.getAll()
@@ -22,10 +22,10 @@ const navigate=useNavigate()
 
 
     }, [])
-console.log("forumPosts",forumPosts)
+    console.log("forumPosts", forumPosts)
     const onPostSubmit = async (forumData) => {
 
-console.log(forumData)
+        console.log(forumData)
         try {
             // if(!courseData.courseName ||
             // !courseData.firstName||
@@ -63,9 +63,9 @@ console.log(forumData)
     return (
         <forumContext.Provider value={contextForumValue}>
 
-        {children}
+            {children}
 
-    </forumContext.Provider>
+        </forumContext.Provider>
 
 
     )
