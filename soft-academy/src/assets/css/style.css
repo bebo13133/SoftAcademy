@@ -1080,3 +1080,6 @@ search slector */
     font-size: 20px;
     border-radius: 20px;
 }
+#home > div > div.welcome-hero-serch-box > div.welcome-hero-form > div{
+        text-transform:none;
+}

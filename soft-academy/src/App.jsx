@@ -74,7 +74,7 @@ function App() {
               <Route path={"/reviews"} element={<StudentReview />} />
               <Route path={"/blog"} element={<Blog />} />
               <Route path={"/contact"} element={<Contact />} />
-              <Route path={"/searchPage"} element={<SearchPage />} />
+              <Route path={"/search-page"} element={<SearchPage />} />
 
 
               {/* loginRegisterGuard */}

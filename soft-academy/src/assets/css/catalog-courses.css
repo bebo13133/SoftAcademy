@@ -28,7 +28,7 @@
 
 }
 #explore > div > div.explore-content > div > div > div{
-    box-shadow: 3px 8px 20px 0px rgb(57 9 231 / 40%);
+    box-shadow:3px 8px 34px 8px rgb(57 9 231 / 40%);
     border-radius: 133% 130% 110% 160%;
 
 }
@@ -36,7 +36,7 @@
     width: 750px;
 }
 #explore > div > div.explore-content > div > div{
-    width: 33.333333%;
+    width: 35.333333%;
     padding-left: 48px;
 
 }

@@ -1,6 +1,6 @@
 import { courseServiceFactory } from "../Services/courseService";
 import { createContext, useContext, useEffect, useState } from "react";
-import { Await, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 
 export const CourseContext = createContext()
@@ -84,29 +84,42 @@ export const CourseProvider = ({ children }) => {
 
 
     const onSearchSubmit = async (data) => {
+        try {
+            const result = await courseService.getAll();
+            if (!data.criteria || data.criteria == "Select an option") {
+                // Търсене без конкретен критерий
+                setSearchResult(result.filter(course =>
+                    course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())
+                    || course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())
+                ));
+            } else {
+                // Търсене с определен критерий
+                if (data.criteria === 'courseName') {
+                    const searchTerms = data.searchName.toLowerCase().split(' ');
+                    const searchResults = result.filter(course =>
+                        searchTerms.every(term => course.courseName?.toLowerCase().includes(term))
+                    );
+                         setSearchResult(searchResults);
+                } else if (data.criteria == 'language-name') {
+                    setSearchResult(result.filter(course => course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
+                } else if (data.criteria =='lector-name') {
+                    setSearchResult(result.filter(course =>
+                        course.firstName?.toUpperCase().includes(data.searchName.toUpperCase())
+                         || course.lastName?.toLowerCase().includes(data.searchName.toLowerCase())));
+          
 
+                }
 
-        try{
-            const result = await courseService.getAll()
-             console.log("result", result.map(e=>e.firstName))
-            console.log("result-data", data)
-
-            if(data.searchName==='' || data.criteria ==='' ) return  setSearchResult(result.filter(course => course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())
-            || course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
-    
-            if(data.criteria == "courseName") return setSearchResult(result.filter(course => course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())));
-            if(data.criteria == "language-name")return setSearchResult(result.filter(course => course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
-            if(data.criteria == "lector-name") return setSearchResult(result.filter(course => course.lectorName?.toLowerCase().includes(data.firstName.toLowerCase())));
-            // || course.lectorName?.toLowerCase().includes(data.lastName.toLowerCase().trim())))
-            navigate('/searchPage')
-
-        }catch (err) {
-            throw new Error(err.message || err)
-
+            }
+    // console.log("result",result)
+           
+            if (searchResult.length > 0) {
+                navigate("/search-page");
+            }
+        } catch (err) {
+            throw new Error(err.message || err);
         }
-        
-
-    }
+    };
     // console.log(searchResult)
 
 
