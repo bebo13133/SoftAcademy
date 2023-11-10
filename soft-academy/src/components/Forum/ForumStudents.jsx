@@ -1,36 +1,46 @@
 import React, { useState, useEffect } from 'react';
+import './forumStudents.css'
+import { SideBarForum } from './SideBarForum/SideBarForum';
+import { OneForumPost } from './OneForumPost';
 
-
-export const ForumStudents=()=>{
-
+export const ForumStudents = () => {
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [articles, setArticles] = useState([]);
+    const [latestPosts, setLatestPosts] = useState([]);
+    // const openSidebar = () => {
+    //     setSidebarOpen(true);
+    //   };
+
+    //   const closeSidebar = () => {
+    //     setSidebarOpen(false);
+    //   };
     useEffect(() => {
-        // Тук може да направите fetch към сървъра си за зареждане на статиите
-        // Пример: fetchArticles().then(data => setArticles(data));
-      }, []);
 
-    return(
-<>
-<div className="forum-page">
-      <h1>Forum - All Articles</h1>
-      {articles.map((article) => (
-        <div key="{article.id}" className="article">
-          <img src="{article.imageUrl}" alt={article.title} />
-          <div className="article-details">
-            <h2>"{article.title}"</h2>
-            <p>"{article.description}"</p>
-            <p>
-              <strong>Author:</strong> {article.author}
-            </p>
-            <p>
-              <strong>Created at:</strong> {new Date(article.createdAt).toLocaleString()}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
+    }, []);
 
-</>
+    const toggleSidebar = () => {
+        setSidebarOpen(!isSidebarOpen);
+    };
 
-    )
+
+    return (
+        <>
+        
+
+            <SideBarForum articles={articles} toggleSidebar={toggleSidebar} />
+
+      
+             
+                <section>
+
+                    <div className="forum-page">
+                        <h1>Forum - All Articles</h1>
+                        {/* {articles.map((article) => ( */}
+                        <OneForumPost />
+                        {/* ))} */}
+                    </div>
+                </section>
+            </>
+
+            )
 }

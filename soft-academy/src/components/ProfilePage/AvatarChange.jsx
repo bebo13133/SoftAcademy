@@ -5,7 +5,7 @@ import * as ResponsiveUserBar from '../ResponsiveUserBar'
 import "./changeAvatar.css"
 import { storage } from "../config/firebase-config"
 import { ref, uploadBytes } from "firebase/storage"
-import { v4 } from 'uuid'
+
 import { useAuthContext } from "../contexts/UserContext"
 export const AvatarChange = ({
     // currentAvatar,

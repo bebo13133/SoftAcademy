@@ -36,6 +36,8 @@ font-family: 'Roboto', sans-serif;
 @import"home-one-course.css";
 @import "catalog-courses.css";
 @import "cookies.css";
+/* @import "forumStudents.css"; */
+
 *{
     padding: 0;
     margin: 0;
