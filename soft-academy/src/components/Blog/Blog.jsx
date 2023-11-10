@@ -3,7 +3,7 @@ import { useAuthContext } from "../contexts/UserContext";
 import './blogNews.css'
 export const Blog = () => {
 
-        const [news, setNews] = useState([])
+    const [news, setNews] = useState([])
     const [currentPage, setCurrentPage] = useState(1);//начални 
     const [newsPerPage] = useState(6);
 
@@ -15,7 +15,7 @@ export const Blog = () => {
 
     },[])
 
-
+//заявка към api с NEws + ApiKey за authentication
     const url = 'https://news-api14.p.rapidapi.com/top-headlines?country=us&language=en&pageSize=10&category=sports&sortBy=title';
     const options = {
         method: 'GET',
@@ -53,8 +53,8 @@ export const Blog = () => {
  
 
     const indexOfLastNews = currentPage * newsPerPage;
-    const indexOfFirstNews = indexOfLastNews - newsPerPage;
-    const currentNews = news?.slice(indexOfFirstNews, indexOfLastNews);
+    const indexOfFirstNews = indexOfLastNews - newsPerPage; 
+    const currentNews = news?.slice(indexOfFirstNews, indexOfLastNews); //отделям пърите 6 от всичките
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
