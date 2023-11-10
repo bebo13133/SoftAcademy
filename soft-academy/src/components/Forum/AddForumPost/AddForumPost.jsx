@@ -1,11 +1,12 @@
 import { useForm } from "../../Hooks/useForm"
 import { useState } from "react";
 import './addForumPost.css'
+import { useForumContext } from "../../contexts/ForumContext";
 
 
 export const AddForumPost = () => {
     const [image, setImage] = useState(null);
-
+    const { onPostSubmit } = useForumContext()
 
     const { onSubmit, values, onChangeHandler } = useForm({
         title: "",
@@ -13,7 +14,7 @@ export const AddForumPost = () => {
         image: "",
         author: "",
         createdAt: "",
-    })
+    }, onPostSubmit)
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];

@@ -21,7 +21,9 @@ export const ForumProvider = ({ children }) => {
 
     }, [])
 
-    const onPostSubmit = async (courseData) => {
+    const onPostSubmit = async (forumData) => {
+
+console.log(forumData)
         try {
             // if(!courseData.courseName ||
             // !courseData.firstName||
@@ -37,9 +39,9 @@ export const ForumProvider = ({ children }) => {
 
             // if(courseData.lectorDescription.length<5 || courseData.description.length<5 ) return alert("Minimum field description length is 5")
 
-            const newCourse = await forumService.create(forumData)
+            const newPost = await forumService.create(forumData)
 
-            setForumPosts(state => [...state, newCourse])
+            setForumPosts(state => [...state, newPost])
             navigate("/forum")
 
         } catch (err) {
