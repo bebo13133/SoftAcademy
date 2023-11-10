@@ -25,22 +25,22 @@ export const ForumStudents = () => {
 
     return (
         <>
-        
+
 
             <SideBarForum articles={articles} toggleSidebar={toggleSidebar} />
 
-      
-             
-                <section>
 
-                    <div className="forum-page">
-                        <h1>Forum - All Articles</h1>
-                        {/* {articles.map((article) => ( */}
-                        <OneForumPost />
-                        {/* ))} */}
-                    </div>
-                </section>
-            </>
 
-            )
+            <section>
+
+                <div className="forum-page">
+                    <h1>Forum - All Articles</h1>
+                    {/* {articles.map((article) => ( */}
+                    <OneForumPost />
+                    {/* ))} */}
+                </div>
+            </section>
+        </>
+
+    )
 }
