@@ -52,9 +52,9 @@ export const Blog = () => {
 
  
 
-    const indexOfLastNews = currentPage * newsPerPage;
-    const indexOfFirstNews = indexOfLastNews - newsPerPage; 
-    const currentNews = news?.slice(indexOfFirstNews, indexOfLastNews); //отделям пърите 6 от всичките
+    const indexOfLastNews = currentPage * newsPerPage; // връща индекса на последната новина 
+    const indexOfFirstNews = indexOfLastNews - newsPerPage; //първата новина на текущата страница
+    const currentNews = news?.slice(indexOfFirstNews, indexOfLastNews); //отделям пърите 6 за текущата страница
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -88,6 +88,7 @@ export const Blog = () => {
                     <ul className="pagination">
                         {Array.from({ length: Math.ceil(news.length / newsPerPage) }, (_, index) => (
                             <li key={index}>
+                                {/* извиква номер на страницат която потребителя иска да види , променям стейта му също currentpage  */}
                                 <button onClick={() => paginate(index + 1)}>
                                     {index + 1}
                                 </button>
