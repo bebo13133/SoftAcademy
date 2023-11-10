@@ -39,6 +39,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    margin-top: 10px;
   }
   
   .post-form button:hover {

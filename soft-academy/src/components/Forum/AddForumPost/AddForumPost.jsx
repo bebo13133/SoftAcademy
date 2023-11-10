@@ -8,20 +8,36 @@ export const AddForumPost = () => {
     const [image, setImage] = useState(null);
     const { onPostSubmit } = useForumContext()
 
-    const { onSubmit, values, onChangeHandler } = useForm({
-        title: "",
-        description: "",
-        image: "",
-        author: "",
-        createdAt: "",
-    }, onPostSubmit)
-
     const handleImageChange = (e) => {
-        const file = e.target.files[0];
-        setImage(file);
+        const file = e.target.files[0]
+
+        if (file) {
+
+            const reader = new FileReader()
+
+            reader.onloadend = () => {
+
+                onChangeHandler({ target: { name: 'imageUrl', value: reader.result } });
+            }
+            reader.readAsDataURL(file);
+            console.log(reader.readAsDataURL(file))
+        }
+
     };
 
 
+    // onChangeHandler({ target: { name: 'image', value: selectedImage } });
+
+    const { onSubmit, values, onChangeHandler } = useForm({
+        title: "",
+        description: "",
+        // imageUrl: "",
+        author: "",
+        createdAt: "",
+        
+    }, onPostSubmit)
+
+  
     return (
 
         <>
@@ -36,7 +52,7 @@ export const AddForumPost = () => {
                 </label>
                 <label>
                     Image:
-                    <input type="file" ame="image" onChange={handleImageChange} accept="image/*" />
+                    <input type="file" name="imageUrl"  onChange={handleImageChange} accept="image/*" />
                 </label>
 
                 <label>
@@ -47,10 +63,10 @@ export const AddForumPost = () => {
                     Created At:
                     <input type="text" name="createdAt" value={new Date().toLocaleString()} readOnly />
                 </label>
-                {image && (
+                {values.imageUrl && (
                     <div>
                         <p>Preview:</p>
-                        <img src={URL.createObjectURL(image)} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+                        <img src={values.imageUrl} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />
                     </div>
                 )}
 
