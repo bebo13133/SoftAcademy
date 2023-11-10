@@ -34,10 +34,10 @@ export const AddForumPost = () => {
         // imageUrl: "",
         author: "",
         createdAt: "",
-        
+
     }, onPostSubmit)
 
-  
+
     return (
 
         <>
@@ -52,7 +52,7 @@ export const AddForumPost = () => {
                 </label>
                 <label>
                     Image:
-                    <input type="file" name="imageUrl"  onChange={handleImageChange} accept="image/*" />
+                    <input type="file" name="imageUrl" onChange={handleImageChange} accept="image/*" />
                 </label>
 
                 <label>
