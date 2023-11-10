@@ -8,14 +8,14 @@ export const Blog = () => {
     const [newsPerPage] = useState(3);
 
 
-   useEffect(() => {
+    useEffect(() => {
 
-     newsApi()
-     
+        newsApi()
 
-    },[])
 
-//заявка към api с NEws + ApiKey за authentication
+    }, [])
+
+    //заявка към api с NEws + ApiKey за authentication
     const url = 'https://news-api14.p.rapidapi.com/top-headlines?country=us&language=en&pageSize=10&category=sports&sortBy=title';
     const options = {
         method: 'GET',
@@ -33,7 +33,7 @@ export const Blog = () => {
 
 
             const response = await fetch(url, options);
-           
+
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -50,7 +50,7 @@ export const Blog = () => {
 
     }
 
- 
+
 
     const indexOfLastNews = currentPage * newsPerPage; // връща индекса на последната новина 
     const indexOfFirstNews = indexOfLastNews - newsPerPage; //първата новина на текущата страница
@@ -58,10 +58,10 @@ export const Blog = () => {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
- 
+
     return (
         <>
-        <section id="blog" className="blog">
+            <section id="blog" className="blog">
                 <div className="container">
                     <div className="section-header">
                         <h2>News and Articles</h2>
@@ -78,7 +78,7 @@ export const Blog = () => {
                                         <div className="single-blog-item-txt">
                                             <h2><a href={article.url}>{article.title}</a></h2>
                                             <h4>Posted <span>by</span> <a href="#">{article.author}</a> {new Date(article.published_date).toDateString()}</h4>
-                                             <p>{article.description}</p>
+                                            <p>{article.description}</p>
                                         </div>
                                     </div>
                                 </div>
