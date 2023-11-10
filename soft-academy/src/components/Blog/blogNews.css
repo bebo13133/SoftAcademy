@@ -1,0 +1,75 @@
+/* Pagination Container */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  /* Pagination Item */
+  .pagination li {
+    margin: 0 5px;
+    display: inline-block;
+  }
+  
+  /* Pagination Link */
+  .pagination button {
+    background-color: #3498db;
+    color: #fff;
+    border: 1px solid #3498db;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Pagination Link Hover */
+  .pagination button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Active Page Link */
+  .pagination .active button {
+    background-color: #2980b9;
+  }
+  
+  /* Animation for Page Numbers */
+  .pagination button {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Odd Page Numbers Color */
+  /* Odd Page Numbers Color */
+
+  /* Even Page Numbers Color */
+  .pagination button:nth-child(even) {
+    background-color: #ae7327 !important;
+    border: 1px solid #27ae60 !important;
+  }
+  .pagination button:nth-child(odd) {
+    background-color: #cc4e2e !important;
+    border: 1px solid #2ecc71 !important;
+  }
+  
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .single-blog-item-txt p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Променете броя на редовете (думите) според вашите предпочитания */
+    -webkit-box-orient: vertical;
+  } 
+  .single-blog-item-txt a {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Променете броя на редовете (думите) според вашите предпочитания */
+    -webkit-box-orient: vertical;
+  }

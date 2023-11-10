@@ -1,104 +1,100 @@
 import { useEffect, useState } from "react"
-import axios from 'axios';
+import { useAuthContext } from "../contexts/UserContext";
+import './blogNews.css'
 export const Blog = () => {
 
-
-    
-
-const [news,setNews] = useState([])
-
-
-const url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=e8c8f368ce6c4bce9ccf3abede163cd5';
-const options = {
-	method: 'GET',
-	// headers: {
-	// 	'content-type': 'application/json',
-	// 	'X-RapidAPI-Key': 'efb7caed40msha9a27397b0db6b5p1705ccjsn892646fc2e57',
-	// 	'X-RapidAPI-Host': 'customjs.p.rapidapi.com'
-	// },
-	// body: {
-	// 	input: {var1: 10},
-	// 	jscode: ' 1 + input.var1'
-	// }
-};
-const newsApi =async()=>{
-try {
+        const [news, setNews] = useState([])
+    const [currentPage, setCurrentPage] = useState(1);//начални 
+    const [newsPerPage] = useState(6);
 
 
-	const response = await fetch(url, options);
-	const result = await response.json();
-	console.log(result);
-} catch (error) {
-	console.error(error);
-}
+   useEffect(() => {
+
+     newsApi()
+     
+
+    },[])
 
 
-}
+    const url = 'https://news-api14.p.rapidapi.com/top-headlines?country=us&language=en&pageSize=10&category=sports&sortBy=title';
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'efb7caed40msha9a27397b0db6b5p1705ccjsn892646fc2e57',
+            'X-RapidAPI-Host': 'news-api14.p.rapidapi.com'
+        }
+    };
 
-useEffect(()=>{
 
-    const result = newsApi()
-    setNews(result)
 
-},[])
+    const newsApi = async () => {
 
-console.log("news",news)
+        try {
+
+
+            const response = await fetch(url, options);
+           
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+
+            setNews(data.articles);
+            // console.log(data)
+            // console.log(news)
+
+        } catch (error) {
+            throw new Error(error.message)
+        }
+
+
+    }
+
+ 
+
+    const indexOfLastNews = currentPage * newsPerPage;
+    const indexOfFirstNews = indexOfLastNews - newsPerPage;
+    const currentNews = news?.slice(indexOfFirstNews, indexOfLastNews);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+ 
     return (
         <>
-            <section id="blog" className="blog" >
+        <section id="blog" className="blog">
                 <div className="container">
                     <div className="section-header">
-                        <h2>news and articles</h2>
-                        <p>Always upto date with our latest News and Articles </p>
+                        <h2>News and Articles</h2>
+                        <p>Stay up to date with our latest News and Articles</p>
                     </div>
                     <div className="blog-content">
                         <div className="row">
-                            <div className="col-md-4 col-sm-6">
-                                <div className="single-blog-item">
-                                    <div className="single-blog-item-img">
-                                        <img src="./src/assets/images/blog/b1.jpg" alt="blog image" />
-                                    </div>
-                                    <div className="single-blog-item-txt">
-                                        <h2><a href="#">How to find your Desired Place more quickly</a></h2>
-                                        <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do eiusmod tempore incididunt ut labore et dolore magna.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-4 col-sm-6">
-                                <div className="single-blog-item">
-                                    <div className="single-blog-item-img">
-                                        <img src="./src/assets/images/blog/b2.jpg" alt="blog image" />
-                                    </div>
-                                    <div className="single-blog-item-txt">
-                                        <h2><a href="#">How to find your Desired Place more quickly</a></h2>
-                                        <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do eiusmod tempore incididunt ut labore et dolore magna.
-                                        </p>
+                            {currentNews.map((article, index) => (
+                                <div className="col-md-4 col-sm-6" key={index}>
+                                    <div className="single-blog-item">
+                                        <div className="single-blog-item-img">
+                                            <img src={article.thumbnail || "./src/assets/images/blog/b3.jpg"} alt="blog image" />
+                                        </div>
+                                        <div className="single-blog-item-txt">
+                                            <h2><a href={article.url}>{article.title}</a></h2>
+                                            <h4>Posted <span>by</span> <a href="#">{article.author}</a> {new Date(article.published_date).toDateString()}</h4>
+                                             <p>{article.description}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-md-4 col-sm-6">
-                                <div className="single-blog-item">
-                                    <div className="single-blog-item-img">
-                                        <img src="./src/assets/images/blog/b3.jpg" alt="blog image" />
-                                    </div>
-                                    <div className="single-blog-item-txt">
-                                        <h2><a href="#">How to find your Desired Place more quickly</a></h2>
-                                        <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do eiusmod tempore incididunt ut labore et dolore magna.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
+                    <ul className="pagination">
+                        {Array.from({ length: Math.ceil(news.length / newsPerPage) }, (_, index) => (
+                            <li key={index}>
+                                <button onClick={() => paginate(index + 1)}>
+                                    {index + 1}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-
             </section>
         </>
     )
