@@ -6,7 +6,8 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
- .pagination{
+
+.pagination {
   font-family: none;
   padding-bottom: 30px;
 
@@ -16,6 +17,7 @@ h1 {
   text-align: center;
   color: #333;
 }
+
 .pagination-button {
   /* background-color: #3498db;
   color: #fff; */
@@ -32,10 +34,12 @@ h1 {
   border-color: #2980b9;
   color: #fff;
 }
+
 .pagination button:nth-child(odd) {
   background-color: #470bec !important;
   border: 1px solid #2ecc71 !important;
 }
+
 .pagination button:nth-child(odd):hover {
   background-color: #ec130b !important;
   border: 1px solid #2ecc71 !important;
