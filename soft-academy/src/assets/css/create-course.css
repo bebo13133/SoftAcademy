@@ -41,7 +41,8 @@
       width: 40%;
       padding: 16px;
       border-radius: 65px;
-      background: #fff;
+        background: url("/img/createForm.jpg");
+       
       box-shadow: 0 0 20px 0 #095484; 
       }
       .banner {
