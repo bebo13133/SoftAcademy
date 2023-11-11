@@ -20,7 +20,7 @@ export const AddForumPost = () => {
                 onChangeHandler({ target: { name: 'imageUrl', value: reader.result } });
             }
             reader.readAsDataURL(file);
-            console.log(reader.readAsDataURL(file))
+            // console.log(reader.readAsDataURL(file))
         }
 
     };
@@ -31,7 +31,6 @@ export const AddForumPost = () => {
     const { onSubmit, values, onChangeHandler } = useForm({
         title: "",
         description: "",
-
         author: "",
         createdAt: new Date().toLocaleString(),
 
