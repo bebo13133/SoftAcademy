@@ -40,6 +40,7 @@ import { ForumStudents } from './components/Forum/ForumStudents'
 import { ForumDetails } from './components/Forum/ForumDetails/ForumDetails'
 import { AddForumPost } from './components/Forum/AddForumPost/AddForumPost'
 import { ForumProvider } from './components/contexts/ForumContext'
+import { EditForumPost } from './components/Forum/ForumDetails/EditForumPost/EditForumPost'
 
 function App() {
   // const [isLoading, setIsLoading] = useState(true)
@@ -115,6 +116,15 @@ function App() {
 
                   <Route path={"/forum"} element={<ForumStudents />} />
                   <Route path={"/forum/:forumId"} element={<ForumDetails />} />
+
+                  <Route path={"/forum/:forumId/edit"} element={
+                       <IsOwnerCourse>
+                  <EditForumPost />
+                  </IsOwnerCourse>
+                  } />
+
+
+
                   <Route path={"/add-new-post"} element={<AddForumPost />} />
 
                   <Route path={"/profile"} element={<ProfilePage />} />

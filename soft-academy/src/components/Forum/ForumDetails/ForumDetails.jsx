@@ -40,8 +40,12 @@ const isOwner = userId === onePost._ownerId
 
     }
 
+    const onEditHandler=()=>{
+        navigate(`/forum/${forumId}/edit`)
+    }
 
-    const openDelete=(forumId)=>{
+
+    const openDelete=()=>{
         setIsOpen(true)
     }
 
@@ -65,12 +69,11 @@ const isOwner = userId === onePost._ownerId
                     <p>Author: {onePost.author}</p>
                     <p>Created At: {onePost.createdAt}</p>
                     <div className="ButtonsSection">
-                        {isOwner && (<><button className="editButton">Edit</button>
+                        {isOwner && (<><button className="editButton" onClick={onEditHandler}>Edit</button>
                         <button className="deleteButton" onClick={() => openDelete()}>Delete</button></>)}
                         
                         <button className="likeButton">Like</button>
                         <button className="commentButton">Comment</button>
-
 
                         <button className="back-to-forum-btn" onClick={onBackHandler}>Back to Forum</button>
                     </div>

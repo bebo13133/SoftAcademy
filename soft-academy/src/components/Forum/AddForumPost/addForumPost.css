@@ -2,36 +2,50 @@
  
   max-width: 600px;
   margin: 0 auto;
-  padding: 0px;
+  padding: 30px;
+
   border: 2px solid #ddd;
   border-radius: 18px;
   box-shadow: 0 0 83px rgb(0 80 143 / 40%);;
   display: flex;
+
   flex-direction: column;
-  flex-wrap: wrap;
-  align-content: space-around;
+  flex-wrap: nowrap;
 
 }
 
 .post-form label {
-  font-size: 20px;
+  font-size: 18px;
   display: block;
   margin-bottom: 15px;
   font-weight: bold;
 }
 
-.post-form input,
+
 .post-form textarea {
-  font-size: 20px;
+  font-size: 16px;
+  color: black;
   width: 100%;
   padding: 10px;
   margin-bottom: 5px;
   border: 2px solid #ccc;
   border-radius: 6px;
+  font-weight: 400;
   box-sizing: border-box;
 }
-
+.post-form input{
+  color: black;
+  font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
 .post-form textarea {
+  height: 160px;
   resize: vertical;
 }
 

@@ -67,6 +67,15 @@ export const ForumProvider = ({ children }) => {
 
     }
 
+    const onEditSubmitPost = async (forumData) => {
+
+        try {
+            const result = await forumService.update(forumData._id, forumData)
+
+        } catch (err) {
+
+        }
+    }
 
 
     const contextForumValue = {

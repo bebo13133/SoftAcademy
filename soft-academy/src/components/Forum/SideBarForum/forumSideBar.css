@@ -6,7 +6,7 @@
   left: -250px;
   width: 250px;
   height: 100%;
-  background-color: rgba(51, 51, 51, 0.7);
+  background-color: rgb(73 73 73);
   /*     background-color: rgba(0, 0, 0, 0);  прозрачно*/
   color: #fff;
   padding-top: 20px;
@@ -26,13 +26,13 @@
   text-align: center;
   text-decoration: none;
   font-size: 18px;
-  color: #818181;
+  color: rgb(255, 255, 254);
   display: block;
   transition: 0.3s;
 }
 
 .forum-sidebar a:hover {
-  color: #f1f1f1;
+  color: #fcfc00;
 }
 
 .forum-sidebar .close-btn {
@@ -114,7 +114,8 @@
 /* Стилизиране на изображенията в линковете */
 .forum-img-sideBar ul li img {
   width: 100%;
-  height: auto;
+  max-height: 200px;
+  /* height: auto; */
   border: 2px solid #ddd; /* Добавете рамка на изображението */
   border-radius: 5px; /* Закръглете ъглите на изображението */
 }
@@ -130,3 +131,7 @@
  ul li a:hover {
   transform: scale(1.05); 
 } 
+#root > div.forum-sidebar.open > a{
+  background-color: #818181;
+  margin-bottom: 10px;
+}
