@@ -5,11 +5,14 @@ import { useEffect, useState } from 'react'
 import { useService } from '../../Hooks/useService'
 import { forumServiceFactory } from '../../Services/forumService'
 import { useAuthContext } from '../../contexts/UserContext'
+import { ConfirmBox } from '../../ConfirmBox/ConfirmBox'
+import { useForumContext } from '../../contexts/ForumContext'
 
 
 export const ForumDetails = () => {
     const [onePost, setOnePost] = useState([])
-
+    const [isOpen,setIsOpen]= useState(false)
+    const {onDeleteClick} = useForumContext()
     const forumService = useService(forumServiceFactory)
 
     const { forumId } = useParams()
@@ -38,10 +41,13 @@ const isOwner = userId === onePost._ownerId
     }
 
 
-    const onDeletePostHandler=(forumId)=>{
-        forumService
+    const openDelete=(forumId)=>{
+        setIsOpen(true)
     }
 
+    const onCloseDelete=()=>{
+        setIsOpen(false)
+    }
     return (
         <>
             <section className="YourComponent">
@@ -60,7 +66,7 @@ const isOwner = userId === onePost._ownerId
                     <p>Created At: {onePost.createdAt}</p>
                     <div className="ButtonsSection">
                         {isOwner && (<><button className="editButton">Edit</button>
-                        <button className="deleteButton" onClick={onDeletePostHandler}>Delete</button></>)}
+                        <button className="deleteButton" onClick={() => openDelete()}>Delete</button></>)}
                         
                         <button className="likeButton">Like</button>
                         <button className="commentButton">Comment</button>
@@ -74,6 +80,7 @@ const isOwner = userId === onePost._ownerId
                 </div>
 
             </section>
+            <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }}/>
         </>
     )
 }

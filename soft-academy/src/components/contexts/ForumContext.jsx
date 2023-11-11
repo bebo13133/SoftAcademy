@@ -53,9 +53,24 @@ export const ForumProvider = ({ children }) => {
 
     }
 
+    const onDeleteClick = async (forumId) => {
+        const deletePost = await forumService.delete(forumId)
+
+        navigate("/forum")
+        try {
+
+        } catch (err) {
+            throw new Error(err.message || err)
+        }
+
+    }
+
+
+
     const contextForumValue = {
         onPostSubmit,
-        forumPosts
+        forumPosts,
+        onDeleteClick
     }
 
 

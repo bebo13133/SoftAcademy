@@ -175,7 +175,7 @@ export const OneCourse = ({
 
             <CommentsPopUp onCommentSubmit={onCommentSubmit} isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} comments={comments} />
 
-            <ConfirmBox open={isOpen}closeDialog={() => onCloseDelete()}                // title={deleteData?.name}
+            <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()}                // title={deleteData?.name}
                 deleteFunction={() => { setIsOpen(false), onDeleteClick(_id) }}
             />
 
