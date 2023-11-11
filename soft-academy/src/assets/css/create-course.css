@@ -1,5 +1,4 @@
-
-      /* html, body {
+/* html, body {
       min-height: 100%;
       }
      .testbox div, form, input, select, p { 
@@ -11,189 +10,233 @@
       color: #666;
       line-height: 22px;
       } */
-      /* h1 {
+/* h1 {
       position: absolute;
       margin: 0;
       font-size: 32px;
       color: #fff;
       z-index: 2;
       } */
-      .testbox p{
-        font-size: 16px;
-        color: #bd6813;
-      }
-      .testbox,input p{
-        font-size: 16px;
-      }
-      #root > div > form > h2:nth-child(2) {
-      font-weight: 400;
-      padding-top: 42px;
-      font-size: 26px;
-      }
-      .testbox {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: inherit;
-      padding: 20px;
-      }
-      #root > div > form {
-      width: 40%;
-      padding: 16px;
-      border-radius: 65px;
-        background: url("/img/createForm.jpg");
-       
-      box-shadow: 0 0 20px 0 #095484; 
-      }
-      .banner {
-      position: relative;
-      height: 350px;
-      background-image: url("../img/students.png");  
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      }
-      .banner::after {
-      content: "";
-      background-color: rgba(0, 0, 0, 0.4); 
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      }
-      input, select {
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      }
-      input {
-      width: calc(100% - 10px);
-      padding: 5px;
-      }
-      select {
-      width: 100%;
-      padding: 7px 0;
-      background: transparent;
-      }
-      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder, a {
-      color: #095484;
-      }
-      .item input:hover, .item select:hover {
-      border: 1px solid transparent;
-      box-shadow: 0 0 6px 0 #095484;
-      color: #095484;
-      }
-      .item {
-      position: relative;
-      margin: 10px 0;
-      }
-      input[type="date"]::-webkit-inner-spin-button {
-      display: none;
-      }
-      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
-      position: absolute;
-      font-size: 20px;
-      color: #a9a9a9;
-      }
-      .item i {
-      right: 2%;
-      top: 30px;
-      z-index: 1;
-      }
-      [type="date"]::-webkit-calendar-picker-indicator {
-      right: 1%;
-      z-index: 2;
-      opacity: 0;
-      cursor: pointer;
-      }
-      input[type=checkbox]  {
-      display: none;
-      }
-      label.check {
-      position: relative;
-      display: inline-block;
-      margin: 5px 20px 10px 0;
-      cursor: pointer;
-      }
-      .question span {
-      margin-left: 30px;
-      }
-      span.required {
-      margin-left: 0;
-      color: red;
-      }
-      label.check:before {
-      content: "";
-      position: absolute;
-      top: 2px;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      border-radius: 2px;
-      border: 1px solid #095484;
-      } 
-       input[type=checkbox]:checked + .check:before {
-      background: #095484;
-      }
-      label.check:after {
-      content: "";
-      position: absolute;
-      top: 6px;
-      left: 4px;
-      width: 8px;
-      height: 4px;
-      border: 3px solid #fff;
-      border-top: none;
-      border-right: none;
-      transform: rotate(-45deg);
-      opacity: 0;
-      } 
-      input[type=checkbox]:checked + label:after {
-      opacity: 1;
-      }
-      .btn-block {
-      margin-top: 10px;
-      text-align: center;
-      
-      }
-      #root > div > form > div.btn-block > button{
-        font-size: 26px;
+.testbox p {
+  font-size: 16px;
+  color: #bd6813;
+}
 
-      }
-      #root > div > form > div.btn-block > button {
-      width: 150px;
-      padding: 10px;
-      border:solid;
-      border-radius: 15px; 
-      background: #7fc7f4;
-      font-size: 16px;
-      color: #2f2d2d;
-      cursor: pointer;
-      }
-      #root > div > form > div.btn-block > button:hover {
-      background: #0666a3;
-      }
-      @media (min-width: 568px) {
-      .name-item, .city-item {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      }
-      .name-item input, .city-item input {
-      width: calc(50% - 20px);
-      }
-      .city-item select {
-      width: calc(50% - 8px);
-      }
-      }
+.testbox,
+input p {
+  font-size: 16px;
+}
 
-      .image-container {
-       /* Initially hide the container */
-        margin-top: 10px;
-      }
-      
-      .image-container img {
-        max-width: 100%;
-        max-height: 120px; /* Adjust to your preferred height */
-      }
+#root>div>form>h2:nth-child(2) {
+  font-weight: 400;
+  padding-top: 42px;
+  font-size: 26px;
+}
+
+.testbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  padding: 20px;
+}
+
+#root>div>form {
+  width: 40%;
+  padding: 16px;
+  border-radius: 65px;
+  background: url("/img/createForm.jpg");
+
+  box-shadow: 0 0 20px 0 #095484;
+}
+
+.banner {
+  position: relative;
+  height: 350px;
+  background-image: url("../img/students.png");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.banner::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+input,
+select {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input {
+  width: calc(100% - 10px);
+  padding: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 7px 0;
+  background: transparent;
+}
+
+.item:hover p,
+.item:hover i,
+.question:hover p,
+.question label:hover,
+input:hover::placeholder,
+a {
+  color: #095484;
+}
+
+.item input:hover,
+.item select:hover {
+  border: 1px solid transparent;
+  box-shadow: 0 0 6px 0 #095484;
+  color: #095484;
+}
+
+.item {
+  position: relative;
+  margin: 10px 0;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+.item i,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  font-size: 20px;
+  color: #a9a9a9;
+}
+
+.item i {
+  right: 2%;
+  top: 30px;
+  z-index: 1;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+  right: 1%;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+label.check {
+  position: relative;
+  display: inline-block;
+  margin: 5px 20px 10px 0;
+  cursor: pointer;
+}
+
+.question span {
+  margin-left: 30px;
+}
+
+span.required {
+  margin-left: 0;
+  color: red;
+}
+
+label.check:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid #095484;
+}
+
+input[type=checkbox]:checked+.check:before {
+  background: #095484;
+}
+
+label.check:after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  width: 8px;
+  height: 4px;
+  border: 3px solid #fff;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+
+input[type=checkbox]:checked+label:after {
+  opacity: 1;
+}
+
+.btn-block {
+  margin-top: 10px;
+  text-align: center;
+
+}
+
+#root>div>form>div.btn-block>button {
+  font-size: 26px;
+
+}
+
+#root>div>form>div.btn-block>button {
+  width: 150px;
+  padding: 10px;
+  border: solid;
+  border-radius: 15px;
+  background: #7fc7f4;
+  font-size: 16px;
+  color: #2f2d2d;
+  cursor: pointer;
+}
+
+#root>div>form>div.btn-block>button:hover {
+  background: #0666a3;
+}
+
+@media (min-width: 568px) {
+
+  .name-item,
+  .city-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .name-item input,
+  .city-item input {
+    width: calc(50% - 20px);
+  }
+
+  .city-item select {
+    width: calc(50% - 8px);
+  }
+}
+
+.image-container {
+  /* Initially hide the container */
+  margin-top: 10px;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 120px;
+  /* Adjust to your preferred height */
+}
