@@ -69,9 +69,11 @@ export const ForumProvider = ({ children }) => {
 
     const onEditSubmitPost = async (forumData) => {
 
+
         try {
             const result = await forumService.update(forumData._id, forumData)
-
+            setForumPosts(state => state.map(x => x._id === forumData._id ? result : x))
+            navigate(`/forum/${forumData._id}`)
         } catch (err) {
 
         }
@@ -81,7 +83,8 @@ export const ForumProvider = ({ children }) => {
     const contextForumValue = {
         onPostSubmit,
         forumPosts,
-        onDeleteClick
+        onDeleteClick,
+        onEditSubmitPost
     }
 
 

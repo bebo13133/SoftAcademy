@@ -26,7 +26,7 @@ export const forumServiceFactory = (token) => {
     }
 
     const deletePost = async (forumId) => request.del(`${baseUrl}/${forumId}`)
-
+const updateForumPost = async (forumId,forumData) =>request.put(`${baseUrl}/${forumId}`,forumData)
  
 
     return {
@@ -34,6 +34,6 @@ export const forumServiceFactory = (token) => {
         create,
         getOne,
         delete: deletePost,
-        // update: updateCourse,
+        update: updateForumPost,
     }
 }

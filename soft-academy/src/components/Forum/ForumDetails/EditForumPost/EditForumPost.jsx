@@ -12,32 +12,6 @@ export const EditForumPost = () => {
     const { onEditSubmitPost } = useForumContext()
     const { forumId } = useParams()
     const forumService = useService(forumServiceFactory)
-
-    const {onSubmit, onChangeHandler, onChangeValues, values } = useForm({
-        title: "",
-        description: "",
-        author: "",
-        createdAt: new Date().toLocaleString(),
-    }, onEditSubmitPost)
-
-
-
-    useEffect(() => {
-        forumService.getOne(forumId)
-            .then(result => {
-
-                onChangeValues(result)
-            })
-
-
-    }, [])
-
-
-
-
-
-
-
     const handleImageChange = (e) => {
         const file = e.target.files[0]
 
@@ -56,14 +30,34 @@ export const EditForumPost = () => {
     };
 
 
-   
+
+
+    const {onSubmit, onChangeHandler, onChangeValues, values } = useForm({
+        title: "",
+        description: "",
+        author: "",
+        createdAt: new Date().toLocaleString(),
+    }, onEditSubmitPost)
+
+
+
+    useEffect(() => {
+        forumService.getOne(forumId)
+            .then(result => {
+
+                onChangeValues(result)
+            })
+
+
+    }, [forumId])
+
 
 
 
     return (
 
         <>
-            <form className="post-form" onSubmit={onSubmit}>
+            <form className="post-form" method="PUT" onSubmit={onSubmit}>
                 <label>
                     Title:
                     <input type="text" name="title" value={values.title} onChange={onChangeHandler} />
@@ -92,7 +86,7 @@ export const EditForumPost = () => {
                     </div>
                 )}
 
-                <button type="submit">Create Post</button>
+                <button type="submit">Edit Post</button>
                 <ul>
                     <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                 </ul>
