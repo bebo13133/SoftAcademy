@@ -1,0 +1,19 @@
+.terms-footer {
+    background-color: #f4f4f4;
+    padding: 30xpx;
+    border-radius: 5px;
+    margin-right: 20px; 
+    border: 2px solid #0a0a0a; 
+    margin-top: 150px;
+align-items: center;
+    /* text-align: center; */
+  }
+.terms-footer h3 {
+    color: #333;
+  }
+  
+ .footer-section.terms-footer p {
+    
+    color: #555;
+    /* margin-bottom: 10px; */
+  }

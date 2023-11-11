@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./footer.css"
 
 export const Footer = () => {
@@ -23,7 +24,7 @@ export const Footer = () => {
                 <section className="footer-section terms">
                     <h3>Terms</h3>
                     <ul>
-                        <li><a href="/terms">Terms and Conditions</a></li>
+                        <li><Link to="/terms">Terms and Conditions</Link></li>
                         <li><a href="/privacy">Privacy Policy</a></li>
                     </ul>
                 </section>
@@ -32,9 +33,9 @@ export const Footer = () => {
                 <section className="footer-section social-media">
                     <h3>Social Media</h3>
                     <div className="social-icons">
-                        <a href="https://www.facebook.com/groups/706263354783010"><img src="/img/Facebook_Logo_2023.png" alt="Facebook" /></a>
-                        <a href="https://twitter.com"><img src="/img/twiter-png.webp" alt="Twitter" /></a>
-                        <a href="https://instagram.com"><img src="/img/insagram.png" alt="Instagram" /></a>
+                        <Link to="https://www.facebook.com/groups/706263354783010" target="_blank"><img src="/img/Facebook_Logo_2023.png" alt="Facebook" /></Link>
+                        <a href="https://twitter.com" target="_blank"><img src="/img/twiter-png.webp" alt="Twitter" /></a>
+                        <a href="https://instagram.com" target="_blank"><img src="/img/insagram.png" alt="Instagram" /></a>
                     </div>
                 </section>
             </footer>

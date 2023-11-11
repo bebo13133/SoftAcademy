@@ -1,18 +1,18 @@
 /* forumSidebar.css */
 
 .forum-sidebar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: -250px;
   width: 250px;
-  height: 100%;
+  height: 115%;
   background-color: rgb(73 73 73);
   /*     background-color: rgba(0, 0, 0, 0);  прозрачно*/
   color: #fff;
   padding-top: 20px;
   border: 2px solid #3498db;
   transition: left 0.5s ease-in-out;
-  overflow: scroll;
+  overflow: auto;
   z-index: 90;
 }
 /* #root > div.forum-sidebar.open > a{
@@ -83,11 +83,6 @@
   text-align: center;
 }
 
-.forum-sidebar .posts-field {
-  /* Прозрачно черно поле */
-  /* ... останалите стилове */
-}
-
 
 /* side bar image */
 .forum-img-sideBar  ul {
@@ -118,11 +113,11 @@
   /* width: 100%; */
   max-height: 200px;
   /* height: auto; */
-  border: 2px solid #ddd; /* Добавете рамка на изображението */
-  border-radius: 5px; /* Закръглете ъглите на изображението */
+  border: 2px solid #ddd; 
+  border-radius: 5px; 
 }
 
-/* Стилизиране на заглавията на статиите под изображенията */
+
   .forum-img-sideBar  ul li span {
   display: block;
   margin-top: 5px;

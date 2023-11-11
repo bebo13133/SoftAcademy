@@ -40,7 +40,7 @@ nav.bootsnav .dropdown.megamenu-fw .dropdown-menu {
 /* Navbar
 =================================*/
 nav.navbar.bootsnav{
-    margin-bottom: 11;
+    margin-bottom: 0;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
     -o-border-radius: 0px;

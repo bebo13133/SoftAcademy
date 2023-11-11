@@ -41,6 +41,7 @@ import { ForumDetails } from './components/Forum/ForumDetails/ForumDetails'
 import { AddForumPost } from './components/Forum/AddForumPost/AddForumPost'
 import { ForumProvider } from './components/contexts/ForumContext'
 import { EditForumPost } from './components/Forum/ForumDetails/EditForumPost/EditForumPost'
+import { TermsAndConditions } from './components/Footer/TermsAndConditions/TermsAndConditions'
 
 function App() {
   // const [isLoading, setIsLoading] = useState(true)
@@ -57,7 +58,13 @@ function App() {
   const isProfilePage = location.pathname.startsWith('/profile') || location.pathname.startsWith("/change-password")
     || location.pathname.startsWith("/my-added-courses") || location.pathname.startsWith("/favorite-courses") || location.pathname.startsWith("/change-avatar")
     || location.pathname.startsWith("/404")
-    // || location.pathname.startsWith("/forum")
+    || location.pathname.startsWith("/terms")
+    || location.pathname.startsWith("/admin")
+    || location.pathname.startsWith("/forum")
+
+const isAdminPage = location.pathname.startsWith('/admin')
+ 
+   
   return (
 
     <>
@@ -74,6 +81,7 @@ function App() {
               <Routes>
                 <Route path={"/"} element={<Home />} />
                 <Route path={"/privacy-policy"} element={<PrivacyPolicy />} />
+                <Route path={"/terms"} element={<TermsAndConditions />} />
 
 
                 <Route path={"/catalog"} element={<CatalogCourses />} />
@@ -139,10 +147,10 @@ function App() {
                 {/* End RouteGuard */}
 
                 <Route path={"/404/*"} element={<PageNotFound />} />
-                {/* <Route path={"/admin"} element={<AdminPage />} /> */}
-              </Routes>
 
-              <ChatBox />
+              </Routes>
+                
+             {!isAdminPage && <ChatBox />}
 
               {!isProfilePage && <Footer />}
 
