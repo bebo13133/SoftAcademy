@@ -9,6 +9,7 @@ export const SideBarPost =({
 console.log("imageUrl", imageUrl)
     return(
         <>
+        <section className="forum-img-sideBar">
           <ul>
               
                     <li >
@@ -17,8 +18,9 @@ console.log("imageUrl", imageUrl)
                             <span>{title}</span>
                         </Link>
                     </li>
-           
+                    <div className="divider"></div>
             </ul>
+            </section>
         </>
     )
 }

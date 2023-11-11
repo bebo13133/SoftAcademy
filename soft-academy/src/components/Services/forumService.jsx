@@ -19,6 +19,13 @@ export const forumServiceFactory = (token) => {
         const result = await request.post(baseUrl, forumData)
         return result
     }
+    const getOne = async (forumId) => {
+        const onePost = await request.get(`${baseUrl}/${forumId}`)
+
+        return onePost
+    }
+
+
     return {
         getAll,
         create,

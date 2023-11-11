@@ -22,10 +22,11 @@
   position:fixed;
 } */
 .forum-sidebar a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 8px 8px;
+  text-align: center;
   text-decoration: none;
   font-size: 18px;
-  color: #ffffff;
+  color: #818181;
   display: block;
   transition: 0.3s;
 }
@@ -78,7 +79,8 @@
 }
 
 #root>div.forum-sidebar.open>h2 {
-  color: white
+  color: white;
+  text-align: center;
 }
 
 .forum-sidebar .posts-field {
@@ -88,20 +90,20 @@
 
 
 /* side bar image */
-ul {
+.forum-img-sideBar  ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 /* Стилизиране на елементите на списъка със статии */
-ul li {
+ .forum-img-sideBar  ul li {
   display: inline-block;
   margin: 10px;
 }
 
 /* Стилизиране на линковете към отделните статии */
- ul li a {
+ .forum-img-sideBar  ul li a {
   text-decoration: none;
   color: #333;
   display: block;
@@ -110,19 +112,19 @@ ul li {
 } 
 
 /* Стилизиране на изображенията в линковете */
-ul li img {
+.forum-img-sideBar ul li img {
   width: 100%;
   height: auto;
-  border: 1px solid #ddd; /* Добавете рамка на изображението */
+  border: 2px solid #ddd; /* Добавете рамка на изображението */
   border-radius: 5px; /* Закръглете ъглите на изображението */
 }
 
 /* Стилизиране на заглавията на статиите под изображенията */
- ul li span {
+  .forum-img-sideBar  ul li span {
   display: block;
   margin-top: 5px;
   font-weight: bold;
-} 
+}  
 
 /* Ефект при ховър върху линка */
  ul li a:hover {

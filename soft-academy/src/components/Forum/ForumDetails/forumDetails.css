@@ -1,0 +1,74 @@
+.YourComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 2px solid #ccc; 
+    border-radius: 8px; 
+  }
+  
+  /* Стилове за секцията със снимката в рамките на YourComponent */
+  .ImageSection {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  
+  .ImageSection img {
+    width: 160%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Стилове за новата секция TextSection */
+.TextSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+  }
+  
+  /* Стилове за заглавието */
+  .TextSection h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Стилове за описанието */
+  .TextSection p {
+    text-align: center;
+    color: #555;
+  }
+  
+  /* Стилове за секцията с бутоните */
+  .ButtonsSection {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  /* Стилове за бутоните */
+  .ButtonsSection button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .ButtonsSection button:hover {
+    background-color: #2980b9;
+  }
+  .ButtonsSection .deleteButton {
+    background-color: red;
+    color: white;
+    /* Допълнителни стилове, ако е необходимо */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
