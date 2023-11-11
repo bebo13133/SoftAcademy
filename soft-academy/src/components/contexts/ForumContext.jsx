@@ -22,10 +22,10 @@ export const ForumProvider = ({ children }) => {
 
 
     }, [])
-    console.log("forumPosts", forumPosts)
+
     const onPostSubmit = async (forumData) => {
 
-        console.log(forumData)
+
         try {
             // if(!courseData.courseName ||
             // !courseData.firstName||
@@ -56,7 +56,7 @@ export const ForumProvider = ({ children }) => {
     const onDeleteClick = async (forumId) => {
         const deletePost = await forumService.delete(forumId)
 
-        setForumPosts(state=>state.filter(x=>x._id!==forumId))
+        setForumPosts(state => state.filter(x => x._id !== forumId))
 
         navigate("/forum")
         try {

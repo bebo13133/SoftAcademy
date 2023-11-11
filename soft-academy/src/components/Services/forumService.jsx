@@ -33,7 +33,7 @@ export const forumServiceFactory = (token) => {
         getAll,
         create,
         getOne,
-         delete: deletePost,
+        delete: deletePost,
         // update: updateCourse,
     }
 }
