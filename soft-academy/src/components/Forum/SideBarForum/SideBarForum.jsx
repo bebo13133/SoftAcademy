@@ -12,22 +12,22 @@ export const SideBarForum = () => {
 
     useEffect(() => {
 
-      
-        setPosts( forumPosts.sort((a, b) =>(b._createdOn) - (a._createdOn)).slice(length-1,5))
+
+        setPosts(forumPosts.sort((a, b) => (b._createdOn) - (a._createdOn)).slice(length - 1, 5))
 
         const timeoutId = setTimeout(() => {
             setIsOpen(true);
-        }, 500); 
+        }, 500);
 
         return () => clearTimeout(timeoutId);
     }, []);
 
     return (
         <>
-           
+
             <div className={`forum-sidebar ${isOpen ? 'open' : ''}`}>
-            <Link to="/add-new-post">Add New Post</Link>
-       
+                <Link to="/add-new-post">Add New Post</Link>
+
 
                 <h2>Latest Posts</h2>
                 {posts && posts.map(post => <SideBarPost key={post._id} {...post} />)}
