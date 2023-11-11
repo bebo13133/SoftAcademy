@@ -5,7 +5,7 @@ import { useForumContext } from "../../contexts/ForumContext";
 
 
 export const AddForumPost = () => {
-    const [image, setImage] = useState(null);
+    // const [image, setImage] = useState(null);
     const { onPostSubmit } = useForumContext()
 
     const handleImageChange = (e) => {
@@ -69,7 +69,7 @@ export const AddForumPost = () => {
                         <img src={values.imageUrl} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />
                     </div>
                 )}
-                
+
                 <button type="submit">Create Post</button>
                 <ul>
                     <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
