@@ -12,14 +12,20 @@
   padding-top: 20px;
   border: 2px solid #3498db;
   transition: left 0.5s ease-in-out;
+  overflow: scroll;
   z-index: 90;
 }
-
+/* #root > div.forum-sidebar.open > a{
+  position:fixed;
+}
+#root > div.forum-sidebar.open > h2{
+  position:fixed;
+} */
 .forum-sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 18px;
-  color: #818181;
+  color: #ffffff;
   display: block;
   transition: 0.3s;
 }
@@ -79,3 +85,46 @@
   /* Прозрачно черно поле */
   /* ... останалите стилове */
 }
+
+
+/* side bar image */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Стилизиране на елементите на списъка със статии */
+ul li {
+  display: inline-block;
+  margin: 10px;
+}
+
+/* Стилизиране на линковете към отделните статии */
+ ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  text-align: center;
+  transition: transform 0.3s;
+} 
+
+/* Стилизиране на изображенията в линковете */
+ul li img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd; /* Добавете рамка на изображението */
+  border-radius: 5px; /* Закръглете ъглите на изображението */
+}
+
+/* Стилизиране на заглавията на статиите под изображенията */
+ ul li span {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+} 
+
+/* Ефект при ховър върху линка */
+ ul li a:hover {
+  transform: scale(1.05); 
+} 

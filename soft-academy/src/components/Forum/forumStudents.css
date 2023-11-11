@@ -1,14 +1,37 @@
 .forum-page {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   padding: 20px;
-  align-content: flex-start;
-  justify-content: space-between;
+  align-content: space-around;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 
 h1 {
   text-align: center;
   color: #333;
+}
+.pagination-button {
+  background-color: #3498db;
+  color: #fff;
+  border: 1px solid #3498db;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.pagination-button:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+  color: #fff;
+}
+.pagination button:nth-child(odd) {
+  background-color: #470bec !important;
+  border: 1px solid #2ecc71 !important;
+}
+.pagination button:nth-child(odd):hover {
+  background-color: #ec130b !important;
+  border: 1px solid #2ecc71 !important;
 }

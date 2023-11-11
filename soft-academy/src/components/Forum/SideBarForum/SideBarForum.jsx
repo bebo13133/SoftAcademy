@@ -1,36 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import './forumSidebar.css';
 import { Link } from 'react-router-dom';
+import { SideBarPost } from './SideBarPost';
+import { useForumContext } from '../../contexts/ForumContext';
 
-export const SideBarForum = ({ }) => {
+export const SideBarForum = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [posts, setPosts] = useState([])
+
+    const { forumPosts } = useForumContext()
 
     useEffect(() => {
+
+        const sortedPosts = forumPosts.sort((a, b) =>(b._createdOn) - (a._createdOn));
+
+         const lastFourPosts = sortedPosts.slice(length-1,4)
+
+        setPosts(lastFourPosts)
+
         const timeoutId = setTimeout(() => {
             setIsOpen(true);
-        }, 500); // Променете времето според вашите предпочитания
+        }, 500); 
 
         return () => clearTimeout(timeoutId);
     }, []);
 
     return (
-        <div className={`forum-sidebar ${isOpen ? 'open' : ''}`}>
-            {/* <div className="close-btn" onClick={closeSidebar}>
-          &times;
-        </div> */}
+        <>
+           
+            <div className={`forum-sidebar ${isOpen ? 'open' : ''}`}>
             <Link to="/add-new-post">Add New Post</Link>
-            <h2>Latest Posts</h2>
-            <ul>
-                {/* {latestPosts.map((post) => (
-                    <li key={post.id}>
-                        <Link to={`/post/${post.id}`}>
-                            <img src={post.imageUrl} alt={post.title} />
-                            <span>{post.title}</span>
-                        </Link>
-                    </li>
-                ))} */}
-            </ul>
-        </div>
+       
+
+                <h2>Latest Posts</h2>
+                {posts && posts.map(post => <SideBarPost key={post._id} {...post} />)}
+            </div>
+        </>
     );
 };
 
