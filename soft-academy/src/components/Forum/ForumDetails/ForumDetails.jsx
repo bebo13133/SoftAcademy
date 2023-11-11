@@ -1,9 +1,10 @@
 
-import { useParams } from 'react-router-dom'
+import { useParams,Link, useNavigate } from 'react-router-dom'
 import './forumDetails.css'
 import { useEffect, useState } from 'react'
 import { useService } from '../../Hooks/useService'
 import { forumServiceFactory } from '../../Services/forumService'
+import { useAuthContext } from '../../contexts/UserContext'
 
 
 export const ForumDetails = () => {
@@ -13,8 +14,10 @@ export const ForumDetails = () => {
 
     const { forumId } = useParams()
 
+const navigate = useNavigate()
+const{userId} =useAuthContext()
 
-
+const isOwner = userId === onePost._ownerId
 
     useEffect(() => {
         forumService.getOne(forumId)
@@ -22,34 +25,48 @@ export const ForumDetails = () => {
                 setOnePost(result)
             })
             .catch(error => {
-                console.error("Error fetching forum post:", error);
+              
                 throw new Error("Error fetching forum post")
 
             });
 
     }, [forumId])
 
+    const onBackHandler=()=>{
+        navigate('/forum')
+
+    }
+
+
+    const onDeletePostHandler=(forumId)=>{
+        forumService
+    }
 
     return (
         <>
             <section className="YourComponent">
 
                 <div className="ImageSection">
-                    <img src="URL" alt="Заглавие на снимката" />
+                    <img src={onePost.imageUrl} alt={onePost.title} />
                 </div>
             </section>
             <section className="TextSection">
 
                 <div >
-                    <h2>title</h2>
-                    <p>description</p>
-                    <p>Author: author</p>
-                    <p>Created At: createdAt</p>
+                    <h2>{onePost.title}</h2>
+                    <div className="divider"></div>
+                    <p>{onePost.description}</p>
+                    <p>Author: {onePost.author}</p>
+                    <p>Created At: {onePost.createdAt}</p>
                     <div className="ButtonsSection">
-                        <button className="editButton">Edit</button>
-                        <button className="deleteButton">Delete</button>
+                        {isOwner && (<><button className="editButton">Edit</button>
+                        <button className="deleteButton" onClick={onDeletePostHandler}>Delete</button></>)}
+                        
                         <button className="likeButton">Like</button>
                         <button className="commentButton">Comment</button>
+
+
+                        <button className="back-to-forum-btn" onClick={onBackHandler}>Back to Forum</button>
                     </div>
                     <ul>
                         <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>

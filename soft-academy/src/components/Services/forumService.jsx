@@ -29,7 +29,7 @@ export const forumServiceFactory = (token) => {
     return {
         getAll,
         create,
-        // getOne,
+        getOne,
         // delete: deleteCourse,
         // update: updateCourse,
     }

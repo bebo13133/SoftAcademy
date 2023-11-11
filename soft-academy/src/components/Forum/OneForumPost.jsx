@@ -13,16 +13,16 @@ export const OneForumPost = ({
     _id,
 
 }) => {
-const navigate = useNavigate()
-const {isAuthentication} =useAuthContext()
+    const navigate = useNavigate()
+    const { isAuthentication } = useAuthContext()
 
-const forumId= _id
+    const forumId = _id
 
-const handleClick=()=>{
-console.log("hi")
-   return isAuthentication ? navigate(`/forum/${forumId}`) : alert("You don't have permission to that forum. Log in and try again")
+    const handleClick = () => {
+        console.log("hi")
+        return isAuthentication ? navigate(`/forum/${forumId}`) : alert("You don't have permission to that forum. Log in and try again")
 
-}
+    }
 
 
 
@@ -54,7 +54,7 @@ console.log("hi")
                     <p>
                         <strong>Created at:</strong> {createdAt}
                     </p>
-                    <button className="read-more-button"  onClick={handleClick}>Read More</button>
+                    <button className="read-more-button" onClick={handleClick}>Read More</button>
                 </div>
             </div>
 

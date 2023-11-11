@@ -38,7 +38,7 @@ export const ForumStudents = () => {
 
             <section>
                 <div className="forum-page">
-                    {/* <h1>Forum - All Articles</h1> */}
+                 
                     {currentPosts.map((article) => (
                         <OneForumPost key={article._id} {...article} />
                     ))}
