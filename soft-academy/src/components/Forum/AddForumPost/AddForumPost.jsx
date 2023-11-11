@@ -31,9 +31,9 @@ export const AddForumPost = () => {
     const { onSubmit, values, onChangeHandler } = useForm({
         title: "",
         description: "",
-        // imageUrl: "",
+
         author: "",
-        createdAt: "",
+        createdAt: new Date().toLocaleString(),
 
     }, onPostSubmit)
 
@@ -61,7 +61,7 @@ export const AddForumPost = () => {
                 </label>
                 <label>
                     Created At:
-                    <input type="text" name="createdAt" value={new Date().toLocaleString()} readOnly />
+                    <input type="text" name="createdAt" value={(new Date().toLocaleString())} onChange={onChangeHandler} readOnly />
                 </label>
                 {values.imageUrl && (
                     <div>
@@ -69,8 +69,11 @@ export const AddForumPost = () => {
                         <img src={values.imageUrl} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />
                     </div>
                 )}
-
+                
                 <button type="submit">Create Post</button>
+                <ul>
+                    <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+                </ul>
             </form>
 
 
