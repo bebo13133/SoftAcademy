@@ -9,55 +9,58 @@
     bottom: 0;
     width: 100%;
     align-items: flex-start
-  }
-  
-  .footer-section {
+}
+
+.footer-section {
     flex: 1;
     text-align: center;
-    display: flex; /* Add this line to make each section flex */
-    flex-direction: column; /* Stack the items vertically within each section */
-  }
-  
-  .footer-section h3 {
+    display: flex;
+    /* Add this line to make each section flex */
+    flex-direction: column;
+    /* Stack the items vertically within each section */
+}
+
+.footer-section h3 {
     color: #fcfcfc;
-  }
-  
-  .footer-section ul {
+}
+
+.footer-section ul {
     list-style: none;
     padding: 0;
-  }
-  
-  .footer-section ul li {
+}
+
+.footer-section ul li {
     margin-bottom: 8px;
-  }
-  
-  .social-icons {
+}
+
+.social-icons {
 
     /* display: flex; */
     gap: 0px;
     display: flex;
     justify-content: center;
 }
-  
 
-  .social-icons a {
-    
+
+.social-icons a {
+
     color: #767f86;
     margin-right: 10px;
     text-decoration: none;
-  }
+}
 
-.terms a{
+.terms a {
     color: #767f86;
-  }
-  
-  .social-icons img {
-    
+}
+
+.social-icons img {
+
     width: 30px;
     height: 30px;
     border-radius: 50%;
-  }
-  #root > footer > section.footer-section.rights-reserved > ul > li{
+}
+
+#root>footer>section.footer-section.rights-reserved>ul>li {
     margin-bottom: -18px;
     float: none;
-  }
+}
