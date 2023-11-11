@@ -62,9 +62,9 @@ function App() {
     || location.pathname.startsWith("/admin")
     || location.pathname.startsWith("/forum")
 
-const isAdminPage = location.pathname.startsWith('/admin')
- 
-   
+  const isAdminPage = location.pathname.startsWith('/admin')
+
+
   return (
 
     <>
@@ -126,9 +126,9 @@ const isAdminPage = location.pathname.startsWith('/admin')
                   <Route path={"/forum/:forumId"} element={<ForumDetails />} />
 
                   <Route path={"/forum/:forumId/edit"} element={
-                       <IsOwnerCourse>
-                  <EditForumPost />
-                  </IsOwnerCourse>
+                    <IsOwnerCourse>
+                      <EditForumPost />
+                    </IsOwnerCourse>
                   } />
 
 
@@ -149,8 +149,8 @@ const isAdminPage = location.pathname.startsWith('/admin')
                 <Route path={"/404/*"} element={<PageNotFound />} />
 
               </Routes>
-                
-             {!isAdminPage && <ChatBox />}
+
+              {!isAdminPage && <ChatBox />}
 
               {!isProfilePage && <Footer />}
 
