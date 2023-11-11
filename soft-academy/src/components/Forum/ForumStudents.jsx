@@ -10,7 +10,7 @@ export const ForumStudents = () => {
     // const [latestPosts, setLatestPosts] = useState([]);
     const { forumPosts } = useForumContext()
     const [currentPage, setCurrentPage] = useState(1);
-    const postsPerPage = 2;
+    const postsPerPage = 3;
 
     useEffect(() => {
         setArticles(forumPosts)

@@ -25,8 +25,9 @@
     border-radius: 10px;
     padding: 40px;
     box-sizing: border-box;
-    background: linear-gradient(to right, #f1f1f1, #d9e7ea);
-    -webkit-box-shadow: 0 0 40px rgba(68, 68, 68, 0.3);
+    background: url("/img/background-comments.jpg");
+    /* background: linear-gradient(to right, #f1f1f1, #d9e7ea);
+    -webkit-box-shadow: 0 0 40px rgba(68, 68, 68, 0.3); */
      box-shadow: 0 0 40px rgba(78, 70, 70, 0.3); 
      flex:none;
 

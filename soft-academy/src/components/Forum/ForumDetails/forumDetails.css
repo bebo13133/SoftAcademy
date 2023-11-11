@@ -39,23 +39,25 @@
     font-size: 32px;
     margin-bottom: 10px;
     text-shadow: 0 4px 8px rgb(105 152 253 / 36%);
+    text-transform:none;
   }
   
   /* Стилове за описанието */
   .TextSection p {
     font-size: 16px;
-    text-align: center;
+    text-align: left;
     color: #555;
   }
   /* descriptio selector */
   #root > section.TextSection > div > p:nth-child(3){
-    margin-top: 100px;
+    margin-top: 60px;
+    margin-left:30px
   }
 /* author */
 #root > section.TextSection > div > p:nth-child(4){
   text-align: right;
   margin-top: 92px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
 
 }
@@ -64,13 +66,14 @@
 
   text-align: right;
   margin-top: 32px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
 }
 
 
   /* LOgo SoftAcademy */
   #root > section.TextSection > div > ul > li{
+    margin-top: 45px;
     float:right;
   }
 

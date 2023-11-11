@@ -3,7 +3,8 @@ import './forumSideBar.css'
 export const SideBarPost =({
     imageUrl,
     title,
-    _id
+    _id,
+    createdAt
 })=>{
 
 console.log("imageUrl", imageUrl)
@@ -16,6 +17,7 @@ console.log("imageUrl", imageUrl)
                         <Link to={`/forum/${_id}`}>
                             <img src={imageUrl} alt={title} />
                             <span>{title}</span>
+                            <span>{createdAt}</span>
                         </Link>
                     </li>
                     <div className="divider"></div>

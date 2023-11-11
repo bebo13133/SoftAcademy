@@ -28,15 +28,16 @@ grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
     left: 60%;
     max-width: 950px;
     border-radius: 10px;
-
+    background: url("/img/background-addcourse.jpg");
+    box-shadow: 3px 8px 34px 8px rgb(57 9 231 / 40%);
     /* background: #e4a1a9; */
     /* background: -webkit-linear-gradient(to right, #03434C, rgb(179, 91, 98)); */
     /* background: -webkit-gradient(linear, left top, right top, from(#03434C), to(rgb(#08272C))); */
     /* background: -webkit-linear-gradient(left, #03434C, #08272C);
     background: -o-linear-gradient(left, #03434C, #08272C); */
-    background: linear-gradient(to right, #f1f1f1, #d9e7ea);
+    /* background: linear-gradient(to right, #f1f1f1, #d9e7ea);
     -webkit-box-shadow: 0 0 40px rgba(68, 68, 68, 0.3);
-     box-shadow: 0 0 40px rgba(78, 70, 70, 0.3); 
+     box-shadow: 0 0 40px rgba(78, 70, 70, 0.3);  */
 }
 
 /* .disc p {
@@ -49,9 +50,11 @@ grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
 }
 
 .card_details {
+    /* background: url"https://cdn.pnghd.pics/data/22/blue-background-vector-hd-17.jpg"; */
+
     width: 100%;
     padding: 50px;
-    margin-top: -25px;
+    margin-top: 0px;
 }
 
 .card_details h1 {
@@ -81,6 +84,7 @@ text-transform:none;
 
 
 .card_right {
+    
     position: relative;
     max-width: 250px;
     border-radius: 2px;
@@ -147,13 +151,13 @@ color: #060606;
     color: #ffffff; /* Change text color on hover to white */
     transform: scale(1.1);
   }
-.PG {
-    /*background: #92FE9D;*/
+/* .PG {
+ 
     background: rgba(116, 153, 226, 0.89);
     -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     -webkit-transition: 300ms ease-in-out;
-}
+} */
 
 .disc {
     font-weight: 100;
@@ -516,4 +520,17 @@ span {
 
     font-size:22px;
     padding-left:0px
+}
+/* #root > div.testbox > form{
+
+    background: url("/img/forum4.jpg");
+} */
+
+#root > div.testbox > form > div.banner{
+    border-radius: 25px;
+}
+
+#root > div.testbox > form > div.banner::after {
+
+    border-radius: 25px;
 }

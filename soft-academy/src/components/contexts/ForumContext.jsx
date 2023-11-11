@@ -68,15 +68,16 @@ export const ForumProvider = ({ children }) => {
     }
 
     const onEditSubmitPost = async (forumData) => {
+       
 
+            try {
+                 if (!forumData.title || !forumData.description|| !forumData.author || !forumData.imageUrl) return alert("Some fields is empty")
+                const result = await forumService.update(forumData._id, forumData)
+                setForumPosts(state => state.map(x => x._id === forumData._id ? result : x))
+                navigate(`/forum/${forumData._id}`)
+            } catch (err) {
 
-        try {
-            const result = await forumService.update(forumData._id, forumData)
-            setForumPosts(state => state.map(x => x._id === forumData._id ? result : x))
-            navigate(`/forum/${forumData._id}`)
-        } catch (err) {
-
-        }
+            }
     }
 
 

@@ -91,13 +91,13 @@ export const Header = () => {
 
 
 								</ul>
+								
 							</div>
 						</div>
 					</nav>
 
 				</div>
 				<div className="clearfix"></div>
-
 			</section>
 
 		</>

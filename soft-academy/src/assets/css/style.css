@@ -189,7 +189,7 @@ html,body{height: 100%;}
         3. Top-area
 --------------------------------------*/
 nav.navbar.bootsnav {
-    background-color:rgb(221 221 221);
+    /* background-color:rgb(221 221 221); */
     border-bottom: transparent;
 }
 .wrap-sticky nav.navbar.bootsnav.sticked {background-color: #fff;box-shadow: 0 2px 5px rgba(0,0,0,.2);}
@@ -223,7 +223,7 @@ nav.navbar.bootsnav ul.nav > li > a {
     -o-transition: 0.3s linear; 
     transition: 0.3s linear;
 }
-nav.navbar.bootsnav ul.nav > li > a {padding:34px 21px;}
+nav.navbar.bootsnav ul.nav > li > a {padding:20px 21px;}
 nav.navbar.bootsnav ul.nav > li > a:hover,nav.navbar.bootsnav ul.nav > li > a:focus{color: #ff545a;}
 nav.navbar.bootsnav ul.nav > li.active>a {color: #ff545a;}
 

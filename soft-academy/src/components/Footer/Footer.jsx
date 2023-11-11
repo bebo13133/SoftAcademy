@@ -1,57 +1,52 @@
+import "./footer.css"
+
 export const Footer = () => {
 
     return (
         <>
-            <footer id="footer" className="footer">
-                <div className="container">
-                    {/* <div className="footer-menu">
-                        <div className="row">
-                            <div className="col-sm-3">
-                                <div className="navbar-header">
-                                    <a className="navbar-brand" href="index.html">Soft<span>academy</span></a>
-                                </div>
-                            </div>
-                            <div className="col-sm-9">
-                                <ul className="footer-menu-item">
-                                    <li className="scroll"><a href="#works">how it works</a></li>
-                                    <li className="scroll"><a href="#explore">explore</a></li>
-                                    <li className="scroll"><a href="#reviews">review</a></li>
-                                    <li className="scroll"><a href="#blog">blog</a></li>
-                                    <li className="scroll"><a href="#contact">contact</a></li>
-                                    <li className=" scroll"><a href="#contact">my account</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> */}
-                    <div className="hm-footer-copyright">
-                        <div className="row">
-                            <div className="col-sm-5">
-                                <p>
-                                    &copy;copyright. designed and developed by <a href="https://www.themesine.com/">themesine</a>
-                                </p>
-                            </div>
-                            <div className="col-sm-7">
-                                <div className="footer-social">
-                                    <span><i className="fa fa-phone"> +1  (222) 777 8888</i></span>
-                                    <a href="#"><i className="fa fa-facebook"></i></a>
-                                    <a href="#"><i className="fa fa-twitter"></i></a>
-                                    <a href="#"><i className="fa fa-linkedin"></i></a>
-                                    <a href="#"><i className="fa fa-google-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
+            <footer className="footer">
+      {/* Section 1: All Rights Reserved */}
+      <section className="footer-section rights-reserved">
+        <h3>All Rights Reserved</h3>
+        <ul><li className="navbar-brand " style={{ fontSize: "16px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "16px", textTransform: "none", color: "black" }}>Academy</span></li></ul>
+        <p>&copy; 2023  </p> 
+      </section>
 
-                    </div>
-                </div>
+      {/* Section 2: Address and Phone Column */}
+      <section className="footer-section contact">
+        <h3>Contact</h3>
+        <p>Address: str.Krusha Planina 56a, Sofia, Bulagria</p>
+        <p>Phone: +359 894 371 779</p>
+      </section>
 
-                <div id="scroll-Top">
+      {/* Section 3: Terms */}
+      <section className="footer-section terms">
+        <h3>Terms</h3>
+        <ul>
+          <li><a href="/terms">Terms and Conditions</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+      </section>
+
+      {/* Section 4: Social Media */}
+      <section className="footer-section social-media">
+        <h3>Social Media</h3>
+        <div className="social-icons">
+          <a href="https://www.facebook.com/groups/706263354783010"><img src="/img/Facebook_Logo_2023.png" alt="Facebook" /></a>
+          <a href="https://twitter.com"><img src="/img/twiter-png.webp" alt="Twitter" /></a>
+          <a href="https://instagram.com"><img src="/img/insagram.png" alt="Instagram" /></a>
+        </div>
+      </section>
+    </footer>
+
+                {/* <div id="scroll-Top">
                     <div className="return-to-top">
                         <i className="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
                     </div>
 
-                </div>
+                </div> */}
 
-            </footer>
+          
         </>
 
     )

@@ -19,6 +19,8 @@
 }
 
 .article-students img {
+  height: 220px;
+  width: 200px;
   max-width: 200px;
   margin-right: 20px;
 }
@@ -72,6 +74,8 @@
 
 }
 .read-more-button {
+  border-radius: 10px;
+
   background-color: #3498db;
   color: #fff;
   border: none;
@@ -81,5 +85,5 @@
 }
 
 .read-more-button:hover {
-  background-color: #2980b9;
+  background-color: #b92929;
 }

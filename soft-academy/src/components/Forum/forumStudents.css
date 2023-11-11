@@ -13,10 +13,10 @@ h1 {
   color: #333;
 }
 .pagination-button {
-  background-color: #3498db;
-  color: #fff;
-  border: 1px solid #3498db;
-  padding: 8px 12px;
+  /* background-color: #3498db;
+  color: #fff; */
+  /* border: 1px solid #3498db; */
+  padding: 8px 8px;
   margin: 0 5px;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
