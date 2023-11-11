@@ -25,12 +25,15 @@ export const forumServiceFactory = (token) => {
         return onePost
     }
 
+    const deletePost = async (forumId) => request.del(`${baseUrl}/${forumId}`)
+
+ 
 
     return {
         getAll,
         create,
         getOne,
-        // delete: deleteCourse,
+         delete: deletePost,
         // update: updateCourse,
     }
 }

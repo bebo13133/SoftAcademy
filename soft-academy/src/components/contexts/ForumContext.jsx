@@ -56,6 +56,8 @@ export const ForumProvider = ({ children }) => {
     const onDeleteClick = async (forumId) => {
         const deletePost = await forumService.delete(forumId)
 
+        setForumPosts(state=>state.filter(x=>x._id!==forumId))
+
         navigate("/forum")
         try {
 
