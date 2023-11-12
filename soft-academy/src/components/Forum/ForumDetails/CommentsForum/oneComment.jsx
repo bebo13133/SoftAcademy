@@ -1,7 +1,9 @@
 
 import { useState } from "react"
 import { BiLike } from "react-icons/bi"
-
+import { useAuthContext } from "../../../contexts/UserContext"
+import { useService } from "../../../Hooks/useService"
+import { forumServiceFactory } from "../../../Services/forumService"
 
 export const OneComment = ({
     comment,
@@ -12,11 +14,18 @@ export const OneComment = ({
 }) => {
 
     const [liked, setLiked] = useState(false)
+    const commentId = _id
+    const forumService = useService(forumServiceFactory)
 
-    const handleLikeToggle = () => {
+    const {userId}=useAuthContext()
+
+
+    const handleLikeToggle = async() => {
         if (liked) {
             setLiked(false)
         } else if (!liked) {
+            const result = await forumService.createLike(userId, commentId)
+                console.log("result", result)
             setLiked(!liked)
         }
 
@@ -28,7 +37,7 @@ export const OneComment = ({
 
 
 
-    const commentId = _id
+    
     return (
         <>
             <div className="author-details">
