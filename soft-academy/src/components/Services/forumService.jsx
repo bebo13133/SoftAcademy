@@ -33,7 +33,13 @@ const createPost = async(forumId,comment) =>{
 
 return result
 }
- 
+const getAllPosts = async (forumId) =>{
+   const response= await request.get(`${baseUrl2}?where=forumId%3D%22${forumId}%22`)
+const result = Object.values(response)
+console.log("result",result)
+return result
+}
+  
 
     return {
         getAll,
@@ -41,6 +47,7 @@ return result
         getOne,
         delete: deletePost,
         update: updateForumPost,
-        createPost
+        createPost,
+        getAllPosts
     }
 }

@@ -7,7 +7,7 @@ export const SideBarPost =({
     createdAt
 })=>{
 
-console.log("imageUrl", imageUrl)
+
     return(
         <>
         <section className="forum-img-sideBar">

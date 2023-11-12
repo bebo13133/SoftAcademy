@@ -17,7 +17,6 @@ export const ForumDetails = () => {
     const forumService = useService(forumServiceFactory)
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [comments, setComments] = useState([])
-
     const { forumId } = useParams()
 
     const navigate = useNavigate()
@@ -29,6 +28,12 @@ export const ForumDetails = () => {
         forumService.getOne(forumId)
             .then(result => {
                 setOnePost(result)
+                return forumService.getAllPosts(forumId)
+            }).then(post => {
+                console.log("post",post)
+
+                setComments(post)
+
             })
             .catch(error => {
 
@@ -111,7 +116,7 @@ export const ForumDetails = () => {
                 </div>
 
             </section>
-            <CommentsForum isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} onPostSubmit={onPostSubmit} {...onePost} />
+            <CommentsForum isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} onPostSubmit={onPostSubmit} {...onePost} comments={comments}/>
             <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }} />
         </>
     )
