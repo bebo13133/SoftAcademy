@@ -2,6 +2,7 @@ import './commentsForum.css'
 
 
 export const CommentsForum = () => {
+    
     return (
 
         <>
@@ -13,8 +14,13 @@ export const CommentsForum = () => {
 
                 <div className="author-section">
                     <div className="author-details">
-                        <p>Author: {author}</p>
-                        <p>{content}</p>
+                         {/* {aко има коментари да се показва} */}
+                        <p>Author:  
+                             {/* {author} */}
+                             </p>
+                        <p>
+                            {/* {content} */}
+                            </p>
                     </div>
 
                     <div className="like-delete-section">
