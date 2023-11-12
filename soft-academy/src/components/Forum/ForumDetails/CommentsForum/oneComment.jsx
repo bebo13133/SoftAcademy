@@ -1,8 +1,14 @@
 export const OneComment = ({
     comment,
-    user
+    user,
+    onDeletePostHandler,
+    _id
+   
 }) => {
+console.log(_id)
 
+
+const commentId = _id
     return (
         <>
             <div className="author-details">
@@ -16,7 +22,7 @@ export const OneComment = ({
             </div>
             <div className="like-delete-section" style={{ fontSize: "2px" }}>
                 <span className="like-delete-button">Like</span>
-                <span className="like-delete-button">Delete</span>
+                <span className="like-delete-button" onClick={()=>onDeletePostHandler(commentId)}>Delete</span>
             </div>
         </>
     )

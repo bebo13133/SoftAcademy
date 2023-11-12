@@ -86,10 +86,14 @@ export const ForumDetails = () => {
     }
 
 
+    const onDeletePostHandler=(commentId)=>{
+        forumService.deleteComment(commentId)
+        setComments(state => state.filter(comment => comment._id !== commentId))
+    }
+
     return (
         <>
             <section className="YourComponent">
-
                 <div className="ImageSection">
                     <img src={onePost.imageUrl} alt={onePost.title} />
                 </div>
@@ -117,7 +121,7 @@ export const ForumDetails = () => {
                 </div>
 
             </section>
-            <CommentsForum isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} onPostSubmit={onPostSubmit} {...onePost} comments={comments}/>
+            <CommentsForum isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} onPostSubmit={onPostSubmit} {...onePost} comments={comments} onDeletePostHandler={onDeletePostHandler}/>
             <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }} />
         </>
     )

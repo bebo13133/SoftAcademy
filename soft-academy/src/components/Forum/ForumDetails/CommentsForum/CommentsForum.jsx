@@ -10,6 +10,8 @@ export const CommentsForum = ({
     title,
     onPostSubmit,
     comments,
+    onDeletePostHandler,
+ 
 }) => {
     const [showAll, setShowAll] = useState(false);
     const {userEmail } = useAuthContext()
@@ -19,7 +21,7 @@ export const CommentsForum = ({
         user:userEmail
     }, onPostSubmit)
 
-
+console.log("coomentID", comments)
 
     if (!isOpenComments) {
         return null; // Ако isOpenComments е false, не показвай компонента
@@ -52,7 +54,7 @@ export const CommentsForum = ({
                     <p className="comment-count">Comments: {comments.length } </p>
 
                     <div className="author-section">
-                        {initialComments && initialComments.map((comment, index) => <OneComment key={index + 1} {...comment} />)}
+                        {initialComments && initialComments.map((comment, index) => <OneComment key={comment._id} {...comment} onDeletePostHandler={onDeletePostHandler} />)}
                         {comments.length > 5 && (
                             <button className="show-btn" onClick={toggleShowAll}>
                                 {showAll ? 'Show Less' : 'Show More'}

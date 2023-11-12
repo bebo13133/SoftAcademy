@@ -39,6 +39,9 @@ const result = Object.values(response)
 console.log("result",result)
 return result
 }
+
+
+const deleteComment = async (forumId)=> await request.del(`${baseUrl2}/${forumId}`)
   
 
     return {
@@ -48,6 +51,7 @@ return result
         delete: deletePost,
         update: updateForumPost,
         createPost,
-        getAllPosts
+        getAllPosts,
+        deleteComment
     }
 }
