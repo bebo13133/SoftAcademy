@@ -67,7 +67,7 @@ export const ForumDetails = () => {
     }
 
     const onPostSubmit = async (values) => {
-
+            if(!values.comment) return alert("Please enter a comment") 
         try {
             const postForum = await forumService.createPost(
                 forumId,
@@ -121,7 +121,11 @@ export const ForumDetails = () => {
                 </div>
 
             </section>
-            <CommentsForum isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} onPostSubmit={onPostSubmit} {...onePost} comments={comments} onDeletePostHandler={onDeletePostHandler}/>
+            <CommentsForum isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} 
+            onPostSubmit={onPostSubmit} {...onePost} 
+            comments={comments} 
+            onDeletePostHandler={onDeletePostHandler}
+            />
             <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }} />
         </>
     )
