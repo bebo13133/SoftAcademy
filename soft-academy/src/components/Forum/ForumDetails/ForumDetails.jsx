@@ -7,6 +7,7 @@ import { forumServiceFactory } from '../../Services/forumService'
 import { useAuthContext } from '../../contexts/UserContext'
 import { ConfirmBox } from '../../ConfirmBox/ConfirmBox'
 import { useForumContext } from '../../contexts/ForumContext'
+import { CommentsForum } from './CommentsForum/CommentsForum'
 
 
 export const ForumDetails = () => {
@@ -14,7 +15,8 @@ export const ForumDetails = () => {
     const [isOpen,setIsOpen]= useState(false)
     const {onDeleteClick} = useForumContext()
     const forumService = useService(forumServiceFactory)
-
+    const [commentsPopUp, setCommentsPopUp] = useState(false)
+console.log(commentsPopUp)
     const { forumId } = useParams()
 
 const navigate = useNavigate()
@@ -43,7 +45,12 @@ const isOwner = userId === onePost._ownerId
     const onEditHandler=()=>{
         navigate(`/forum/${forumId}/edit`)
     }
-
+    const openCommentsPopUp = () => {
+        setCommentsPopUp(true)
+    }
+    const closeCommentsPopUp = () => {
+        setCommentsPopUp(false)
+    }
 
     const openDelete=()=>{
         setIsOpen(true)
@@ -74,7 +81,7 @@ const isOwner = userId === onePost._ownerId
                         <button className="deleteButton" onClick={() => openDelete()}>Delete</button></>)}
                         
                         <button className="likeButton">Like</button>
-                        <button className="commentButton">Comments</button>
+                        <button className="commentButton" onClick={openCommentsPopUp}>Comments</button>
 
                         <button className="back-to-forum-btn" onClick={onBackHandler}>Back to Forum</button>
                     </div>
@@ -84,6 +91,7 @@ const isOwner = userId === onePost._ownerId
                 </div>
 
             </section>
+            <CommentsForum  isOpenComments={commentsPopUp}  onCloseComments={closeCommentsPopUp} {...onePost}/>
             <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }}/>
         </>
     )
