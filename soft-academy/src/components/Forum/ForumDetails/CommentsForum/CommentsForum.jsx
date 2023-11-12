@@ -23,16 +23,16 @@ export const CommentsForum = () => {
                     </div>
                 </div>
             </div>
-            <div className="comment-section">
-        <textarea
-          placeholder="Въведете коментар..."
-          value={comment}
-          onChange={handleCommentChange}
-        ></textarea>
-        <button className="send-button" onClick={handleSendClick}>
-          Изпрати
-        </button>
-      </div>
+            <form className="comment-section">
+                <textarea
+                    placeholder="Въведете коментар..."
+                    value={comment}
+                    onChange={handleCommentChange}
+                ></textarea>
+                <button className="send-button" type="submit" onClick={handleSendClick}>
+                    Send
+                </button>
+            </form>
 
 
         </>
