@@ -28,15 +28,24 @@ export const DetailsCourse = () => {
     }, [courseId])
 
     const onCommentSubmit = async (values) => {
-        const result = await commentsService.createComment(
-            courseId,
-            values.comment
-        )
 
-        setComments((state) => [...state, { comment: result.comment }]) //TODO ДА СЕ ДОБАВИ USERNAME, КАТО ВТОРИ ПАРАМЕТЪР
+        try {
+            const result = await commentsService.createComment(
+                courseId,
+                values.comment
+            )
+            setComments((state) => [...state, { comment: result.comment }]) //TODO ДА СЕ ДОБАВИ USERNAME, КАТО ВТОРИ ПАРАМЕТЪР
 
+
+
+        } catch (err) {
+            throw new Error(err.message)
+
+
+        }
 
     }
+
 
     return (
 

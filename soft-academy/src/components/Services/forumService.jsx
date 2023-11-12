@@ -1,6 +1,6 @@
 import { requestFactory } from "./requester"
 const baseUrl = `http://localhost:3030/data/forums`
-
+const baseUrl2 =`http://localhost:3030/data/forumComments`
 
 export const forumServiceFactory = (token) => {
 
@@ -27,6 +27,12 @@ export const forumServiceFactory = (token) => {
 
     const deletePost = async (forumId) => request.del(`${baseUrl}/${forumId}`)
 const updateForumPost = async (forumId,forumData) =>request.put(`${baseUrl}/${forumId}`,forumData)
+
+const createPost = async(forumId,comment) =>{ 
+    const result = await request.post(`${baseUrl2}`,{forumId,comment})
+
+return result
+}
  
 
     return {
@@ -35,5 +41,6 @@ const updateForumPost = async (forumId,forumData) =>request.put(`${baseUrl}/${fo
         getOne,
         delete: deletePost,
         update: updateForumPost,
+        createPost
     }
 }

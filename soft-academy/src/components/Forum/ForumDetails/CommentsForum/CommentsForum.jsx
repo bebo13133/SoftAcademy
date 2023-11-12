@@ -11,7 +11,7 @@ export const CommentsForum = ({
 }) => {
 
 const{onSubmit,onChangeHandler,values}=useForm({
-
+comment:"",
 },onPostSubmit)
 
 
@@ -59,7 +59,7 @@ const{onSubmit,onChangeHandler,values}=useForm({
                         </div>
                     </div>
                 </div>
-                <form className="comment-section">
+                <form className="comment-section" onSubmit={onSubmit}>
                     <textarea
                         placeholder="Въведете коментар..."
                         name="comment"
@@ -68,6 +68,7 @@ const{onSubmit,onChangeHandler,values}=useForm({
                     ></textarea>
                     <button className="send-button" type="submit"
                     // onClick={handleSendClick}
+                    value="add comment"
                     >
                         Send
                     </button>
