@@ -43,9 +43,9 @@ export const Header = () => {
 								</>)}
 								{isAuthentication && <>
 							
-								{/* <li className="header-top-contact"> */}
+							
 											<ResponsiveUserBar />
-											{/* </li> */}
+									
 								</>}
 
 
