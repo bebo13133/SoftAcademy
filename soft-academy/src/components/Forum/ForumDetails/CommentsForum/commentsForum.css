@@ -62,16 +62,25 @@
   
   .author-section {
     background: url("/img/createForm.jpg");
-
     height: 300px;
     margin-top: 10px;
     overflow: auto;
   }
-  
+  .like-component{
+    display: flex;
+  }
+  #root > section.popup-form > div.article-section > div > div.author-details > p:nth-child(2) > div > p{
+color: black;
+  }
   .author-details {
+   
+
     flex: 1;
   }
-  
+  .author-details p{
+    display: flex;
+    justify-content: space-between;
+  }
   .like-delete-section {
     display: flex;
     gap: 10px;

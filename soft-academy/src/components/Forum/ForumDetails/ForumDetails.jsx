@@ -116,17 +116,23 @@ export const ForumDetails = () => {
                         <button className="back-to-forum-btn" onClick={onBackHandler}>Back to Forum</button>
                     </div>
                     <ul>
-                        <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+                        <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} >Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                     </ul>
                 </div>
 
             </section>
-            <CommentsForum isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} 
+            <CommentsForum isOpenComments={commentsPopUp}
+            onCloseComments={closeCommentsPopUp} 
             onPostSubmit={onPostSubmit} {...onePost} 
             comments={comments} 
             onDeletePostHandler={onDeletePostHandler}
             />
-            <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }} />
+
+
+            <ConfirmBox open={isOpen}
+             closeDialog={() => onCloseDelete()} 
+            deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }}
+             />
         </>
     )
 }

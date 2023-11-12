@@ -129,7 +129,7 @@ export const OneCourse = ({
                                 <button onClick={() => openDelete()} className="del-btn">Delete</button>
                             </>
                             )}
-
+                            
                             <div>
                                 <BiLike style={{ size: "60px,", color: "blue" }} />
                                 <p> {likeCounter}</p>
