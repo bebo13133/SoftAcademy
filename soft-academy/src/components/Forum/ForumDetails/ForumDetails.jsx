@@ -68,12 +68,13 @@ const isOwner = userId === onePost._ownerId
                     <p>{onePost.description}</p>
                     <p>Author: {onePost.author}</p>
                     <p>Created At: {onePost.createdAt}</p>
+                    <div className="divider"></div>
                     <div className="ButtonsSection">
                         {isOwner && (<><button className="editButton" onClick={onEditHandler}>Edit</button>
                         <button className="deleteButton" onClick={() => openDelete()}>Delete</button></>)}
                         
                         <button className="likeButton">Like</button>
-                        <button className="commentButton">Comment</button>
+                        <button className="commentButton">Comments</button>
 
                         <button className="back-to-forum-btn" onClick={onBackHandler}>Back to Forum</button>
                     </div>
