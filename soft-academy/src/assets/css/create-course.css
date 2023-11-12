@@ -18,13 +18,33 @@
       z-index: 2;
       } */
 .testbox p {
+  font-size: 18px;
+  font-weight: 500;
+
+  color: #060606;
+}
+.testbox h2 {
   font-size: 16px;
-  color: #bd6813;
+  color: #55b2ff;
+  font-weight: 500;
+
+  padding-top: 42px;
+  font-size: 26px;
 }
 
 .testbox,
 input p {
+  color: #060606;
+  font-weight: 400;
+
   font-size: 16px;
+}
+#root > div.testbox > form > div:nth-child(10) > div > select{
+
+  color: #060606;
+  font-weight: 500;
+
+  font-size: 20px;
 }
 
 #root>div>form>h2:nth-child(2) {
@@ -93,7 +113,7 @@ select {
 .question label:hover,
 input:hover::placeholder,
 a {
-  color: #095484;
+color: #0048f1;
 }
 
 .item input:hover,
