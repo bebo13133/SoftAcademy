@@ -67,7 +67,7 @@ export const ForumDetails = () => {
     }
 
     const onPostSubmit = async (values) => {
-console.log("value",values)
+
         try {
             const postForum = await forumService.createPost(
                 forumId,
@@ -75,7 +75,7 @@ console.log("value",values)
                 values.user
                
             )
-             console.log("postForum",postForum)
+        
             setComments(state => [...state, { comment: postForum.comment, user: postForum.user }])
             // console.log("comments",comments)
 
@@ -95,7 +95,6 @@ console.log("value",values)
                 </div>
             </section>
             <section className="TextSection">
-
                 <div >
                     <h2>{onePost.title}</h2>
                     <div className="divider"></div>

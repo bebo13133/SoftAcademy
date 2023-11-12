@@ -31,7 +31,7 @@ export const CommentsForum = ({
         }
     }
 
-    const initialComments = showAll ? comments : comments.slice(0, 5);
+    const initialComments = showAll ? comments : comments.slice(0, 10);
     const toggleShowAll = () => {
         setShowAll(!showAll);
     };
@@ -49,9 +49,7 @@ export const CommentsForum = ({
                     <img className="article-image" src={imageUrl} alt={title} />
                     <h2 className="article-title">{title}</h2>
                     <button className="like-button">Like</button>
-                    <p className="comment-count">Comments:
-                        {/* {commentCount} */}
-                    </p>
+                    <p className="comment-count">Comments: {comments.length } </p>
 
                     <div className="author-section">
                         {initialComments && initialComments.map((comment, index) => <OneComment key={index + 1} {...comment} />)}
