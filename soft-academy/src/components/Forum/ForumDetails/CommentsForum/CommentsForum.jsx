@@ -3,6 +3,7 @@ import './commentsForum.css'
 import { OneComment } from './oneComment';
 import { useState } from 'react';
 import { useAuthContext } from '../../../contexts/UserContext';
+import {v4} from 'uuid'
 export const CommentsForum = ({
     onCloseComments,
     isOpenComments,
@@ -15,13 +16,12 @@ export const CommentsForum = ({
 }) => {
     const [showAll, setShowAll] = useState(false);
     const {userEmail } = useAuthContext()
-
+    console.log("cooments",comments.map(x=>x._id))
     const { onSubmit, onChangeHandler, values } = useForm({
         comment: "",
         user:userEmail
     }, onPostSubmit)
 
-console.log("coomentID", comments)
 
     if (!isOpenComments) {
         return null; // Ако isOpenComments е false, не показвай компонента
@@ -34,6 +34,7 @@ console.log("coomentID", comments)
     }
 
     const initialComments = showAll ? comments : comments.slice(0, 10);
+
     const toggleShowAll = () => {
         setShowAll(!showAll);
     };
@@ -54,7 +55,7 @@ console.log("coomentID", comments)
                     <p className="comment-count">Comments: {comments.length } </p>
 
                     <div className="author-section">
-                        {initialComments && initialComments.map((comment, index) => <OneComment key={comment._id} {...comment} onDeletePostHandler={onDeletePostHandler} />)}
+                        {initialComments && comments.map((comment) => <OneComment key={comment._id} {...comment} onDeletePostHandler={onDeletePostHandler} />)}
                         {comments.length > 5 && (
                             <button className="show-btn" onClick={toggleShowAll}>
                                 {showAll ? 'Show Less' : 'Show More'}

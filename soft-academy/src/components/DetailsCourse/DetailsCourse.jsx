@@ -13,6 +13,8 @@ export const DetailsCourse = () => {
     const [comments, setComments] = useState([])
     const { courseId } = useParams()
     const courseService = useService(courseServiceFactory)
+
+
     useEffect(() => {
         courseService.getOne(courseId)
             .then(course => {
@@ -21,7 +23,7 @@ export const DetailsCourse = () => {
 
             }).then(course => {
 
-                setComments(course)
+              setComments(course)
 
             })
 

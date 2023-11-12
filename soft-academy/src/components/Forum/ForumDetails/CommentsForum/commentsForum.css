@@ -68,19 +68,24 @@
   }
   .like-component{
     display: flex;
+    justify-content: flex-end;
   }
-  #root > section.popup-form > div.article-section > div > div.author-details > p:nth-child(2) > div > p{
-color: black;
+  #root > section.popup-form > div.article-section > div > div.author-details > div.like-component > p{
+color: blue;
   }
   .author-details {
-   
-
+   display: flex;
+   flex-direction: column;
     flex: 1;
   }
-  .author-details p{
+  .p-component-comment{
     display: flex;
     justify-content: space-between;
   }
+  /* .author-details p{
+    display: flex;
+    justify-content: space-between;
+  } */
   .like-delete-section {
     display: flex;
     gap: 10px;

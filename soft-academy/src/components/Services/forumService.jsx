@@ -36,7 +36,7 @@ export const forumServiceFactory = (token) => {
     const getAllPosts = async (forumId) => {
         const response = await request.get(`${baseUrl2}?where=forumId%3D%22${forumId}%22`)
         const result = Object.values(response)
-        console.log("result", result)
+       
         return result
     }
 
@@ -46,12 +46,19 @@ export const forumServiceFactory = (token) => {
     }
 
     const getAllLikes = async () => {
-        const response = await request.get(`${baseUrl}`)
+        const response = await request.get(`${baseUrl3}`)
 
         const result = Object.values(response)
         return result
     }
-
+    const deleteLike=async(likeId)=>{
+   
+  
+        const result = await request.del(`${baseUrl3}/${likeId}`);
+        return result 
+        
+        }
+    
 
     const deleteComment = async (forumId) => await request.del(`${baseUrl2}/${forumId}`)
 
@@ -66,6 +73,7 @@ export const forumServiceFactory = (token) => {
         getAllPosts,
         deleteComment,
         createLike,
-        getAllLikes
+        getAllLikes,
+        deleteLike
     }
 }

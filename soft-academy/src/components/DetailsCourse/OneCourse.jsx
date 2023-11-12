@@ -46,7 +46,7 @@ export const OneCourse = ({
                 // console.log("response", response)
 
                 const likesCourse = (response.filter(like => like.courseId === courseId));
-                console.log("likeCourse", likesCourse)
+                
                 setLikeCounter(likesCourse.length);
                 setLiked(likesCourse.some(like => like.userId === userId));
                 setLikeUser(likesCourse.find(like => like.userId === userId));
