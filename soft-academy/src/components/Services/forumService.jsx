@@ -28,8 +28,8 @@ export const forumServiceFactory = (token) => {
     const deletePost = async (forumId) => request.del(`${baseUrl}/${forumId}`)
 const updateForumPost = async (forumId,forumData) =>request.put(`${baseUrl}/${forumId}`,forumData)
 
-const createPost = async(forumId,comment) =>{ 
-    const result = await request.post(`${baseUrl2}`,{forumId,comment})
+const createPost = async(forumId,comment,user) =>{ 
+    const result = await request.post(`${baseUrl2}`,{forumId,comment,user})
 
 return result
 }

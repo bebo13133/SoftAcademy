@@ -2,7 +2,7 @@ import { useForm } from '../../../Hooks/useForm';
 import './commentsForum.css'
 import { OneComment } from './oneComment';
 import { useState } from 'react';
-
+import { useAuthContext } from '../../../contexts/UserContext';
 export const CommentsForum = ({
     onCloseComments,
     isOpenComments,
@@ -12,9 +12,11 @@ export const CommentsForum = ({
     comments,
 }) => {
     const [showAll, setShowAll] = useState(false);
+    const {userEmail } = useAuthContext()
 
     const { onSubmit, onChangeHandler, values } = useForm({
         comment: "",
+        user:userEmail
     }, onPostSubmit)
 
 
@@ -54,7 +56,7 @@ export const CommentsForum = ({
                     <div className="author-section">
                         {initialComments && initialComments.map((comment, index) => <OneComment key={index + 1} {...comment} />)}
                         {comments.length > 5 && (
-                            <button onClick={toggleShowAll}>
+                            <button className="show-btn" onClick={toggleShowAll}>
                                 {showAll ? 'Show Less' : 'Show More'}
                             </button>
                         )}

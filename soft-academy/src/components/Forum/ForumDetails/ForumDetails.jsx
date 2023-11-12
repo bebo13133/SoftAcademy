@@ -67,14 +67,16 @@ export const ForumDetails = () => {
     }
 
     const onPostSubmit = async (values) => {
-
+console.log("value",values)
         try {
             const postForum = await forumService.createPost(
                 forumId,
-                values.comment
+                values.comment,
+                values.user
+               
             )
-            // console.log("postForum",postForum)
-            setComments(state => [...state, { comment: postForum.comment, user: userEmail }])
+             console.log("postForum",postForum)
+            setComments(state => [...state, { comment: postForum.comment, user: postForum.user }])
             // console.log("comments",comments)
 
         } catch (error) {

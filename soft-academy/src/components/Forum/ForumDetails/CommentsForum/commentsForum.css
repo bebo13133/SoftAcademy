@@ -86,6 +86,12 @@
     cursor: pointer;
     margin:0px;
   }
+
+  .show-btn {
+    float: right;
+    font-size: 16px;
+  }
+
   .like-delete-button:hover {
     background-color: #ff0000; /* Заменете този цвят с желания цвят за hover */
   }
@@ -112,4 +118,8 @@
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
+  }
+  .author-details p{
+    color:#fb8d00;
+    line-height: 1.3;
   }
