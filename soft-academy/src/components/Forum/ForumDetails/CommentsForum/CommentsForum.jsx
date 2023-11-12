@@ -58,7 +58,6 @@ export const CommentsForum = ({
                                 {showAll ? 'Show Less' : 'Show More'}
                             </button>
                         )}
-                       
                     </div>
                 </div>
                 <form className="comment-section" onSubmit={onSubmit}>
