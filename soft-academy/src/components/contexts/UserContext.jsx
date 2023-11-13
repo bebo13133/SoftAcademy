@@ -12,6 +12,7 @@ export const UserProvider = ({ children }) => {
 
     const [isAuth, setIsAuth] = useLocalStorage('auth', {})
     const [avatarUrl, setAvatarUrl] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(''); //error messages
 
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
@@ -20,8 +21,26 @@ export const UserProvider = ({ children }) => {
     const onLoginSubmit = async (data) => {
 
         try {
-            if (!data.password || !data.email) return alert("Some fields is empty")
-            if (data.password.length <= 5) return alert("Minimum characters is 6")
+            if (!data.password || !data.email) {
+             
+                setErrorMessage("Some fields is empty")
+            
+                setTimeout(() => {
+                    setErrorMessage('');
+                  }, 4000);
+            
+                  return;
+            }
+            if (data.password.length <= 5) {
+            
+                setErrorMessage("Minimum characters is 5")
+            
+                setTimeout(() => {
+                    setErrorMessage('');
+                  }, 4000);
+            
+                  return;
+            } 
             const newUser = await userService.login(data)
             setIsAuth(newUser)
             navigate("/")
@@ -38,9 +57,34 @@ export const UserProvider = ({ children }) => {
         try {
             const { confirmPassword, ...registerData } = data
 
-            if (confirmPassword !== registerData.password) return alert("Please enter a valid passwordor email")
-            if (!confirmPassword || !registerData.password || !registerData.email) return alert("Some fields is empty")
-            if (confirmPassword.length <= 5 || registerData.password.length <= 5) return alert("Minimum characters is 6")
+            if (confirmPassword !== registerData.password){
+              
+                setErrorMessage("Please enter a valid password email")
+            
+                setTimeout(() => {
+                    setErrorMessage('');
+                  }, 4000);
+            
+                  return;
+            }
+            if (!confirmPassword || !registerData.password || !registerData.email){
+                setErrorMessage("Some fields is empty")
+            
+                setTimeout(() => {
+                    setErrorMessage('');
+                  }, 4000);
+            
+                  return;
+            }
+            if (confirmPassword.length <= 5 || registerData.password.length <= 5) {
+                setErrorMessage("Minimum characters is 5")
+            
+                setTimeout(() => {
+                    setErrorMessage('');
+                  }, 4000);
+            
+                  return;
+            }
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
             navigate("/")
@@ -54,12 +98,12 @@ export const UserProvider = ({ children }) => {
     const onChangePassword = async (data)=>{
 
         const {oldPassword, confirmPassword, ...registerData } = data
-console.log("registerData",registerData.newPassword)
+
         try{
 
             const userId = isAuth._id
             const newPass = await userService.changePassword(userId, registerData.newPassword)
-                 console.log("newpassword",newPass)
+           
         }catch (err) {
             throw new Error(err.message)
         }
@@ -101,9 +145,14 @@ console.log("registerData",registerData.newPassword)
 
         <UserContext.Provider value={contextService}>
 
-            {/* <Login /> */}
-            {/* <Register/> */}
+       
             {children}
+
+            {errorMessage && (
+        <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
+          <p>{errorMessage}</p>
+        </div>
+      )}
         </UserContext.Provider>
 
     )

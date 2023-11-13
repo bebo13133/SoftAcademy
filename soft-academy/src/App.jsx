@@ -21,7 +21,7 @@ const CatalogCourses = lazy(() => import('./components/CatalogCourses/CatalogCou
 
 
 
-import { Footer } from './components/Footer/Footer'
+import  Footer from './components/Footer/Footer'
 import { Header } from './components/Header/Header'
 import { Home } from './components/Home/Home'
 import { Login } from './components/Login/Login'
@@ -73,6 +73,8 @@ function App() {
     || location.pathname.startsWith("/terms")
     || location.pathname.startsWith("/admin")
     || location.pathname.startsWith("/forum")
+    || location.pathname.startsWith("/blog")
+
 
   const isAdminPage = location.pathname.startsWith('/admin')
 

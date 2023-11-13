@@ -1,6 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState , lazy,Suspense} from "react"
 import { useAuthContext } from "../contexts/UserContext";
 import './blogNews.css'
+// import  Footer  from "../Footer/Footer";
+import { IsLoading } from "../IsLoading/IsLoading";
+const Footer = lazy(()=> import("../Footer/Footer"))
+
 const Blog = () => {
 
     const [news, setNews] = useState([])
@@ -97,6 +101,9 @@ const Blog = () => {
                     </ul>
                 </div>
             </section>
+            <Suspense fullback={<IsLoading/>}>
+            <Footer/>
+            </Suspense>
         </>
     )
 }

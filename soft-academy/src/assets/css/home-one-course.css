@@ -39,3 +39,6 @@
     flex-direction: row;
     justify-content: center;
     }
+    .single-how-works h2{
+        width: 290px!important;
+    }

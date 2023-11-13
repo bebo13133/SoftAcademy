@@ -34,7 +34,7 @@ export const CommentsForum = ({
         }
     }
 
-    const initialComments = showAll ? comments : comments.slice(0, 10);
+    const initialComments = showAll ? comments : comments.slice(0, 6);
 
     const toggleShowAll = () => {
         setShowAll(!showAll);
@@ -56,7 +56,7 @@ export const CommentsForum = ({
                     <p className="comment-count">Comments: {comments.length } </p>
 
                     <div className="author-section">
-                        {initialComments && comments.map((comment) => <OneComment key={comment._id} {...comment} onDeletePostHandler={onDeletePostHandler} />)}
+                        {initialComments && initialComments.map((comment) => <OneComment key={comment._id} {...comment} onDeletePostHandler={onDeletePostHandler} />)}
                         {comments.length > 5 && (
                             <button className="show-btn" onClick={toggleShowAll}>
                                 {showAll ? 'Show Less' : 'Show More'}

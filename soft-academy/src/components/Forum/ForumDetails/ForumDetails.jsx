@@ -123,7 +123,7 @@ export const ForumDetails = () => {
                     <h2>{onePost.title}</h2>
                     <div className="divider"></div>
                     <p>{onePost.description}</p>
-                    <p>Author: {onePost.author}</p>
+                    <p>Author: <span style={{color:"red"}}>{onePost.author }</span></p>
                     <p>Created At: {onePost.createdAt}</p>
                     <div className="divider"></div>
                     <div className="ButtonsSection">

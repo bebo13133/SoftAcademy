@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import "./footer.css"
 
-export const Footer = () => {
+const Footer = () => {
 
     return (
         <>
@@ -52,3 +52,4 @@ export const Footer = () => {
 
     )
 }
+export default Footer
