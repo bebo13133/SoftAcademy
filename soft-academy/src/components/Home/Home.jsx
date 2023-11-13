@@ -11,6 +11,7 @@ import { courseServiceFactory } from "../Services/courseService"
 const HomeOneCourse = lazy(() => import("./HomeOneCourse"))
 
 import { SearchField } from "../SearchPage/SearchField"
+import { LastForumsCarousel } from "./LastForumsCarousel/LastForumsCarousel"
 
 export const Home = () => {
 
@@ -131,12 +132,14 @@ export const Home = () => {
                 </div>
 
             </section>
+
             <div className="section-header">
                 <h2 style={{ color: "#BD6813" }}>we partner with</h2>
                 <InfinitySlide />
             </div>
             <br />
             <br />
+            
             <section id="works" className="works">
                 <div className="container">
                     <div className="section-header">
@@ -151,7 +154,11 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
+
             </section>
+            <LastForumsCarousel/>
+            <LastForumsCarousel/>
+
         </>
     )
 }

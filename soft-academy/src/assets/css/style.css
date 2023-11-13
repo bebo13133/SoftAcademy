@@ -308,7 +308,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     background: #fff;
     height: 70px;
     border-radius: 15px;
-    width: 85%;
+    width: 75%;
 }
 .single-welcome-hero-form {
     border-radius:15px;
@@ -329,6 +329,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     background: transparent;
 }
 .single-welcome-hero-form input[type="text"]{
+    width: 540px;
     font-size: 18px;
     color: #e79912;
     text-transform: capitalize;
