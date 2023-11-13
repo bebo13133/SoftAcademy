@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import * as bookmarkService from "../Services/bookmarkService"
 
-export const HomeOneCourse = ({
+const HomeOneCourse = ({
     imageUrl,
     imageUrl2,
     description,
@@ -91,3 +91,4 @@ export const HomeOneCourse = ({
         </>
     )
 }
+export default HomeOneCourse

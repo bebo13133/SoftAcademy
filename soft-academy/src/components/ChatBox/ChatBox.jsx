@@ -7,7 +7,7 @@ const ENDPOINT =
     ? "http://127.0.0.1:4000"
     : window.location.host;
 
-export const ChatBox=()=>{
+ const ChatBox=()=>{
   const uiMessagesRef = useRef(null);
 
   const [userName, setUserName] = useState("");
@@ -106,3 +106,4 @@ export const ChatBox=()=>{
     </div>
   );
 }
+export default ChatBox

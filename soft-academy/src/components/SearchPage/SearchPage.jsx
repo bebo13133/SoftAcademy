@@ -3,7 +3,7 @@ import { WaveAnimation } from "../tools/WaveAnimation"
 import { SearchField } from "./SearchField"
 import { Link } from "react-router-dom"
 import { useCourseContext } from "../contexts/CourseContext"
-import { HomeOneCourse } from "../Home/HomeOneCourse"
+import  HomeOneCourse  from "../Home/HomeOneCourse"
 export const SearchPage = ({
 
 }) => {

@@ -35,7 +35,9 @@ import { PageNotFound } from './components/404/PageNotFound'
 import { GuardLoginRegister } from './components/common/GuardLoginRegister'
 import { EditCourse } from './components/EditCourse/EditCourse'
 import { IsOwnerCourse } from './components/common/isOwnerCourse'
-import { ChatBox } from './components/ChatBox/ChatBox'
+// import { ChatBox } from './components/ChatBox/ChatBox'
+
+const ChatBox = lazy(()=>import('./components/ChatBox/ChatBox'))
 import { AdminPage } from './components/AdminPage/AdminPage'
 import { IsLoading } from './components/IsLoading/IsLoading'
 import { CookieConsent } from './components/CookieConsent/CookieConsent'
@@ -175,7 +177,11 @@ function App() {
 
               </Routes>
 
-              {!isAdminPage && <ChatBox />}
+              {!isAdminPage && 
+              <Suspense fullback={<IsLoading/>}>
+              <ChatBox />
+              </Suspense>
+              }
 
               {!isProfilePage && <Footer />}
 
