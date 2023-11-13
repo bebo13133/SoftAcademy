@@ -115,6 +115,7 @@ export const Home = () => {
                                 </Link>
                             </li>
                             <li>
+                                <Link to={"https://legacy.reactjs.org/"} target="_blank" rel="noopener noreferrer">
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
                                         <img className="home-top-lang" src="./img/react.png" />
@@ -123,6 +124,7 @@ export const Home = () => {
                                     <h2><Link to={"https://legacy.reactjs.org/"} target="_blank" rel="noopener noreferrer">ReactJs</Link></h2>
                                     <p>1604301 listings</p>
                                 </div>
+                                </Link>
                             </li>
                         </ul>
                     </div>
