@@ -88,7 +88,7 @@ const Blog = () => {
                     <ul className="pagination">
                         {Array.from({ length: Math.ceil(news.length / newsPerPage) }, (_, index) => (
                             <li key={index}>
-                                {/* извиква номер на страницат която потребителя иска да види , променям стейта му също currentpage  */}
+                                {/* извиква номер на страницатa която потребителя иска да види , променям стейта му също currentpage  */}
                                 <button onClick={() => paginate(index + 1)}>
                                     {index + 1}
                                 </button>

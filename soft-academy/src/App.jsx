@@ -54,12 +54,12 @@ import { EditForumPost } from './components/Forum/ForumDetails/EditForumPost/Edi
 import { TermsAndConditions } from './components/Footer/TermsAndConditions/TermsAndConditions'
 
 function App() {
-  // const [isLoading, setIsLoading] = useState(true)
+   const [isLoading, setIsLoading] = useState(true)
 
   const [cookies] = useCookies(["cookieConsent"]);
   // console.log("cookie", cookies)
   useEffect(() => {
-    // setIsLoading(false)
+     setIsLoading(false)
 
   }, [])
 
