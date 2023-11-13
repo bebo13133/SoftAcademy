@@ -1,0 +1,38 @@
+.error-message {
+    position: fixed;
+    top: 130px;;
+    left: 100%;
+    transform: translateX(-100%);
+    /* background-color: #ff545a; */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out;
+    animation: slideIn 0.5s ease-in-out;
+     background-color: #ff545a;
+    color: #ffffff; 
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+  .show-error {
+    opacity: 1; 
+  }
+  .error-message.custom-style {
+    opacity: 1; 
+    background-color: #ff545a; 
+    color: #ffffff ;
+  }
+  .error-message.custom-style p{
+    font-size: 22px;
+    color: #ffffff ;
+  }
