@@ -1,16 +1,26 @@
 // import { useState,useEffect } from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import ErrorBoundary from './components/ErrorBoundary'
 import { UserProvider } from './components/contexts/UserContext'
 import { useCookies } from 'react-cookie'
 import { StudentReview } from './components/StudentsReview/StudentReview'
-import { Contact } from './components/Contact/Contact'
+// import { Contact } from './components/Contact/Contact'
+const Contact = lazy(() => import('./components/Contact/Contact'))
 
 
 
-import { Blog } from './components/Blog/Blog'
-import { CatalogCourses } from './components/CatalogCourses/CatalogCourses'
+// import { Blog } from './components/Blog/Blog'
+
+const Blog = lazy(() => import('./components/Blog/Blog'))
+
+
+
+// import { CatalogCourses } from './components/CatalogCourses/CatalogCourses'
+const CatalogCourses = lazy(() => import('./components/CatalogCourses/CatalogCourses'))
+
+
+
 import { Footer } from './components/Footer/Footer'
 import { Header } from './components/Header/Header'
 import { Home } from './components/Home/Home'
@@ -84,10 +94,25 @@ function App() {
                 <Route path={"/terms"} element={<TermsAndConditions />} />
 
 
-                <Route path={"/catalog"} element={<CatalogCourses />} />
+                <Route path={"/catalog"} element={
+                <Suspense fullback={<IsLoading/>}>
+                <CatalogCourses />
+                </Suspense>
+                } />
                 <Route path={"/reviews"} element={<StudentReview />} />
-                <Route path={"/blog"} element={<Blog />} />
-                <Route path={"/contact"} element={<Contact />} />
+
+                <Route path={"/blog"} element={
+                  <Suspense fullback={<IsLoading/>}>
+                <Blog />
+                </Suspense>
+                } />
+
+
+                <Route path={"/contact"} element={
+                  <Suspense fullback={<div>blbblbl</div>}>
+                    <Contact />
+                  </Suspense>
+                } />
                 <Route path={"/search-page"} element={<SearchPage />} />
 
 

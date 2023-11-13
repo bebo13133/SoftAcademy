@@ -5,7 +5,7 @@ import { CourseContext, useCourseContext } from "../contexts/CourseContext"
 import { IsLoading } from "../IsLoading/IsLoading"
 import { OneCourse } from "./OneCourse"
 
-export const CatalogCourses = () => {
+const CatalogCourses = () => {
 
     const { courses } = useContext(CourseContext)
     const [isLoading, setIsLoading] = useState(true)
@@ -45,3 +45,4 @@ export const CatalogCourses = () => {
         </>
     )
 }
+export default CatalogCourses

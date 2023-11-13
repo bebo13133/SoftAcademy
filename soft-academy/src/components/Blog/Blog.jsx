@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useAuthContext } from "../contexts/UserContext";
 import './blogNews.css'
-export const Blog = () => {
+const Blog = () => {
 
     const [news, setNews] = useState([])
     const [currentPage, setCurrentPage] = useState(1);//начални 
@@ -100,3 +100,4 @@ export const Blog = () => {
         </>
     )
 }
+export default Blog

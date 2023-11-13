@@ -1,6 +1,6 @@
 import { Fragment, useRef, useState } from "react"
 import emailjs from '@emailjs/browser'
-export const Contact = () => {
+const Contact= () => {
     const [emails, setEmails] = useState({})
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
@@ -86,3 +86,4 @@ export const Contact = () => {
         </Fragment>
     )
 }
+export default Contact

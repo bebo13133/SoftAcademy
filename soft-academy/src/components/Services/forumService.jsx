@@ -26,20 +26,30 @@ export const forumServiceFactory = (token) => {
     }
 
     const deletePost = async (forumId) => request.del(`${baseUrl}/${forumId}`)
+
+
+
     const updateForumPost = async (forumId, forumData) => request.put(`${baseUrl}/${forumId}`, forumData)
 
-    const createPost = async (forumId, comment, user) => {
-        const result = await request.post(`${baseUrl2}`, { forumId, comment, user })
 
-        return result
-    }
+
+    // ===============COMMENTS =============//
     const getAllPosts = async (forumId) => {
         const response = await request.get(`${baseUrl2}?where=forumId%3D%22${forumId}%22`)
         const result = Object.values(response)
        
         return result
+        
+    }
+    const deleteComment = async (forumId) => await request.del(`${baseUrl2}/${forumId}`)
+    
+    const createPost = async (forumId, comment, user) => {
+        const result = await request.post(`${baseUrl2}`, { forumId, comment, user })
+
+        return result
     }
 
+// ------------------ LIKES --------------------------------//
     const createLike = async (userId, commentId) => {
         const response = await request.post(`${baseUrl3}`, { userId, commentId })
         return response
@@ -60,7 +70,6 @@ export const forumServiceFactory = (token) => {
         }
     
 
-    const deleteComment = async (forumId) => await request.del(`${baseUrl2}/${forumId}`)
 
 
     return {

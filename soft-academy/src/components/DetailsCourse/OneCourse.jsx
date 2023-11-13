@@ -46,7 +46,7 @@ export const OneCourse = ({
                 // console.log("response", response)
 
                 const likesCourse = (response.filter(like => like.courseId === courseId));
-                
+
                 setLikeCounter(likesCourse.length);
                 setLiked(likesCourse.some(like => like.userId === userId));
                 setLikeUser(likesCourse.find(like => like.userId === userId));
@@ -62,7 +62,7 @@ export const OneCourse = ({
     // console.log(likeUser)
     const likeId = likeUser?._id
 
-    
+
     const openCommentsPopUp = () => {
         setCommentsPopUp(true)
     }
@@ -129,7 +129,7 @@ export const OneCourse = ({
                                 <button onClick={() => openDelete()} className="del-btn">Delete</button>
                             </>
                             )}
-                            
+
                             <div>
                                 <BiLike style={{ size: "60px,", color: "blue" }} />
                                 <p> {likeCounter}</p>
