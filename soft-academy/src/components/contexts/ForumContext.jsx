@@ -4,6 +4,7 @@ import { forumServiceFactory } from "../Services/forumService";
 import { useAuthContext } from "./UserContext";
 import { useNavigate } from "react-router-dom";
 import './error.css';
+
 const forumContext = createContext()
 
 

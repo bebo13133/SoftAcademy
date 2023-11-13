@@ -8,11 +8,15 @@ import { useAuthContext } from '../../contexts/UserContext'
 import { ConfirmBox } from '../../ConfirmBox/ConfirmBox'
 import { useForumContext } from '../../contexts/ForumContext'
 import { CommentsForum } from './CommentsForum/CommentsForum'
+// import './contexts/error.css';
+
 
 
 export const ForumDetails = () => {
     const [onePost, setOnePost] = useState([])
     const [isOpen, setIsOpen] = useState(false)
+    const [errorMessage, setErrorMessage] = useState(''); //error messages
+
     const { onDeleteClick } = useForumContext()
     const forumService = useService(forumServiceFactory)
     const [commentsPopUp, setCommentsPopUp] = useState(false)
@@ -63,7 +67,17 @@ export const ForumDetails = () => {
     }
 
     const onPostSubmit = async (values) => {
-        if (!values.comment) return alert("Please enter a comment")
+        if (!values.comment)  {
+            
+            setErrorMessage("Please enter a comment")
+            setTimeout(() => {
+                setErrorMessage('');
+              }, 4000);
+        
+              return;
+        }
+        
+        
         try {
             const postForum = await forumService.createPost(
                 forumId,
@@ -125,7 +139,7 @@ export const ForumDetails = () => {
                         <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} >Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                     </ul>
                 </div>
-
+             
             </section>
             <CommentsForum
                 key={forumId} // подавам го заради кеша , vite да разпознае по лесно ако настъпи промяна 
@@ -137,7 +151,14 @@ export const ForumDetails = () => {
 
             <ConfirmBox open={isOpen}
                 closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }}
+
+               
             />
+               {errorMessage && (
+                    <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
+                      <p>{errorMessage}</p>
+                    </div>
+                )}
         </>
     )
 }
