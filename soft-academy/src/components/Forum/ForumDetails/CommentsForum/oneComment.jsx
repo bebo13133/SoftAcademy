@@ -10,20 +10,23 @@ export const OneComment = ({
     user,
     _id,
     onDeletePostHandler,
+    _ownerId
 }) => {
 
     const [liked, setLiked] = useState(false)
     const [likeCounter, setLikeCounter] = useState(0)
     const [likeUser, setLikeUser] = useState([])
+
+
 console.log(likeCounter)
     // console.log("likeUser",likeUser)
     const commentId = _id
-    // console.log("commentId",  _id,)
+     console.log("commentId",  _id,)
     const forumService = useService(forumServiceFactory)
 
     const { userId } = useAuthContext()
 
-
+const isOwner =_ownerId === userId
     useEffect(() => {
         forumService.getAllLikes(commentId)
             .then(result => {
@@ -42,7 +45,8 @@ console.log(likeCounter)
     }, [commentId, userId, likeCounter])
 
     const likeId = likeUser?._id
- 
+
+
     const handleLikeToggle = async () => {
         if (liked) {
 
@@ -61,11 +65,6 @@ console.log(likeCounter)
 
 
     }
-
-
-
-
-
 
     return (
         <>
@@ -88,7 +87,7 @@ console.log(likeCounter)
             </div>
             <div className="like-delete-section" style={{ fontSize: "2px" }}>
                 <span className="like-delete-button" onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</span>
-                <span className="like-delete-button" onClick={() => onDeletePostHandler(commentId)}>Delete</span>
+               {isOwner && <span className="like-delete-button" onClick={() => onDeletePostHandler(commentId)}>Delete</span>}
             </div>
         </>
     )

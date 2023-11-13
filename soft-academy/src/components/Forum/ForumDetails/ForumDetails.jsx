@@ -43,13 +43,13 @@ export const ForumDetails = () => {
     //         });
 
     // }, [setComments,forumId,])
-  
+
     const fetchData = async () => {
         try {
             const result = await forumService.getOne(forumId);
             setOnePost(result);
             const commentResult = await forumService.getAllPosts(forumId);
-      
+
 
             setComments(commentResult);
         } catch (error) {
@@ -82,19 +82,19 @@ export const ForumDetails = () => {
     }
 
     const onPostSubmit = async (values) => {
-            if(!values.comment) return alert("Please enter a comment") 
+        if (!values.comment) return alert("Please enter a comment")
         try {
             const postForum = await forumService.createPost(
                 forumId,
                 values.comment,
                 values.user
-               
+
             )
-       
+
             setComments(state => [...state, { comment: postForum.comment, user: postForum.user }])
             // console.log("comments",comments)
             await fetchData()  // извиквам fetchData за да пререндерира отново компонента , за да може да ми сетне id-то което трявба 
-                               // да подам надолу , иначе не работят delete и like ... 
+            // да подам надолу , иначе не работят delete и like ... 
         } catch (error) {
 
             throw new Error(error.message)
@@ -102,14 +102,14 @@ export const ForumDetails = () => {
     }
 
 
-    const onDeletePostHandler=(commentId)=>{
-// console.log("coomentID", commentId)
+    const onDeletePostHandler = (commentId) => {
+        // console.log("coomentID", commentId)
         forumService.deleteComment(commentId)
         setComments(state => state.filter(comment => comment._id !== commentId))
     }
     useEffect(() => {
- 
-        fetchData(); 
+
+        fetchData();
 
 
     }, [forumId]);
@@ -144,17 +144,17 @@ export const ForumDetails = () => {
                 </div>
 
             </section>
-            <CommentsForum 
-            key={forumId} // подавам го заради кеша , vite да разпознае по лесно ако настъпи промяна 
-            isOpenComments={commentsPopUp} 
-            onCloseComments={closeCommentsPopUp} 
-            onPostSubmit={onPostSubmit} {...onePost} 
-            comments={comments}
-             onDeletePostHandler={onDeletePostHandler} />
+            <CommentsForum
+                key={forumId} // подавам го заради кеша , vite да разпознае по лесно ако настъпи промяна 
+                isOpenComments={commentsPopUp}
+                onCloseComments={closeCommentsPopUp}
+                onPostSubmit={onPostSubmit} {...onePost}
+                comments={comments}
+                onDeletePostHandler={onDeletePostHandler} />
 
             <ConfirmBox open={isOpen}
-             closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }}
-             />
+                closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }}
+            />
         </>
     )
 }

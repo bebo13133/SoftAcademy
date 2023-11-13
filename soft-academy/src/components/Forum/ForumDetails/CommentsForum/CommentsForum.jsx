@@ -15,8 +15,9 @@ export const CommentsForum = ({
  
 }) => {
     const [showAll, setShowAll] = useState(false);
-    const {userEmail } = useAuthContext()
-    console.log("cooments",comments.map(x=>x._id))
+    const {userEmail,userId } = useAuthContext()
+   
+
     const { onSubmit, onChangeHandler, values } = useForm({
         comment: "",
         user:userEmail
