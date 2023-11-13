@@ -18,15 +18,15 @@ export const OneComment = ({
     const [likeUser, setLikeUser] = useState([])
 
 
-console.log(likeCounter)
+    console.log(likeCounter)
     // console.log("likeUser",likeUser)
     const commentId = _id
-     console.log("commentId",  _id,)
+    console.log("commentId", _id,)
     const forumService = useService(forumServiceFactory)
 
     const { userId } = useAuthContext()
 
-const isOwner =_ownerId === userId
+    const isOwner = _ownerId === userId
     useEffect(() => {
         forumService.getAllLikes(commentId)
             .then(result => {
@@ -49,17 +49,28 @@ const isOwner =_ownerId === userId
 
     const handleLikeToggle = async () => {
         if (liked) {
+            try {
+                await forumService.deleteLike(likeId);
+                setLikeCounter(likeCounter - 1);
 
-            await forumService.deleteLike(likeId);
-            setLikeCounter(likeCounter - 1);
+                setLiked(false)
 
-            setLiked(false)
+            } catch (err) {
+                console.error('Error removing like:', err);
+
+            }
 
         } else if (!liked) {
-            const result = await forumService.createLike(userId, commentId)
-            setLikeCounter(likeCounter + 1);
+            try {
 
-            setLiked(true)
+                const result = await forumService.createLike(userId, commentId)
+                setLikeCounter(likeCounter + 1);
+
+                setLiked(true)
+            } catch (error) {
+                console.error('Error adding like:', error);
+            }
+
         }
 
 
@@ -77,7 +88,7 @@ const isOwner =_ownerId === userId
                 </p>
                 <p> {comment}</p>
                 <div className="like-component">
-                   
+
 
                     <p>{likeCounter}</p>
 
@@ -87,7 +98,7 @@ const isOwner =_ownerId === userId
             </div>
             <div className="like-delete-section" style={{ fontSize: "2px" }}>
                 <span className="like-delete-button" onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</span>
-               {isOwner && <span className="like-delete-button" onClick={() => onDeletePostHandler(commentId)}>Delete</span>}
+                {isOwner && <span className="like-delete-button" onClick={() => onDeletePostHandler(commentId)}>Delete</span>}
             </div>
         </>
     )

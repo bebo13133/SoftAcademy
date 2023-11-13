@@ -24,26 +24,7 @@ export const ForumDetails = () => {
 
     const isOwner = userId === onePost._ownerId
 
-    // useEffect(() => {
-    //     forumService.getOne(forumId)
-    //         .then(result => {
-    //             setOnePost(result)
-    //             return forumService.getAllPosts(forumId)
-    //         })
-    //         .then(comment => {
-    //             console.log("postAll",comment)
-
-    //           setComments(comment)
-
-    //         })
-    //         .catch(error => {
-
-    //             throw new Error("Error fetching forum post")
-
-    //         });
-
-    // }, [setComments,forumId,])
-
+ 
     const fetchData = async () => {
         try {
             const result = await forumService.getOne(forumId);
@@ -93,8 +74,10 @@ export const ForumDetails = () => {
 
             setComments(state => [...state, { comment: postForum.comment, user: postForum.user }])
             // console.log("comments",comments)
+        
             await fetchData()  // извиквам fetchData за да пререндерира отново компонента , за да може да ми сетне id-то което трявба 
             // да подам надолу , иначе не работят delete и like ... 
+       
         } catch (error) {
 
             throw new Error(error.message)
@@ -103,7 +86,7 @@ export const ForumDetails = () => {
 
 
     const onDeletePostHandler = (commentId) => {
-        // console.log("coomentID", commentId)
+ 
         forumService.deleteComment(commentId)
         setComments(state => state.filter(comment => comment._id !== commentId))
     }
