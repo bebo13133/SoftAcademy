@@ -1,7 +1,7 @@
 import { Fragment, useRef, useState } from "react"
 import emailjs from '@emailjs/browser'
 import Footer from "../Footer/Footer";
-const Contact= () => {
+const Contact = () => {
     const [emails, setEmails] = useState({})
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
@@ -29,11 +29,11 @@ const Contact= () => {
                     setUserEmail("");
                     setUserSubject("");
                     setMessage("");
-                },       
+                },
 
-            (err) => {
-                throw new Error(err)
-            }
+                (err) => {
+                    throw new Error(err)
+                }
             )
         console.log(form.current)
 
@@ -48,7 +48,7 @@ const Contact= () => {
                         <div className="col-md-7">
                             <div className="section-title-soft">
                                 <h2>Contact Us</h2>
-                                <p>Contact whit<span style={{color:"red"}}> Soft</span><span style={{color:"black"}}>Academy</span> Please insert contact form , or visit us on site in our building</p>
+                                <p>Contact whit<span style={{ color: "red" }}> Soft</span><span style={{ color: "black" }}>Academy</span> Please insert contact form , or visit us on site in our building</p>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const Contact= () => {
                             <form ref={form} onSubmit={sendEmail} className="mb-4 mb-lg-0">
                                 <div className="form-row">
                                     <div className="col-md-6 form-group">
-                                        <input type="text" name="user_name" className="form-control" id="name" placeholder="Your Name" value={userName} onChange={(e) => setUserName(e.target.value)}/>
+                                        <input type="text" name="user_name" className="form-control" id="name" placeholder="Your Name" value={userName} onChange={(e) => setUserName(e.target.value)} />
                                     </div>
                                     <div className="col-md-6 form-group">
                                         <input type="email" className="form-control" name="user_email" id="email" placeholder="Your Email" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
@@ -82,9 +82,14 @@ const Contact= () => {
                             </div>
                         </div>
                     </div>
+                    <ul>
+                    <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" ,background: "#cfcccc"}} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none" ,background: "#cfcccc", color: "black" }}>Academy</span></li>
+                </ul>
                 </div>
+             
             </section>
-            <Footer/>
+            
+            <Footer />
         </Fragment>
     )
 }

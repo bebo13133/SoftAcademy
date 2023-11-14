@@ -119,14 +119,14 @@ export const Home = () => {
                             </li>
                             <li>
                                 <Link to={"https://legacy.reactjs.org/"} target="_blank" rel="noopener noreferrer">
-                                <div className="single-list-topics-content">
-                                    <div className="single-list-topics-icon">
-                                        <img className="home-top-lang" src="./img/react.png" />
+                                    <div className="single-list-topics-content">
+                                        <div className="single-list-topics-icon">
+                                            <img className="home-top-lang" src="./img/react.png" />
 
+                                        </div>
+                                        <h2>ReactJs</h2>
+                                        <p>1604301 listings</p>
                                     </div>
-                                    <h2>ReactJs</h2>
-                                    <p>1604301 listings</p>
-                                </div>
                                 </Link>
                             </li>
                         </ul>
@@ -141,7 +141,7 @@ export const Home = () => {
             </div>
             <br />
             <br />
-            
+
             <section id="works" className="works">
                 <div className="container">
                     <div className="section-header">
@@ -151,17 +151,19 @@ export const Home = () => {
                     <div className="works-content">
                         <div className="row">
                             {/* one course */}
-                            {courses.length > 0 ? courses.map(course =><HomeOneCourse key={course._id} {...course}/>): <h2 className="no-articles">No courses yet</h2>}
+                            {courses.length > 0 ? courses.map(course => <HomeOneCourse key={course._id} {...course} />) : <h2 className="no-articles">No courses yet</h2>}
                         </div>
                     </div>
                 </div>
 
             </section>
-            <WyWeStudy/>
+            <WyWeStudy />
 
-            <LastForumsCarousel/>
-            {/* <LastForumsCarousel/> */}
-            <Footer/>
+            <LastForumsCarousel />
+            <ul>
+                <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+            </ul>
+            <Footer />
 
         </>
     )

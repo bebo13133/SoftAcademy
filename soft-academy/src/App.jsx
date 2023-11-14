@@ -115,7 +115,7 @@ function App() {
 
 
                 <Route path={"/contact"} element={
-                  <Suspense fullback={<div>blbblbl</div>}>
+                  <Suspense fullback={<IsLoading/>}>
                     <Contact />
                   </Suspense>
                 } />

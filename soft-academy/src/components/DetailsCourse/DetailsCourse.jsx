@@ -24,7 +24,7 @@ export const DetailsCourse = () => {
 
             }).then(course => {
 
-              setComments(course)
+                setComments(course)
 
             })
 
@@ -51,15 +51,18 @@ export const DetailsCourse = () => {
 
 
     return (
-<>
-        <section id="details-page">
+        <>
+            <section id="details-page">
 
-            <OneCourse {...details} comments={comments} onCommentSubmit={onCommentSubmit} />
-            <LectorPage {...details} />
-            <AddComments onCommentSubmit={onCommentSubmit} />
-          
-        </section>
-          <Footer/>
-          </>
+                <OneCourse {...details} comments={comments} onCommentSubmit={onCommentSubmit} />
+                <LectorPage {...details} />
+                <AddComments onCommentSubmit={onCommentSubmit} />
+
+            </section>
+            <ul>
+                <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+            </ul>
+            <Footer />
+        </>
     )
 }

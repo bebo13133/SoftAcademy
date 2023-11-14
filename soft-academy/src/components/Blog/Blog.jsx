@@ -1,9 +1,9 @@
-import { useEffect, useState , lazy,Suspense} from "react"
+import { useEffect, useState, lazy, Suspense } from "react"
 import { useAuthContext } from "../contexts/UserContext";
 import './blogNews.css'
 // import  Footer  from "../Footer/Footer";
 import { IsLoading } from "../IsLoading/IsLoading";
-const Footer = lazy(()=> import("../Footer/Footer"))
+const Footer = lazy(() => import("../Footer/Footer"))
 
 const Blog = () => {
 
@@ -100,10 +100,14 @@ const Blog = () => {
                         ))}
                     </ul>
                 </div>
+
             </section>
-            <Suspense fullback={<IsLoading/>}>
-            <Footer/>
-            </Suspense>
+            <ul>
+                <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+            </ul>
+            
+                <Footer />
+     
         </>
     )
 }

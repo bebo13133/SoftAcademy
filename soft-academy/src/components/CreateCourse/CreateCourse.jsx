@@ -29,17 +29,17 @@ export const CreateCourse = () => {
         Java: "https://static.vecteezy.com/system/resources/previews/019/899/953/non_2x/java-free-download-free-png.png",
         Python: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
         ReactJS: "https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png",
-        "JavaScript":"https://cdn3d.iconscout.com/3d/premium/thumb/javascript-7308311-5938360.png",
+        "JavaScript": "https://cdn3d.iconscout.com/3d/premium/thumb/javascript-7308311-5938360.png",
         'C#': "https://seeklogo.com/images/C/c-sharp-c-logo-02F17714BA-seeklogo.com.png",
         "VueJs": "https://user-images.githubusercontent.com/7110136/29002858-a09570d2-7ab4-11e7-8faa-5dd6d4458b0d.png",
         "TypeScript": "https://cdn-icons-png.flaticon.com/512/919/919832.png",
         "HTML&CSS": "https://cdn-icons-png.flaticon.com/512/174/174854.png",
         "Angular": "https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg",
-        "FullStackDeveloper":"https://static.thenounproject.com/png/390336-200.png",
+        "FullStackDeveloper": "https://static.thenounproject.com/png/390336-200.png",
         "CyberSecurity": "https://jdimi.com/wp-content/uploads/sites/4/2022/03/Cyber-Security-PNG-Clipart.png",
     };
 
-  
+
     const selectOptionHandler = (e) => {
         const selectedOption = e.target.value;
         setSelectOptions(selectedOption);
@@ -96,8 +96,8 @@ export const CreateCourse = () => {
 
                         <input type="text" name="lectorDescription" placeholder="Lector Description" value={values.lectorDescription} onChange={onChangeHandler} />
                     </div>
-                   
-                     <div className="item">
+
+                    <div className="item">
 
                         <input type="file" name="lectorImage" placeholder="Lector Description" accept="image/*" onChange={lectorImageHandler} />
 
@@ -107,7 +107,7 @@ export const CreateCourse = () => {
                         {values.lectorImage && (
                             <img src={values.lectorImage} alt="Lector" />
                         )}
-                    </div> 
+                    </div>
 
                     <div className="item">
                         <p>Email</p>
@@ -169,11 +169,11 @@ export const CreateCourse = () => {
                         <button type="submit" value="send">Create</button>
                     </div>
                     <ul>
-                    <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float:"right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
-                </ul>
+                        <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+                    </ul>
                 </form>
             </div>
-            <Footer/>
+            <Footer />
 
         </>
     )
