@@ -57,7 +57,9 @@ export const ForumStudents = () => {
                         </li>
                     ))}
                 </ul>
+                
             </section>
+            
             <Footer/>
         </>
 
