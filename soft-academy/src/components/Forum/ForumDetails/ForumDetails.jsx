@@ -8,6 +8,7 @@ import { useAuthContext } from '../../contexts/UserContext'
 import { ConfirmBox } from '../../ConfirmBox/ConfirmBox'
 import { useForumContext } from '../../contexts/ForumContext'
 import { CommentsForum } from './CommentsForum/CommentsForum'
+import Footer from '../../Footer/Footer'
 // import './contexts/error.css';
 
 
@@ -154,6 +155,7 @@ export const ForumDetails = () => {
 
                
             />
+            <Footer/>
                {errorMessage && (
                     <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
                       <p>{errorMessage}</p>

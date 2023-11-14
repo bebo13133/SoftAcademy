@@ -1,0 +1,38 @@
+
+.my-component-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 49px;
+
+  }
+  
+  .my-component-image {
+    border-radius: 30%;
+    width: 200px; 
+    height: 170px;
+    /* margin-right: 20px;  */
+  }
+  .my-component-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .my-component-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .my-component-description {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    max-width: 600px; 
+  }
+  .my-component-content h2{
+    color:black;
+  }
+  .my-component-content p{
+    text-align: center;
+  }

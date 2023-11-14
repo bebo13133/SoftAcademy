@@ -74,6 +74,8 @@ function App() {
     || location.pathname.startsWith("/admin")
     || location.pathname.startsWith("/forum")
     || location.pathname.startsWith("/blog")
+    || location.pathname.startsWith("/")
+
 
 
   const isAdminPage = location.pathname.startsWith('/admin')

@@ -12,6 +12,7 @@ const HomeOneCourse = lazy(() => import("./HomeOneCourse"))
 
 import { SearchField } from "../SearchPage/SearchField"
 import { LastForumsCarousel } from "./LastForumsCarousel/LastForumsCarousel"
+import Footer from "../Footer/Footer"
 
 export const Home = () => {
 
@@ -73,7 +74,7 @@ export const Home = () => {
                                         <div className="single-list-topics-icon">
                                             <img className="home-top-lang" src="./img/javascript-7308311-5938360.webp" />
                                         </div>
-                                        <h2><Link to={"https://www.javascript.com/"} target="_blank" rel="noopener noreferrer">JavaScript</Link></h2>
+                                        <h2>JavaScript</h2>
                                         <p>1 444 231 Libraries</p>
                                     </div>
                                 </Link>
@@ -83,7 +84,7 @@ export const Home = () => {
                                     <div className="single-list-topics-icon">
                                         <img className="home-top-lang" src="./img/c-sharp.png" />
                                     </div>
-                                    <h2><Link to={"https://learn.microsoft.com/en-us/dotnet/csharp/"} target="_blank" rel="noopener noreferrer">c-sharp</Link></h2>
+                                    <h2>c-sharp</h2>
                                     <p>214223 listings</p>
                                 </div>
                                 </Link>
@@ -96,7 +97,7 @@ export const Home = () => {
                                             <img className="home-top-lang" src="./img/java.webp" />
 
                                         </div>
-                                        <h2><Link to={"https://www.java.com/en/"} target="_blank" rel="noopener noreferrer">Java</Link></h2>
+                                        <h2>Java</h2>
 
                                         <p>1118543 listings</p>
                                     </div>
@@ -109,7 +110,7 @@ export const Home = () => {
                                             <img className="home-top-lang" src="./img/Python-logo-notext.svg.png" />
 
                                         </div>
-                                        <h2><Link to={"https://www.python.org/"} target="_blank" rel="noopener noreferrer">Python</Link></h2>
+                                        <h2>Link</h2>
 
                                         <p>200323 listings</p>
                                     </div>
@@ -122,7 +123,7 @@ export const Home = () => {
                                         <img className="home-top-lang" src="./img/react.png" />
 
                                     </div>
-                                    <h2><Link to={"https://legacy.reactjs.org/"} target="_blank" rel="noopener noreferrer">ReactJs</Link></h2>
+                                    <h2>ReactJs</h2>
                                     <p>1604301 listings</p>
                                 </div>
                                 </Link>
@@ -149,15 +150,15 @@ export const Home = () => {
                     <div className="works-content">
                         <div className="row">
                             {/* one course */}
-                            {courses.length > 0 ? courses.map(course => <Suspense fullback={<IsLoading />}> <HomeOneCourse key={course._id} {...course}
-                            /></Suspense>) : <h2 className="no-articles">No courses yet</h2>}
+                            {courses.length > 0 ? courses.map(course =><HomeOneCourse key={course._id} {...course}/>): <h2 className="no-articles">No courses yet</h2>}
                         </div>
                     </div>
                 </div>
 
             </section>
             <LastForumsCarousel/>
-            <LastForumsCarousel/>
+            {/* <LastForumsCarousel/> */}
+            <Footer/>
 
         </>
     )

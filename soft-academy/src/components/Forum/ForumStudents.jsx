@@ -3,6 +3,7 @@ import './forumStudents.css'
 import { SideBarForum } from './SideBarForum/SideBarForum';
 import { OneForumPost } from './OneForumPost';
 import { useForumContext } from '../contexts/ForumContext';
+import Footer from '../Footer/Footer';
 
 export const ForumStudents = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -54,7 +55,7 @@ export const ForumStudents = () => {
                     ))}
                 </ul>
             </section>
-
+            <Footer/>
         </>
 
     )

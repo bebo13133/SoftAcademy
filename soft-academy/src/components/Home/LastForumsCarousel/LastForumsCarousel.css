@@ -1,8 +1,21 @@
 .blue-bar {
-    height: 290px; 
+    height: 280px; 
     width: 100%;
     min-width: 450px;
-    background-color: rgb(3, 3, 109); 
+    background-color: rgb(83, 83, 139); 
+    margin-bottom: 160px;
+  }
+  .blue-bar-h2 h2{
+    /* color:whitesmoke; */
+    font-size:22px;
+    text-align: center;
+    margin-top: 10rem;
+    color: rgb(189, 104, 19);
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
   }
 
   

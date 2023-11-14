@@ -53,8 +53,6 @@ export const ForumProvider = ({ children }) => {
                       return;
                 }
 
-            // if(courseData.lectorDescription.length<5 || courseData.description.length<5 ) return alert("Minimum field description length is 5")
-
             const newPost = await forumService.create(forumData)
 
             setForumPosts(state => [...state, newPost])
