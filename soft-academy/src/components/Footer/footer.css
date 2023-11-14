@@ -44,13 +44,16 @@
 
 .social-icons a {
 
-    color: #767f86;
+    color: #96a7b3;
     margin-right: 10px;
     text-decoration: none;
 }
 
 .terms a {
-    color: #767f86;
+    color: #96a7b3;
+}
+.contact p{
+    color: #96a7b3;
 }
 
 .social-icons img {

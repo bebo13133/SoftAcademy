@@ -3,7 +3,7 @@ import './wyWeStudy.css'
 import { useState } from 'react';
 export const WyWeStudy = () => {
 
-  const [showMore, setShowMore] = useState(true);
+  const [showMore, setShowMore] = useState(false);
 
 
 
