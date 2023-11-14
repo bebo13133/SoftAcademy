@@ -48,7 +48,7 @@ const Contact= () => {
                         <div className="col-md-7">
                             <div className="section-title-soft">
                                 <h2>Contact Us</h2>
-                                <p><b>Contact whit SoftAcademy</b> is designed with a Google map. contact form pages design is created by using Bootstrap and custom CSS</p>
+                                <p>Contact whit<span style={{color:"red"}}> Soft</span><span style={{color:"black"}}>Academy</span> Please insert contact form , or visit us on site in our building</p>
                             </div>
                         </div>
                     </div>

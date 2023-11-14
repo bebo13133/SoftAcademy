@@ -13,6 +13,7 @@ const HomeOneCourse = lazy(() => import("./HomeOneCourse"))
 import { SearchField } from "../SearchPage/SearchField"
 import { LastForumsCarousel } from "./LastForumsCarousel/LastForumsCarousel"
 import Footer from "../Footer/Footer"
+import { WyWeStudy } from "./WyWeStudy/WyWeStudy"
 
 export const Home = () => {
 
@@ -156,6 +157,8 @@ export const Home = () => {
                 </div>
 
             </section>
+            <WyWeStudy/>
+
             <LastForumsCarousel/>
             {/* <LastForumsCarousel/> */}
             <Footer/>
