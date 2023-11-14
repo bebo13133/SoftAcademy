@@ -8,13 +8,16 @@ import Footer from '../Footer/Footer';
 export const ForumStudents = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [articles, setArticles] = useState([]);
-    // const [latestPosts, setLatestPosts] = useState([]);
+    
     const { forumPosts } = useForumContext()
+    
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 3;
 
     useEffect(() => {
+
         setArticles(forumPosts)
+
     }, []);
 
 

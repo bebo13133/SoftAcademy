@@ -43,7 +43,7 @@ export const LastForumsCarousel = () => {
         
        <div className="blue-bar-h2">
         <h2>visit the Forum </h2>
-        <h3>Most popular post in our Forum </h3>
+        <h3>Most popular posts in our Forum </h3>
         </div>
             <div className="blue-bar">
             {/* <img src="/img/dots.png"/> */}

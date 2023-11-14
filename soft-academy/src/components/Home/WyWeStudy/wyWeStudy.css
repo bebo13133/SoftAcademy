@@ -1,4 +1,5 @@
 .main-section {
+  margin-top: 5rem;
   gap: 50px;
   display: flex;
   justify-content: center;
@@ -8,11 +9,14 @@
   .sub-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
   }
   
   .textarea-section {
-    /* Стилове за първата подсекция с текстови полета */
+max-width: 600px;
+max-height: 300px;
+overflow-y: auto;
+
   }
   
   .text-area {
@@ -20,7 +24,20 @@
     padding: 8px;
     width: 200px;
   }
-  
+  .text-paragraph-3{
+    color:#425387;
+    /* margin-bottom: 10px; */
+    padding: 8px;
+    width: 400px;
+    /* border: 1px solid #ccc; */
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .text-paragraph-4{
+    text-align: left;
+
+  }
   .image-section {
     /* Стилове за втората подсекция със снимки */
   }
@@ -31,4 +48,32 @@
     height: 120px;
     margin-bottom: 10px;
     object-fit: cover;
+  }
+  .show {
+    display: block; 
+  }
+  .text-paragraph-5{
+    color:#425387;
+    padding: 8px;
+       width: 400px;
+    text-overflow: ellipsis;
+       white-space: nowrap;
+
+  }
+
+  .text-paragraph-4, .text-paragraph-5 {
+    display: none;
+  }
+  .text-paragraph-5 {
+    text-align: left;
+  }
+  .show-more-button {
+
+    color: rgb(189, 104, 19);
+    font-size: 16px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
   }

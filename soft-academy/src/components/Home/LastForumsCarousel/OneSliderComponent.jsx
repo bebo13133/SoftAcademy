@@ -1,25 +1,23 @@
 
 import './OneSliderComponent.css'
-
+import { Link } from 'react-router-dom'
 export const OneSliderComponent = ({
     title,
     description,
     imageUrl,
     author
 }) => {
+
+
     return (
         <>
-            {/* <div className="my-component-container">
-                <img src={imageUrl} alt="imageUrl" className="my-component-image" />
-                <div className="my-component-content">
-                    <h2 className="my-component-title">{title}</h2>
-                    <p className="my-component-description">{description.slice(0,140)}</p>
-                </div>
-            </div> */}
+        
+        
             <div className="my-component-container">
-                <img className="my-component-image"
+            <Link to="/forum">             
+               <img className="my-component-image"src={imageUrl} />
+               </Link>
 
-                    src={imageUrl} />
                 <div className="my-component-content">
                     <h2 className="my-component-title">{author}</h2>
 
@@ -27,6 +25,7 @@ export const OneSliderComponent = ({
                     <p className="my-component-description">{description.slice(0, 120) + "..."}</p>
                 </div>
             </div>
+
         </>
 
     )
