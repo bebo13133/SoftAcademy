@@ -4,17 +4,19 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 49px;
+    margin-top: 30px;
 
   }
   
   .my-component-image {
+    margin-bottom: -1px;
     border-radius: 30%;
-    width: 200px; 
-    height: 170px;
+    width: 220px; 
+    height: 180px;
     /* margin-right: 20px;  */
   }
   .my-component-content {
+    margin-bottom: 46px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,12 +29,16 @@
   
   .my-component-description {
     font-size: 16px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     max-width: 600px; 
   }
   .my-component-content h2{
-    color:black;
+    color:#a9ad00;
   }
   .my-component-content p{
     text-align: center;
+  }
+  .my-component-content h3{
+    color:#c3c3c3;
+    font-size: 22px;
   }

@@ -15,7 +15,7 @@ const Footer = () => {
 
                 {/* Section 2: Address and Phone Column */}
                 <section className="footer-section contact">
-                    <h3>Contact</h3>
+                    <Link to={"/contact"}><h3>Contact</h3></Link>
                     <p>Address: str.Krusha Planina 56a, Sofia, Bulgaria</p>
                     <p>Phone: +359 894 371 779</p>
                 </section>

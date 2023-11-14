@@ -1,13 +1,13 @@
 .blue-bar {
-    height: 280px; 
+    height: 250px; 
     width: 100%;
     min-width: 450px;
-    background-color: rgb(83, 83, 139); 
+    background: url("./img/blue8.webp");
     margin-bottom: 160px;
   }
   .blue-bar-h2 h2{
     /* color:whitesmoke; */
-    font-size:22px;
+    /* font-size:22px; */
     text-align: center;
     margin-top: 10rem;
     color: rgb(189, 104, 19);
@@ -17,7 +17,18 @@
     text-transform: uppercase;
     letter-spacing: 1.3px;
   }
-
+  .blue-bar-h2 h3{
+  
+    font-size:18px;
+    text-align: center;
+    /* margin-top: 10rem; */
+    color: rgb(107 104 101);
+  
+    font-weight: 500;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+  }
   
   
   

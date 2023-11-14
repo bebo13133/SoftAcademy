@@ -41,9 +41,7 @@ export const ForumProvider = ({ children }) => {
             }
 
 
-            if (forumData.author.length < 4
-                || forumData.description.length < 4
-                || forumData.title.length < 4){
+            if (forumData.author.length < 4|| forumData.title.length < 4){
 
                      setErrorMessage("Minimum field length is 4 for names")
                     setTimeout(() => {
@@ -52,7 +50,18 @@ export const ForumProvider = ({ children }) => {
                 
                       return;
                 }
+                if (forumData.description.length < 40){
+                    
+    
+                    setErrorMessage("Minimum description length is 40")
+                    setTimeout(() => {
+                        setErrorMessage('');
+                      }, 4000);
+                
+                      return;
+                }
 
+                
             const newPost = await forumService.create(forumData)
 
             setForumPosts(state => [...state, newPost])
@@ -107,6 +116,18 @@ export const ForumProvider = ({ children }) => {
                       return;
                 }
 
+                if (forumData.description.length < 100){
+                    
+    
+                        setErrorMessage("Minimum description length is 100")
+                        setTimeout(() => {
+                            setErrorMessage('');
+                          }, 4000);
+                    
+                          return;
+                    }
+
+
             const result = await forumService.update(forumData._id, forumData)
             setForumPosts(state => state.map(x => x._id === forumData._id ? result : x))
             navigate(`/forum/${forumData._id}`)
@@ -135,7 +156,6 @@ export const ForumProvider = ({ children }) => {
         </div>
       )}
         </forumContext.Provider>
-
 
     )
 

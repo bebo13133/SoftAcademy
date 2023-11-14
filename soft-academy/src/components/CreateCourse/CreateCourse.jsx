@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useForm } from '../Hooks/useForm'
 
 import { useCourseContext } from '../contexts/CourseContext'
+import Footer from '../Footer/Footer'
 
 export const CreateCourse = () => {
 
@@ -172,6 +173,8 @@ export const CreateCourse = () => {
                 </ul>
                 </form>
             </div>
+            <Footer/>
+
         </>
     )
 }

@@ -13,7 +13,7 @@ export const SideBarForum = () => {
     useEffect(() => {
 
 
-        setPosts(forumPosts.sort((a, b) => (b._createdOn) - (a._createdOn)).slice(length - 1, 5))
+        setPosts(forumPosts.sort((a, b) => (b._createdOn) - (a._createdOn)).slice(length - 1, 4))
 
         const timeoutId = setTimeout(() => {
             setIsOpen(true);

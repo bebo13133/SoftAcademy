@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react"
 import { CourseContext, useCourseContext } from "../contexts/CourseContext"
 import { IsLoading } from "../IsLoading/IsLoading"
 import { OneCourse } from "./OneCourse"
+import Footer from "../Footer/Footer"
 
 const CatalogCourses = () => {
 
@@ -40,8 +41,9 @@ const CatalogCourses = () => {
 
                     </div>
                 </div>
-
+                <Footer/>
             </section>
+         
         </>
     )
 }

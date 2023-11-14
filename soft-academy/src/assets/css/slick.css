@@ -21,6 +21,7 @@
 .slick-list
 {
     position: relative;
+    background: url("/img/createForm.jpg");
 
     display: block;
     overflow: hidden;

@@ -6,6 +6,7 @@ import { useService } from "../Hooks/useService"
 import { OneCourse } from "./OneCourse"
 import { AddComments } from "../Comments/AddComments"
 import { LectorPage } from "./LectorsPage"
+import Footer from "../Footer/Footer"
 
 
 export const DetailsCourse = () => {
@@ -50,12 +51,15 @@ export const DetailsCourse = () => {
 
 
     return (
-
+<>
         <section id="details-page">
 
             <OneCourse {...details} comments={comments} onCommentSubmit={onCommentSubmit} />
             <LectorPage {...details} />
             <AddComments onCommentSubmit={onCommentSubmit} />
+          
         </section>
+          <Footer/>
+          </>
     )
 }
