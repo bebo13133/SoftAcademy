@@ -12,9 +12,9 @@ export const WyWeStudy=()=>{
       </div>
   
         <div className="sub-section image-section">
-          <img className="image-field" src="path/to/image1.jpg" alt="Изображение 1" />
-          <img className="image-field" src="path/to/image2.jpg" alt="Изображение 2" />
-          <img className="image-field" src="path/to/image3.jpg" alt="Изображение 3" />
+          <img className="image-field" src="/img/students1.jpg"  alt="student1" />
+          <img className="image-field" src="/img/students2.jpg" alt="student2"/>
+          <img className="image-field" src="/img/students3.jpg" alt="student3" />
         </div>
       </section>
     )
