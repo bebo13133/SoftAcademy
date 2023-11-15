@@ -1,7 +1,8 @@
 import { Link, useNavigate, Navigate } from "react-router-dom"
 import { useState, useEffect, Suspense, lazy } from "react"
-
+import { Bounce, Fade,Flip,Hinge,JackInTheBox,Roll,Rotate,Slide, Zoom  } from "react-awesome-reveal";
 // import { ChatBox } from "../ChatBox/ChatBox"
+import 'animate.css'
 import { InfinitySlide } from "../InfinitySlide/InfinitySlide"
 import { WaveAnimation } from "../tools/WaveAnimation"
 import { IsLoading } from "../IsLoading/IsLoading"
@@ -138,35 +139,51 @@ export const Home = () => {
 
             <div className="section-header">
                 <h2 style={{ color: "#BD6813" }}>we partner with</h2>
+                <Fade
+                // direction='down'
+                 duration="3000" >
                 <InfinitySlide />
+            </Fade>
+            
             </div>
             <br />
             <br />
-
+ <Fade delay="50" duration="4000" >
             <section id="works" className="works">
                 <div className="container">
                     <div className="section-header">
                         <h2>last courses</h2>
                         <p>Learn More about courses our website </p>
                     </div>
+                    
                     <div className="works-content">
+              
                         <div className="row">
                             {/* one course */}
+                          
                             {courses.length > 0 ? courses.map(course => <HomeOneCourse key={course._id} {...course} />) : <h2 className="no-articles">No courses yet</h2>}
+                          
                         </div>
+                        
                     </div>
+                  
                 </div>
 
             </section>
+            </Fade>
+            <Slide direction='right' duration="3000" >
             <LanguageBar/>
+            </Slide>
+            <Slide duration="3000">
             <WyWeStudy />
-
+            </Slide >
+            <Slide direction='up' duration="1000">
             <LastForumsCarousel />
+            </Slide>
             <ul>
                 <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
             </ul>
             <Footer />
-
         </>
     )
 }

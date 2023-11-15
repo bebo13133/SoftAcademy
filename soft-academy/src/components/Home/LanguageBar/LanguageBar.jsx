@@ -94,7 +94,6 @@ export const LanguageBar = () => {
                                     <div className="single-list-topics-content single-class" onClick={() => handleLanguageClick("ReactJS")}>
                                         <div className="single-list-topics-icon">
                                             <img className="home-top-lang" src="./img/react.png" />
-
                                         </div>
                                         <h2>ReactJs</h2>
                                         <p>ReactJs courses</p>
