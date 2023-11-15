@@ -24,7 +24,7 @@ export const ForumDetails = () => {
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [comments, setComments] = useState([])
     const [liked,setLiked] = useState(false)
-
+    const [likeCounter, setLikeCounter] =useState(0)
 
     const { forumId } = useParams()
     const { onDeleteClick } = useForumContext()
@@ -43,6 +43,8 @@ export const ForumDetails = () => {
 
 
             setComments(commentResult);
+            const allForumsLikes = await forumService.getAllForumLikes()
+
         } catch (error) {
             throw new Error("Error fetching forum post");
         }
@@ -102,14 +104,45 @@ export const ForumDetails = () => {
 
             throw new Error(error.message)
         }
-    }
+    };
 
 
     const onDeletePostHandler = (commentId) => {
 
         forumService.deleteComment(commentId)
         setComments(state => state.filter(comment => comment._id !== commentId))
-    }
+    };
+
+
+    const handleLikeToggle = async () => {
+        if (liked) {
+            try {
+                // await forumService.deleteLike(likeId);
+                setLikeCounter(likeCounter - 1);
+
+                 setLiked(false)
+
+            } catch (err) {
+                console.error('Error removing like:', err);
+
+            }
+
+        } else if (!liked) {
+            try {
+
+                // const result = await forumService.createLike(userId, forumId)
+                setLikeCounter(likeCounter + 1);
+
+                 setLiked(true)
+            } catch (error) {
+                console.error('Error adding like:', error);
+            }
+        }
+    };
+
+
+
+
     useEffect(() => {
 
         fetchData();

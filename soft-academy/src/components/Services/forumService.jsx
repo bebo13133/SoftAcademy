@@ -2,6 +2,8 @@ import { requestFactory } from "./requester"
 const baseUrl = `http://localhost:3030/data/forums`
 const baseUrl2 = `http://localhost:3030/data/forumComments`
 const baseUrl3 = `http://localhost:3030/data/forumLikes`
+const baseUrl4 = `http://localhost:3030/data/oneforumLikes`
+
 export const forumServiceFactory = (token) => {
 
     const request = requestFactory(token)
@@ -37,19 +39,19 @@ export const forumServiceFactory = (token) => {
     const getAllPosts = async (forumId) => {
         const response = await request.get(`${baseUrl2}?where=forumId%3D%22${forumId}%22`)
         const result = Object.values(response)
-       
+
         return result
-        
+
     }
     const deleteComment = async (forumId) => await request.del(`${baseUrl2}/${forumId}`)
-    
+
     const createPost = async (forumId, comment, user) => {
         const result = await request.post(`${baseUrl2}`, { forumId, comment, user })
 
         return result
     }
 
-// ------------------ LIKES --------------------------------//
+    // ------------------ LIKES --------------------------------//
     const createLike = async (userId, commentId) => {
         const response = await request.post(`${baseUrl3}`, { userId, commentId })
         return response
@@ -61,15 +63,32 @@ export const forumServiceFactory = (token) => {
         const result = Object.values(response)
         return result
     }
-    const deleteLike=async(likeId)=>{
-   
-  
-        const result = await request.del(`${baseUrl3}/${likeId}`);
-        return result 
-        
-        }
-    
+    const deleteLike = async (likeId) => {
 
+
+        const result = await request.del(`${baseUrl3}/${likeId}`);
+        return result
+
+    }
+    // ===============One forum like --------------------//
+    const createForumLike = async (userId, commentId) => {
+        const response = await request.post(`${baseUrl4}`, { userId, commentId })
+        return response
+    }
+
+    const getAllForumLikes = async () => {
+        const response = await request.get(`${baseUrl4}`)
+
+        const result = Object.values(response)
+        return result
+    }
+    const deleteForumLike = async (likeId) => {
+
+
+        const result = await request.del(`${baseUrl4}/${likeId}`);
+        return result
+
+    }
 
 
     return {
@@ -83,6 +102,9 @@ export const forumServiceFactory = (token) => {
         deleteComment,
         createLike,
         getAllLikes,
-        deleteLike
+        deleteLike,
+        createForumLike,
+        getAllForumLikes,
+        deleteForumLike,
     }
 }
