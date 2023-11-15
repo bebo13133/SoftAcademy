@@ -49,12 +49,12 @@
     color: #555;
   }
   /* descriptio selector */
-  #root > section.TextSection > div > p:nth-child(3){
+  #root > section.TextSection > div > p:nth-child(4){
     margin-top: 60px;
     margin-left:30px
   }
 /* author */
-#root > section.TextSection > div > p:nth-child(4){
+#root > section.TextSection > div > p:nth-child(5){
   text-align: right;
   margin-top: 92px;
   font-size: 16px;
@@ -62,7 +62,7 @@
 
 }
 /* data selector */
-#root > section.TextSection > div > p:nth-child(5){
+#root > section.TextSection > div > p:nth-child(6){
 
   text-align: right;
   margin-top: 32px;
@@ -120,3 +120,12 @@
   /* .back-to-forum-btn:hover {
     background-color: #2980b9;
   }  */
+
+
+  /* Like ivon */
+  #root > section.TextSection > div > div.like-component > svg{
+    font-size:xx-large;
+  }
+  #root > section.TextSection > div > div.like-component > p{
+    font-size: 22px ;
+  }

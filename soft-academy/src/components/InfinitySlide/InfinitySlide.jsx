@@ -13,8 +13,8 @@ export const InfinitySlide=()=>{
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 3000,
-        autoplaySpeed: 3000,
+        speed: 2500,
+        autoplaySpeed: 1000,
         pauseOnHover: true
         
       };

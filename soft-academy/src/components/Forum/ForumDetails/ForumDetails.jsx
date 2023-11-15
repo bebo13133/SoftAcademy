@@ -1,7 +1,11 @@
 
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import './forumDetails.css'
+import { BiLike } from "react-icons/bi"
 import { useEffect, useState } from 'react'
+
+
+import './forumDetails.css'
+
 import { useService } from '../../Hooks/useService'
 import { forumServiceFactory } from '../../Services/forumService'
 import { useAuthContext } from '../../contexts/UserContext'
@@ -29,7 +33,7 @@ export const ForumDetails = () => {
 
     const isOwner = userId === onePost._ownerId
 
- 
+
     const fetchData = async () => {
         try {
             const result = await forumService.getOne(forumId);
@@ -68,17 +72,17 @@ export const ForumDetails = () => {
     }
 
     const onPostSubmit = async (values) => {
-        if (!values.comment)  {
-            
+        if (!values.comment) {
+
             setErrorMessage("Please enter a comment")
             setTimeout(() => {
                 setErrorMessage('');
-              }, 4000);
-        
-              return;
+            }, 4000);
+
+            return;
         }
-        
-        
+
+
         try {
             const postForum = await forumService.createPost(
                 forumId,
@@ -89,10 +93,10 @@ export const ForumDetails = () => {
 
             setComments(state => [...state, { comment: postForum.comment, user: postForum.user }])
             // console.log("comments",comments)
-        
+
             await fetchData()  // извиквам fetchData за да пререндерира отново компонента , за да може да ми сетне id-то което трявба 
             // да подам надолу , иначе не работят delete и like ... 
-       
+
         } catch (error) {
 
             throw new Error(error.message)
@@ -101,7 +105,7 @@ export const ForumDetails = () => {
 
 
     const onDeletePostHandler = (commentId) => {
- 
+
         forumService.deleteComment(commentId)
         setComments(state => state.filter(comment => comment._id !== commentId))
     }
@@ -122,9 +126,20 @@ export const ForumDetails = () => {
             <section className="TextSection">
                 <div >
                     <h2>{onePost.title}</h2>
+                    {/* Like icon ands counter */}
+
+                    <div className="like-component">
+
+                        <p>
+                          1
+                        </p>
+
+                        <BiLike style={{ size: "60px,", color: "blue" }} ></BiLike>
+                    </div>
                     <div className="divider"></div>
                     <p>{onePost.description}</p>
-                    <p>Author: <span style={{color:"red"}}>{onePost.author }</span></p>
+                    <p>Author: <span style={{ color: "red" }}>{onePost.author}</span></p>
+
                     <p>Created At: {onePost.createdAt}</p>
                     <div className="divider"></div>
                     <div className="ButtonsSection">
@@ -140,7 +155,7 @@ export const ForumDetails = () => {
                         <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} >Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                     </ul>
                 </div>
-             
+
             </section>
             <CommentsForum
                 key={forumId} // подавам го заради кеша , vite да разпознае по лесно ако настъпи промяна 
@@ -153,14 +168,14 @@ export const ForumDetails = () => {
             <ConfirmBox open={isOpen}
                 closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }}
 
-               
+
             />
-            <Footer/>
-               {errorMessage && (
-                    <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
-                      <p>{errorMessage}</p>
-                    </div>
-                )}
+            <Footer />
+            {errorMessage && (
+                <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
+                    <p>{errorMessage}</p>
+                </div>
+            )}
         </>
     )
 }
