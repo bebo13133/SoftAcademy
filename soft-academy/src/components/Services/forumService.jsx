@@ -71,8 +71,8 @@ export const forumServiceFactory = (token) => {
 
     }
     // ===============One forum like --------------------//
-    const createForumLike = async (userId, commentId) => {
-        const response = await request.post(`${baseUrl4}`, { userId, commentId })
+    const createForumLike = async (userId, forumId) => {
+        const response = await request.post(`${baseUrl4}`, { userId, forumId })
         return response
     }
 

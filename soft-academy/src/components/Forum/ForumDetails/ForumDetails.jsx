@@ -23,14 +23,18 @@ export const ForumDetails = () => {
     const [errorMessage, setErrorMessage] = useState(''); //error messages
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [comments, setComments] = useState([])
-    const [liked,setLiked] = useState(false)
-    const [likeCounter, setLikeCounter] =useState(0)
+    const [liked, setLiked] = useState(false)
+    const [likeCounter, setLikeCounter] = useState(0)
+    const [likeUser, setLikeUser] = useState([])
+
+
 
     const { forumId } = useParams()
     const { onDeleteClick } = useForumContext()
     const forumService = useService(forumServiceFactory)
     const navigate = useNavigate()
-    const { userId, userEmail } = useAuthContext()
+    const { userId } = useAuthContext()
+    const likeId = likeUser?._id
 
     const isOwner = userId === onePost._ownerId
 
@@ -43,13 +47,13 @@ export const ForumDetails = () => {
 
 
             setComments(commentResult);
-            const allForumsLikes = await forumService.getAllForumLikes()
+
+
 
         } catch (error) {
             throw new Error("Error fetching forum post");
         }
     };
-
 
     const onBackHandler = () => {
         navigate('/forum')
@@ -114,13 +118,41 @@ export const ForumDetails = () => {
     };
 
 
+
+
+
+
+
+    useEffect(() => {
+        fetchData() // извиквам я за да пререндерира и да си взема id-то
+        forumService.getAllForumLikes(forumId)
+        
+            .then(result => {
+               
+                const forumLikes = result.filter(x => x.forumId === forumId)
+              
+
+                setLikeCounter(forumLikes.length);
+
+                setLiked(forumLikes.some(like => like.userId === userId));
+                setLikeUser(forumLikes.find(like => like.userId === userId));
+         
+            })
+            // .then(result => {
+            //     fetchData();
+            // })
+    }, [forumId,userId, likeCounter]); // при лайковете подавам и стейта иначе няма да вземе likeId 
+
+
+  
+
     const handleLikeToggle = async () => {
         if (liked) {
             try {
-                // await forumService.deleteLike(likeId);
+                await forumService.deleteForumLike(likeId);
                 setLikeCounter(likeCounter - 1);
 
-                 setLiked(false)
+                setLiked(false)
 
             } catch (err) {
                 console.error('Error removing like:', err);
@@ -130,10 +162,10 @@ export const ForumDetails = () => {
         } else if (!liked) {
             try {
 
-                // const result = await forumService.createLike(userId, forumId)
+                const result = await forumService.createForumLike(userId, forumId)
                 setLikeCounter(likeCounter + 1);
 
-                 setLiked(true)
+                setLiked(true)
             } catch (error) {
                 console.error('Error adding like:', error);
             }
@@ -142,13 +174,6 @@ export const ForumDetails = () => {
 
 
 
-
-    useEffect(() => {
-
-        fetchData();
-
-
-    }, [forumId]);
 
     return (
         <>
@@ -163,11 +188,9 @@ export const ForumDetails = () => {
                     {/* Like icon ands counter */}
 
                     <div className="like-component">
-
                         <p>
-                          1
+                            {likeCounter}
                         </p>
-
                         <BiLike key={onePost._id} style={{ size: "60px,", color: "blue" }} ></BiLike>
                     </div>
                     <div className="divider"></div>
@@ -180,7 +203,7 @@ export const ForumDetails = () => {
                         {isOwner && (<><button className="editButton" onClick={onEditHandler}>Edit</button>
                             <button className="deleteButton" onClick={() => openDelete()}>Delete</button></>)}
 
-                        <button className="likeButton"  onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</button>
+                        <button className="likeButton" onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</button>
                         <button className="commentButton" onClick={openCommentsPopUp}>Comments</button>
 
                         <button className="back-to-forum-btn" onClick={onBackHandler}>Back to Forum</button>
