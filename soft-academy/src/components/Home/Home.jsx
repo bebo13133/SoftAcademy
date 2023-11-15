@@ -54,11 +54,16 @@ export const Home = () => {
             <section id="home" className="welcome-hero">
                 <div className="container">
                     <div className="welcome-hero-txt">
+                        <Slide direction="right">
                         <h2>best place to find and explore <br /> that all you need </h2>
+                        </Slide>
+                        
+                        <Slide direction="left">
                         <p>
                             Find Best Place, Restaurant, Hotel, Real State and many more think in just One click
                         </p>
-
+                        </Slide>
+                       
                     </div>
                     <SearchField />
 
