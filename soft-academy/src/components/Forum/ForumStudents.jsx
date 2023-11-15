@@ -40,7 +40,7 @@ export const ForumStudents = () => {
 
 
 
-            <section>
+            <section className="forum-page-section">
                 <div className="forum-page">
                  
                     {currentPosts.map((article) => (
@@ -57,10 +57,9 @@ export const ForumStudents = () => {
                         </li>
                     ))}
                 </ul>
-                
             </section>
-            
-            <Footer/>
+            <Footer />
+           
         </>
 
     )

@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+    background: url("/img/createForm.jpg");
     /* border: 2px solid #ccc;  */
     border-radius: 8px; 
   }

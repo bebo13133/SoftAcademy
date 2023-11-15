@@ -2,7 +2,7 @@
 .pagination {
   display: flex;
   list-style: none;
-  padding: 0;
+  padding: 15px;
   justify-content: center;
 }
 
