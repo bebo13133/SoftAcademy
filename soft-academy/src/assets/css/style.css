@@ -286,7 +286,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     background:rgba(65,73,89,.65);
     z-index: -1;
 }
-.welcome-hero-txt { padding-top: 155px;}
+.welcome-hero-txt { padding-top: 60px;}
 
 .welcome-hero-txt h2 {
     font-size: 48px;
@@ -302,7 +302,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     margin-top: 25px;
 }
 
-.welcome-hero-serch-box{margin-top: 78px;display: flex;}
+.welcome-hero-serch-box{margin-top: 45px;display: flex;}
 .welcome-hero-form {
     
     display: flex;

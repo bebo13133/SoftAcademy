@@ -1,5 +1,4 @@
-.element {
-    height: 100vh; 
- 
-    font-size: 3em;
+
+  #home > div > div.welcome-hero-txt > div:nth-child(5) > p{
+       margin-left: 49px;
   }

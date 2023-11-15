@@ -3,6 +3,7 @@ import { useState, useEffect, Suspense, lazy } from "react"
 import { Bounce, Fade,Flip,Hinge,JackInTheBox,Roll,Rotate,Slide, Zoom  } from "react-awesome-reveal";
 // import { ChatBox } from "../ChatBox/ChatBox"
 import 'animate.css'
+import './homePage.css'
 import { InfinitySlide } from "../InfinitySlide/InfinitySlide"
 import { WaveAnimation } from "../tools/WaveAnimation"
 import { IsLoading } from "../IsLoading/IsLoading"
@@ -54,16 +55,24 @@ export const Home = () => {
             <section id="home" className="welcome-hero">
                 <div className="container">
                     <div className="welcome-hero-txt">
-                        <Slide direction="right" duration="2500">
-                        <h2>best place to find and explore <br /> that all you need </h2>
+                        <Slide direction="right" duration="2500" triggerOnce='true'>
+                        <h2>Welcome  in software world  <br />and best  software engineering courses </h2>
                         </Slide>
-
-                        <Slide direction="left" duration="2500">
+                        <Slide direction="left" duration="2500" triggerOnce='true'>
                         <p>
                             Find Best Place, Restaurant, Hotel, Real State and many more think in just One click
                         </p>
                         </Slide>
-                       
+
+                        <Slide direction="right" duration="2500" triggerOnce='true'>
+                        <p><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Comprehensive Software program</p>
+                        </Slide>
+                        <Slide direction="left" duration="2500" triggerOnce='true'>
+                        <p><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Learn how build DIY apps yourself&nbsp;&nbsp;</p>
+                        </Slide>
+                        <Slide direction="right" duration="2500" triggerOnce='true'>
+                        <p><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Become a successful software engineer</p>
+                        </Slide>
                     </div>
                     
                     <SearchField />
@@ -145,7 +154,7 @@ export const Home = () => {
 
             <div className="section-header">
                 <h2 style={{ color: "#BD6813" }}>we partner with</h2>
-                <Fade
+                <Fade triggerOnce="true"
                 // direction='down'
                  duration="3000" >
                 <InfinitySlide />
@@ -154,7 +163,7 @@ export const Home = () => {
             </div>
             <br />
             <br />
- <Fade delay="50" duration="4000" >
+ <Fade delay="50" duration="4000" triggerOnce='true'>
             <section id="works" className="works">
                 <div className="container">
                     <div className="section-header">
@@ -177,13 +186,13 @@ export const Home = () => {
 
             </section>
             </Fade>
-            <Slide direction='right' duration="3000" >
+            <Slide direction='right' duration="3000" triggerOnce='true' >
             <LanguageBar/>
             </Slide>
-            <Slide duration="3000">
+            <Slide duration="3000" triggerOnce='true'>
             <WyWeStudy />
             </Slide >
-            <Slide direction='up' duration="1000">
+            <Slide direction='up' duration="1000"  triggerOnce='true'>
             <LastForumsCarousel />
             </Slide>
             <ul>
