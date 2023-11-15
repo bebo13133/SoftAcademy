@@ -126,25 +126,25 @@ export const ForumDetails = () => {
     useEffect(() => {
         fetchData() // извиквам я за да пререндерира и да си взема id-то
         forumService.getAllForumLikes(forumId)
-        
+
             .then(result => {
-               
+
                 const forumLikes = result.filter(x => x.forumId === forumId)
-              
+
 
                 setLikeCounter(forumLikes.length);
 
                 setLiked(forumLikes.some(like => like.userId === userId));
                 setLikeUser(forumLikes.find(like => like.userId === userId));
-         
+
             })
-            // .then(result => {
-            //     fetchData();
-            // })
-    }, [forumId,userId, likeCounter]); // при лайковете подавам и стейта иначе няма да вземе likeId 
+        // .then(result => {
+        //     fetchData();
+        // })
+    }, [forumId, userId, likeCounter]); // при лайковете подавам и стейта иначе няма да вземе likeId 
 
 
-  
+
 
     const handleLikeToggle = async () => {
         if (liked) {
