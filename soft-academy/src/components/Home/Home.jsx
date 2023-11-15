@@ -14,6 +14,7 @@ import { SearchField } from "../SearchPage/SearchField"
 import { LastForumsCarousel } from "./LastForumsCarousel/LastForumsCarousel"
 import Footer from "../Footer/Footer"
 import { WyWeStudy } from "./WyWeStudy/WyWeStudy"
+import { LanguageBar } from "./LanguageBar/LanguageBar"
 
 export const Home = () => {
 
@@ -111,7 +112,7 @@ export const Home = () => {
                                             <img className="home-top-lang" src="./img/Python-logo-notext.svg.png" />
 
                                         </div>
-                                        <h2>Link</h2>
+                                        <h2>Python</h2>
 
                                         <p>200323 listings</p>
                                     </div>
@@ -157,6 +158,7 @@ export const Home = () => {
                 </div>
 
             </section>
+            <LanguageBar/>
             <WyWeStudy />
 
             <LastForumsCarousel />

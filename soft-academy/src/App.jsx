@@ -54,6 +54,7 @@ import { AddForumPost } from './components/Forum/AddForumPost/AddForumPost'
 import { ForumProvider } from './components/contexts/ForumContext'
 import { EditForumPost } from './components/Forum/ForumDetails/EditForumPost/EditForumPost'
 import { TermsAndConditions } from './components/Footer/TermsAndConditions/TermsAndConditions'
+import { LanguageCatalog } from './components/Home/LanguageBar/LanguageCatalog'
 
 function App() {
    const [isLoading, setIsLoading] = useState(true)
@@ -145,6 +146,8 @@ function App() {
 
                   <Route path={"/create"} element={<CreateCourse />} />
                   <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
+                  <Route path={"/language-catalog"} element={<LanguageCatalog/>} />
+
 
                   <Route path={"/catalog/:courseId/edit"} element={
                     <IsOwnerCourse>

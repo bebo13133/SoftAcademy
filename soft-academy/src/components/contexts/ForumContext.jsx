@@ -134,14 +134,17 @@ export const ForumProvider = ({ children }) => {
         } catch (err) {
 
         }
-    }
+    };
+
+
 
 
     const contextForumValue = {
         onPostSubmit,
         forumPosts,
         onDeleteClick,
-        onEditSubmitPost
+        onEditSubmitPost,
+        
     }
 
 

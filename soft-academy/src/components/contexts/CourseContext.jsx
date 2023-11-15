@@ -11,6 +11,7 @@ export const CourseProvider = ({ children }) => {
     const { token } = useAuthContext()
     const [course, setCourse] = useState([])
     const [searchResult, setSearchResult] = useState([])
+    const [languages,setLanguage] = useState(null)
 
     const courseService = courseServiceFactory(token)
     const navigate = useNavigate()
@@ -35,7 +36,7 @@ export const CourseProvider = ({ children }) => {
                 !courseData.description ||
                 !courseData.lectorDescription) return alert("Some field is empty")
 
-            if (courseData.courseName.length < 4 || courseData.firstName.length < 4
+            if (courseData.courseName.length < 2 || courseData.firstName.length < 4
                 || courseData.lastName.length < 4 || courseData.email.length < 9) return alert("Minimum field length is 4 for names and 9 for email")
 
             if (courseData.lectorDescription.length < 5 || courseData.description.length < 5) return alert("Minimum field description length is 5")
@@ -123,6 +124,21 @@ export const CourseProvider = ({ children }) => {
     };
     // console.log(searchResult)
 
+    const onSubmitLanguageBar=async(language)=>{
+
+        try{
+            const result = await courseService.getAll();
+
+            setLanguage(state=>result.filter(x=>x.selectOption === language))
+            // navigate('/languageCatalog')
+        }catch(err){
+
+        }
+
+
+        // console.log("language",language)
+    }
+  
 
 
 
@@ -133,7 +149,9 @@ export const CourseProvider = ({ children }) => {
         courses: course,
         selectCourse,
         onDeleteClick,
-        onEditSubmit
+        onEditSubmit,
+        onSubmitLanguageBar,
+        languages
     }
 
     return (
