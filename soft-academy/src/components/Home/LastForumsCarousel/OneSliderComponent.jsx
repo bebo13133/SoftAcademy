@@ -15,7 +15,7 @@ export const OneSliderComponent = ({
         
             <div className="my-component-container">
             <Link to="/forum">             
-               <img className="my-component-image"src={imageUrl} />
+               <img className="my-component-image"src={imageUrl} alt={imageUrl}/>
                </Link>
 
                 <div className="my-component-content">
