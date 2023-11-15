@@ -45,19 +45,16 @@ export const ForumDetails = () => {
             setOnePost(result);
             const commentResult = await forumService.getAllPosts(forumId);
 
-
             setComments(commentResult);
-
-
 
         } catch (error) {
             throw new Error("Error fetching forum post");
         }
     };
 
+
     const onBackHandler = () => {
         navigate('/forum')
-
     }
 
     const onEditHandler = () => {
@@ -99,7 +96,6 @@ export const ForumDetails = () => {
             )
 
             setComments(state => [...state, { comment: postForum.comment, user: postForum.user }])
-            // console.log("comments",comments)
 
             await fetchData()  // извиквам fetchData за да пререндерира отново компонента , за да може да ми сетне id-то което трявба 
             // да подам надолу , иначе не работят delete и like ... 
@@ -118,11 +114,6 @@ export const ForumDetails = () => {
     };
 
 
-
-
-
-
-
     useEffect(() => {
         fetchData() // извиквам я за да пререндерира и да си взема id-то
         forumService.getAllForumLikes(forumId)
@@ -138,9 +129,7 @@ export const ForumDetails = () => {
                 setLikeUser(forumLikes.find(like => like.userId === userId));
 
             })
-        // .then(result => {
-        //     fetchData();
-        // })
+  
     }, [forumId, userId, likeCounter]); // при лайковете подавам и стейта иначе няма да вземе likeId 
 
 
