@@ -21,13 +21,14 @@ export const ForumDetails = () => {
     const [onePost, setOnePost] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [errorMessage, setErrorMessage] = useState(''); //error messages
-
-    const { onDeleteClick } = useForumContext()
-    const forumService = useService(forumServiceFactory)
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [comments, setComments] = useState([])
-    const { forumId } = useParams()
+    const [liked,setLiked] = useState(false)
 
+
+    const { forumId } = useParams()
+    const { onDeleteClick } = useForumContext()
+    const forumService = useService(forumServiceFactory)
     const navigate = useNavigate()
     const { userId, userEmail } = useAuthContext()
 
@@ -134,7 +135,7 @@ export const ForumDetails = () => {
                           1
                         </p>
 
-                        <BiLike style={{ size: "60px,", color: "blue" }} ></BiLike>
+                        <BiLike key={onePost._id} style={{ size: "60px,", color: "blue" }} ></BiLike>
                     </div>
                     <div className="divider"></div>
                     <p>{onePost.description}</p>
@@ -146,7 +147,7 @@ export const ForumDetails = () => {
                         {isOwner && (<><button className="editButton" onClick={onEditHandler}>Edit</button>
                             <button className="deleteButton" onClick={() => openDelete()}>Delete</button></>)}
 
-                        <button className="likeButton">Like</button>
+                        <button className="likeButton"  onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</button>
                         <button className="commentButton" onClick={openCommentsPopUp}>Comments</button>
 
                         <button className="back-to-forum-btn" onClick={onBackHandler}>Back to Forum</button>

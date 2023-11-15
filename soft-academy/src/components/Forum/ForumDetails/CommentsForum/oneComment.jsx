@@ -70,11 +70,7 @@ export const OneComment = ({
             } catch (error) {
                 console.error('Error adding like:', error);
             }
-
         }
-
-
-
     }
 
     return (
