@@ -48,8 +48,8 @@ const HomeOneCourse = ({
 
             .then(response => {
 
-                const bookMarkCourse = (response.filter(like => like.courseId === courseId));
-                console.log("bookMarkCourse", bookMarkCourse)
+                const bookMarkCourse = (response?.filter(like => like.courseId === courseId));
+              
 
                 setBookmarked(bookMarkCourse.some(like => like.userId === userId));
                 setBookmarkUser(bookMarkCourse.find(like => like._ownerId === userId));

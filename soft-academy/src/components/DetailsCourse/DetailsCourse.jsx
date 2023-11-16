@@ -19,12 +19,12 @@ export const DetailsCourse = () => {
     useEffect(() => {
         courseService.getOne(courseId)
             .then(course => {
-                setDetails(course)
-                return commentsService.getAllComments(courseId)
+               course && setDetails(course)
+               return commentsService.getAllComments(courseId)
 
             }).then(course => {
 
-                setComments(course)
+                course && setComments(course)
 
             })
             .catch(error => {
@@ -45,7 +45,7 @@ export const DetailsCourse = () => {
 
 
         } catch (err) {
-            console.error('Error:', error);
+            console.error('Error:', err);
 
 
         }
