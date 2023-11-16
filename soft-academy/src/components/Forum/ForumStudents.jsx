@@ -7,7 +7,8 @@ import Footer from '../Footer/Footer';
 import { IsLoading } from '../IsLoading/IsLoading';
 
 export const ForumStudents = () => {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    console.log(isSidebarOpen)
     const [articles, setArticles] = useState([]);
     const [isLoading, setLoading] = useState(true);
     const { forumPosts } = useForumContext()
@@ -24,7 +25,15 @@ export const ForumStudents = () => {
 
 
     const toggleSidebar = () => {
-        setSidebarOpen(!isSidebarOpen);
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+    const openSidebar = () => {
+        setIsSidebarOpen(true);
+    };
+
+    const closeSidebar = () => {
+        console.log("hi")
+        setIsSidebarOpen(false);
     };
 
     const indexOfLastPost = currentPage * postsPerPage;
@@ -36,11 +45,14 @@ export const ForumStudents = () => {
     return (
         <>
 
-
-            <SideBarForum articles={articles} toggleSidebar={toggleSidebar} />
+            <SideBarForum articles={articles} 
+            // toggleSidebar={toggleSidebar} 
+            closeSidebar={closeSidebar} isOpen={isSidebarOpen}/>
 
             {isLoading ? <IsLoading /> : (<>
                 <section className="forum-page-section">
+<button className="close-button1" onClick={openSidebar}>Open Sidebar</button>
+
                     <div className="forum-page">
 
                         {currentPosts.map((article) => (
