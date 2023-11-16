@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { useForumContext } from "../../../contexts/ForumContext";
 import { useForm } from "../../../Hooks/useForm";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useService } from "../../../Hooks/useService";
 import { forumServiceFactory } from "../../../Services/forumService";
-
+import './editForum.css'
 
 
 export const EditForumPost = () => {
@@ -12,6 +12,7 @@ export const EditForumPost = () => {
     const { onEditSubmitPost } = useForumContext()
     const { forumId } = useParams()
     const forumService = useService(forumServiceFactory)
+    const navigate = useNavigate()
     const handleImageChange = (e) => {
         const file = e.target.files[0]
 
@@ -32,7 +33,7 @@ export const EditForumPost = () => {
 
 
 
-    const {onSubmit, onChangeHandler, onChangeValues, values } = useForm({
+    const { onSubmit, onChangeHandler, onChangeValues, values } = useForm({
         title: "",
         description: "",
         author: "",
@@ -51,46 +52,59 @@ export const EditForumPost = () => {
 
     }, [forumId])
 
+    const handleClickOutside = (e) => {                    //При натискане извън полето да се затвори 
+        if (e.target.className === "post-form-close") {
+            navigate(`/forum/${forumId}`)
+        }
+    }
+    const onCloseComments = () => {
+        navigate(`/forum/${forumId}`)
 
-
+    }
 
     return (
 
         <>
-            <form className="post-form" method="PUT" onSubmit={onSubmit}>
-                <label>
-                    Title:
-                    <input type="text" name="title" value={values.title} onChange={onChangeHandler} />
-                </label>
-                <label>
-                    Description:
-                    <textarea name="description" value={values.description} onChange={onChangeHandler} />
-                </label>
-                <label>
-                    Image:
-                    <input type="file" name="imageUrl" onChange={handleImageChange} accept="image/*" />
-                </label>
+            <section className="post-form-close" onClick={handleClickOutside}>
+                <div className="close-button-forum" onClick={onCloseComments}>
+                    X
+                </div>
+                <form className="post-form" method="PUT" onSubmit={onSubmit} onClick={handleClickOutside}>
 
-                <label>
-                    Author:
-                    <input type="text" name="author" value={values.author} onChange={onChangeHandler} />
-                </label>
-                <label>
-                    Created At:
-                    <input type="text" name="createdAt" value={(new Date().toLocaleString())} onChange={onChangeHandler} readOnly />
-                </label>
-                {values.imageUrl && (
-                    <div>
-                        <p>Preview:</p>
-                        <img src={values.imageUrl} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />
-                    </div>
-                )}
+                    <label>
+                        Title:
+                        <input type="text" name="title" value={values.title} onChange={onChangeHandler} />
+                    </label>
+                    <label>
+                        Description:
+                        <textarea name="description" value={values.description} onChange={onChangeHandler} />
+                    </label>
+                    <label>
+                        Image:
+                        <input type="file" name="imageUrl" onChange={handleImageChange} accept="image/*" />
+                    </label>
 
-                <button type="submit">Edit Post</button>
-                <ul>
-                    <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
-                </ul>
-            </form>
+                    <label>
+                        Author:
+                        <input type="text" name="author" value={values.author} onChange={onChangeHandler} />
+                    </label>
+                    <label>
+                        Created At:
+                        <input type="text" name="createdAt" value={(new Date().toLocaleString())} onChange={onChangeHandler} readOnly />
+                    </label>
+                    {values.imageUrl && (
+                        <div>
+                            <p>Preview:</p>
+                            <img src={values.imageUrl} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+                        </div>
+                    )}
+
+                    <button type="submit">Edit Post</button>
+                    <ul>
+                        <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+                    </ul>
+                </form>
+            </section>
 
 
         </>

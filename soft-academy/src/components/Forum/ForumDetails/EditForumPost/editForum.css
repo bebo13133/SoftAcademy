@@ -1,0 +1,11 @@
+.close-button-forum {
+    position: absolute;
+    top: 118px;
+    right: 400px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    background: #333;
+    padding: 5px 10px;
+    border-radius: 50%;
+  }
