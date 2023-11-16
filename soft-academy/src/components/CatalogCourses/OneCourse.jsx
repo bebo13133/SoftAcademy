@@ -36,6 +36,9 @@ export const OneCourse = ({
 
 
             })
+            .catch(error => {
+                console.error('Error:', error);
+            })
 
 
     }, [])

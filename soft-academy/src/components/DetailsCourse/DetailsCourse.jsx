@@ -27,6 +27,9 @@ export const DetailsCourse = () => {
                 setComments(course)
 
             })
+            .catch(error => {
+                console.error('Error:', error);
+            })
 
     }, [courseId])
 
@@ -42,7 +45,7 @@ export const DetailsCourse = () => {
 
 
         } catch (err) {
-            throw new Error(err.message)
+            console.error('Error:', error);
 
 
         }

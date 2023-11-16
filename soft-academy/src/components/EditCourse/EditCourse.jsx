@@ -4,8 +4,11 @@ import { useForm } from "../Hooks/useForm"
 import { useService } from "../Hooks/useService"
 import { courseServiceFactory } from "../Services/courseService"
 import { useCourseContext } from "../contexts/CourseContext"
-import { useParams } from "react-router-dom"
+import { useParams,useNavigate} from "react-router-dom"
 import { useEffect } from "react"
+
+import './editCourse.css'
+
 export const EditCourse = () => {
 
 
@@ -13,7 +16,7 @@ export const EditCourse = () => {
     const { onEditSubmit } = useCourseContext()
     const courseService = useService(courseServiceFactory)
     const { courseId } = useParams()
-
+const navigate = useNavigate()
     const imageMap = {
         Java: "https://static.vecteezy.com/system/resources/previews/019/899/953/non_2x/java-free-download-free-png.png",
         Python: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
@@ -62,14 +65,26 @@ export const EditCourse = () => {
             })
 
     }, [courseId])
+    const handleClickOutside = (e) => {                    //При натискане извън полето да се затвори 
+        if (e.target.className === "testbox") {
+            navigate(`/catalog/${courseId}`)
+        }
+    }
+    const onCloseComments = () => {
+        navigate(`/catalog/${courseId}`)
 
+    }
     return (
         <>
-            <div className="testbox">
+            <div className="testbox" onClick={handleClickOutside} >
+          
                 <form method="POST" onSubmit={onSubmit}>
                     <div className="banner">
 
                     </div>
+                    <div className="close-button-forum" onClick={onCloseComments}>
+                    X
+                </div>
                     <h2>Course Details</h2>
                     <div className="item">
                         <p>Course name</p>
