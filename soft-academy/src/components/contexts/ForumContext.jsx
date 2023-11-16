@@ -27,41 +27,38 @@ export const ForumProvider = ({ children }) => {
 
     const onPostSubmit = async (forumData) => {
 
-
         try {
 
-            if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) { 
+            if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
                 setErrorMessage("Some fields is empty")
-            
+
                 setTimeout(() => {
                     setErrorMessage('');
-                  }, 4000);
-            
-                  return;
+                }, 4000);
+
+                return;
             }
 
+            if (forumData.author.length < 4 || forumData.title.length < 4) {
 
-            if (forumData.author.length < 4|| forumData.title.length < 4){
+                setErrorMessage("Minimum field length is 4 for names")
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 4000);
 
-                     setErrorMessage("Minimum field length is 4 for names")
-                    setTimeout(() => {
-                        setErrorMessage('');
-                      }, 4000);
-                
-                      return;
-                }
-                if (forumData.description.length < 40){
-                    
-    
-                    setErrorMessage("Minimum description length is 40")
-                    setTimeout(() => {
-                        setErrorMessage('');
-                      }, 4000);
-                
-                      return;
-                }
+                return;
+            }
+            if (forumData.description.length < 40) {
 
-                
+
+                setErrorMessage("Minimum description length is 40")
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 4000);
+
+                return;
+            }
+
             const newPost = await forumService.create(forumData)
 
             setForumPosts(state => [...state, newPost])
@@ -92,40 +89,40 @@ export const ForumProvider = ({ children }) => {
 
 
         try {
-            if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl){
+            if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
                 setErrorMessage("Some fields is empty")
                 setErrorMessage("Minimum field length is 4")
                 setTimeout(() => {
                     setErrorMessage('');
-                  }, 4000);
-            
-                  return;
+                }, 4000);
+
+                return;
             }
-            
-   
+
+
 
             if (forumData.author.length < 4
                 || forumData.description.length < 4
-                || forumData.title.length < 4){
+                || forumData.title.length < 4) {
 
-                    setErrorMessage("Minimum field length is 4")
-                    setTimeout(() => {
-                        setErrorMessage('');
-                      }, 4000);
-                
-                      return;
-                }
+                setErrorMessage("Minimum field length is 4")
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 4000);
 
-                if (forumData.description.length < 100){
-                    
-    
-                        setErrorMessage("Minimum description length is 100")
-                        setTimeout(() => {
-                            setErrorMessage('');
-                          }, 4000);
-                    
-                          return;
-                    }
+                return;
+            }
+
+            if (forumData.description.length < 100) {
+
+
+                setErrorMessage("Minimum description length is 100")
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 4000);
+
+                return;
+            }
 
 
             const result = await forumService.update(forumData._id, forumData)
@@ -144,7 +141,7 @@ export const ForumProvider = ({ children }) => {
         forumPosts,
         onDeleteClick,
         onEditSubmitPost,
-        
+
     }
 
 
@@ -153,11 +150,11 @@ export const ForumProvider = ({ children }) => {
         <forumContext.Provider value={contextForumValue}>
 
             {children}
-    {errorMessage && (
-        <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
-          <p>{errorMessage}</p>
-        </div>
-      )}
+            {errorMessage && (
+                <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
+                    <p>{errorMessage}</p>
+                </div>
+            )}
         </forumContext.Provider>
 
     )

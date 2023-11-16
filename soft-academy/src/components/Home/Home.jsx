@@ -18,7 +18,7 @@ import Footer from "../Footer/Footer"
 import { WyWeStudy } from "./WyWeStudy/WyWeStudy"
 import { LanguageBar } from "./LanguageBar/LanguageBar"
 
-export const Home = () => {
+ const Home = () => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [courses, setCourses] = useState([])
@@ -207,3 +207,4 @@ export const Home = () => {
         </>
     )
 }
+export default Home

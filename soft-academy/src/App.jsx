@@ -23,7 +23,10 @@ const CatalogCourses = lazy(() => import('./components/CatalogCourses/CatalogCou
 
 import  Footer from './components/Footer/Footer'
 import { Header } from './components/Header/Header'
-import { Home } from './components/Home/Home'
+
+// import { Home } from './components/Home/Home'
+const Home = lazy(() => import('./components/Home/Home'))
+
 import { Login } from './components/Login/Login'
 import { Register } from './components/Register/Register'
 import { Logout } from './components/Logout/Logout'
@@ -96,7 +99,12 @@ function App() {
               {!cookies.cookieConsent && <CookieConsent />}
 
               <Routes>
-                <Route path={"/"} element={<Home />} />
+
+                <Route path={"/"} element={
+              <Suspense fullback={<IsLoading/>}>
+
+                <Home />  </Suspense>
+                } />
                 <Route path={"/privacy-policy"} element={<PrivacyPolicy />} />
                 <Route path={"/terms"} element={<TermsAndConditions />} />
 

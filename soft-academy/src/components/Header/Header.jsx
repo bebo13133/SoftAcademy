@@ -41,14 +41,14 @@ export const Header = () => {
 
 
 								</>)}
-								
+								<li>
 								{isAuthentication && <>
 							
 							
 											<ResponsiveUserBar />
 									
 								</>}
-
+								</li>
 
 							</ul>
 						</div>
