@@ -45,13 +45,13 @@ export const ForumStudents = () => {
     return (
         <>
 
-            <SideBarForum articles={articles} 
-            // toggleSidebar={toggleSidebar} 
-            closeSidebar={closeSidebar} isOpen={isSidebarOpen}/>
+            <SideBarForum articles={articles}
+                // toggleSidebar={toggleSidebar} 
+                closeSidebar={closeSidebar} isOpen={isSidebarOpen} />
 
             {isLoading ? <IsLoading /> : (<>
                 <section className="forum-page-section">
-<button className="close-button1" onClick={openSidebar}>Open Sidebar</button>
+                    <button className="close-button1" onClick={openSidebar}>Open Sidebar</button>
 
                     <div className="forum-page">
 
@@ -71,11 +71,11 @@ export const ForumStudents = () => {
                     </ul>
                 </section>
                 <Footer />
-                </>)}
+            </>)}
 
 
 
-          
+
 
         </>
 
