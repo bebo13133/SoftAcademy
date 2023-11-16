@@ -20,7 +20,7 @@ import { LanguageBar } from "./LanguageBar/LanguageBar"
 
 export const Home = () => {
 
-    // const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [courses, setCourses] = useState([])
 
     const courseService = courseServiceFactory()
@@ -44,15 +44,15 @@ export const Home = () => {
                 throw new Error(err.message || err)
 
             });
-        // setIsLoading(false)
+
+        setIsLoading(false)
     }, []);
 
 
     return (
         <>
-            {/* {isLoading && <IsLoading />} */}
-
-            <section id="home" className="welcome-hero">
+            {isLoading ? <IsLoading /> : (<> 
+                <section id="home" className="welcome-hero">
                 <div className="container">
                     <div className="welcome-hero-txt">
                         <Slide direction="right" duration="2500" triggerOnce='true'>
@@ -91,7 +91,7 @@ export const Home = () => {
                                 <Link to={"https://www.javascript.com/"} target="_blank" rel="noopener noreferrer">
                                     <div className="single-list-topics-content">
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/javascript-7308311-5938360.webp" />
+                                            <img className="home-top-lang" src="./img/javascript-7308311-5938360.webp"  alt="javascript"/>
                                         </div>
                                         <h2>JavaScript</h2>
                                         <p>1 444 231 Libraries</p>
@@ -101,7 +101,7 @@ export const Home = () => {
                             <li>
                                 <Link to={"https://learn.microsoft.com/en-us/dotnet/csharp/"} target="_blank" rel="noopener noreferrer">                                <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                        <img className="home-top-lang" src="./img/c-sharp.png" />
+                                        <img className="home-top-lang" src="./img/c-sharp.png" alt="c-sharp"/>
                                     </div>
                                     <h2>c-sharp</h2>
                                     <p>214223 listings</p>
@@ -113,7 +113,7 @@ export const Home = () => {
                                 <Link to={"https://www.java.com/en/"} target="_blank" rel="noopener noreferrer">
                                     <div className="single-list-topics-content">
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/java.webp" />
+                                            <img className="home-top-lang" src="./img/java.webp" alt="Java"/>
 
                                         </div>
                                         <h2>Java</h2>
@@ -126,7 +126,7 @@ export const Home = () => {
                                 <Link to={"https://www.python.org/"} target="_blank" rel="noopener noreferrer">
                                     <div className="single-list-topics-content">
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/Python-logo-notext.svg.png" />
+                                            <img className="home-top-lang" src="./img/Python-logo-notext.svg.png" alt="Python"/>
 
                                         </div>
                                         <h2>Python</h2>
@@ -139,7 +139,7 @@ export const Home = () => {
                                 <Link to={"https://legacy.reactjs.org/"} target="_blank" rel="noopener noreferrer">
                                     <div className="single-list-topics-content">
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/react.png" />
+                                            <img className="home-top-lang" src="./img/react.png" alt="ReactJs"/>
 
                                         </div>
                                         <h2>ReactJs</h2>
@@ -200,6 +200,10 @@ export const Home = () => {
                 <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
             </ul>
             <Footer />
+            
+            </>)}
+
+
         </>
     )
 }

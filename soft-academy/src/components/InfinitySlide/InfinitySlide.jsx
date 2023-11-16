@@ -23,21 +23,21 @@ export const InfinitySlide=()=>{
           {/* <h2>Auto Play</h2> */}
           <Slider {...settings}>
             <div className="container-slide">
-              <img src="./img/DryAgingBagsBlack.webp" />
+              <img src="./img/DryAgingBagsBlack.webp" alt="DryAgingBags"/>
              
             </div>
             <div className="container-slide">
-              <img src="./img/csmega-bg.webp" />
+              <img src="./img/csmega-bg.webp" alt="csmega"/>
             
             </div>
             <div className="container-slide">
-              <img src="./img/Logo_Software_University_(SoftUni)_-_blue.png" />
+              <img src="./img/Logo_Software_University_(SoftUni)_-_blue.png" alt="Software_University"/>
             </div>
             <div className="container-slide">
               <img src="./img/top-logo-final-white-1.png" style={{background:"#000F4F"}} />
             </div>
             <div className="container-slide">
-              <img src="./img/turkishsweets.jpg" />
+              <img src="./img/turkishsweets.jpg" alt="turkishsweets"/>
             </div>
            
           </Slider>
