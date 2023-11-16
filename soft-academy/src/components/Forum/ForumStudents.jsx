@@ -69,6 +69,7 @@ export const ForumStudents = () => {
                             </li>
                         ))}
                     </ul>
+                    <button className="close-button2" onClick={openSidebar}>Open Sidebar</button>
                 </section>
                 <Footer />
             </>)}

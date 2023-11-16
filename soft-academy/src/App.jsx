@@ -4,7 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import ErrorBoundary from './components/ErrorBoundary'
 import { UserProvider } from './components/contexts/UserContext'
 import { useCookies } from 'react-cookie'
-import { StudentReview } from './components/StudentsReview/StudentReview'
+
 // import { Contact } from './components/Contact/Contact'
 const Contact = lazy(() => import('./components/Contact/Contact'))
 
@@ -106,7 +106,7 @@ function App() {
                 <CatalogCourses />
                 </Suspense>
                 } />
-                <Route path={"/reviews"} element={<StudentReview />} />
+           
 
                 <Route path={"/blog"} element={
                   <Suspense fullback={<IsLoading/>}>

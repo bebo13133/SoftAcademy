@@ -14,20 +14,6 @@ export const LastForumsCarousel = () => {
     const forumService = useService(forumServiceFactory)
 
 
-    // const settings = {
-    //     dots: true,
-    //     fade: true,
-
-    //     lazyLoad: true,
-    //     infinite: true,
-    //     speed: 200,
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1,
-    //     initialSlide: 2
-
-
-    // };
-
     useEffect(() => {
         forumService.getAll()
             .then(result => {
@@ -36,7 +22,7 @@ export const LastForumsCarousel = () => {
             })
 
     }, [])
-    console.log(forums)
+   
     return (
 
         <>

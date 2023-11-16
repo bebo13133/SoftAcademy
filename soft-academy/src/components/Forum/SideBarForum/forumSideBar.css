@@ -55,9 +55,34 @@
   
 
 }
+
+.close-button2 {
+  /* position: absolute; */
+  float: right;
+  margin-right: 65px;
+  margin-bottom: 10px;
+  /* top: 10;y
+  left: 0; */
+  font-size: 22px;
+  margin-bottom: 40px;
+  /* margin-left: 10px; */
+  color:white;
+  cursor: pointer;
+  font-size: 16px;
+  background: #659e87;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  
+
+}
 .close-button1:hover{
   background: red;
 }
+.close-button2:hover{
+  background: red;
+}
+
 
 .forum-sidebar.open {
   left: 0;

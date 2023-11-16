@@ -79,7 +79,7 @@ export const Header = () => {
 									{/* <li className="scroll"><Link to={"/works"}>how it works</Link></li> */}
 									<li className="scroll"><Link to={"/catalog"}>courses</Link></li>
 									{isAuthentication && (<>
-										<li className="scroll"><Link to={"/reviews"}>review</Link></li>
+										
 										<li className="scroll"><Link to={"/create"}>add course</Link></li>
 										<li className="scroll"><Link to={"/blog"}>news</Link></li>
 										<li className="scroll"><Link to={"/forum"}>forum</Link></li>
