@@ -16,7 +16,7 @@ export const SideBarForum = ({ closeSidebar, isOpen }) => {
         setPosts(forumPosts.sort((a, b) => (b._createdOn) - (a._createdOn)).slice(length - 1, 4))
 
 
-        return () => clearTimeout(timeoutId);
+       
     }, []);
 
 
@@ -32,7 +32,6 @@ export const SideBarForum = ({ closeSidebar, isOpen }) => {
                 <h2>Latest Posts</h2>
                 {posts && posts.map(post => <SideBarPost key={post._id} {...post} />)}
             </div>
-     
 
         </>
     );

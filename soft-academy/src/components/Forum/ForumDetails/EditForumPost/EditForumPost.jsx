@@ -52,11 +52,11 @@ export const EditForumPost = () => {
 
     }, [forumId])
 
-    const handleClickOutside = (e) => {                    //При натискане извън полето да се затвори 
-        if (e.target.className === "post-form-close") {
-            navigate(`/forum/${forumId}`)
-        }
-    }
+    // const handleClickOutside = (e) => {                    //При натискане извън полето да се затвори 
+    //     if (e.target.className === "post-form-close") {
+    //         navigate(`/forum/${forumId}`)
+    //     }
+    // }
     const onCloseComments = () => {
         navigate(`/forum/${forumId}`)
 
@@ -65,11 +65,13 @@ export const EditForumPost = () => {
     return (
 
         <>
-            <section className="post-form-close" onClick={handleClickOutside}>
+            <section className="post-form-close"
+            //  onClick={handleClickOutside}
+             >
                 <div className="close-button-forum" onClick={onCloseComments}>
                     X
                 </div>
-                <form className="post-form" method="PUT" onSubmit={onSubmit} onClick={handleClickOutside}>
+                <form className="post-form" method="PUT" onSubmit={onSubmit} >
 
                     <label>
                         Title:

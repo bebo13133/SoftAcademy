@@ -8,7 +8,7 @@ import { IsLoading } from '../IsLoading/IsLoading';
 
 export const ForumStudents = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    console.log(isSidebarOpen)
+   
     const [articles, setArticles] = useState([]);
     const [isLoading, setLoading] = useState(true);
     const { forumPosts } = useForumContext()

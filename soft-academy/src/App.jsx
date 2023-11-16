@@ -4,12 +4,10 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import ErrorBoundary from './components/ErrorBoundary'
 import { UserProvider } from './components/contexts/UserContext'
 import { useCookies } from 'react-cookie'
-
+import { Provider } from 'react-redux';
+import store from './store/store'
 // import { Contact } from './components/Contact/Contact'
 const Contact = lazy(() => import('./components/Contact/Contact'))
-
-
-
 // import { Blog } from './components/Blog/Blog'
 
 const Blog = lazy(() => import('./components/Blog/Blog'))
@@ -21,7 +19,7 @@ const CatalogCourses = lazy(() => import('./components/CatalogCourses/CatalogCou
 
 
 
-import  Footer from './components/Footer/Footer'
+import Footer from './components/Footer/Footer'
 import { Header } from './components/Header/Header'
 
 // import { Home } from './components/Home/Home'
@@ -40,7 +38,7 @@ import { EditCourse } from './components/EditCourse/EditCourse'
 import { IsOwnerCourse } from './components/common/isOwnerCourse'
 // import { ChatBox } from './components/ChatBox/ChatBox'
 
-const ChatBox = lazy(()=>import('./components/ChatBox/ChatBox'))
+const ChatBox = lazy(() => import('./components/ChatBox/ChatBox'))
 import { AdminPage } from './components/AdminPage/AdminPage'
 import { IsLoading } from './components/IsLoading/IsLoading'
 import { CookieConsent } from './components/CookieConsent/CookieConsent'
@@ -60,12 +58,12 @@ import { TermsAndConditions } from './components/Footer/TermsAndConditions/Terms
 import { LanguageCatalog } from './components/Home/LanguageBar/LanguageCatalog'
 
 function App() {
-   const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   const [cookies] = useCookies(["cookieConsent"]);
   // console.log("cookie", cookies)
   useEffect(() => {
-     setIsLoading(false)
+    setIsLoading(false)
 
   }, [])
 
@@ -89,127 +87,127 @@ function App() {
 
     <>
       {/* {isLoading && <IsLoading />} */}
+      <Provider store={store}>
+        <UserProvider>
+          <CourseProvider>
+            <ForumProvider>
+              <ErrorBoundary>
 
-      <UserProvider>
-        <CourseProvider>
-          <ForumProvider>
-            <ErrorBoundary>
+                <Header />
+                {!cookies.cookieConsent && <CookieConsent />}
 
-              <Header />
-              {!cookies.cookieConsent && <CookieConsent />}
+                <Routes>
 
-              <Routes>
+                  <Route path={"/"} element={
+                    <Suspense fullback={<IsLoading />}>
 
-                <Route path={"/"} element={
-              <Suspense fullback={<IsLoading/>}>
-
-                <Home />  </Suspense>
-                } />
-                <Route path={"/privacy-policy"} element={<PrivacyPolicy />} />
-                <Route path={"/terms"} element={<TermsAndConditions />} />
-
-
-                <Route path={"/catalog"} element={
-                <Suspense fullback={<IsLoading/>}>
-                <CatalogCourses />
-                </Suspense>
-                } />
-           
-
-                <Route path={"/blog"} element={
-                  <Suspense fullback={<IsLoading/>}>
-                <Blog />
-                </Suspense>
-                } />
+                      <Home />  </Suspense>
+                  } />
+                  <Route path={"/privacy-policy"} element={<PrivacyPolicy />} />
+                  <Route path={"/terms"} element={<TermsAndConditions />} />
 
 
-                <Route path={"/contact"} element={
-                  <Suspense fullback={<IsLoading/>}>
-                    <Contact />
+                  <Route path={"/catalog"} element={
+                    <Suspense fullback={<IsLoading />}>
+                      <CatalogCourses />
+                    </Suspense>
+                  } />
+
+
+                  <Route path={"/blog"} element={
+                    <Suspense fullback={<IsLoading />}>
+                      <Blog />
+                    </Suspense>
+                  } />
+
+
+                  <Route path={"/contact"} element={
+                    <Suspense fullback={<IsLoading />}>
+                      <Contact />
+                    </Suspense>
+                  } />
+                  <Route path={"/search-page"} element={<SearchPage />} />
+
+
+                  {/* loginRegisterGuard */}
+
+                  <Route path={"/login"} element={
+                    <GuardLoginRegister>
+                      <Login />
+                    </GuardLoginRegister>
+                  } />
+
+                  <Route path={"/register"} element={
+                    <GuardLoginRegister>
+                      <Register />
+                    </GuardLoginRegister>
+                  } />
+                  {/* Edn LoginRegisterGuard */}
+
+
+                  {/* Route Guard */}
+                  <Route element={<RouteGuard />}>
+
+                    <Route path={"/logout"} element={<Logout />} />
+
+                    <Route path={"/create"} element={<CreateCourse />} />
+                    <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
+                    <Route path={"/language-catalog"} element={<LanguageCatalog />} />
+
+
+                    <Route path={"/catalog/:courseId/edit"} element={
+                      <IsOwnerCourse>
+                        <EditCourse />
+                      </IsOwnerCourse>
+                    } />
+
+
+                    <Route path={"/forum"} element={<ForumStudents />} />
+                    <Route path={"/forum/:forumId"} element={<ForumDetails />} />
+
+                    <Route path={"/forum/:forumId/edit"} element={
+                      <IsOwnerCourse>
+                        <EditForumPost />
+                      </IsOwnerCourse>
+                    } />
+
+
+
+                    <Route path={"/add-new-post"} element={<AddForumPost />} />
+
+                    <Route path={"/profile"} element={<ProfilePage />} />
+
+                    <Route path="/change-password" element={<ChangePassword />} />
+                    <Route path="/my-added-courses" element={<AddedCourses />} />
+                    <Route path="/favorite-courses" element={<FavoriteCourses />} />
+                    <Route path="/change-avatar" element={<AvatarHeader />} />
+
+
+                  </Route>
+                  {/* End RouteGuard */}
+
+                  <Route path={"/404/*"} element={<PageNotFound />} />
+                  <Route path={"*"} element={<PageNotFound />} />
+
+                </Routes>
+
+                {!isAdminPage &&
+                  <Suspense fullback={<IsLoading />}>
+                    <ChatBox />
                   </Suspense>
-                } />
-                <Route path={"/search-page"} element={<SearchPage />} />
+                }
+
+                {!isProfilePage && <Footer />}
 
 
-                {/* loginRegisterGuard */}
-
-                <Route path={"/login"} element={
-                  <GuardLoginRegister>
-                    <Login />
-                  </GuardLoginRegister>
-                } />
-
-                <Route path={"/register"} element={
-                  <GuardLoginRegister>
-                    <Register />
-                  </GuardLoginRegister>
-                } />
-                {/* Edn LoginRegisterGuard */}
-
-
-                {/* Route Guard */}
-                <Route element={<RouteGuard />}>
-
-                  <Route path={"/logout"} element={<Logout />} />
-
-                  <Route path={"/create"} element={<CreateCourse />} />
-                  <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
-                  <Route path={"/language-catalog"} element={<LanguageCatalog/>} />
-
-
-                  <Route path={"/catalog/:courseId/edit"} element={
-                    <IsOwnerCourse>
-                      <EditCourse />
-                    </IsOwnerCourse>
-                  } />
-
-
-                  <Route path={"/forum"} element={<ForumStudents />} />
-                  <Route path={"/forum/:forumId"} element={<ForumDetails />} />
-
-                  <Route path={"/forum/:forumId/edit"} element={
-                    <IsOwnerCourse>
-                      <EditForumPost />
-                    </IsOwnerCourse>
-                  } />
-
-
-
-                  <Route path={"/add-new-post"} element={<AddForumPost />} />
-
-                  <Route path={"/profile"} element={<ProfilePage />} />
-
-                  <Route path="/change-password" element={<ChangePassword />} />
-                  <Route path="/my-added-courses" element={<AddedCourses />} />
-                  <Route path="/favorite-courses" element={<FavoriteCourses />} />
-                  <Route path="/change-avatar" element={<AvatarHeader />} />
-
-
-                </Route>
-                {/* End RouteGuard */}
-
-                <Route path={"/404/*"} element={<PageNotFound />} />
-                <Route path={"*"} element={<PageNotFound />} />
-
-              </Routes>
-
-              {!isAdminPage && 
-              <Suspense fullback={<IsLoading/>}>
-              <ChatBox />
-              </Suspense>
-              }
-
-              {!isProfilePage && <Footer />}
-
-
-              <Routes>
-                <Route path={"/admin"} element={<AdminPage />} />
-              </Routes>
-            </ErrorBoundary>
-          </ForumProvider>
-        </CourseProvider>
-      </UserProvider>
-
+                <Routes>
+                  <Route path={"/admin"} element={<AdminPage />} />
+                </Routes>
+              </ErrorBoundary>
+            </ForumProvider>
+          </CourseProvider>
+        </UserProvider>
+      </Provider>
     </>
   )
 }

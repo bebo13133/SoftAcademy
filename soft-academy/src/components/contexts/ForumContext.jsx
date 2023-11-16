@@ -3,6 +3,8 @@ import { createContext, useEffect, useState, useContext } from "react";
 import { forumServiceFactory } from "../Services/forumService";
 import { useAuthContext } from "./UserContext";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteForumPost, editForumPost, setError } from "../actions";
 import './error.css';
 
 const forumContext = createContext()
@@ -10,18 +12,25 @@ const forumContext = createContext()
 
 export const ForumProvider = ({ children }) => {
 
-    const [forumPosts, setForumPosts] = useState([])
-    const [errorMessage, setErrorMessage] = useState(''); //error messages
+    // const [forumPosts, setForumPosts] = useState([])
+    // const [errorMessage, setErrorMessage] = useState(''); //error messages
     const { token } = useAuthContext()
     const forumService = forumServiceFactory(token)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const errorMessage = useSelector(state => state.errorReducer.errorMessage);
+    console.log(errorMessage,"blblbl")
+    const forumPosts = useSelector(state => state.forumReducer.forumPosts);
+
 
     useEffect(() => {
         forumService.getAll()
             .then(result => {
-                setForumPosts(result)
+                dispatch({ type: 'SET_FORUM_POSTS', payload: result });
             })
-
+            .catch(error => {
+                dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: error.message || 'An error occurred' });
+            });
 
     }, [])
 
@@ -30,43 +39,42 @@ export const ForumProvider = ({ children }) => {
         try {
 
             if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
-                setErrorMessage("Some fields is empty")
+            
 
+                dispatch(setError("Some fields is empty"));
                 setTimeout(() => {
-                    setErrorMessage('');
-                }, 4000);
-
-                return;
+                    dispatch(setError(''));
+                  }, 4000);
+                  return
             }
 
             if (forumData.author.length < 4 || forumData.title.length < 4) {
 
-                setErrorMessage("Minimum field length is 4 for names")
+                dispatch(setError("Minimum field length is 4 for names"));
                 setTimeout(() => {
-                    setErrorMessage('');
-                }, 4000);
-
-                return;
+                    dispatch(setError(''));
+                  }, 4000);
+                  return
             }
             if (forumData.description.length < 40) {
 
 
-                setErrorMessage("Minimum description length is 40")
+               
+                dispatch(setError("Minimum description length is 40"));
                 setTimeout(() => {
-                    setErrorMessage('');
-                }, 4000);
-
-                return;
+                    dispatch(setError(''));
+                  }, 4000);
+                  return
             }
 
             const newPost = await forumService.create(forumData)
 
-            setForumPosts(state => [...state, newPost])
+            dispatch({ type: 'SET_FORUM_POSTS', payload: [...forumPosts, newPost] })
             navigate("/forum")
 
         } catch (err) {
 
-            throw new Error(err.message || err)
+            dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
         }
 
     }
@@ -74,13 +82,13 @@ export const ForumProvider = ({ children }) => {
     const onDeleteClick = async (forumId) => {
         const deletePost = await forumService.delete(forumId)
 
-        setForumPosts(state => state.filter(x => x._id !== forumId))
+       dispatch(deleteForumPost(forumId))
 
         navigate("/forum")
         try {
 
         } catch (err) {
-            throw new Error(err.message || err)
+            dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
         }
 
     }
@@ -90,46 +98,41 @@ export const ForumProvider = ({ children }) => {
 
         try {
             if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
-                setErrorMessage("Some fields is empty")
-                setErrorMessage("Minimum field length is 4")
-                setTimeout(() => {
-                    setErrorMessage('');
-                }, 4000);
+            
 
-                return;
+                dispatch(setError("Some fields is empty"));
+                setTimeout(() => {
+                    dispatch(setError(''));
+                  }, 4000);
+                  return
+            }
+
+            if (forumData.author.length < 4 || forumData.title.length < 4) {
+
+                dispatch(setError("Minimum field length is 4 for names"));
+                setTimeout(() => {
+                    dispatch(setError(''));
+                  }, 4000);
+                  return
+            }
+            if (forumData.description.length < 40) {
+
+
+               
+                dispatch(setError("Minimum description length is 40"));
+                setTimeout(() => {
+                    dispatch(setError(''));
+                  }, 4000);
+                  return
             }
 
 
-
-            if (forumData.author.length < 4
-                || forumData.description.length < 4
-                || forumData.title.length < 4) {
-
-                setErrorMessage("Minimum field length is 4")
-                setTimeout(() => {
-                    setErrorMessage('');
-                }, 4000);
-
-                return;
-            }
-
-            if (forumData.description.length < 100) {
-
-
-                setErrorMessage("Minimum description length is 100")
-                setTimeout(() => {
-                    setErrorMessage('');
-                }, 4000);
-
-                return;
-            }
-
-
-            const result = await forumService.update(forumData._id, forumData)
-            setForumPosts(state => state.map(x => x._id === forumData._id ? result : x))
+            const post = await forumService.update(forumData._id, forumData)
+         
+         dispatch(editForumPost(forumData,post))
             navigate(`/forum/${forumData._id}`)
         } catch (err) {
-
+            dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
         }
     };
 
@@ -156,7 +159,6 @@ export const ForumProvider = ({ children }) => {
                 </div>
             )}
         </forumContext.Provider>
-
     )
 
 }
