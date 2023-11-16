@@ -20,9 +20,7 @@ const CatalogCourses = () => {
 
     return (
         <>
-            {isLoading && <IsLoading />}
-
-            <section id="explore" className="explore">
+            {isLoading ? <IsLoading /> : (<> <section id="explore" className="explore">
                 <div className="container">
                     <div className="section-header">
                         <h2>Courses</h2>
@@ -45,7 +43,8 @@ const CatalogCourses = () => {
                     <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                 </ul>
                 <Footer />
-            </section>
+            </section></>
+            )}
 
         </>
     )

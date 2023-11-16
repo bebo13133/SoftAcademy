@@ -4,20 +4,21 @@ import { SideBarForum } from './SideBarForum/SideBarForum';
 import { OneForumPost } from './OneForumPost';
 import { useForumContext } from '../contexts/ForumContext';
 import Footer from '../Footer/Footer';
+import { IsLoading } from '../IsLoading/IsLoading';
 
 export const ForumStudents = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [articles, setArticles] = useState([]);
-    
+    const [isLoading, setLoading] = useState(true);
     const { forumPosts } = useForumContext()
-    
+
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 3;
 
     useEffect(() => {
 
         setArticles(forumPosts)
-
+        setLoading(false)
     }, []);
 
 
@@ -38,29 +39,32 @@ export const ForumStudents = () => {
 
             <SideBarForum articles={articles} toggleSidebar={toggleSidebar} />
 
+            {isLoading ? <IsLoading /> : (<>
+                <section className="forum-page-section">
+                    <div className="forum-page">
+
+                        {currentPosts.map((article) => (
+                            <OneForumPost key={article._id} {...article} />
+                        ))}
+                    </div>
+                    <ul className="pagination">
+                        {Array.from({ length: Math.ceil(articles.length / postsPerPage) }, (_, index) => (
+                            <li key={index} >
+                                <button className="pagination-button" onClick={() => setCurrentPage(index + 1)}>
+                                    {index + 1}
+                                </button>
+
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+                <Footer />
+                </>)}
 
 
-            <section className="forum-page-section">
-                <div className="forum-page">
-                 
-                    {currentPosts.map((article) => (
-                        <OneForumPost key={article._id} {...article} />
-                    ))}
-                </div>
-                <ul className="pagination">
-                    {Array.from({ length: Math.ceil(articles.length / postsPerPage) }, (_, index) => (
-                        <li key={index} >
-                            <button className="pagination-button" onClick={() => setCurrentPage(index + 1)}>
-                                {index + 1}
-                            </button>
 
-                        </li>
-                    ))}
-                </ul>
-            </section>
-    
-            <Footer />
-           
+          
+
         </>
 
     )

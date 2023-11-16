@@ -1,22 +1,22 @@
-import {Dna} from 'react-loader-spinner'
+import { Dna } from 'react-loader-spinner'
 
 
-export const IsLoading=()=>{
+export const IsLoading = () => {
 
 
-    return(
-      <div align='center'>
+  return (
+    <div align='center'>
       <Dna
-    visible={true}
-    height="280"
-    width="280"
-    ariaLabel="dna-loading"
-    wrapperStyle={{}}
-    wrapperClass="dna-wrapper"
-        
-        />
+        visible={true}
+        height="280"
+        width="280"
+        ariaLabel="dna-loading"
+        wrapperStyle={{}}
+        wrapperClass="dna-wrapper"
 
+      />
+<h2>Loading...</h2>
 
     </div >
-    )
+  )
 }
