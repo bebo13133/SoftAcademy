@@ -1,4 +1,4 @@
-const errorReducer = (state = { errorMessage: '' }, action)  => {
+const errorReducer = (state = { errorMessage: '' }, action) => {
 
     switch (action.type) {
         case 'SET_ERROR_MESSAGE':

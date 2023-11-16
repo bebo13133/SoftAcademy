@@ -79,7 +79,7 @@ export const LanguageBar = () => {
                                 <Link to={'/language-catalog'} rel="noopener noreferrer">
                                     <div className="single-list-topics-content single-class" onClick={() => handleLanguageClick("Python")}>
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/Python-logo-notext.svg.png"  alt="Python"/>
+                                            <img className="home-top-lang" src="./img/pythonLogo.png"  alt="Python"/>
 
                                         </div>
                                         <h2>Python</h2>

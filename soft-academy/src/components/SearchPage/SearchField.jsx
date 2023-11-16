@@ -26,7 +26,8 @@ export const SearchField = () => {
 
                         </form>
                         <div className="city-item">
-                            <select value={values.criteria} placeholder="Choice your language" name="criteria" onChange={onChangeHandler} >
+                        <label htmlFor="criteria"  style={{ position: 'absolute', width: '1px', height: '1px', margin: '-1px', padding: 0, overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', border: 0 }}>Choose criteria:</label>
+                            <select id="criteria" value={values.criteria} placeholder="Choice your language" name="criteria" onChange={onChangeHandler} >
                                 <option value="">Select an option</option>
                                 <option value="courseName">Course name</option>
                                 <option value="language-name">Language name</option>
@@ -34,9 +35,7 @@ export const SearchField = () => {
                              
                             </select>
                         </div>
-                        {/* <div className="welcome-hero-form-icon">
-                    <i className="flaticon-list-with-dots"></i>
-                </div> */}
+
                     </div>
 
                 </div>

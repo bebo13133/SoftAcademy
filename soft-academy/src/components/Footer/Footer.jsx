@@ -12,9 +12,9 @@ const Footer = () => {
                     <div className="divider"></div>
                     <ul><li className="navbar-brand " style={{ fontSize: "16px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "16px", textTransform: "none", color: "black" }}>Academy</span></li></ul>
                     <br />
-                    <h6 style={{color:"white", fontSize:"16px"}}>All Rights Reserved</h6>
+                    <h3 style={{color:"white", fontSize:"16px"}}>All Rights Reserved</h3>
                     
-                    <h6 style={{color:"white", fontSize:"16px"}}>&copy; 2023  </h6>
+                    <h3 style={{color:"white", fontSize:"16px"}}>&copy; 2023  </h3>
                 </section>
 
                 {/* Section 2: Address and Phone Column */}

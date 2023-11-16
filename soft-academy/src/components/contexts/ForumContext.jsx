@@ -19,9 +19,9 @@ export const ForumProvider = ({ children }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
-    console.log(errorMessage,"blblbl")
+   
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
-
+console.log(forumPosts)
 
     useEffect(() => {
         forumService.getAll()
