@@ -32,7 +32,7 @@ export const AddedCourses = () => {
 
             })
 
-
+            handleLoading(false)
 
     }, [])
 
@@ -47,8 +47,7 @@ export const AddedCourses = () => {
                 width: '215px',
                 zIndex: 40,
             }} />
-            {isLoading && <IsLoading /> }
-
+            {isLoading ? <IsLoading /> : (<>
                 <section id="explore" className="explore" style={{ height: "376px" }}>
                     <div className="container">
                         <div className="section-header">
@@ -72,9 +71,9 @@ export const AddedCourses = () => {
                     </div>
 
                 </section>
-
-
             
+            </>)}
+  
    
         </>
     )
