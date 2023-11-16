@@ -10,11 +10,12 @@ const Blog = () => {
     const [news, setNews] = useState([])
     const [currentPage, setCurrentPage] = useState(1);//начални 
     const [newsPerPage] = useState(3);
-
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-
         newsApi()
+
+        setIsLoading(false)
 
 
     }, [])
@@ -65,12 +66,15 @@ const Blog = () => {
 
     return (
         <>
+
+
             <section id="blog" className="blog">
                 <div className="container">
                     <div className="section-header">
                         <h2>News and Articles</h2>
                         <p>Stay up to date with our latest News and Articles</p>
                     </div>
+                    {isLoading ? <IsLoading /> : (<>  
                     <div className="blog-content">
                         <div className="row">
                             {currentNews.map((article, index) => (
@@ -89,6 +93,12 @@ const Blog = () => {
                             ))}
                         </div>
                     </div>
+
+
+
+                    </>)}
+
+
                     <ul className="pagination">
                         {Array.from({ length: Math.ceil(news.length / newsPerPage) }, (_, index) => (
                             <li key={index}>
@@ -105,9 +115,9 @@ const Blog = () => {
             <ul>
                 <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
             </ul>
-            
-                <Footer />
-     
+
+            <Footer />
+
         </>
     )
 }

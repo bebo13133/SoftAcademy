@@ -97,7 +97,7 @@ setIsLoading(false)
   return (
     <>
     {isLoading && <IsLoading/>}
-    <AppBar position="static" style={{ boxShadow: 'none', backgroundColor: 'white',}}>
+    <AppBar position="static" style={{ boxShadow: 'none', backgroundColor: '#f1f1f1',}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
