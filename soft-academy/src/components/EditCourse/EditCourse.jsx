@@ -13,10 +13,28 @@ export const EditCourse = () => {
 
 
     const [selectOption, setSelectOptions] = useState('')
+
     const { onEditSubmit } = useCourseContext()
     const courseService = useService(courseServiceFactory)
     const { courseId } = useParams()
 const navigate = useNavigate()
+
+const lectorImageHandler = (e) => {
+    const file = e.target.files[0] // подсигурявам да вземе сам оедин файл
+
+    if (file) {
+
+        const reader = new FileReader()
+
+        reader.onloadend = () => {
+
+            onChangeHandler({ target: { name: 'lectorImage', value: reader.result } });
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+
     const imageMap = {
         Java: "https://static.vecteezy.com/system/resources/previews/019/899/953/non_2x/java-free-download-free-png.png",
         Python: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
@@ -34,6 +52,8 @@ const navigate = useNavigate()
         const selectedOption = e.target.value;
         setSelectOptions(selectedOption);
         const selectedImage = imageMap[selectedOption];
+
+
         onChangeHandler({ target: { name: 'selectOption', value: selectedOption } });
         onChangeHandler({ target: { name: 'imageUrl', value: selectedImage } });
     }
@@ -54,8 +74,9 @@ const navigate = useNavigate()
         price: "",
         description: "",
         imageUrl2: "",
-        selectOption,
-        imageUrl,
+        lectorDescription: "",
+        // selectOption,
+        // imageUrl,
     }, onEditSubmit)
 
     useEffect(() => {
@@ -65,18 +86,20 @@ const navigate = useNavigate()
             })
 
     }, [courseId])
-    const handleClickOutside = (e) => {                    //При натискане извън полето да се затвори 
-        if (e.target.className === "testbox") {
-            navigate(`/catalog/${courseId}`)
-        }
-    }
+    // const handleClickOutside = (e) => {                    //При натискане извън полето да се затвори 
+    //     if (e.target.className === "testbox") {
+    //         navigate(`/catalog/${courseId}`)
+    //     }
+    // }
     const onCloseComments = () => {
         navigate(`/catalog/${courseId}`)
 
     }
     return (
         <>
-            <div className="testbox" onClick={handleClickOutside} >
+            <div className="testbox" 
+            // onClick={handleClickOutside}
+             >
           
                 <form method="POST" onSubmit={onSubmit}>
                     <div className="banner">
@@ -100,7 +123,17 @@ const navigate = useNavigate()
                             <input type="text" name="lastName" placeholder="Last" value={values.lastName} onChange={onChangeHandler} />
                         </div>
                     </div>
+                    <div className="item">
+                        <p>Lector Description</p>
 
+                        <input type="text" name="lectorDescription" placeholder="Lector Description" value={values.lectorDescription} onChange={onChangeHandler} />
+                    </div>
+
+                    <div className="item">
+
+                        <input type="file" name="lectorImage" placeholder="Lector Description" accept="image/*" onChange={lectorImageHandler} />
+
+                    </div>
 
                     <div className="item">
                         <p>Email</p>
@@ -147,7 +180,7 @@ const navigate = useNavigate()
                     </div>
                     <div className="item">
                         <p>Price</p>
-                        <input type="text" name="price" placeholder="Course price" value={values.price} onChange={onChangeHandler} />
+                        <input type="number" name="price" placeholder="Course price" value={values.price} onChange={onChangeHandler} />
                     </div>
 
                     <div className="item">

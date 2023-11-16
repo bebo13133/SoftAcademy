@@ -2,7 +2,7 @@ import { courseServiceFactory } from "../Services/courseService";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "./UserContext";
-
+import './error.css'
 
 export const CourseContext = createContext()
 
@@ -11,7 +11,9 @@ export const CourseProvider = ({ children }) => {
     const { token } = useAuthContext()
     const [course, setCourse] = useState([])
     const [searchResult, setSearchResult] = useState([])
-    const [languages,setLanguage] = useState(null)
+    const [languages, setLanguage] = useState(null)
+    const [errorMessage, setErrorMessage] = useState(''); //error messages
+
 
     const courseService = courseServiceFactory(token)
     const navigate = useNavigate()
@@ -34,12 +36,42 @@ export const CourseProvider = ({ children }) => {
                 !courseData.ownerCourse ||
                 !courseData.price ||
                 !courseData.description ||
-                !courseData.lectorDescription) return alert("Some field is empty")
+                !courseData.lectorDescription) {
+                setErrorMessage("Some field is empty")
+                setErrorMessage(() => {
+                    setErrorMessage('');
+                }, 4000);
+                return
+            }
 
             if (courseData.courseName.length < 2 || courseData.firstName.length < 4
-                || courseData.lastName.length < 4 || courseData.email.length < 9) return alert("Minimum field length is 4 for names and 9 for email")
+                || courseData.lastName.length < 4 || courseData.email.length < 9) {
+                setErrorMessage("Minimum field length is 4 for names, 9 for email and 2 for course name")
+                    ("Minimum field length is 4 for names, 9 for email and 2 for course name")
 
-            if (courseData.lectorDescription.length < 5 || courseData.description.length < 5) return alert("Minimum field description length is 5")
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 4000);
+                return
+            }
+
+            if (courseData.lectorDescription.length < 5 || courseData.description.length < 20) {
+                setErrorMessage("Minimum field description length is 20 and minimum 5 for lectorDescription ")
+
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 4000);
+                return
+            }
+
+            if (courseData.price === isNaN) {
+                setErrorMessage("The Price must be number")
+
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 4000);
+                return
+            }
 
             const newCourse = await courseService.create(courseData)
 
@@ -75,6 +107,51 @@ export const CourseProvider = ({ children }) => {
 
     }
     const onEditSubmit = async (data) => {
+        if (!data.courseName ||
+            !data.firstName ||
+            !data.lastName ||
+            !data.email ||
+            !data.ownerCourse ||
+            !data.price ||
+            !data.description ||
+            !data.lectorDescription) {
+            setErrorMessage("Some field is empty")
+            setErrorMessage(() => {
+                setErrorMessage('');
+            }, 4000);
+            return
+        }
+
+        if (data.courseName.length < 2 || data.firstName.length < 4
+            || data.lastName.length < 4 || data.email.length < 9) {
+            setErrorMessage("Minimum field length is 4 for names, 9 for email and 2 for course name")
+                ("Minimum field length is 4 for names, 9 for email and 2 for course name")
+
+            setTimeout(() => {
+                setErrorMessage('');
+            }, 4000);
+            return
+        }
+
+        if (data.price == isNaN) {
+            setErrorMessage("The Price must be number")
+
+            setTimeout(() => {
+                setErrorMessage('');
+            }, 4000);
+            return
+        }
+        if (data.lectorDescription.length < 5 || data.description.length < 20) {
+            setErrorMessage("Minimum field description length is 20 and minimum 5 for lectorDescription ")
+
+            setTimeout(() => {
+                setErrorMessage('');
+            }, 4000);
+return
+        }
+
+
+
         try {
             const result = await courseService.update(data._id, data)
             setCourse(courses => courses.map(x => x._id === data._id ? result : x))
@@ -124,21 +201,21 @@ export const CourseProvider = ({ children }) => {
     };
     // console.log(searchResult)
 
-    const onSubmitLanguageBar=async(language)=>{
+    const onSubmitLanguageBar = async (language) => {
 
-        try{
+        try {
             const result = await courseService.getAll();
 
-            setLanguage(state=>result.filter(x=>x.selectOption === language))
+            setLanguage(state => result.filter(x => x.selectOption === language))
             // navigate('/languageCatalog')
-        }catch(err){
+        } catch (err) {
 
         }
 
 
         // console.log("language",language)
     }
-  
+
 
 
 
@@ -159,7 +236,9 @@ export const CourseProvider = ({ children }) => {
         <CourseContext.Provider value={contextCourseValue}>
 
             {children}
-
+            <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
+                <p>{errorMessage}</p>
+            </div>
         </CourseContext.Provider>
 
     )

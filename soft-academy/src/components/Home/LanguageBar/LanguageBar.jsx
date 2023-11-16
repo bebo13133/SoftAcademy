@@ -42,7 +42,7 @@ export const LanguageBar = () => {
                                 <Link to={'/language-catalog'} rel="noopener noreferrer">
                                     <div className="single-list-topics-content single-class" onClick={() => handleLanguageClick("JavaScript")}>
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/javascript-7308311-5938360.webp" />
+                                            <img className="home-top-lang" src="./img/javascript-7308311-5938360.webp" alt="JavaScript"/>
                                         </div>
                                         <h2>JavaScript</h2>
                                         <p>JavaScript courses</p>
@@ -53,7 +53,7 @@ export const LanguageBar = () => {
                                 <Link to={'/language-catalog'} rel="noopener noreferrer">
                                     <div className="single-list-topics-content single-class" onClick={() => handleLanguageClick("C#")}>
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/c-sharp.png" />
+                                            <img className="home-top-lang" src="./img/c-sharp.png" alt="csharp" />
                                         </div>
                                         <h2>c-sharp</h2>
                                         <p>c-sharp courses</p>
@@ -66,7 +66,7 @@ export const LanguageBar = () => {
                                 <Link to={'/language-catalog'} rel="noopener noreferrer">
                                     <div className="single-list-topics-content single-class" onClick={() => handleLanguageClick("Java")}>
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/java.webp" />
+                                            <img className="home-top-lang" src="./img/java.webp" alt="Java"/>
 
                                         </div>
                                         <h2>Java</h2>
@@ -79,7 +79,7 @@ export const LanguageBar = () => {
                                 <Link to={'/language-catalog'} rel="noopener noreferrer">
                                     <div className="single-list-topics-content single-class" onClick={() => handleLanguageClick("Python")}>
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/Python-logo-notext.svg.png" />
+                                            <img className="home-top-lang" src="./img/Python-logo-notext.svg.png"  alt="Python"/>
 
                                         </div>
                                         <h2>Python</h2>
@@ -93,7 +93,7 @@ export const LanguageBar = () => {
                                 <Link to={'/language-catalog'} rel="noopener noreferrer">
                                     <div className="single-list-topics-content single-class" onClick={() => handleLanguageClick("ReactJS")}>
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/react.png" />
+                                            <img className="home-top-lang" src="./img/react.png"  alt="ReactJs"/>
                                         </div>
                                         <h2>ReactJs</h2>
                                         <p>ReactJs courses</p>

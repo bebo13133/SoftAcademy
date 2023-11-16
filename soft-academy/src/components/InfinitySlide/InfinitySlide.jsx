@@ -34,7 +34,7 @@ export const InfinitySlide=()=>{
               <img src="./img/Logo_Software_University_(SoftUni)_-_blue.png" alt="Software_University"/>
             </div>
             <div className="container-slide">
-              <img src="./img/top-logo-final-white-1.png" style={{background:"#000F4F"}} />
+              <img src="./img/top-logo-final-white-1.png" style={{background:"#000F4F"}} alt="ambitioned" />
             </div>
             <div className="container-slide">
               <img src="./img/turkishsweets.jpg" alt="turkishsweets"/>

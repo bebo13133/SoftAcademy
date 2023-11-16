@@ -156,7 +156,7 @@ export const CreateCourse = () => {
                     </div>
                     <div className="item">
                         <p>Price</p>
-                        <input type="text" name="price" placeholder="Course price" value={values.price} onChange={onChangeHandler} />
+                        <input type="number" name="price" placeholder="Course price" value={values.price} onChange={onChangeHandler} />
                     </div>
 
                     <div className="item">

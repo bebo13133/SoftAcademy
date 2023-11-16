@@ -65,9 +65,7 @@ const HomeOneCourse = ({
             <div className="col-md-4 col-sm-6 " >
                 <div className="single-how-works">
                     <div className="single-how-works-icon">
-                        <img className="home-top-lang" src={imageUrl ? imageUrl : imageUrl2}
-                        // alt={"imageUrl ? imageUrl : imageUrl2"} 
-                        />
+                        <img className="home-top-lang" src={imageUrl ? imageUrl : imageUrl2} alt={`Alternative Text ${imageUrl ? 'for Image 1' : 'for Image 2'}`} />
                     </div>
                     <div className="single-explore-image-icon-box">
                         <ul>

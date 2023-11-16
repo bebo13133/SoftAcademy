@@ -101,7 +101,7 @@ export const Home = () => {
                             <li>
                                 <Link to={"https://learn.microsoft.com/en-us/dotnet/csharp/"} target="_blank" rel="noopener noreferrer">                                <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                        <img className="home-top-lang" src="./img/c-sharp.png" alt="c-sharp"/>
+                                        <img className="home-top-lang" src="./img/c-sharp.png" alt="csharp"/>
                                     </div>
                                     <h2>c-sharp</h2>
                                     <p>214223 listings</p>
