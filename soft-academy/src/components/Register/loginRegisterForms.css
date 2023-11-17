@@ -83,13 +83,13 @@ margin-top: 10px;
     display: flex;
    
   }
-  /* .image-container1 img {
+  .image-container1 img {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     position: relative;
-    top: 190px;
-    width: 400px;
-    height: 386px;
+    top: 200px;
+    width: 455px;
+    height: 477px;
     display: flex;
    
-  } */
+  }

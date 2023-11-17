@@ -2,44 +2,58 @@ import { Link } from "react-router-dom"
 import { useForm } from "../Hooks/useForm"
 import { UserContext } from "../contexts/UserContext"
 import { useContext } from "react"
-
+import'./loginRegisterForms.css'
 
 
 export const Register = () => {
 
-const {onRegisterSubmit} =useContext(UserContext)
-const {onSubmit,onChangeHandler,values} = useForm({
-    email: "",
-    password: "",
-    confirmPassword: "",
-}, onRegisterSubmit)
+    const { onRegisterSubmit } = useContext(UserContext)
+    const { onSubmit, onChangeHandler, values } = useForm({
+        email: "",
+        password: "",
+        confirmPassword: "",
+    }, onRegisterSubmit)
 
     return (
         <>
-    <section id="register-page-login" className="content auth">
-    <form id="register" method="POST" onSubmit={onSubmit}>
-        <div className="container-login">
-            <div className="brand-logo-login"></div>
-            <h1>Register</h1>
+            <section className="login-root-section">
+                <section className="image-section">
+                    <div className="image-container1">
+                        <img src="https://assets-global.website-files.com/626a518e6507e34a484ee1fd/64416498c88e3d735bd593b8_Album%20Cover%20(23).jpg" alt="Description of the image" />
+                    </div>
 
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="maria@email.com" value={values.email} onChange={onChangeHandler}/>
+                </section>
 
-            <label htmlFor="pass">Password:</label>
-            <input type="password" name="password" id="register-password" value={values.password} onChange={onChangeHandler}/>
 
-            <label htmlFor="con-pass">Confirm Password:</label>
-            <input type="password" name="confirmPassword" id="confirm-password"value={values.confirmPassword} onChange={onChangeHandler}/>
 
-            <input className="btn submit" type="submit" value="Register"/>
+                <section id="login-page-login" className="auth">
 
-            <p className="field">
-                <span>If you already have profile click <Link to={"/login"}>here</Link></span>
-            </p>
-        </div>
-    </form>
-</section>
+                    <form id="login" className="login-form" method="POST" onSubmit={onSubmit}>
+                        <ul>
+                            <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+                        </ul>
+                        <div className="container-login">
+                            <div className="brand-logo-login"></div>
+
+                            <label htmlFor="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="peter@gmail.com" value={values.email} onChange={onChangeHandler} />
+
+                            <label htmlFor="login-password">Password:</label>
+                            <input type="password" id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
+                            <label htmlFor="con-pass">Confirm Password:</label>
+                            <input type="password" name="confirmPassword" id="confirm-password" value={values.confirmPassword} onChange={onChangeHandler} />
+                            <input type="submit" className="btn submit-button" value="Login" />
+
+                            <p className="field">
+                                <span>IF you have a PROFILE CLICK <Link to={"/login"}>here</Link></span>
+                            </p>
+                        </div>
+                    </form>
+                </section>
+            </section>
         </>
 
     )
 }
+
+
