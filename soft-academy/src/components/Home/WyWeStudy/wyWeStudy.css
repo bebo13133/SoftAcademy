@@ -26,6 +26,7 @@ overflow-y: auto;
   }
   .text-paragraph-3{
     color:#425387;
+    text-shadow: 1px 1px 1px #22646e;
     /* margin-bottom: 10px; */
     padding: 8px;
     width: 400px;

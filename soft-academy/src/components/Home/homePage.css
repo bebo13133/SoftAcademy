@@ -2,3 +2,18 @@
   #home > div > div.welcome-hero-txt > div:nth-child(5) > p{
        margin-left: 49px;
   }
+  .section-header1 h3{
+    text-shadow: 1px 1px 2px #42b0c1;
+ 
+    font-size: 18px;
+    text-align: center;
+    /* margin-top: 10rem; */
+    color: rgb(107 104 101);
+    font-weight: 500;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+  }
+  .section-header1 h2{
+  text-shadow: 7px 1px 11px #878795;
+  }

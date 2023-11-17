@@ -3,7 +3,8 @@ import './commentsForum.css'
 import { OneComment } from './oneComment';
 import { useState } from 'react';
 import { useAuthContext } from '../../../contexts/UserContext';
-import {v4} from 'uuid'
+import { BiLike } from "react-icons/bi"
+
 export const CommentsForum = ({
     onCloseComments,
     isOpenComments,
@@ -12,7 +13,11 @@ export const CommentsForum = ({
     onPostSubmit,
     comments,
     onDeletePostHandler,
-    author
+    author,
+    _id,
+    handleLikeToggle,
+    liked,
+    likeCounter
  
 }) => {
     const [showAll, setShowAll] = useState(false);
@@ -54,7 +59,16 @@ export const CommentsForum = ({
                     <img className="article-image" src={imageUrl} alt={title} />
                     <h2 className="article-title">{title}</h2>
                     <h3><span style={{color:"red"}}>{author}</span></h3>
-                    <button className="like-button">Like</button>
+                    
+                    <div className="like-component1">
+                    <button className="like-button" onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</button>
+                  <div className="like-button2">     
+                           <p>
+                           {likeCounter}
+                        </p>
+                    <BiLike className="svg-like" key={_id} style={{ size: "60px,", color: "blue" }} ></BiLike>
+                    </div> 
+                    </div>
                     <p className="comment-count">Comments: {comments.length } </p>
 
                     <div className="author-section">

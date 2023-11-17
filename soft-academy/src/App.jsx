@@ -56,6 +56,7 @@ import { ForumProvider } from './components/contexts/ForumContext'
 import { EditForumPost } from './components/Forum/ForumDetails/EditForumPost/EditForumPost'
 import { TermsAndConditions } from './components/Footer/TermsAndConditions/TermsAndConditions'
 import { LanguageCatalog } from './components/Home/LanguageBar/LanguageCatalog'
+import { IsAdmin } from './components/common/IsAdmin'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -201,7 +202,11 @@ function App() {
 
 
                 <Routes>
-                  <Route path={"/admin"} element={<AdminPage />} />
+                  <Route path={"/admin"} element={
+                    <IsAdmin>
+                  <AdminPage />
+                  </IsAdmin>
+                  } />
                 </Routes>
               </ErrorBoundary>
             </ForumProvider>

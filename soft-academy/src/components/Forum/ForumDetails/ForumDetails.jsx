@@ -209,7 +209,11 @@ export const ForumDetails = () => {
                 onCloseComments={closeCommentsPopUp}
                 onPostSubmit={onPostSubmit} {...onePost}
                 comments={comments}
-                onDeletePostHandler={onDeletePostHandler} />
+                onDeletePostHandler={onDeletePostHandler} 
+                handleLikeToggle={handleLikeToggle}
+                liked={liked}
+                likeCounter={likeCounter}
+                />
 
             <ConfirmBox open={isOpen}
                 closeDialog={() => onCloseDelete()} deleteFunction={() => { setIsOpen(false), onDeleteClick(forumId) }}

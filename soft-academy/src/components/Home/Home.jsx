@@ -153,7 +153,7 @@ import { LanguageBar } from "./LanguageBar/LanguageBar"
 
             </section>
 
-            <div className="section-header">
+            <div className="section-header section-header1">
                 <h2 style={{ color: "#BD6813" }}>we partner with</h2>
                 <Fade triggerOnce="true"
                 // direction='down'
@@ -167,9 +167,9 @@ import { LanguageBar } from "./LanguageBar/LanguageBar"
  <Fade delay="50" duration="4000" triggerOnce='true'>
             <section id="works" className="works">
                 <div className="container">
-                    <div className="section-header">
+                    <div className="section-header section-header1">
                         <h2>last courses</h2>
-                        <p>Learn More about courses our website </p>
+                        <h3>Learn More about courses our website </h3>
                     </div>
                     
                     <div className="works-content">

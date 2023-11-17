@@ -1,5 +1,5 @@
 import { Link, NavLink, Route, Routes } from "react-router-dom"
-import { UserContext } from "../contexts/UserContext"
+import { UserContext, useAuthContext } from "../contexts/UserContext"
 import { useContext } from "react"
 import * as React from 'react';
 
@@ -8,7 +8,8 @@ import { ResponsiveUserBar } from "../ResponsiveUserBar";
 
 export const Header = () => {
 	const { isAuthentication } = useContext(UserContext)
-
+    const { userEmail } = useAuthContext()
+const IsAdmin = userEmail === "peter@abv.bg"
 	return (
 		<>
 			<header id="header-top" className="header-top">
@@ -84,7 +85,7 @@ export const Header = () => {
 										<li className="scroll"><Link to={"/blog"}>news</Link></li>
 										<li className="scroll"><Link to={"/forum"}>forum</Link></li>
 
-										<li className="scroll"><Link to={"/admin"}>admin</Link></li>
+										{IsAdmin && <li className="scroll"><Link to={"/admin"}>admin</Link></li>}
 
 
 									</>)}
