@@ -34,7 +34,8 @@
 }
 
 .sidebar-menu li {
-  padding: 10px;
+  padding: 8px;
+  width: 180px;
 }
 
 .sidebar-menu a {
@@ -48,4 +49,35 @@
 .sidebar-menu a:hover {
   background-color: #555;
   color: #0b78d3;
+}
+.close-button3 {
+  /* position: absolute; */
+  /* margin-left: 45px; */
+  /* margin: 20px; */
+  margin-top: 10px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  width: 180px;
+  /* padding-right: 30px; */
+  /* top: 10;y
+  left: 0; */
+  /* font-size: 22px; */
+  /* margin-bottom: 40px; */
+  /* margin-left: 10px; */
+  color:white;
+  cursor: pointer;
+  font-size: 16px;
+  background: #659e87;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+
+}
+.close-button3:hover{
+  background: red;
+}
+.profile-sidebar-h1{
+  font-size: 33px;
+  position: relative;
+  top: 300px;
 }

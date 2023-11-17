@@ -16,6 +16,7 @@ export const ProfilePage = () => {
         <div className="profile-page">
            
             <div className="profile-content">
+    <h1 className="profile-sidebar-h1">Choice option from Menu </h1>
          
             </div>
             <ProfileSidebar />
