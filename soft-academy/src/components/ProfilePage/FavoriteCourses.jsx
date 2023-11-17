@@ -6,7 +6,7 @@ import * as bookmarkService from "../Services/bookmarkService"
 import '../CatalogCourses/bookMark.css'
 import { OneFavoriteCourses } from "./OneFavoriteCourses";
 import { IsLoading } from "../IsLoading/IsLoading"
-import { useLoading } from "../Hooks/useLoading"
+import './FavoriteCourses.css'
 
 export const FavoriteCourses = () => {
     const { userId } = useAuthContext()
