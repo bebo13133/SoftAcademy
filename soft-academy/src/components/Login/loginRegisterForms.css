@@ -1,0 +1,85 @@
+/* body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  } */
+  
+  /* Стил за секцията и формата */
+  .login-root-section{
+    display: flex;
+  }
+  .container-login {
+    /* text-align: center; */
+  }
+  .container-login input{
+    font-size: 20px;
+  }
+  .container-login h1{
+    font-size: 24px;
+    text-shadow: 0 4px 8px rgb(105 152 253 / 36%);
+    text-align: center;
+    color: #333;
+  }
+  .container-login label {
+margin-top: 10px;
+    font-size: 18px;
+  }
+  #login-page-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #login {
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+
+    border-radius: 8px;
+    max-width: 476px;
+    margin: 0 auto;
+    position: relative;
+}
+  
+  
+
+.btn.submit-button{
+    font-size: 24px;
+    align-self: flex-end;
+    margin-top: 10px;
+    font-weight: 500; 
+  }
+  .login-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .field{
+    display: flex;
+    align-content: flex-start;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .image-container {
+  
+    float: left; /* Поставете снимката от дясната страна */
+    margin-left: 20px; /* Отстояние от формата */
+  }
+  
+  /* Стилове за снимката */
+  .image-container img {
+    position: relative;
+    top: 200px;
+
+    display: flex;
+    max-width: 100%; /* Гарантира, че снимката няма да превиши ширината на контейнера */
+    height: auto; /* Поддържа съотношението на страните на снимката */
+  }

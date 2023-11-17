@@ -1,5 +1,5 @@
 import { UserContext, useAuthContext } from '../contexts/UserContext'
-
+import './loginRegisterForms.css'
 import { useForm } from '../Hooks/useForm'
 import { Link } from 'react-router-dom'
 
@@ -18,26 +18,41 @@ export const Login = () => {
 
     return (
         <>
-      <section id="login-page-login" className="auth">
-            <form id="login" method="POST" onSubmit={onSubmit}>
-
-                <div className="container-login">
-                    <div className="brand-logo-login"></div>
-                    <h1>Login</h1>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="peter@gmail.com" value={values.email} onChange={onChangeHandler} />
-
-                    <label htmlFor="login-pass">Password:</label>
-                    <input type="password" id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
-                    <input type="submit" className="btn submit" value="Login" />
-                    <p className="field">
-                        <span>If you have profile click <Link to={"/register"}>here</Link></span>
-                    </p>
+        <section className="login-root-section">
+            <section className="image-section">
+                <div className="image-container">
+                    <img src="https://assets-global.website-files.com/626a518e6507e34a484ee1fd/64416498c88e3d735bd593b8_Album%20Cover%20(23).jpg" alt="Description of the image" />
                 </div>
-            </form>
-        </section>
+
+            </section>
+
+
+
+            <section id="login-page-login" className="auth">
+
+                <form id="login" className="login-form" method="POST" onSubmit={onSubmit}>
+                    <ul>
+                        <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+                    </ul>
+                    <div className="container-login">
+                        <div className="brand-logo-login"></div>
+
+                        <label htmlFor="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="peter@gmail.com" value={values.email} onChange={onChangeHandler} />
+
+                        <label htmlFor="login-password">Password:</label>
+                        <input type="password" id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
+
+                        <input type="submit" className="btn submit-button" value="Login" />
+
+                        <p className="field">
+                            <span>If you have a profile click <Link to={"/register"}>here</Link></span>
+                        </p>
+                    </div>
+                </form>
+            </section>
+            </section>
         </>
     )
 
 }
- 
