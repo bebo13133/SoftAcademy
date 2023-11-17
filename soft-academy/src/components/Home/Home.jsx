@@ -113,7 +113,7 @@ import { LanguageBar } from "./LanguageBar/LanguageBar"
                                 <Link to={"https://www.java.com/en/"} target="_blank" rel="noopener noreferrer">
                                     <div className="single-list-topics-content">
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/java.webp" alt="Java"/>
+                                            <img className="home-top-lang" src="./img/java2.png" alt="Java"/>
 
                                         </div>
                                         <h2>Java</h2>

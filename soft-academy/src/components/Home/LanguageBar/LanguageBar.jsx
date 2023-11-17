@@ -66,7 +66,7 @@ export const LanguageBar = () => {
                                 <Link to={'/language-catalog'} rel="noopener noreferrer">
                                     <div className="single-list-topics-content single-class" onClick={() => handleLanguageClick("Java")}>
                                         <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/java.webp" alt="Java"/>
+                                            <img className="home-top-lang" src="./img/java2.png" alt="Java"/>
 
                                         </div>
                                         <h2>Java</h2>

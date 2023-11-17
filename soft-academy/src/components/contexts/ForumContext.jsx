@@ -20,7 +20,7 @@ export const ForumProvider = ({ children }) => {
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
 
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
-   
+
 
     useEffect(() => {
         forumService.getAll()
@@ -31,7 +31,7 @@ export const ForumProvider = ({ children }) => {
                 dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: error.message || 'An error occurred' });
             });
 
-    }, [])
+    }, [dispatch])
 
     const onPostSubmit = async (forumData) => {
 
@@ -124,7 +124,7 @@ export const ForumProvider = ({ children }) => {
 
 
         try {
-        
+
 
             const post = await forumService.update(forumData._id, forumData)
 
