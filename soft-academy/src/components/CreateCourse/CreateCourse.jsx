@@ -26,7 +26,7 @@ export const CreateCourse = () => {
     }
 
     const imageMap = {
-        Java: "https://www.liblogo.com/img-logo/ja362j7d4-java-logo-java-free-logo-icons.png",
+        Java: "/img/java2.png",
         Python: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
         ReactJS: "https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png",
         "JavaScript": "https://cdn3d.iconscout.com/3d/premium/thumb/javascript-7308311-5938360.png",

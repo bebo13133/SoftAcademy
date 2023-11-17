@@ -47,7 +47,7 @@ export const FavoriteCourses = () => {
     setIsLoading(false)
 }, [courses, favorites]);
 
-    console.log("userLikedCourses", favCourses);
+
 
 
 

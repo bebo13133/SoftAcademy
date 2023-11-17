@@ -62,7 +62,7 @@ setIsLoading(false)
 
   const urlAv = (avatars.map(avatar => avatar.url))
   // setUrlAvatar(urlAv);
-  console.log("urlAvatar", urlAv[1])
+
 
 
 

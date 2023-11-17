@@ -18,7 +18,7 @@ export const CatalogOneCourse=({
     _id,
     lectorImage
 })=>{
-console.log("price",price)
+
     const [likes, setLikes] = useState([])
 
     const [isBookmarked, setBookmarked] = useState(false);
@@ -64,7 +64,7 @@ console.log("price",price)
 
 
                 const bookMarkCourse = (response.filter(like => like.courseId === courseId));
-                console.log("bookMarkCourse", bookMarkCourse)
+           
 
                 setBookmarked(bookMarkCourse.some(like => like.userId === userId));
                 setBookmarkUser(bookMarkCourse.find(like => like._ownerId === userId));

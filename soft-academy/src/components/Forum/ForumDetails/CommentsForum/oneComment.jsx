@@ -21,7 +21,7 @@ export const OneComment = ({
   
     // console.log("likeUser",likeUser)
     const commentId = _id
-    console.log("commentId", _id,)
+
     const forumService = useService(forumServiceFactory)
 
     const { userId } = useAuthContext()

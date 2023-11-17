@@ -19,7 +19,7 @@ export const OneForumPost = ({
     const forumId = _id
 
     const handleClick = () => {
-        console.log("hi")
+     
         return isAuthentication ? navigate(`/forum/${forumId}`) : alert("You don't have permission to that forum. Log in and try again")
 
     }

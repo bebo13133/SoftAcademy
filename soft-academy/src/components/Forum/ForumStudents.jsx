@@ -32,7 +32,7 @@ export const ForumStudents = () => {
     };
 
     const closeSidebar = () => {
-        console.log("hi")
+      
         setIsSidebarOpen(false);
     };
 
