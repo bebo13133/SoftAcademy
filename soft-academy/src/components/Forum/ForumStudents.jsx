@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,lazy, Suspense } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+
 import './forumStudents.css'
 import { SideBarForum } from './SideBarForum/SideBarForum';
-import { OneForumPost } from './OneForumPost';
-import { useForumContext } from '../contexts/ForumContext';
+import OneForumPost  from './OneForumPost';
+import { forumServiceFactory } from "../Services/forumService";
+
 import Footer from '../Footer/Footer';
 import { IsLoading } from '../IsLoading/IsLoading';
 
@@ -11,22 +15,27 @@ export const ForumStudents = () => {
    
     const [articles, setArticles] = useState([]);
     const [isLoading, setLoading] = useState(true);
-    const { forumPosts } = useForumContext()
-
+ 
+    const forumService = forumServiceFactory()
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 3;
 
     useEffect(() => {
+            forumService.getAll()
+            .then((posts) =>{
 
-        setArticles(forumPosts)
+                setArticles(posts)
+
+            })
+       
         setLoading(false)
     }, []);
 
 
 
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
+    // const toggleSidebar = () => {
+    //     setIsSidebarOpen(!isSidebarOpen);
+    // };
     const openSidebar = () => {
         setIsSidebarOpen(true);
     };
@@ -45,9 +54,11 @@ export const ForumStudents = () => {
     return (
         <>
 
-            <SideBarForum articles={articles}
+            <SideBarForum
+             articles={articles}
                 // toggleSidebar={toggleSidebar} 
-                closeSidebar={closeSidebar} isOpen={isSidebarOpen} />
+                closeSidebar={closeSidebar} 
+                isOpen={isSidebarOpen} />
 
             {isLoading ? <IsLoading /> : (<>
                 <section className="forum-page-section">
@@ -56,7 +67,9 @@ export const ForumStudents = () => {
                     <div className="forum-page">
 
                         {currentPosts.map((article) => (
-                            <OneForumPost key={article._id} {...article} />
+                      
+                            <OneForumPost key={article._id} {...article}/>
+                  
                         ))}
                     </div>
                     <ul className="pagination">

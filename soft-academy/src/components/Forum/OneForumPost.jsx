@@ -4,7 +4,7 @@ import { useAuthContext } from '../contexts/UserContext'
 import './oneForumPost.css'
 
 
-export const OneForumPost = ({
+ const OneForumPost = ({
     imageUrl,
     title,
     description,
@@ -50,3 +50,4 @@ export const OneForumPost = ({
 
     )
 }
+export default OneForumPost

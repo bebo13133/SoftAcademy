@@ -20,7 +20,7 @@ export const SideBarPost =({
                             <span>{createdAt}</span>
                         </Link>
                     </li>
-                    <div className="divider"></div>
+                    <li><div className="divider"></div></li>
             </ul>
             </section>
         </>

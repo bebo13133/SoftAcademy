@@ -4,20 +4,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { SideBarPost } from './SideBarPost';
 import { useForumContext } from '../../contexts/ForumContext';
 
-export const SideBarForum = ({ closeSidebar, isOpen }) => {
+export const SideBarForum = ({articles, closeSidebar, isOpen }) => {
     // const [isOpen, setIsOpen] = useState(false);
+    console.log("articles", articles)
     const [posts, setPosts] = useState([])
 
-    const { forumPosts } = useForumContext()
+    // const { forumPosts } = useForumContext()
+
     const navigate= useNavigate()
     useEffect(() => {
 
 
-        setPosts(forumPosts.sort((a, b) => (b._createdOn) - (a._createdOn)).slice(length - 1, 4))
+        setPosts(articles.sort((a, b) => (b._createdOn) - (a._createdOn)).slice(length - 1, 4))
 
 
        
-    }, []);
+    }, [articles]);
 
 
     return (
