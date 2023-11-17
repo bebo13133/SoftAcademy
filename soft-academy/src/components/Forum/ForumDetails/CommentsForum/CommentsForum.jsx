@@ -12,6 +12,7 @@ export const CommentsForum = ({
     onPostSubmit,
     comments,
     onDeletePostHandler,
+    author
  
 }) => {
     const [showAll, setShowAll] = useState(false);
@@ -52,6 +53,7 @@ export const CommentsForum = ({
                 <div className="article-section">
                     <img className="article-image" src={imageUrl} alt={title} />
                     <h2 className="article-title">{title}</h2>
+                    <h3><span style={{color:"red"}}>{author}</span></h3>
                     <button className="like-button">Like</button>
                     <p className="comment-count">Comments: {comments.length } </p>
 

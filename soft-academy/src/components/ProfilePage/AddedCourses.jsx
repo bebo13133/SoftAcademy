@@ -11,7 +11,7 @@ import { useLoading } from "../Hooks/useLoading"
 
 
 export const AddedCourses = () => {
-    const [isLoading, handleLoading] = useLoading(true)
+    const [isLoading, setIsLoading] = useLoading(true)
     const courseService = courseServiceFactory()
     const [courses, setCourses] = useState([])
 
@@ -32,7 +32,7 @@ export const AddedCourses = () => {
 
             })
 
-            handleLoading(false)
+            setIsLoading(false)
 
     }, [])
 

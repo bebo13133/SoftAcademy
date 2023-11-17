@@ -34,13 +34,13 @@ export const ProfileSidebar = () => {
             <Link to="/my-added-courses">Added Courses</Link>
           </li>
           <li>
-            <a href="/favorite-courses">Favorite Courses</a>
+            <Link to="/favorite-courses">Favorite Courses</Link>
           </li>
           <li>
-            <a href="/change-username">Change Username</a>
+            <Link to="/change-username">Change Username</Link>
           </li>
           <li>
-            <a href="/change-avatar">Change Profile Photo</a>
+            <Link to="/change-avatar">Change Profile Photo</Link>
           </li>
         </ul>
       </div>

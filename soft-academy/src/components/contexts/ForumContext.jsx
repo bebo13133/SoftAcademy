@@ -12,16 +12,15 @@ const forumContext = createContext()
 
 export const ForumProvider = ({ children }) => {
 
-    // const [forumPosts, setForumPosts] = useState([])
-    // const [errorMessage, setErrorMessage] = useState(''); //error messages
+
     const { token } = useAuthContext()
     const forumService = forumServiceFactory(token)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
-   
+
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
-console.log(forumPosts)
+    console.log(forumPosts)
 
     useEffect(() => {
         forumService.getAll()
@@ -39,13 +38,13 @@ console.log(forumPosts)
         try {
 
             if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
-            
+
 
                 dispatch(setError("Some fields is empty"));
                 setTimeout(() => {
                     dispatch(setError(''));
-                  }, 4000);
-                  return
+                }, 4000);
+                return
             }
 
             if (forumData.author.length < 4 || forumData.title.length < 4) {
@@ -53,18 +52,18 @@ console.log(forumPosts)
                 dispatch(setError("Minimum field length is 4 for names"));
                 setTimeout(() => {
                     dispatch(setError(''));
-                  }, 4000);
-                  return
+                }, 4000);
+                return
             }
             if (forumData.description.length < 40) {
 
 
-               
+
                 dispatch(setError("Minimum description length is 40"));
                 setTimeout(() => {
                     dispatch(setError(''));
-                  }, 4000);
-                  return
+                }, 4000);
+                return
             }
 
             const newPost = await forumService.create(forumData)
@@ -82,7 +81,7 @@ console.log(forumPosts)
     const onDeleteClick = async (forumId) => {
         const deletePost = await forumService.delete(forumId)
 
-       dispatch(deleteForumPost(forumId))
+        dispatch(deleteForumPost(forumId))
 
         navigate("/forum")
         try {
@@ -98,13 +97,13 @@ console.log(forumPosts)
 
         try {
             if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
-            
+
 
                 dispatch(setError("Some fields is empty"));
                 setTimeout(() => {
                     dispatch(setError(''));
-                  }, 4000);
-                  return
+                }, 4000);
+                return
             }
 
             if (forumData.author.length < 4 || forumData.title.length < 4) {
@@ -112,24 +111,24 @@ console.log(forumPosts)
                 dispatch(setError("Minimum field length is 4 for names"));
                 setTimeout(() => {
                     dispatch(setError(''));
-                  }, 4000);
-                  return
+                }, 4000);
+                return
             }
             if (forumData.description.length < 40) {
 
 
-               
+
                 dispatch(setError("Minimum description length is 40"));
                 setTimeout(() => {
                     dispatch(setError(''));
-                  }, 4000);
-                  return
+                }, 4000);
+                return
             }
 
 
             const post = await forumService.update(forumData._id, forumData)
-         
-         dispatch(editForumPost(forumData,post))
+
+            dispatch(editForumPost(forumData, post))
             navigate(`/forum/${forumData._id}`)
         } catch (err) {
             dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });

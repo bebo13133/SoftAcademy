@@ -65,14 +65,14 @@ import { LanguageBar } from "./LanguageBar/LanguageBar"
                         </Slide>
 
                         <Slide direction="right" duration="2500" triggerOnce='true'>
-                        <p style={{color:"#cf8800"}}><i class="fa fa-check" aria-hidden="true"style={{color:"#cf8800"}}></i>&nbsp;Comprehensive Software program</p>
+                        <p style={{color:"#cf8800"}}><i className="fa fa-check" aria-hidden="true"style={{color:"#cf8800"}}></i>&nbsp;Comprehensive Software program</p>
                         </Slide>
                         <Slide direction="left" duration="2500" triggerOnce='true'>
-                        <p style={{color:"#cf8800"}}><i class="fa fa-check" aria-hidden="true" style={{color:"#cf8800"}}></i>&nbsp;Learn how build DIY apps yourself&nbsp;&nbsp;
+                        <p style={{color:"#cf8800"}}><i className="fa fa-check" aria-hidden="true" style={{color:"#cf8800"}}></i>&nbsp;Learn how build DIY apps yourself&nbsp;&nbsp;
                             </p>
                         </Slide>
                         <Slide direction="right" duration="2500" triggerOnce='true'>
-                        <p style={{color:"#cf8800"}}><i class="fa fa-check" aria-hidden="true" style={{color:"#cf8800"}}></i>&nbsp;Become a successful software engineer</p>
+                        <p style={{color:"#cf8800"}}><i className="fa fa-check" aria-hidden="true" style={{color:"#cf8800"}}></i>&nbsp;Become a successful software engineer</p>
                         </Slide>
                     </div>
                     
