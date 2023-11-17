@@ -3,6 +3,7 @@ import { useForm } from "../Hooks/useForm"
 import { UserContext } from "../contexts/UserContext"
 import { useContext } from "react"
 import'./loginRegisterForms.css'
+import Footer from "../Footer/Footer"
 
 
 export const Register = () => {
@@ -19,7 +20,7 @@ export const Register = () => {
             <section className="login-root-section">
                 <section className="image-section">
                     <div className="image-container1">
-                        <img src="https://assets-global.website-files.com/626a518e6507e34a484ee1fd/64416498c88e3d735bd593b8_Album%20Cover%20(23).jpg" alt="Description of the image" />
+                        <img src="./img/studentLearn.jpg" alt="Description of the image" />
                     </div>
 
                 </section>
@@ -28,7 +29,7 @@ export const Register = () => {
 
                 <section id="login-page-login" className="auth">
 
-                    <form id="login" className="login-form" method="POST" onSubmit={onSubmit}>
+                    <form id="register" className="login-form" method="POST" onSubmit={onSubmit}>
                         <ul>
                             <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                         </ul>
@@ -42,15 +43,18 @@ export const Register = () => {
                             <input type="password" id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
                             <label htmlFor="con-pass">Confirm Password:</label>
                             <input type="password" name="confirmPassword" id="confirm-password" value={values.confirmPassword} onChange={onChangeHandler} />
-                            <input type="submit" className="btn submit-button" value="Login" />
+                            <input type="submit" className="btn submit-button" value="Register" />
 
                             <p className="field">
                                 <span>IF you have a PROFILE CLICK <Link to={"/login"}>here</Link></span>
                             </p>
                         </div>
                     </form>
+                    
                 </section>
+               
             </section>
+            <Footer/>
         </>
 
     )

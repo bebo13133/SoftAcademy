@@ -2,6 +2,7 @@ import { UserContext, useAuthContext } from '../contexts/UserContext'
 import './loginRegisterForms.css'
 import { useForm } from '../Hooks/useForm'
 import { Link } from 'react-router-dom'
+import Footer from '../Footer/Footer'
 
 export const Login = () => {
 
@@ -21,7 +22,7 @@ export const Login = () => {
             <section className="login-root-section">
                 <section className="image-section">
                     <div className="image-container">
-                        <img src="https://assets-global.website-files.com/626a518e6507e34a484ee1fd/64416498c88e3d735bd593b8_Album%20Cover%20(23).jpg" alt="Description of the image" />
+                        <img src="./img/studentLearn.jpg" alt="Description of the image" />
                     </div>
 
                 </section>
@@ -42,9 +43,10 @@ export const Login = () => {
 
                             <label htmlFor="login-password">Password:</label>
                             <input type="password" id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
-
+                         
                             <input type="submit" className="btn submit-button" value="Login" />
-
+                            <label htmlFor="confirm-password" style={{ visibility: 'hidden' }}>Confirm Password:</label>
+                            <input type="password" name="confirmPassword" id="confirm-password" style={{ visibility: 'hidden' }} value={values.confirmPassword} onChange={onChangeHandler} />
                             <p className="field">
                                 <span>IF you don't have a PROFILE CLICK <Link to={"/register"}>here</Link></span>
                             </p>
@@ -52,6 +54,7 @@ export const Login = () => {
                     </form>
                 </section>
             </section>
+            <Footer />
         </>
     )
 

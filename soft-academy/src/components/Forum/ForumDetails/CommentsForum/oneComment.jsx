@@ -18,7 +18,7 @@ export const OneComment = ({
     const [likeUser, setLikeUser] = useState([])
 
 
-  
+
     // console.log("likeUser",likeUser)
     const commentId = _id
 

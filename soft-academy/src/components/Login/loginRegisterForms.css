@@ -2,6 +2,7 @@
   
   /* Стил за секцията и формата */
   .login-root-section{
+    height: 600px;
     display: flex;
     justify-content: center;
   }
@@ -28,7 +29,7 @@ margin-top: 10px;
   }
 
   #login {
-    top: 200px;
+    top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,6 +43,22 @@ margin-top: 10px;
     max-width: 476px;
     margin: 0 auto;
     position: relative;
+}
+#register {
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+
+  border-radius: 8px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+
+  /* max-width: 476px; */
+  margin: 0 auto;
+  position: relative;
 }
   
   
@@ -77,19 +94,22 @@ margin-top: 10px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     position: relative;
-    top: 190px;
+    top: 50px;
+    max-height: 1000px;
+
     width: 400px;
-    height: 386px;
+    height: 477px;
     display: flex;
    
   }
-  /* .image-container1 img {
+  .image-container1 img {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+    max-height: 1000px;
     position: relative;
-    top: 190px;
-    width: 400px;
-    height: 386px;
+    top: 50px;
+    width: 455px;
+    height: 477px;
     display: flex;
    
-  } */
+  }
