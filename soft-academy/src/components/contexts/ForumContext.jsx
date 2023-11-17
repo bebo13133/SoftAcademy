@@ -20,7 +20,7 @@ export const ForumProvider = ({ children }) => {
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
 
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
-    console.log(forumPosts)
+   
 
     useEffect(() => {
         forumService.getAll()
@@ -49,7 +49,7 @@ export const ForumProvider = ({ children }) => {
 
             if (forumData.author.length < 4 || forumData.title.length < 4) {
 
-                dispatch(setError("Minimum field length is 4 for names"));
+                dispatch(setError("Minimum field length is 4"));
                 setTimeout(() => {
                     dispatch(setError(''));
                 }, 4000);
@@ -93,38 +93,38 @@ export const ForumProvider = ({ children }) => {
     }
 
     const onEditSubmitPost = async (forumData) => {
+        if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
+
+
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+
+        if (forumData.author.length < 4 || forumData.title.length < 4) {
+
+            dispatch(setError("Minimum field length is 4"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (forumData.description.length < 40) {
+
+
+
+            dispatch(setError("Minimum description length is 40"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
 
 
         try {
-            if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
-
-
-                dispatch(setError("Some fields is empty"));
-                setTimeout(() => {
-                    dispatch(setError(''));
-                }, 4000);
-                return
-            }
-
-            if (forumData.author.length < 4 || forumData.title.length < 4) {
-
-                dispatch(setError("Minimum field length is 4 for names"));
-                setTimeout(() => {
-                    dispatch(setError(''));
-                }, 4000);
-                return
-            }
-            if (forumData.description.length < 40) {
-
-
-
-                dispatch(setError("Minimum description length is 40"));
-                setTimeout(() => {
-                    dispatch(setError(''));
-                }, 4000);
-                return
-            }
-
+        
 
             const post = await forumService.update(forumData._id, forumData)
 
