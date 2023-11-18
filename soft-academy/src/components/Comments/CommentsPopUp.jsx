@@ -57,6 +57,9 @@ export const CommentsPopUp = ({
                 X
             </div>
             <div className="article-section">
+            {/* <ul>
+                <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a",  }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+            </ul> */}
                 <img className="article-image-course" src={"/img/courseComments.webp"} alt={title} />
                 <h2 className="article-title">{title}</h2>
                 <h3><span style={{ color: "red" }}>{author}</span></h3>
