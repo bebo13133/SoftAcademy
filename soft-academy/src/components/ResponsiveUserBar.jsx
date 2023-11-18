@@ -82,12 +82,15 @@ setIsLoading(false)
 
   const handleLogout = () => {
     navigate('/logout', { replace: true });
+    handleToggleUserMenu()
   };
   const handleProfile = () => {
     navigate('/profile', { replace: true });
+    handleToggleUserMenu()
   };
   const handleSettings = () => {
     navigate('/settings', { replace: true });
+    handleToggleUserMenu()
   };
 
 
@@ -100,6 +103,7 @@ setIsLoading(false)
   // }, [anchorElUser]);
   return (
     <>
+    {isLoading&& <IsLoading/>}
     <div className="user-bar-container">
         <button
           onClick={handleToggleUserMenu}

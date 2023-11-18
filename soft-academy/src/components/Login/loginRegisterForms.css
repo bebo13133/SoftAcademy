@@ -23,12 +23,15 @@ margin-top: 10px;
     font-size: 18px;
   }
   #login-page-login {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   #login {
+    
+    width: 425px;
     top: 50px;
     display: flex;
     flex-direction: column;
@@ -45,6 +48,8 @@ margin-top: 10px;
     position: relative;
 }
 #register {
+  
+  width: 425px;
   top: 50px;
   display: flex;
   flex-direction: column;

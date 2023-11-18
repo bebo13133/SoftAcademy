@@ -13,7 +13,7 @@ export const UserProvider = ({ children }) => {
     const [isAuth, setIsAuth] = useLocalStorage('auth', {})
     const [avatarUrl, setAvatarUrl] = useState(null);
     const [errorMessage, setErrorMessage] = useState(''); //error messages
-
+// console.log("errorMessage",errorMessage)
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
    
@@ -45,8 +45,17 @@ export const UserProvider = ({ children }) => {
             setIsAuth(newUser)
             navigate("/")
         } catch (err) {
-            // console.log("PROBLEM")
-            throw new Error(err.message)
+          
+       
+            if (err.code === 403){
+                setErrorMessage("Please enter a valid password or email address")
+                setTimeout(() => {
+                    setErrorMessage('');
+                  }, 4000);
+            }else{
+                throw new Error(err.message)
+            }
+           
         }
 
     }
@@ -88,9 +97,17 @@ export const UserProvider = ({ children }) => {
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
             navigate("/")
-
         } catch (err) {
-            throw new Error(err.message)
+            
+       
+            if (err.code === 403){
+                setErrorMessage("Please enter a valid password or email address")
+                setTimeout(() => {
+                    setErrorMessage('');
+                  }, 4000);
+            }else{
+                throw new Error(err.message)
+            }
         }
 
     };

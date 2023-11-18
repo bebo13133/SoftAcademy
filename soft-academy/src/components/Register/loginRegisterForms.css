@@ -29,6 +29,8 @@ margin-top: 10px;
   }
 
   #login {
+    
+    width: 425px;
     top: 50px;
     display: flex;
     flex-direction: column;
@@ -45,6 +47,8 @@ margin-top: 10px;
     position: relative;
 }
 #register {
+  
+  width: 425px;
   top: 50px;
   display: flex;
   flex-direction: column;
