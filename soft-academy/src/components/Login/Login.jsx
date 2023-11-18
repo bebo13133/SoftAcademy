@@ -21,7 +21,7 @@ export const Login = () => {
         <>
             <section className="login-root-section">
                 <section className="image-section">
-                    <div className="image-container">
+                    <div className="image-container2">
                         <img src="./img/studentLearn.jpg" alt="Description of the image" />
                     </div>
 

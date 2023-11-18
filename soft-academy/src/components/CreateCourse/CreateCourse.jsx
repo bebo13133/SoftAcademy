@@ -53,7 +53,7 @@ export const CreateCourse = () => {
 
 
     const imageUrl = selectedImage ? `${selectedImage}` : '';
-    const { onSubmit, onChangeHandler, values } = useForm({
+    const { onSubmitWithOut, onChangeHandler, values } = useForm({
         courseName: "",
         firstName: "",
         lastName: "",
@@ -71,7 +71,7 @@ export const CreateCourse = () => {
     return (
         <>
             <div className="testbox">
-                <form method="POST" onSubmit={onSubmit}>
+                <form method="POST" onSubmit={onSubmitWithOut}>
                     <div className="banner">
 
                     </div>
@@ -80,7 +80,6 @@ export const CreateCourse = () => {
                         <p>Course name</p>
                         <div className="name-item">
                             <input type="text" name="courseName" placeholder="Course name" value={values.courseName} onChange={onChangeHandler} />
-
                         </div>
                     </div>
                     <div className="item">
@@ -148,7 +147,7 @@ export const CreateCourse = () => {
                         </div>)}
 
 
-
+                    <div className="overfill">
                     <h2>Course Description</h2>
                     <div className="item">
                         <p>Description</p>
@@ -165,12 +164,13 @@ export const CreateCourse = () => {
                         <i className="fas fa-calendar-alt"></i>
                     </div>
 
-                    <div className="btn-block">
+                    <div className="btn-block1">
                         <button type="submit" value="send">Create</button>
                     </div>
                     <ul>
                         <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                     </ul>
+                    </div>
                 </form>
             </div>
             <Footer />

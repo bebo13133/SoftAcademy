@@ -65,7 +65,7 @@ const lectorImageHandler = (e) => {
 
 
     
-    const { onSubmit, onChangeHandler, onChangeValues, values } = useForm({
+    const { onSubmitWithOut, onChangeHandler, onChangeValues, values } = useForm({
         courseName: "",
         firstName: "",
         lastName: "",
@@ -100,8 +100,7 @@ const lectorImageHandler = (e) => {
             <div className="testbox" 
             // onClick={handleClickOutside}
              >
-          
-                <form method="POST" onSubmit={onSubmit}>
+                <form method="POST" onSubmit={onSubmitWithOut}>
                     <div className="banner">
 
                     </div>

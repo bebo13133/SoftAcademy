@@ -29,7 +29,7 @@ margin-top: 10px;
   }
 
   #login {
-    top: 60px;
+    top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,15 +90,15 @@ margin-top: 10px;
   }
   
   /* Стилове за снимката */
-  .image-container img {
+  .image-container2 img {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     position: relative;
     top: 50px;
     max-height: 1000px;
 
-    width: 400px;
-    height: 477px;
+    width: 425px;
+    height: 446px;
     display: flex;
    
   }
@@ -108,8 +108,8 @@ margin-top: 10px;
     max-height: 1000px;
     position: relative;
     top: 50px;
-    width: 455px;
-    height: 477px;
+    width: 425px;
+    height: 446px;
     display: flex;
    
   }

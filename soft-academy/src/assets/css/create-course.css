@@ -1,7 +1,7 @@
-/* html, body {
+ /* html, body {
       min-height: 100%;
-      }
-     .testbox div, form, input, select, p { 
+      } */
+.testbox div, form, input, select, p { 
       padding: 0;
       margin: 0;
       outline: none;
@@ -9,7 +9,7 @@
       font-size: 14px;
       color: #666;
       line-height: 22px;
-      } */
+      } 
 /* h1 {
       position: absolute;
       margin: 0;
@@ -23,11 +23,11 @@
 
   color: #060606;
 }
-.testbox h2 {
-  font-size: 16px;
+.testbox .overfill h2 {
+
   color: #55b2ff;
   font-weight: 500;
-
+  margin-top: 99px;
   padding-top: 42px;
   font-size: 26px;
 }
@@ -47,9 +47,10 @@ input p {
   font-size: 20px;
 }
 
-#root>div>form>h2:nth-child(2) {
+.testbox h2 {
+  color: #55b2ff;
   font-weight: 400;
-  padding-top: 42px;
+  padding-top: 20px;
   font-size: 26px;
 }
 
@@ -205,13 +206,23 @@ input[type=checkbox]:checked+label:after {
   opacity: 1;
 }
 
-.btn-block {
+.btn-block1 button {
+  /* margin-left: 225px; */
+  font-size: 26px;
   margin-top: 10px;
   text-align: center;
-
+  width: 150px;
+  padding: 10px;
+  border: solid;
+  border-radius: 15px;
+  background: #7fc7f4;
+  font-size: 16px;
+  color: #2f2d2d;
+  cursor: pointer;
+  margin-left: 280px;
 }
 
-#root>div>form>div.btn-block>button {
+/* #root>div>form>div.btn-block>button {
   font-size: 26px;
 
 }
@@ -225,11 +236,11 @@ input[type=checkbox]:checked+label:after {
   font-size: 16px;
   color: #2f2d2d;
   cursor: pointer;
-}
-
-#root>div>form>div.btn-block>button:hover {
+} */
+.btn-block1 button:hover {
   background: #0666a3;
 }
+
 
 @media (min-width: 568px) {
 
