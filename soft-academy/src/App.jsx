@@ -39,7 +39,7 @@ import { IsOwnerCourse } from './components/common/isOwnerCourse'
 // import { ChatBox } from './components/ChatBox/ChatBox'
 
 const ChatBox = lazy(() => import('./components/ChatBox/ChatBox'))
-import { AdminPage } from './components/AdminPage/AdminPage'
+import { AdminChatPage, AdminPage } from './components/AdminPage/AdminChatPage'
 import { IsLoading } from './components/IsLoading/IsLoading'
 import { CookieConsent } from './components/CookieConsent/CookieConsent'
 import { PrivacyPolicy } from './components/CookieConsent/PrivacyPolicy'
@@ -204,7 +204,7 @@ function App() {
                 <Routes>
                   <Route path={"/admin"} element={
                     <IsAdmin>
-                  <AdminPage />
+                  <AdminChatPage />
                   </IsAdmin>
                   } />
                 </Routes>

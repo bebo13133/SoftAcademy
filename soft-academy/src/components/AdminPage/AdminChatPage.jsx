@@ -6,7 +6,7 @@ const ENDPOINT =
     ? "http://127.0.0.1:4000"
     : window.location.host;
 
-export const AdminPage=()=>{
+export const AdminChatPage=()=>{
   const [selectedUser, setSelectedUser] = useState({});
   const [socket, setSocket] = useState(null);
   const uiMessagesRef = useRef(null);
