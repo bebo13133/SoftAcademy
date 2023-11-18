@@ -7,6 +7,9 @@ import * as likeService from "../Services/likeService"
 import { useAuthContext } from "../contexts/UserContext"
 import { useEffect } from "react"
 import { BiLike } from "react-icons/bi"
+import { useService } from "../Hooks/useService"
+import { courseServiceFactory } from "../Services/courseService"
+import * as commentsService from "../Services/commentsService"
 
 
 export const OneCourse = ({
@@ -22,25 +25,68 @@ export const OneCourse = ({
     selectOption,
     courseName,
     comments,
-    onCommentSubmit,
+ 
     _ownerId,
     imageUrl2
 
 }) => {
 
 
-    const { userId, } = useAuthContext()
-
-    const { courseId } = useParams()
+const [oneCourse,setOneCourse] = useState([])
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [liked, setLiked] = useState(false)
+    const [oneComment, setOneComment] = useState([])
+console.log("comments",oneComment)
     const [likeCounter, setLikeCounter] = useState(0)
     const [likeUser, setLikeUser] = useState([])
     const { onDeleteClick, } = useCourseContext()
+    const courseService = useService(courseServiceFactory)
+    const { userId, } = useAuthContext()
 
+    const { courseId } = useParams()
+
+    const fetchData = async () => {
+        try {
+            const result = await courseService.getOne(courseId);
+            setOneCourse(result);
+            const commentResult = await commentsService.getAllComments(courseId)
+
+            setOneComment(commentResult);
+
+        } catch (error) {
+            throw new Error("Error fetching forum post");
+        }
+    }
+
+    const onDeletePostHandler = (commentId) => {
+
+        commentsService.deleteComment(commentId)
+        setOneComment(state => state.filter(comment => comment._id !== commentId))
+    };
+
+    const onCommentSubmit = async (values) => {
+
+        try {
+            const result = await commentsService.createComment(
+                courseId,
+                values.comment,
+                values.user
+            )
+            setOneComment(state => [...state, { comment: result.comment, user: result.user }]) //TODO ДА СЕ ДОБАВИ USERNAME, КАТО ВТОРИ ПАРАМЕТЪР
+
+            await fetchData()
+
+        } catch (err) {
+            console.error('Error:', err);
+
+
+        }
+
+    }
 
     useEffect(() => {
+        fetchData()
         likeService.getAllLikes(courseId)
             .then(response => {
                 // console.log("response", response)
@@ -61,6 +107,9 @@ export const OneCourse = ({
 
     // console.log(likeUser)
     const likeId = likeUser?._id
+    const onBackHandler = () => {
+        navigate('/forum')
+    }
 
 
     const openCommentsPopUp = () => {
@@ -173,7 +222,21 @@ export const OneCourse = ({
             {/* Lector */}
 
 
-            <CommentsPopUp onCommentSubmit={onCommentSubmit} isOpenComments={commentsPopUp} onCloseComments={closeCommentsPopUp} comments={comments} />
+            <CommentsPopUp
+            key={courseId} // за да отразява правилно промяната 
+             onCommentSubmit={onCommentSubmit} 
+             {...oneCourse}
+             isOpenComments={commentsPopUp} 
+             onCloseComments={closeCommentsPopUp} 
+             oneComment={oneComment} 
+             liked={liked}
+             likeCounter={likeCounter}
+             handleLikeToggle={handleLikeToggle}
+
+             onDeletePostHandler={onDeletePostHandler} 
+
+             />
+             
 
             <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()}                // title={deleteData?.name}
                 deleteFunction={() => { setIsOpen(false), onDeleteClick(_id) }}

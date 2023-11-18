@@ -33,33 +33,18 @@ export const DetailsCourse = () => {
 
     }, [courseId])
 
-    const onCommentSubmit = async (values) => {
 
-        try {
-            const result = await commentsService.createComment(
-                courseId,
-                values.comment
-            )
-            setComments((state) => [...state, { comment: result.comment }]) //TODO ДА СЕ ДОБАВИ USERNAME, КАТО ВТОРИ ПАРАМЕТЪР
-
-
-
-        } catch (err) {
-            console.error('Error:', err);
-
-
-        }
-
-    }
 
 
     return (
         <>
             <section id="details-page">
 
-                <OneCourse {...details} comments={comments} onCommentSubmit={onCommentSubmit} />
+                <OneCourse {...details} comments={comments} 
+                // onCommentSubmit={onCommentSubmit} 
+                />
                 <LectorPage {...details} />
-                <AddComments onCommentSubmit={onCommentSubmit} />
+                {/* <AddComments onCommentSubmit={onCommentSubmit} /> */}
 
             </section>
             <ul>

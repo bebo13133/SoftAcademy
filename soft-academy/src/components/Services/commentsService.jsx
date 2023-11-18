@@ -15,3 +15,4 @@ export const getAllComments = async(courseId) =>{
     const result = Object.values(response)
 return result
 }
+export const deleteComment = async (forumId) => await request.del(`${baseUrl}/${forumId}`)
