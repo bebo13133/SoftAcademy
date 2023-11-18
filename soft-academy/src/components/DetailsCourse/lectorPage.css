@@ -9,7 +9,7 @@
  border-radius:15px ;
  width: 250px;
  height: 400px;
-
+overflow-y:auto;
 }
 
 
@@ -40,3 +40,14 @@
  font-size: 26px;
  
 }
+.show-more-button-course {
+    text-shadow: 0 4px 8px rgb(6 85 255 / 36%);
+    color: rgb(189, 104, 19);
+    font-size: 26px;
+    border: none;
+    
+    padding: 0px 80px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: -10px;
+  }
