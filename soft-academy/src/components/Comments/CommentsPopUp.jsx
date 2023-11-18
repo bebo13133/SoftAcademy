@@ -45,14 +45,14 @@ _id,
 
     // Да се затваря когато се натисне извън полето
     const handleClickOutside = (e) => {
-        if (e.target.className === "popup-form") {
+        if (e.target.className === "popup-form-course") {
             onCloseComments()
         }
     }
 
     
     return (
-        <section className="popup-form" onClick={handleClickOutside}>
+        <section className="popup-form-course" onClick={handleClickOutside}>
         <div className="close-button-forum" onClick={onCloseComments}>
             X
         </div>
@@ -72,7 +72,7 @@ _id,
             </div>
             <p className="comment-count">Comments: {oneComment.length } </p>
 
-            <div className="author-section">
+            <div className="author-section-course">
                 {initialComments && initialComments.map((comment) => <CourseOneComponent key={comment._id} {...comment} 
                 onDeletePostHandler={onDeletePostHandler}
                  />)}

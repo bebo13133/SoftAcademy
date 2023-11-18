@@ -1,6 +1,6 @@
 
 
-.popup-form {
+.popup-form-course {
     position: fixed;
     top: 0;
     left: 0;
@@ -62,8 +62,8 @@
     margin-top: 10px;
   }
   
-  .author-section {
-    background: url("/img/createForm.jpg");
+  .author-section-course {
+    background: url("/img/background-addcourse.jpg");
 
     height: 300px;
     margin-top: 10px;
