@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { BiLike } from "react-icons/bi"
 // import { useService } from "../../../Hooks/useService"
-// import { forumServiceFactory } from "../../../Services/forumService"
+import * as commentsService from "../Services/commentsService"
 import { useAuthContext } from "../contexts/UserContext"
 
 export const CourseOneComponent =({
@@ -28,51 +28,51 @@ export const CourseOneComponent =({
     const isOwner = _ownerId === userId
 
 
-    // useEffect(() => {
-    //     forumService.getAllLikes(commentId)
-    //         .then(result => {
+    useEffect(() => {
+        commentsService.getAllLikes(commentId)
+            .then(result => {
 
-    //             const forumLikes = result.filter(x => x.commentId === commentId)
+                const forumLikes = result.filter(x => x.commentId === commentId)
 
-    //             setLikeCounter(forumLikes.length);
+                setLikeCounter(forumLikes.length);
 
-    //             setLiked(forumLikes.some(like => like.userId === userId));
-    //             setLikeUser(forumLikes.find(like => like.userId === userId));
-    //         })
-    //         .catch(error => {
-    //             console.error('Error fetching likes:', error);
-    //         });
+                setLiked(forumLikes.some(like => like.userId === userId));
+                setLikeUser(forumLikes.find(like => like.userId === userId));
+            })
+            .catch(error => {
+                console.error('Error fetching likes:', error);
+            });
 
-    // }, [commentId, userId, likeCounter])
+    }, [commentId, userId, likeCounter])
 
-    // const likeId = likeUser?._id
+    const likeId = likeUser?._id
 
 
-    // const handleLikeToggle = async () => {
-    //     if (liked) {
-    //         try {
-    //             await forumService.deleteLike(likeId);
-    //             setLikeCounter(likeCounter - 1);
+    const handleLikeToggle = async () => {
+        if (liked) {
+            try {
+                await commentsService.deleteLike(likeId);
+                setLikeCounter(likeCounter - 1);
 
-    //             setLiked(false)
+                setLiked(false)
 
-    //         } catch (err) {
-    //             console.error('Error removing like:', err);
+            } catch (err) {
+                console.error('Error removing like:', err);
 
-    //         }
+            }
 
-    //     } else if (!liked) {
-    //         try {
+        } else if (!liked) {
+            try {
 
-    //             const result = await forumService.createLike(userId, commentId)
-    //             setLikeCounter(likeCounter + 1);
+                const result = await commentsService.createLike(userId, commentId)
+                setLikeCounter(likeCounter + 1);
 
-    //             setLiked(true)
-    //         } catch (error) {
-    //             console.error('Error adding like:', error);
-    //         }
-    //     }
-    // }
+                setLiked(true)
+            } catch (error) {
+                console.error('Error adding like:', error);
+            }
+        }
+    }
 
     return(
         <>
@@ -87,14 +87,14 @@ export const CourseOneComponent =({
                 <div className="like-component">
 
 
-                    <p>{"likeCounter"}</p>
+                    <p>{likeCounter}</p>
 
                     <BiLike key={commentId} style={{ size: "60px,", color: "blue" }} ></BiLike>
                 </div>
 
             </div>
             <div className="like-delete-section" style={{ fontSize: "2px" }}>
-                <span className="like-delete-button" onClick={"handleLikeToggle"}>{liked ? "Unlike" : "Like"}</span>
+                <span className="like-delete-button" onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</span>
                 {isOwner && <span className="like-delete-button" onClick={() => onDeletePostHandler(commentId)}>Delete</span>}
             </div>
         </>

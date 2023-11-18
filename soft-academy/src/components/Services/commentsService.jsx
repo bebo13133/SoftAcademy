@@ -3,6 +3,8 @@ import { requestFactory } from "./requester"
 
 
 const baseUrl =`http://localhost:3030/data/comments`
+const baseUrl1 =`http://localhost:3030/data/commentsLikes`
+
 const request = requestFactory()
 
 export const createComment=async(courseId, comment)=>{
@@ -16,3 +18,24 @@ export const getAllComments = async(courseId) =>{
 return result
 }
 export const deleteComment = async (forumId) => await request.del(`${baseUrl}/${forumId}`)
+
+
+// =========== commentsLikes =========//
+export const createLike = async (userId, commentId) => {
+    const response = await request.post(`${baseUrl1}`, { userId, commentId })
+    return response
+}
+
+export const getAllLikes = async () => {
+    const response = await request.get(`${baseUrl1}`)
+
+    const result = Object.values(response)
+    return result
+}
+export const deleteLike = async (likeId) => {
+
+
+    const result = await request.del(`${baseUrl1}/${likeId}`);
+    return result
+
+}
