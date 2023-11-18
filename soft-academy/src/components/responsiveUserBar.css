@@ -1,0 +1,39 @@
+.user-bar-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+
+  }
+  
+  .user-avatar-button {
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  
+  .user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .user-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1001;
+  }
+  
+  .menu-item {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
