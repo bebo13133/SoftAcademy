@@ -1,17 +1,17 @@
 
 import { useEffect, useState } from "react"
 import { BiLike } from "react-icons/bi"
-// import { useService } from "../../../Hooks/useService"
+
 import * as commentsService from "../Services/commentsService"
 import { useAuthContext } from "../contexts/UserContext"
 
-export const CourseOneComponent =({
+export const CourseOneComponent = ({
     comment,
     user,
     _id,
     onDeletePostHandler,
     _ownerId
-})=>{
+}) => {
     const [liked, setLiked] = useState(false)
     const [likeCounter, setLikeCounter] = useState(0)
     const [likeUser, setLikeUser] = useState([])
@@ -21,7 +21,7 @@ export const CourseOneComponent =({
     // console.log("likeUser",likeUser)
     const commentId = _id
 
-    // const forumService = useService(forumServiceFactory)
+
 
     const { userId } = useAuthContext()
 
@@ -74,9 +74,9 @@ export const CourseOneComponent =({
         }
     }
 
-    return(
+    return (
         <>
-         <div className="author-details">
+            <div className="author-details">
                 {/* {aко има коментари да се показва} */}
 
                 <div className="p-component-comment"></div>

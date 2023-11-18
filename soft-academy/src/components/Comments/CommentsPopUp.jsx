@@ -1,7 +1,7 @@
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from '../Hooks/useForm';
-import { RouteGuard } from '../common/RouteGuard';
+
 import { useAuthContext } from '../contexts/UserContext';
 import { BiLike } from "react-icons/bi"
 import { CourseOneComponent } from './CourseOneComment';
@@ -18,7 +18,7 @@ oneComment,
     onCommentSubmit,
     imageUrl,
 title,
-comments,
+
 _id,
 }) => {
     
@@ -32,7 +32,7 @@ _id,
     }, onCommentSubmit)
 
 
-    // Да се виждат само първите 5 коментара 
+    // Да се виждат само първите 6 коментара 
     const initialComments = showAll ? oneComment : oneComment.slice(0, 6);
 
     const toggleShowAll = () => {
