@@ -1,7 +1,7 @@
 .user-bar-container {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding-right: 35px;
     background-color: #f1f1f1;
 
   }
@@ -20,6 +20,8 @@
   
   .user-menu {
     position: absolute;
+   
+    margin-right:2rem;
     top: 60px;
     right: 0;
     background: #fff;
@@ -32,8 +34,10 @@
     display: block;
     width: 100%;
     padding: 10px;
+    font-size: 16px;
     text-align: center;
     border: none;
     background: none;
+    text-shadow: 0 4px 3px rgb(0 50 65 / 40%);
     cursor: pointer;
   }
