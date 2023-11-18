@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer"
 
 export const DetailsCourse = () => {
     const [details, setDetails] = useState({})
-    const [comments, setComments] = useState([])
+    // const [comments, setComments] = useState([])
     const { courseId } = useParams()
     const courseService = useService(courseServiceFactory)
 
@@ -40,7 +40,7 @@ export const DetailsCourse = () => {
         <>
             <section id="details-page">
 
-                <OneCourse {...details} comments={comments} 
+                <OneCourse {...details}  
                 // onCommentSubmit={onCommentSubmit} 
                 />
                 <LectorPage {...details} />

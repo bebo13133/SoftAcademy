@@ -7,8 +7,8 @@ const baseUrl1 =`http://localhost:3030/data/commentsLikes`
 
 const request = requestFactory()
 
-export const createComment=async(courseId, comment)=>{
-const result = await request.post(baseUrl,{courseId,comment})
+export const createComment=async(courseId, comment,user)=>{
+const result = await request.post(baseUrl,{courseId,comment,user})
 return result
 
 }

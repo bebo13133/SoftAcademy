@@ -37,7 +37,7 @@ const [oneCourse,setOneCourse] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [liked, setLiked] = useState(false)
     const [oneComment, setOneComment] = useState([])
-console.log("comments",oneComment)
+
     const [likeCounter, setLikeCounter] = useState(0)
     const [likeUser, setLikeUser] = useState([])
     const { onDeleteClick, } = useCourseContext()
@@ -73,6 +73,9 @@ console.log("comments",oneComment)
                 values.comment,
                 values.user
             )
+
+                console.log('result: ',result);
+
             setOneComment(state => [...state, { comment: result.comment, user: result.user }]) //TODO ДА СЕ ДОБАВИ USERNAME, КАТО ВТОРИ ПАРАМЕТЪР
 
             await fetchData()
@@ -83,7 +86,7 @@ console.log("comments",oneComment)
 
         }
 
-    }
+    };
 
     useEffect(() => {
         fetchData()
