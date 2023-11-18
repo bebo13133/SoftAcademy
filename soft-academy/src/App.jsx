@@ -198,7 +198,7 @@ function App() {
                   </Suspense>
                 }
 
-                {!isProfilePage && <Footer />}
+                {/* {!isProfilePage && <Footer />} */}
 
 
                 <Routes>
