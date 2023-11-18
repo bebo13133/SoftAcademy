@@ -83,8 +83,13 @@ export const ForumStudents = () => {
                         ))}
                     </ul>
                     <button className="close-button2" onClick={openSidebar}>Open Sidebar</button>
+                    <Footer/>
                 </section>
-                <Footer />
+                <section>
+
+               
+                                
+                </section>
             </>)}
 
 
