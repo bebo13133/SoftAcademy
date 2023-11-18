@@ -34,9 +34,11 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   
-  .article-image {
+  .article-image-course {
     width: 100%;
-    max-height: 250px;
+    /* width: 550px; */
+    height: 250px;
+    max-height: 350px;
     object-fit: cover;
     border-radius: 8px;
   }

@@ -40,9 +40,7 @@ export const DetailsCourse = () => {
         <>
             <section id="details-page">
 
-                <OneCourse {...details}  
-                // onCommentSubmit={onCommentSubmit} 
-                />
+                <OneCourse {...details} />
                 <LectorPage {...details} />
                 {/* <AddComments onCommentSubmit={onCommentSubmit} /> */}
 

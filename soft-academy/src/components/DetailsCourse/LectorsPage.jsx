@@ -1,3 +1,7 @@
+import './lectorPage.css'
+
+
+
 export const LectorPage = ({
     lectorImage,
     description,

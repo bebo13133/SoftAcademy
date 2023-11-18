@@ -57,7 +57,7 @@ export const CommentsPopUp = ({
                 X
             </div>
             <div className="article-section">
-                <img className="article-image" src={imageUrl} alt={title} />
+                <img className="article-image-course" src={"/img/courseComments.webp"} alt={title} />
                 <h2 className="article-title">{title}</h2>
                 <h3><span style={{ color: "red" }}>{author}</span></h3>
 

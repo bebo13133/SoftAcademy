@@ -1,0 +1,42 @@
+.lector-card {
+    grid-column: col3-start ;
+ grid-row: row1-start / row2-end;
+ max-width: 260px;
+ border: 2px solid #333; 
+ /* padding: 20px;  */
+ margin: 20px;
+ background: linear-gradient(to right, #ebd28e, #f6cd93);
+ border-radius:15px ;
+ width: 250px;
+ height: 400px;
+
+}
+
+
+.lector-card p{
+ font-family: 'Times New Roman', serif;
+ color: #060606;
+ padding-left: 10px;
+ font-size: 16px;
+ background: linear-gradient(to right, #ebd28e, #f6cd93);
+ border-radius:15px ;
+ 
+}
+.lector-img{
+ width: 80px;
+ border-radius: 50%;
+ border: none;
+ max-width: 100%;
+ height: 80px;
+ object-fit: cover;
+ float: inline-end;
+ transition: transform 0.3s;
+}
+.lector-img:hover{
+ transform: scale(1.1);
+}
+.lector-card h2{
+ margin: 20px;
+ font-size: 26px;
+ 
+}
