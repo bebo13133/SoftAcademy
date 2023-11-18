@@ -40,7 +40,7 @@ margin-top: 10px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 
-    max-width: 476px;
+    /* max-width: 476px; */
     margin: 0 auto;
     position: relative;
 }

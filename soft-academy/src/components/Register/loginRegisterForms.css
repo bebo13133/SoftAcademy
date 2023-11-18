@@ -93,6 +93,8 @@ margin-top: 10px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     position: relative;
+    max-height: 1000px;
+
     top: 50px;
     width: 455px;
     height: 477px;
