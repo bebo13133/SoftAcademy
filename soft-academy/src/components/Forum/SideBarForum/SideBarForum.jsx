@@ -6,7 +6,7 @@ import { useForumContext } from '../../contexts/ForumContext';
 
 export const SideBarForum = ({articles, closeSidebar, isOpen }) => {
     // const [isOpen, setIsOpen] = useState(false);
-    console.log("articles", articles)
+
     const [posts, setPosts] = useState([])
 
     // const { forumPosts } = useForumContext()

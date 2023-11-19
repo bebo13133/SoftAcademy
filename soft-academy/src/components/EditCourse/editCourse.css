@@ -9,3 +9,17 @@
     padding: 5px 10px;
     border-radius: 30%;
   }
+  .btn-block-edit{
+    font-size: 26px;
+    margin-top: 10px;
+    text-align: center;
+    width: 150px;
+    padding: 10px;
+    border: solid;
+    border-radius: 15px;
+    background: #7fc7f4;
+    font-size: 16px;
+    color: #2f2d2d;
+    cursor: pointer;
+    margin-left: 280px;
+  }

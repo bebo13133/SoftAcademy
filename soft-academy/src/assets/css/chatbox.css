@@ -85,13 +85,13 @@
 
 /* chatAdmin.css */
 .chat-admin-container {
-  width: 100%;
-  height: 80%;
+  width: 50%;
+  height: 60%;
 
   display: flex;
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 20rem;
+  right: 30rem;
   /* width: 400px; */
   background: #fff;
   border: 1px solid #ccc;
@@ -100,7 +100,7 @@
 }
 
 .chat-admin-sidebar {
-  flex: 1;
+  flex: 3;
   padding: 10px;
 }
 
@@ -136,12 +136,16 @@
 
 .status-badge {
   border-radius: 50%;
-  width: 10px;
+  width: 15px;
   height: 15px;
   display: inline-block;
   margin-right: 5px;
 }
+.status-badge span{
+  margin-left: 5px;
 
+
+}
 .status-online {
   background: #28a745;
 }

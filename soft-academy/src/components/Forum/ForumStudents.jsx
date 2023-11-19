@@ -27,7 +27,9 @@ export const ForumStudents = () => {
                 setArticles(posts)
 
             })
-       
+            .catch(error => {
+                console.log(error.message || error)
+            })
         setLoading(false)
     }, []);
 

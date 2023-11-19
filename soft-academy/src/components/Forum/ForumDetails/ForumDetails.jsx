@@ -48,7 +48,7 @@ export const ForumDetails = () => {
             setComments(commentResult);
 
         } catch (error) {
-            throw new Error("Error fetching forum post");
+           console.log("Error fetching forum post", error);
         }
     };
 
@@ -128,6 +128,9 @@ export const ForumDetails = () => {
                 setLiked(forumLikes.some(like => like.userId === userId));
                 setLikeUser(forumLikes.find(like => like.userId === userId));
 
+            })
+            .catch(error => {
+                console.log(error.message || error)
             })
   
     }, [forumId, userId, likeCounter]); // при лайковете подавам и стейта иначе няма да вземе likeId 

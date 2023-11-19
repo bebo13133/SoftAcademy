@@ -19,7 +19,7 @@ export const ChangePassword = () => {
             <ProfileSidebar />
             <div className="change-password">
                 <h2>Change Password</h2>
-                <form onSubmit={onSubmit}>
+                <form method= "PATCH" onSubmit={onSubmit}>
                     <div>
                         <label htmlFor="oldPassword">Old Password</label>
                         <input
@@ -40,6 +40,7 @@ export const ChangePassword = () => {
                             onChange={onChangeHandler}
                         />
                     </div>
+
                     <div>
                         <label htmlFor="confirmPassword">Confirm Password</label>
                         <input

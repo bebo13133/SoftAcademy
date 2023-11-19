@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
-
+import { Link } from "react-router-dom";
 const ENDPOINT =
   window.location.host.indexOf("localhost") >= 0
     ? "http://127.0.0.1:4000"
     : window.location.host;
 
-export const AdminChatPage=()=>{
+export const AdminChatPage = () => {
   const [selectedUser, setSelectedUser] = useState({});
   const [socket, setSocket] = useState(null);
   const uiMessagesRef = useRef(null);
@@ -112,63 +112,84 @@ export const AdminChatPage=()=>{
     }
   }
   return (
+    <> 
+    <div className="admin-dashboard">
+    <section className="sidebar">
+        <div className="customers">
+            {/* Съдържание на секцията Customers */}
+            
+            <Link to="/customers-list"><h2>Customers</h2></Link>
+        </div>
+        <div className="admin-chat">
+            {/* Съдържание на секцията AdminChat */}
+            
+            <Link to="/admin-chat"><h2>Admin Chat</h2></Link>
+
+        </div>
+    </section>
+    {/* Други компоненти или секции могат да бъдат добавени тук */}
+
+    <section className="render-section">
+
+    </section>
+</div>
     <div className="chat-admin-container">
-    <div className="chat-admin-sidebar">
-      {users.filter((x) => x.name !== "Admin").length === 0 && (
-        <div className="alert">No User Found</div>
-      )}
-      <ul className="user-list">
-        {users
-          .filter((x) => x.name !== "Admin")
-          .map((user) => (
-            <li
-              key={user.name}
-              onClick={() => selectUser(user)}
-              className={`user-list-item ${
-                user.name === selectedUser.name ? "selected" : ""
-              }`}
-            >
-              <span className={`status-badge ${userStatusClass(user)}`}>
-                {userStatusText(user)}
-              </span>
-              {user.name}
-            </li>
-          ))}
-      </ul>
-    </div>
-    <div className="chat-admin-content">
-      <div className="chat-admin">
-        {!selectedUser.name ? (
-          <div className="alert">Select a user to start chat</div>
-        ) : (
-          <div>
-            <h2>Chat with {selectedUser.name}</h2>
-            <ul ref={uiMessagesRef} className="chat-messages">
-              {messages.length === 0 && <li>No message</li>}
-              {messages.map((msg, index) => (
-                <li key={index}>
-                  <strong>{`${msg.from}: `}</strong> {msg.body}
-                </li>
-              ))}
-            </ul>
-            <div className="admin-message-input">
-              <form onSubmit={submitHandler}>
-                <input
-                  value={messageBody}
-                  onChange={(e) => setMessageBody(e.target.value)}
-                  type="text"
-                  placeholder="Type a message"
-                  className="message-input"
-                />
-                <button type="submit" className="send-button">
-                  Send
-                </button>
-              </form>
-            </div>
-          </div>
+      <div className="chat-admin-sidebar">
+        {users.filter((x) => x.name !== "Admin").length === 0 && (
+          <div className="alert">No User Found</div>
         )}
+        <ul className="user-list">
+          {users
+            .filter((x) => x.name !== "Admin")
+            .map((user) => (
+              <li
+                key={user.name}
+                onClick={() => selectUser(user)}
+                className={`user-list-item ${user.name === selectedUser.name ? "selected" : ""
+                  }`}
+              >
+                <span className={`status-badge ${userStatusClass(user)}`}>
+                  {userStatusText(user)}
+                </span>
+                {user.name}
+              </li>
+            ))}
+        </ul>
+      </div>
+      <div className="chat-admin-content">
+        <div className="chat-admin">
+          {!selectedUser.name ? (
+            <div className="alert">Select a user to start chat</div>
+          ) : (
+            <div>
+              <h2>Chat with {selectedUser.name}</h2>
+              <ul ref={uiMessagesRef} className="chat-messages">
+                {messages.length === 0 && <li>No message</li>}
+                {messages.map((msg, index) => (
+                  <li key={index}>
+                    <strong>{`${msg.from}: `}</strong> {msg.body}
+                  </li>
+                ))}
+              </ul>
+              <div className="admin-message-input">
+                <form onSubmit={submitHandler}>
+                  <input
+                    value={messageBody}
+                    onChange={(e) => setMessageBody(e.target.value)}
+                    type="text"
+                    placeholder="Type a message"
+                    className="message-input"
+                  />
+                  <button type="submit" className="send-button">
+                    Send
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
-  </div>
+    </>
   );
 }

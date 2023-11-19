@@ -7,6 +7,7 @@ import { CourseContext, useCourseContext } from "../../contexts/CourseContext"
 
 import Footer from "../../Footer/Footer"
 import { CatalogOneCourse } from "./CatalogOneCourse"
+import { red } from "@mui/material/colors"
 
 export const LanguageCatalog=()=>{
 const [courses,setCourses] = useState([])
@@ -17,7 +18,7 @@ const [courses,setCourses] = useState([])
 
     useEffect(() => {
 
-     setCourses(languages)
+        languages && setCourses(languages)
 
     }, [languages])
  
@@ -38,15 +39,15 @@ const [courses,setCourses] = useState([])
                         <div className="row">
 
 
-                            {courses.length > 0 ? courses.map(course => <CatalogOneCourse key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
+                            {courses.length > 0 ?  courses.map(course => <CatalogOneCourse key={course._id} {...course} />) : <h3 className="no-articles" style={{color:red}}>No articles yet</h3>}
 
 
                         </div>
 
-
                     </div>
                 </div>
                 <ul>
+
                     <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                 </ul>
                 <Footer />

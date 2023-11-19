@@ -1,0 +1,69 @@
+.admin-dashboard {
+    display: flex;
+    /* Други стилове за общия контейнер */
+    height: 100%;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100vh;
+    background: #223b55;
+    /* Други стилове за сайдбара, ако са необходими */
+    border: 1px solid #333;
+  }
+  
+  .customers {
+    padding: 10px;
+    margin: 10px;
+    /* Цвят на рамката за първата секция (тъмна) */
+    /* background-color: #222; */
+    color: #fff; /* Цвят на текста за първата секция (тъмна) */
+  }
+  .customers h2{
+
+    /* Цвят на рамката за първата секция (тъмна) */
+    /* background-color: #222; */
+    color: #fff; /* Цвят на текста за първата секция (тъмна) */
+  }
+  
+  .admin-chat {
+    padding: 10px;
+    margin: 10px;
+    
+
+    color:  #fff; /* Цвят на текста за втората секция (светла) */
+  }
+  .admin-chat h2{
+ 
+    
+
+    color:  #fff;
+  }
+  .pagination-admin {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-admin  li {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #dd6007;;
+    border-radius: 3px;
+  }
+  
+  .pagination-admin li:hover {
+    background-color: #008e9d;
+  }
+  .customer-list{
+    /* display: flex; */
+    border-radius: 3px;
+    background: #bebebe;
+    border: 1px solid #dd6007;;
+
+
+  }

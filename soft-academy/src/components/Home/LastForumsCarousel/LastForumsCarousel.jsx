@@ -20,6 +20,9 @@ export const LastForumsCarousel = () => {
 
                 setForums(result)
             })
+            .catch(error => {
+                console.log(error.message || error)
+            })
 
     }, [])
    

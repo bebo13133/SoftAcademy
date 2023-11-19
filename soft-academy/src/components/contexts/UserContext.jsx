@@ -12,7 +12,8 @@ export const UserProvider = ({ children }) => {
 
     const [isAuth, setIsAuth] = useLocalStorage('auth', {})
     const [avatarUrl, setAvatarUrl] = useState(null);
-    const [errorMessage, setErrorMessage] = useState(''); //error messages
+    const [errorMessage, setErrorMessage] = useState(''); 
+    const[users,setUsers]=useState([])
 // console.log("errorMessage",errorMessage)
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
@@ -41,6 +42,9 @@ export const UserProvider = ({ children }) => {
             
                   return;
             } 
+            const users = await userService.getAll()
+            setUsers(users)
+            console.log("users",users)
             const newUser = await userService.login(data)
             setIsAuth(newUser)
             navigate("/")
@@ -113,14 +117,15 @@ export const UserProvider = ({ children }) => {
     };
 
     const onChangePassword = async (data)=>{
-
+            console.log("newpass",data)
         const {oldPassword, confirmPassword, ...registerData } = data
 
         try{
 
             const userId = isAuth._id
-            const newPass = await userService.changePassword(userId, registerData.newPassword)
-           
+            const newPass = await userService.changePassword(userId,data.oldPassword,  data.newPassword)
+       
+   
         }catch (err) {
             throw new Error(err.message)
         }
@@ -155,7 +160,8 @@ export const UserProvider = ({ children }) => {
         isAuthentication: !!isAuth.accessToken,
         onRegisterSubmit,
         onLogout,
-        onChangePassword
+        onChangePassword,
+        users
     }
 
     return (

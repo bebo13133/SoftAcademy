@@ -41,7 +41,7 @@ import { LanguageBar } from "./LanguageBar/LanguageBar"
 
             })
             .catch(err => {
-                throw new Error(err.message || err)
+                console.log(err.message || err)
 
             });
 

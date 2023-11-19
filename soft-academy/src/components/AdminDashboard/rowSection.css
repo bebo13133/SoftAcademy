@@ -1,0 +1,26 @@
+.row-section {
+ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Adjust as needed */
+    align-items: center; 
+    gap: 160px;
+    background-color: #f9f9f9; 
+    padding: 15px 10px;
+    margin: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+  }
+  
+  .row-section h2 {
+    color: #333; 
+  }
+  
+  .row-section p {
+    width: 320px;
+    margin: 8px 0;
+  }
+  
+  .row-section strong {
+    font-weight: bold;
+  }

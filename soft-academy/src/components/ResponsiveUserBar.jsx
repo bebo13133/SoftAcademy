@@ -19,7 +19,7 @@ const settings = ["Profile", "Settings", "Logout"];
 export const ResponsiveUserBar = () => {
   const navigate = useNavigate();
   const [anchorElUser, setAnchorElUser] = useState(false);
-  console.log("anchorElUser",anchorElUser)
+  // console.log("anchorElUser",anchorElUser)
   const [avatars, setAvatar] = useState([]);
   const [urlAvatar, setUrlAvatar] = useState([]);
 const [isLoading,setIsLoading] = useState(true);

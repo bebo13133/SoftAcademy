@@ -38,7 +38,7 @@ margin-top: 10px;
     align-items: center;
     border: 1px solid #ccc;
     padding: 20px;
-
+    height: 446px;
     border-radius: 8px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -56,7 +56,7 @@ margin-top: 10px;
   align-items: center;
   border: 1px solid #ccc;
   padding: 20px;
-
+  height: 446px;
   border-radius: 8px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -88,6 +88,12 @@ margin-top: 10px;
     flex-direction: row;
     justify-content: flex-end;
   }
+
+  .field span{
+    margin: 0em 0 0 0;
+
+  }
+
   .image-container {
   
     float: left;

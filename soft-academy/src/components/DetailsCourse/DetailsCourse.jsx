@@ -20,11 +20,7 @@ export const DetailsCourse = () => {
         courseService.getOne(courseId)
             .then(course => {
                course && setDetails(course)
-               return commentsService.getAllComments(courseId)
-
-            }).then(course => {
-
-                course && setComments(course)
+               
 
             })
             .catch(error => {

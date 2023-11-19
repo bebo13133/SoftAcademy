@@ -5,6 +5,8 @@ import ErrorBoundary from './components/ErrorBoundary'
 import { UserProvider } from './components/contexts/UserContext'
 import { useCookies } from 'react-cookie'
 import { Provider } from 'react-redux';
+
+
 import store from './store/store'
 // import { Contact } from './components/Contact/Contact'
 const Contact = lazy(() => import('./components/Contact/Contact'))
@@ -16,9 +18,6 @@ const Blog = lazy(() => import('./components/Blog/Blog'))
 
 // import { CatalogCourses } from './components/CatalogCourses/CatalogCourses'
 const CatalogCourses = lazy(() => import('./components/CatalogCourses/CatalogCourses'))
-
-
-
 import Footer from './components/Footer/Footer'
 import { Header } from './components/Header/Header'
 
@@ -39,7 +38,7 @@ import { IsOwnerCourse } from './components/common/isOwnerCourse'
 // import { ChatBox } from './components/ChatBox/ChatBox'
 
 const ChatBox = lazy(() => import('./components/ChatBox/ChatBox'))
-import { AdminChatPage, AdminPage } from './components/AdminPage/AdminChatPage'
+import { AdminChatPage } from './components/AdminPage/AdminChatPage'
 import { IsLoading } from './components/IsLoading/IsLoading'
 import { CookieConsent } from './components/CookieConsent/CookieConsent'
 import { PrivacyPolicy } from './components/CookieConsent/PrivacyPolicy'
@@ -57,6 +56,8 @@ import { EditForumPost } from './components/Forum/ForumDetails/EditForumPost/Edi
 import { TermsAndConditions } from './components/Footer/TermsAndConditions/TermsAndConditions'
 import { LanguageCatalog } from './components/Home/LanguageBar/LanguageCatalog'
 import { IsAdmin } from './components/common/IsAdmin'
+import { AdminDashboard } from './components/AdminDashboard/AdminDashboard'
+import { CustomerList } from './components/AdminDashboard/CustomerList'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -189,6 +190,13 @@ function App() {
 
                   <Route path={"/404/*"} element={<PageNotFound />} />
                   <Route path={"*"} element={<PageNotFound />} />
+                  <Route path={"/admin"} element={
+                    <IsAdmin>
+                        <AdminDashboard/>
+                   </IsAdmin>
+                  } />
+                <Route path={"/admin-chat"} element={<AdminChatPage />} />
+                <Route path={"/customers-list"} element={<CustomerList />} />
 
                 </Routes>
 
@@ -201,13 +209,7 @@ function App() {
                 {/* {!isProfilePage && <Footer />} */}
 
 
-                <Routes>
-                  <Route path={"/admin"} element={
-                    <IsAdmin>
-                  <AdminChatPage />
-                  </IsAdmin>
-                  } />
-                </Routes>
+             
               </ErrorBoundary>
             </ForumProvider>
           </CourseProvider>

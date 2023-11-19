@@ -8,6 +8,10 @@ export const userServiceFactory = (token)=>{
     const requester = requestFactory(token)
 
     return {
+
+        getAll:()=>{
+          return requester.get(`${baseUrl2}/users`)
+        },
         login:(data)=>{
           // requester.post(`${baseUrl}/login`,data)
       return  requester.post(`${baseUrl2}/login`,data)
@@ -21,9 +25,12 @@ export const userServiceFactory = (token)=>{
         return  requester.post(`${baseUrl2}/logout`)
 
         },
-        changePassword: (userId,updatedPassword) =>
-      requester.post(`${baseUrl2}/update`,{updatedPassword}),
-        
+        changePassword: (userId, oldPassword, newPassword) =>{
+      return requester.patch(`${baseUrl2}/updatePassword/${userId}/update`,{oldPassword, password: newPassword})
+    },
+     getMe: (newPassword)=>{
+      return requester.patch(`${baseUrl2}/me/password`,{newPassword})
+     }   
     }
   
 

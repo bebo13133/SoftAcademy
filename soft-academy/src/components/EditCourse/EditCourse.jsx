@@ -188,7 +188,7 @@ const lectorImageHandler = (e) => {
                         <i className="fas fa-calendar-alt"></i>
                     </div>
 
-                    <div className="btn-block">
+                    <div className="btn-block-edit">
                         <button type="submit" value="send">Edit</button>
                     </div>
                 </form>

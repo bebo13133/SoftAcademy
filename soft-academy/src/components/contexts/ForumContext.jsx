@@ -93,7 +93,7 @@ export const ForumProvider = ({ children }) => {
     }
 
     const onEditSubmitPost = async (forumData) => {
-        if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
+        if (!forumData.title || !forumData.description || !forumData.author ) {
 
 
             dispatch(setError("Some fields is empty"));
