@@ -58,6 +58,7 @@ import { LanguageCatalog } from './components/Home/LanguageBar/LanguageCatalog'
 import { IsAdmin } from './components/common/IsAdmin'
 import { AdminDashboard } from './components/AdminDashboard/AdminDashboard'
 import { CustomerList } from './components/AdminDashboard/CustomerList'
+import { AllCourses } from './components/AdminDashboard/AllCourses'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -206,9 +207,9 @@ function App() {
                     </IsAdmin>
                   } />
                    <Route path={"/admin/all-courses"} element={
-                    <IsAdmin>
-                      <CustomerList />
-                    </IsAdmin>
+                    // <IsAdmin>
+                      <AllCourses />
+                    // </IsAdmin>
                   } />
 
                 </Routes>

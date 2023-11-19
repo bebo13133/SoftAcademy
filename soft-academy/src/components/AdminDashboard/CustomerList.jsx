@@ -26,10 +26,12 @@ export const CustomerList = () => {
     useEffect(() => {
         userService.getAll()
             .then(result => {
-                console.log(result)
+           
                 setUsers(result)
             })
-
+            .catch(error => {
+                console.log(error.message || error)
+            })
     }, [])
 
 

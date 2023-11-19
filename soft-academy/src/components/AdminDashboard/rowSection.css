@@ -24,3 +24,15 @@
   .row-section strong {
     font-weight: bold;
   }
+  .row-section-course{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Adjust as needed */
+    align-items: center; 
+    gap: 160px;
+    background-color: #f9f9f9; 
+    padding: 15px 10px;
+    margin: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+  }
