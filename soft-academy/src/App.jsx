@@ -192,11 +192,19 @@ function App() {
                   <Route path={"*"} element={<PageNotFound />} />
                   <Route path={"/admin"} element={
                     <IsAdmin>
-                        <AdminDashboard/>
-                   </IsAdmin>
+                      <AdminDashboard />
+                    </IsAdmin>
+                  } ></Route>
+                  <Route path={"/admin-chat"} element={
+                    <IsAdmin>
+                      <AdminChatPage />
+                    </IsAdmin>
                   } />
-                <Route path={"/admin-chat"} element={<AdminChatPage />} />
-                <Route path={"/customers-list"} element={<CustomerList />} />
+                  <Route path={"/customers-list"} element={
+                    <IsAdmin>
+                      <CustomerList />
+                    </IsAdmin>
+                  } />
 
                 </Routes>
 
@@ -209,7 +217,7 @@ function App() {
                 {/* {!isProfilePage && <Footer />} */}
 
 
-             
+
               </ErrorBoundary>
             </ForumProvider>
           </CourseProvider>

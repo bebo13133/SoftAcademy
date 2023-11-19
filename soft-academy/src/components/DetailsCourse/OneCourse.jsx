@@ -74,7 +74,7 @@ const [oneCourse,setOneCourse] = useState([])
                 values.user
             )
 
-                console.log('result: ',result);
+              
 
             setOneComment(state => [...state, { comment: result.comment, user: result.user }]) //TODO ДА СЕ ДОБАВИ USERNAME, КАТО ВТОРИ ПАРАМЕТЪР
 

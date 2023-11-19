@@ -66,7 +66,7 @@ export const OneCourse = ({
 
 
                 const bookMarkCourse = (response.filter(like => like.courseId === courseId));
-                console.log("bookMarkCourse", bookMarkCourse)
+            
 
                 setBookmarked(bookMarkCourse.some(like => like.userId === userId));
                 setBookmarkUser(bookMarkCourse.find(like => like._ownerId === userId));

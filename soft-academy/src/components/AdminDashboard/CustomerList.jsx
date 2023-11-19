@@ -46,6 +46,8 @@ export const CustomerList = () => {
 
                 <section className="render-section">
                     <div className="customer-list">
+                                 <h2>User information</h2>   
+
                         {currentResults && currentResults.map(user => <RowSection key={user._id} {...user} />)}
                     </div>
                     <ul className="pagination-admin">

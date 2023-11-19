@@ -33,7 +33,9 @@ export const CourseProvider = ({ children }) => {
             .then(result => {
                 setCourse(result)
             })
-
+            .catch(error => {
+                console.log(error.message || error)
+            })
     }, [])
 
     const onCreateCourseSubmit = async (courseData) => {
@@ -95,7 +97,7 @@ export const CourseProvider = ({ children }) => {
 
         } catch (err) {
 
-            throw new Error(err.message || err)
+            console.log(err.message || err)
         }
 
     }
@@ -118,7 +120,7 @@ export const CourseProvider = ({ children }) => {
 
             navigate("/catalog")
         } catch (err) {
-            throw new Error(err.message || err)
+           console.log(err.message || err)
         }
 
 
@@ -179,7 +181,7 @@ export const CourseProvider = ({ children }) => {
             setCourse(courses => courses.map(x => x._id === data._id ? result : x))
             navigate(`/catalog/${data._id}`)
         } catch (err) {
-
+            console.log(err.message || err);
         }
     }
 
@@ -218,7 +220,7 @@ export const CourseProvider = ({ children }) => {
                 navigate("/search-page");
             }
         } catch (err) {
-            throw new Error(err.message || err);
+            console.log(err.message || err);
         }
     };
     // console.log(searchResult)

@@ -37,8 +37,6 @@
   }
   .admin-chat h2{
  
-    
-
     color:  #fff;
   }
   .pagination-admin {
@@ -66,4 +64,11 @@
     border: 1px solid #dd6007;;
 
 
+  }
+  .customer-list h2{
+    text-align: center;
+    font-size: 24px;
+    padding: 15px;
+    color: #dd6007;
+    text-shadow:0 4px 8px rgb(105 152 253 / 36%); 
   }

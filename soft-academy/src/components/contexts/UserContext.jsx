@@ -44,7 +44,7 @@ export const UserProvider = ({ children }) => {
             } 
             const users = await userService.getAll()
             setUsers(users)
-            console.log("users",users)
+         
             const newUser = await userService.login(data)
             setIsAuth(newUser)
             navigate("/")
@@ -117,7 +117,7 @@ export const UserProvider = ({ children }) => {
     };
 
     const onChangePassword = async (data)=>{
-            console.log("newpass",data)
+     
         const {oldPassword, confirmPassword, ...registerData } = data
 
         try{
@@ -168,7 +168,6 @@ export const UserProvider = ({ children }) => {
 
         <UserContext.Provider value={contextService}>
 
-       
             {children}
 
             {errorMessage && (

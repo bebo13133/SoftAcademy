@@ -34,7 +34,7 @@ export const CommentsPopUp = ({
 
     // Да се виждат само първите 6 коментара 
     const initialComments = showAll ? oneComment : oneComment.slice(0, 6);
-
+console.log(initialComments)
     const toggleShowAll = () => {
         setShowAll(!showAll);
     };
