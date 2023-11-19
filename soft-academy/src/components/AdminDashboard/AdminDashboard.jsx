@@ -1,29 +1,35 @@
+import { AdminChatPage } from '../AdminPage/AdminChatPage'
+import { AdminSidebar } from './AdminSideBar'
+import { AllCourses } from './AllCourses'
+import { CustomerList } from './CustomerList'
 import './adminDashboard.css'
-import { Link } from 'react-router-dom'
+import { Link, useRoutes } from 'react-router-dom'
 
 
 export const AdminDashboard = () => {
+
+
+    const routes = useRoutes([
+        { path: 'customers-list', element: <CustomerList /> },
+        { path: 'admin-chat', element: <AdminChatPage /> },
+        { path: 'all-courses', element: <AllCourses /> },
+
+
+
+    ])
+
     return (
         <>
             <div className="admin-dashboard">
                 <section className="sidebar">
-                    <div className="customers">
-                 
-                        
-                        <Link to="/customers-list"><h2>Customers</h2></Link>
-                    </div>
-                    <div className="admin-chat">
-                     
-                        
-                        <Link to="/admin-chat"><h2>Admin Chat</h2></Link>
-
-                    </div>
+                <AdminSidebar/>
                 </section>
-             
+
 
                 <section className="render-section">
-
+                    {routes}
                 </section>
+
             </div>
         </>
 

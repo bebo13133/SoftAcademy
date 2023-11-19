@@ -195,12 +195,17 @@ function App() {
                       <AdminDashboard />
                     </IsAdmin>
                   } ></Route>
-                  <Route path={"/admin-chat"} element={
+                  <Route path={"admin/admin-chat"} element={
                     <IsAdmin>
                       <AdminChatPage />
                     </IsAdmin>
                   } />
-                  <Route path={"/customers-list"} element={
+                  <Route path={"/admin/customers-list"} element={
+                    <IsAdmin>
+                      <CustomerList />
+                    </IsAdmin>
+                  } />
+                   <Route path={"/admin/all-courses"} element={
                     <IsAdmin>
                       <CustomerList />
                     </IsAdmin>

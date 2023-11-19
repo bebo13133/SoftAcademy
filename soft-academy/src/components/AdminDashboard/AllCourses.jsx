@@ -1,21 +1,17 @@
 import { useEffect, useState } from 'react';
-
-import { userServiceFactory } from "../Services/userService"
 import { useAuthContext } from '../contexts/UserContext';
-import { RowSection } from './RowSection';
-import { Link } from 'react-router-dom';
 import './adminDashboard.css'
 import { AdminSidebar } from './AdminSideBar';
 
 
 
-export const CustomerList = () => {
+export const AllCourses = () => {
+
+
     const [usersInfo, setUsers] = useState([])
-    const { token } = useAuthContext()
-    // const { users } = useAuthContext()
     const [currentPage, setCurrentPage] = useState(1);
-    const userService = userServiceFactory(token)
     const resultsPerPage = 5;
+
 
     const indexOfLastResult = currentPage * resultsPerPage;   //първа страница почва от едно по номера на резултатите които искаме да се показват 
     const indexOfFirstResult = indexOfLastResult - resultsPerPage;
@@ -23,22 +19,12 @@ export const CustomerList = () => {
 
     const totalPages = Math.ceil(usersInfo.length / resultsPerPage);
 
-    useEffect(() => {
-        userService.getAll()
-            .then(result => {
-                console.log(result)
-                setUsers(result)
-            })
-
-    }, [])
-
-
     return (
         <>
             <div className="admin-dashboard">
 
                 <section className="sidebar">
-                   <AdminSidebar/>
+                    <AdminSidebar />
                 </section>
 
 
@@ -46,7 +32,7 @@ export const CustomerList = () => {
                     <div className="customer-list">
                         <h2>User information</h2>
 
-                        {currentResults && currentResults.map(user => <RowSection key={user._id} {...user} />)}
+                        {currentResults && currentResults.map(user => <RowSectionCourse key={user._id} {...user} />)}
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (
@@ -59,8 +45,9 @@ export const CustomerList = () => {
 
             </div>
 
-        </>
-    )
 
+        </>
+
+    )
 
 }
