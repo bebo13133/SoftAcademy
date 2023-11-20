@@ -4,6 +4,7 @@ import './adminDashboard.css'
 import { AdminSidebar } from './AdminSideBar';
 import { courseServiceFactory } from "../Services/courseService";
 import { RowSectionCourse } from './RowSectionCourse';
+import { useCourseContext } from '../contexts/CourseContext';
 
 
 export const AllCourses = () => {
@@ -12,6 +13,7 @@ export const AllCourses = () => {
     const [courseInfo, setCourseInfo] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const courseService = courseServiceFactory(token)
+    const {onDeleteClickAdmin} =useCourseContext()
 
     const resultsPerPage = 5;
 
@@ -33,7 +35,11 @@ export const AllCourses = () => {
             })
     }, [])
         
- 
+ const handleDelete=async(courseId)=>{
+    await onDeleteClickAdmin(courseId)
+    const courses = await courseService.getAll()
+    setCourseInfo(courses)
+ }
 
 
     return (
@@ -49,7 +55,7 @@ export const AllCourses = () => {
                     <div className="customer-list">
                         <h2>All courses</h2>
 
-                        {currentResults && currentResults.map(user => <RowSectionCourse key={user._id} {...user} />)}
+                        {currentResults && currentResults.map(user => <RowSectionCourse key={user._id} onDeleteClick={()=>handleDelete(user._id)} {...user}  />)}
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (

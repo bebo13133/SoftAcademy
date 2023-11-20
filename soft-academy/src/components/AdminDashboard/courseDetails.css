@@ -11,7 +11,9 @@
     flex-direction: column;
     width: 506px;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 8px auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
   }
 
 
@@ -53,16 +55,20 @@
   }
   
   .image-container-custom img {
+    margin-left: 10px;
+    width: 40px;
     max-width: 100%;
-    height: auto;
+    height: 40px;
   }
   
   /* Стилове за бутоните */
   .btn-block-edit-custom {
+    
     text-align: center;
     margin-top: 10px;
   }
   .render-section p {
+    width: 200px;
     margin: 0px;
     color: #767f86;
     font-size: 14px;
@@ -73,7 +79,6 @@
     padding: 10px 20px;
     background-color: #4caf50;
     color: white;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
   }

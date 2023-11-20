@@ -91,7 +91,7 @@ const lectorImageHandler = (e) => {
     //         navigate(`/catalog/${courseId}`)
     //     }
     // }
-    const onCloseComments = () => {
+    const onCloseForm = () => {
         navigate(`/catalog/${courseId}`)
 
     }
@@ -104,7 +104,7 @@ const lectorImageHandler = (e) => {
                     <div className="banner">
 
                     </div>
-                    <div className="close-button-forum" onClick={onCloseComments}>
+                    <div className="close-button-forum" onClick={onCloseForm}>
                     X
                 </div>
                     <h2>Course Details</h2>

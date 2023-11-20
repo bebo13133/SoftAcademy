@@ -29,10 +29,51 @@
     flex-direction: row;
     justify-content: space-between; /* Adjust as needed */
     align-items: center; 
-    gap: 160px;
+    gap: 35px;
     background-color: #f9f9f9; 
     padding: 15px 10px;
     margin: 10px;
     border: 1px solid #ccc; 
     border-radius: 5px; 
   }
+  .btn-primary-course{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: rgb(4, 134, 165);
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    color: white;
+    cursor: pointer;
+ 
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+  }
+  .btn-primary-course:hover{
+    color: chocolate;
+    background-color: rgb(253 243 11);
+  }
+  .btn-delete-course{
+    display: inline-block;
+    padding: 6px 12px;
+    color: white;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: rgb(253, 11, 11);
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+  
+    cursor: pointer;
+ 
+    border: 1px solid transparent;
+    border-radius: 10px;
+  }
+  /* .btn-delete-course:hover{
+    background-color: rgb(4, 134, 165);
+  } */

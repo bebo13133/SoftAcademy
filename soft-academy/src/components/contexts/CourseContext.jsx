@@ -125,6 +125,24 @@ export const CourseProvider = ({ children }) => {
 
 
     }
+    const onDeleteClickAdmin = async (id) => {
+
+        try {
+            const result = await courseService.delete(id)
+
+
+            setCourse(state => state.filter(x => x._id !== id))
+
+            navigate("/admin/all-courses")
+        } catch (err) {
+           console.log(err.message || err)
+        }
+
+
+    }
+
+
+
     const onEditSubmit = async (data) => {
            if (!data.courseName ||
             !data.firstName ||
@@ -184,6 +202,66 @@ export const CourseProvider = ({ children }) => {
             console.log(err.message || err);
         }
     }
+    
+    const onEditSubmitAdmin = async (data) => {
+        if (!data.courseName ||
+         !data.firstName ||
+         !data.lastName ||
+         !data.email ||
+         !data.ownerCourse ||
+         !data.price ||
+         !data.description ||
+         !data.lectorDescription) {
+   
+
+     dispatch(setError("Some fields is empty"));
+     setTimeout(() => {
+         dispatch(setError(''));
+     }, 4000);
+     return
+      
+     }
+
+     if (data.courseName.length < 2 || data.firstName.length < 4
+         || data.lastName.length < 4 || data.email.length < 9) {
+  
+
+             dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
+             setTimeout(() => {
+                 dispatch(setError(''));
+             }, 4000);
+             return
+     }
+
+     if (data.lectorDescription.length < 5 || data.description.length < 20) {
+
+
+         dispatch(setError("Minimum field description length is 20 and minimum 5 for lectorDescription"));
+         setTimeout(() => {
+             dispatch(setError(''));
+         }, 4000);
+         return
+     }
+
+     if (data.price === isNaN) {
+
+         dispatch(setError("The Price must be number"));
+         setTimeout(() => {
+             dispatch(setError(''));
+         }, 4000);
+         return
+
+     }
+
+
+     try {
+         const result = await courseService.update(data._id, data)
+         setCourse(courses => courses.map(x => x._id === data._id ? result : x))
+         navigate(`/admin/all-courses`)
+     } catch (err) {
+         console.log(err.message || err);
+     }
+ }
 
 
     const onSearchSubmit = async (data) => {
@@ -252,7 +330,9 @@ export const CourseProvider = ({ children }) => {
         onDeleteClick,
         onEditSubmit,
         onSubmitLanguageBar,
-        languages
+        languages,
+        onEditSubmitAdmin,
+        onDeleteClickAdmin
     }
 
     return (
