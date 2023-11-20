@@ -77,3 +77,21 @@
   /* .btn-delete-course:hover{
     background-color: rgb(4, 134, 165);
   } */
+  .btn-primary-customer{
+    display: inline-block;
+    padding: 6px 12px;
+    color: rgb(207, 126, 5);
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: rgb(223, 223, 223);
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+  
+    cursor: pointer;
+ 
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+  }
