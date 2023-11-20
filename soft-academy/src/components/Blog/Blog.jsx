@@ -11,10 +11,10 @@ const Blog = () => {
     const [currentPage, setCurrentPage] = useState(1);//начални 
     const [newsPerPage] = useState(3);
     const [isLoading, setIsLoading] = useState(true)
-
+    const [footer,setFooter] = useState(false) // искам футъра да се зарежда след заявката от апито
     useEffect(() => {
         newsApi()
-
+       
         setIsLoading(false)
 
 
@@ -47,7 +47,7 @@ const Blog = () => {
             setNews(data.articles);
             // console.log(data)
             // console.log(news)
-
+  setFooter(true)
         } catch (error) {
           console.log(error.message)
         }
@@ -112,12 +112,11 @@ const Blog = () => {
                 </div>
 
             </section>
-            <ul>
+         {footer &&  <ul>
                 <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
-            </ul>
+            </ul>}
 
-            <Footer />
-
+            {footer && <Footer />}
         </>
     )
 }

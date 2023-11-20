@@ -5,6 +5,7 @@ import { useAuthContext } from '../contexts/UserContext';
 import { RowSection } from './RowSection';
 import { Link } from 'react-router-dom';
 import './adminDashboard.css'
+import "../AdminDashboard/SearchBarAdmin/searchBarAdmin.css"
 import { AdminSidebar } from './AdminSideBar';
 
 
@@ -26,7 +27,7 @@ export const CustomerList = () => {
     useEffect(() => {
         userService.getAll()
             .then(result => {
-           
+
                 setUsers(result)
             })
             .catch(error => {
@@ -40,14 +41,34 @@ export const CustomerList = () => {
             <div className="admin-dashboard">
 
                 <section className="sidebar">
-                   <AdminSidebar/>
+                    <AdminSidebar />
                 </section>
 
 
                 <section className="render-section">
                     <div className="customer-list">
                         <h2>User information</h2>
+                        <div className="search-bar">
+                            <input
+                                type="text"
+                                placeholder="Search..."
+                                value="{searchTerm}"
+                                onChange="{(e) => setSearchTerm(e.target.value)}"
+                            />
 
+                            <select
+                                value="{searchCriteria}"
+                                onChange="{(e) => setSearchCriteria(e.target.value)}"
+                            >
+                                <option value="name">Name</option>
+                                <option value="id">ID</option>
+                                <option value="email">Email</option>
+                                {/* Add more options based on your user object structure */}
+                            </select>
+                            <button onClick="{() => setCurrentResults(filterUsers(searchTerm, searchCriteria))}">
+                                Search
+                            </button>
+                        </div>
                         {currentResults && currentResults.map(user => <RowSection key={user._id} {...user} />)}
                     </div>
                     <ul className="pagination-admin">

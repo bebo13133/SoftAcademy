@@ -5,11 +5,12 @@
     justify-content: space-between; /* Adjust as needed */
     align-items: center; 
     gap: 160px;
-    background-color: #f9f9f9; 
+    background: url(/img/createForm.jpg);
     padding: 15px 10px;
     margin: 10px;
     border: 1px solid #ccc; 
     border-radius: 5px; 
+
   }
   
   .row-section h2 {
@@ -83,11 +84,11 @@
   .btn-primary-customer{
     display: inline-block;
     padding: 6px 12px;
-    color: rgb(207, 126, 5);
+    color: white;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 400;
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(4, 134, 165);
     line-height: 1.42857143;
     text-align: center;
     white-space: nowrap;

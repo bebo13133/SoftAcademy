@@ -74,14 +74,14 @@ function App() {
 
   const location = useLocation(); // Get the current location
 
-  const isProfilePage = location.pathname.startsWith('/profile') || location.pathname.startsWith("/change-password")
-    || location.pathname.startsWith("/my-added-courses") || location.pathname.startsWith("/favorite-courses") || location.pathname.startsWith("/change-avatar")
-    || location.pathname.startsWith("/404")
-    || location.pathname.startsWith("/terms")
-    || location.pathname.startsWith("/admin")
-    || location.pathname.startsWith("/forum")
-    || location.pathname.startsWith("/blog")
-    || location.pathname.startsWith("/")
+  // const isProfilePage = location.pathname.startsWith('/profile') || location.pathname.startsWith("/change-password")
+  //   || location.pathname.startsWith("/my-added-courses") || location.pathname.startsWith("/favorite-courses") || location.pathname.startsWith("/change-avatar")
+  //   || location.pathname.startsWith("/404")
+  //   || location.pathname.startsWith("/terms")
+  //   || location.pathname.startsWith("/admin")
+  //   || location.pathname.startsWith("/forum")
+  //   || location.pathname.startsWith("/blog")
+  //   || location.pathname.startsWith("/")
 
 
 
@@ -105,12 +105,11 @@ function App() {
 
                   <Route path={"/"} element={
                     <Suspense fullback={<IsLoading />}>
-
-                      <Home />  </Suspense>
-                  } />
+                      <Home /> 
+                       </Suspense>
+                    } />
                   <Route path={"/privacy-policy"} element={<PrivacyPolicy />} />
                   <Route path={"/terms"} element={<TermsAndConditions />} />
-
 
                   <Route path={"/catalog"} element={
                     <Suspense fullback={<IsLoading />}>
@@ -118,13 +117,11 @@ function App() {
                     </Suspense>
                   } />
 
-
                   <Route path={"/blog"} element={
                     <Suspense fullback={<IsLoading />}>
                       <Blog />
                     </Suspense>
                   } />
-
 
                   <Route path={"/contact"} element={
                     <Suspense fullback={<IsLoading />}>
@@ -132,7 +129,6 @@ function App() {
                     </Suspense>
                   } />
                   <Route path={"/search-page"} element={<SearchPage />} />
-
 
                   {/* loginRegisterGuard */}
 
@@ -159,13 +155,11 @@ function App() {
                     <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
                     <Route path={"/language-catalog"} element={<LanguageCatalog />} />
 
-
                     <Route path={"/catalog/:courseId/edit"} element={
                       <IsOwnerCourse>
                         <EditCourse />
                       </IsOwnerCourse>
                     } />
-
 
                     <Route path={"/forum"} element={<ForumStudents />} />
                     <Route path={"/forum/:forumId"} element={<ForumDetails />} />
@@ -186,35 +180,35 @@ function App() {
                     <Route path="/change-avatar" element={<AvatarHeader />} />
 
                     <Route path={"/admin/*"} element={
-                    <IsAdmin>
-                      <AdminDashboard />
-                    </IsAdmin>
-                  } ></Route>
-                  <Route path={"admin/admin-chat"} element={
-                    <IsAdmin>
-                      <AdminChatPage />
-                    </IsAdmin>
-                  } />
-                  <Route path={"/admin/customers-list"} element={
-                    <IsAdmin>
-                      <CustomerList />
-                    </IsAdmin>
-                  } />
-                  <Route path={"/admin/all-courses"} element={
-                    <IsAdmin>
-                      <AllCourses />
-                    </IsAdmin>
-                  } />
-                  <Route path={"/admin/all-courses/:courseId"} element={
-                    <IsAdmin>
-                      <CourseDetails />
-                    </IsAdmin>
-                  } />
-                  <Route path={"/admin/send-email/:userId"} element={
-                    <IsAdmin>
-                      <EmailAdmin />
-                    </IsAdmin>
-                  } />
+                      <IsAdmin>
+                        <AdminDashboard />
+                      </IsAdmin>
+                    } ></Route>
+                    <Route path={"admin/admin-chat"} element={
+                      <IsAdmin>
+                        <AdminChatPage />
+                      </IsAdmin>
+                    } />
+                    <Route path={"/admin/customers-list"} element={
+                      <IsAdmin>
+                        <CustomerList />
+                      </IsAdmin>
+                    } />
+                    <Route path={"/admin/all-courses"} element={
+                      <IsAdmin>
+                        <AllCourses />
+                      </IsAdmin>
+                    } />
+                    <Route path={"/admin/all-courses/:courseId"} element={
+                      <IsAdmin>
+                        <CourseDetails />
+                      </IsAdmin>
+                    } />
+                    <Route path={"/admin/send-email/:userId"} element={
+                      <IsAdmin>
+                        <EmailAdmin />
+                      </IsAdmin>
+                    } />
 
                   </Route>
                   {/* End RouteGuard */}
