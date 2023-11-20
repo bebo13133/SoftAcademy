@@ -43,7 +43,10 @@ const IsAdmin = userEmail === "peter@abv.bg"
 
 
 								</>)}
-								{isAuthentication && <li><strong>Welcome:</strong>   <span style={{color:"#0486a5",margin: "2em 14px 0px 10px"}}>{userEmail}</span></li>}
+								{isAuthentication && 
+								<li>
+									{/* <strong>Welcome:</strong>   */}
+								 <span style={{color:"#0486a5",margin: "2em 14px 0px 10px"}}>{userEmail}</span></li>}
 								<li>
 								{isAuthentication && <>
 													

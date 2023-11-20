@@ -1,0 +1,68 @@
+/* Form container styling */
+.admin-dashboard-email{
+    display: flex;
+    height: 100%;
+    align-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 350px;
+  
+}
+
+
+.form-container {
+    display: flex;
+    border: 1px solid #1579dd;
+    width: 500px;
+    max-width: 800px;
+    border-radius: 15px;
+    flex-direction: column;
+    background: url(./img/forum4.jpg);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form styling */
+.custom-form {
+    width: 480px;
+    max-width: 500px;
+    margin: 15px;
+}
+
+/* Input and textarea styling */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.btn-light {
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    background-color: #00d3b4; 
+    color: #e59044; 
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-group textarea{
+height: 300px;
+}
+
+/* Button hover effect */
+.btn-light:hover {
+    background-color: #e2e6ea; 
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .custom-form {
+        width: 90%;
+    }
+}

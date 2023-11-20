@@ -30,11 +30,14 @@
     justify-content: space-between; /* Adjust as needed */
     align-items: center; 
     gap: 35px;
-    background-color: #f9f9f9; 
+    background: url(/img/createForm.jpg);
     padding: 15px 10px;
     margin: 10px;
     border: 1px solid #ccc; 
     border-radius: 5px; 
+  }
+  .row-section-course p {
+    color: black;
   }
   .btn-primary-course{
     display: inline-block;
@@ -92,6 +95,10 @@
     cursor: pointer;
  
     border: 1px solid transparent;
-    border-radius: 10px;
+    border-radius: 15px;
+
+  }
+  .btn-primary-customer:hover{
+    background-color: rgb(8 207 172);
 
   }

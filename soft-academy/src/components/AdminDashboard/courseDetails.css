@@ -11,9 +11,13 @@
     flex-direction: column;
     width: 506px;
     max-width: 600px;
+    background: url(/img/createForm.jpg);
     margin: 8px auto;
     border: 1px solid #ccc;
     border-radius: 10px;
+  }
+  .form-admin-course input{
+color:#0a2167
   }
 
 
@@ -33,7 +37,7 @@
     text-align: center;
     margin-bottom: 10px;
     margin: 0;
-    color: #343a3f;
+    color: #d16403;
     font-size: 18px;
     font-weight: 500;
     text-transform: capitalize;
@@ -70,7 +74,7 @@
   .render-section p {
     width: 200px;
     margin: 0px;
-    color: #767f86;
+    color: #1e2124;
     font-size: 14px;
     line-height: -0.2;
     text-transform: initial;

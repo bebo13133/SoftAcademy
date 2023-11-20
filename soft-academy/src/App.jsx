@@ -60,6 +60,7 @@ import { AdminDashboard } from './components/AdminDashboard/AdminDashboard'
 import { CustomerList } from './components/AdminDashboard/CustomerList'
 import { AllCourses } from './components/AdminDashboard/AllCourses'
 import { CourseDetails } from './components/AdminDashboard/CourseDetails'
+import EmailAdmin from './components/AdminDashboard/EmailAdmin'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -175,8 +176,6 @@ function App() {
                       </IsOwnerCourse>
                     } />
 
-
-
                     <Route path={"/add-new-post"} element={<AddForumPost />} />
 
                     <Route path={"/profile"} element={<ProfilePage />} />
@@ -186,13 +185,7 @@ function App() {
                     <Route path="/favorite-courses" element={<FavoriteCourses />} />
                     <Route path="/change-avatar" element={<AvatarHeader />} />
 
-
-                  </Route>
-                  {/* End RouteGuard */}
-
-                  <Route path={"/404/*"} element={<PageNotFound />} />
-                  <Route path={"*"} element={<PageNotFound />} />
-                  <Route path={"/admin"} element={
+                    <Route path={"/admin/*"} element={
                     <IsAdmin>
                       <AdminDashboard />
                     </IsAdmin>
@@ -207,17 +200,29 @@ function App() {
                       <CustomerList />
                     </IsAdmin>
                   } />
-                   <Route path={"/admin/all-courses"} element={
+                  <Route path={"/admin/all-courses"} element={
                     <IsAdmin>
                       <AllCourses />
-                     </IsAdmin>
+                    </IsAdmin>
                   } />
-                    <Route path={"/admin/all-courses/:courseId"} element={
+                  <Route path={"/admin/all-courses/:courseId"} element={
                     <IsAdmin>
                       <CourseDetails />
                     </IsAdmin>
                   } />
+                  <Route path={"/admin/send-email/:userId"} element={
+                    <IsAdmin>
+                      <EmailAdmin />
+                    </IsAdmin>
+                  } />
 
+                  </Route>
+                  {/* End RouteGuard */}
+
+
+
+                  <Route path={"/404/*"} element={<PageNotFound />} />
+                  <Route path={"*"} element={<PageNotFound />} />
                 </Routes>
 
                 {!isAdminPage &&
