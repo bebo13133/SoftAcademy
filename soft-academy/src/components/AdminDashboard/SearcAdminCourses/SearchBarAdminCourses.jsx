@@ -1,20 +1,20 @@
 import { useForm } from "../../Hooks/useForm"
 import { useCourseContext } from "../../contexts/CourseContext"
-import { useAuthContext } from "../../contexts/UserContext"
 
-export const SearchBar = () => {
 
-const {onSearchSubmitAdmin} = useAuthContext()
-const {values,onSubmit,onChangeHandler}=useForm({
-    searchTerm:"",
-    searchCriteria:'',
-},onSearchSubmitAdmin)
+export const SearchBarAdminCourses = () => {
+
+    const { onSearchSubmitAdminCourse } = useCourseContext()
+    const { values, onSubmit, onChangeHandler } = useForm({
+        searchTerm: "",
+        searchCriteria: '',
+    }, onSearchSubmitAdminCourse)
 
 
 
     return (
         <>
-            <form  id="search-bar-admin" className="search-bar" onSubmit={onSubmit}>
+            <form id="search-bar-admin" className="search-bar" onSubmit={onSubmit}>
                 <input
                     type="text"
                     placeholder="Search..."
@@ -31,8 +31,10 @@ const {values,onSubmit,onChangeHandler}=useForm({
 
 
                     <option value="all">All</option>
-                    <option value="id">ID</option>
+                    <option value="name">Name</option>
                     <option value="email">Email</option>
+                    <option value="id">ID</option>
+
                     {/* Add more options based on your user object structure */}
                 </select>
                 <button type="submit" form="search-bar-admin">

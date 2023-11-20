@@ -41,9 +41,9 @@ export const CustomerList = () => {
         <>
             <div className="admin-dashboard">
 
-                <section className="sidebar">
+                {/* <section className="sidebar">
                     <AdminSidebar />
-                </section>
+                </section> */}
 
 
                 <section className="render-section">

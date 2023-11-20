@@ -59,6 +59,8 @@
   }
   .customer-list{
     /* display: flex; */
+    max-width: 1980px;
+    width: 1700px;
     border-radius: 3px;
     background: #bebebe;
     border: 1px solid #dd6007;;

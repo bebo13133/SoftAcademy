@@ -56,11 +56,14 @@ import { EditForumPost } from './components/Forum/ForumDetails/EditForumPost/Edi
 import { TermsAndConditions } from './components/Footer/TermsAndConditions/TermsAndConditions'
 import { LanguageCatalog } from './components/Home/LanguageBar/LanguageCatalog'
 import { IsAdmin } from './components/common/IsAdmin'
-import { AdminDashboard } from './components/AdminDashboard/AdminDashboard'
-import { CustomerList } from './components/AdminDashboard/CustomerList'
-import { AllCourses } from './components/AdminDashboard/AllCourses'
+// import { AdminDashboard } from './components/AdminDashboard/AdminDashboard'
+// import { CustomerList } from './components/AdminDashboard/CustomerList'
+// import { AllCourses } from './components/AdminDashboard/AllCourses'
 import { CourseDetails } from './components/AdminDashboard/CourseDetails'
 import EmailAdmin from './components/AdminDashboard/EmailAdmin'
+import { SearchBarPage } from './components/AdminDashboard/SearchBarAdmin/SearchBarPage'
+import { SearchAdminCourses } from './components/AdminDashboard/SearcAdminCourses/SearcAdminCourses'
+import AdminRoutes from './Routes/AdminRoutes'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -102,7 +105,6 @@ function App() {
                 {!cookies.cookieConsent && <CookieConsent />}
 
                 <Routes>
-
                   <Route path={"/"} element={
                     <Suspense fullback={<IsLoading />}>
                       <Home /> 
@@ -178,11 +180,9 @@ function App() {
                     <Route path="/my-added-courses" element={<AddedCourses />} />
                     <Route path="/favorite-courses" element={<FavoriteCourses />} />
                     <Route path="/change-avatar" element={<AvatarHeader />} />
-
-                    <Route path={"/admin/*"} element={
-                      <IsAdmin>
-                        <AdminDashboard />
-                      </IsAdmin>
+                    <Route path="/admin/*" element={<AdminRoutes />} />
+                    {/* <Route path={"/admin/*"} element={
+                      <IsAdmin> <AdminDashboard />      </IsAdmin>
                     } ></Route>
                     <Route path={"admin/admin-chat"} element={
                       <IsAdmin>
@@ -198,7 +198,7 @@ function App() {
                       <IsAdmin>
                         <AllCourses />
                       </IsAdmin>
-                    } />
+                    } /> */}
                     <Route path={"/admin/all-courses/:courseId"} element={
                       <IsAdmin>
                         <CourseDetails />
@@ -207,6 +207,16 @@ function App() {
                     <Route path={"/admin/send-email/:userId"} element={
                       <IsAdmin>
                         <EmailAdmin />
+                      </IsAdmin>
+                    } />
+                        <Route path={"/admin/search-customer"} element={
+                      <IsAdmin>
+                        <SearchBarPage />
+                      </IsAdmin>
+                    } />
+                         <Route path={"/admin/search-course"} element={
+                      <IsAdmin>
+                        <SearchAdminCourses />
                       </IsAdmin>
                     } />
 

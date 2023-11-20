@@ -16,6 +16,8 @@ export const CourseProvider = ({ children }) => {
     const { token } = useAuthContext()
     const [course, setCourse] = useState([])
     const [searchResult, setSearchResult] = useState([])
+    const [adminSearch,setAdminSearch] = useState([])
+    console.log("result43", adminSearch)
     const [languages, setLanguage] = useState(null)
     // const [errorMessage, setErrorMessage] = useState(''); //error messages
     const dispatch = useDispatch()
@@ -48,29 +50,29 @@ export const CourseProvider = ({ children }) => {
             !courseData.price ||
             !courseData.description ||
             !courseData.lectorDescription) {
-        
 
-        dispatch(setError("Some fields is empty"));
-        setTimeout(() => {
-            dispatch(setError(''));
-        }, 4000);
-        return
-         
+
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+
         }
 
         if (courseData.courseName.length < 2 || courseData.firstName.length < 4
             || courseData.lastName.length < 4 || courseData.email.length < 9) {
-     
 
-                dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
-                setTimeout(() => {
-                    dispatch(setError(''));
-                }, 4000);
-                return
+
+            dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
         }
 
         if (courseData.lectorDescription.length < 5 || courseData.description.length < 20) {
- 
+
 
             dispatch(setError("Minimum field description length is 20 and minimum 5 for lectorDescription"));
             setTimeout(() => {
@@ -80,7 +82,7 @@ export const CourseProvider = ({ children }) => {
         }
 
         if (courseData.price === isNaN) {
-   
+
             dispatch(setError("The Price must be number"));
             setTimeout(() => {
                 dispatch(setError(''));
@@ -89,7 +91,7 @@ export const CourseProvider = ({ children }) => {
 
         }
         try {
-   
+
             const newCourse = await courseService.create(courseData)
 
             setCourse(state => [...state, newCourse])
@@ -120,7 +122,7 @@ export const CourseProvider = ({ children }) => {
 
             navigate("/catalog")
         } catch (err) {
-           console.log(err.message || err)
+            console.log(err.message || err)
         }
 
 
@@ -135,7 +137,7 @@ export const CourseProvider = ({ children }) => {
 
             navigate("/admin/all-courses")
         } catch (err) {
-           console.log(err.message || err)
+            console.log(err.message || err)
         }
 
 
@@ -144,7 +146,7 @@ export const CourseProvider = ({ children }) => {
 
 
     const onEditSubmit = async (data) => {
-           if (!data.courseName ||
+        if (!data.courseName ||
             !data.firstName ||
             !data.lastName ||
             !data.email ||
@@ -152,29 +154,29 @@ export const CourseProvider = ({ children }) => {
             !data.price ||
             !data.description ||
             !data.lectorDescription) {
-      
 
-        dispatch(setError("Some fields is empty"));
-        setTimeout(() => {
-            dispatch(setError(''));
-        }, 4000);
-        return
-         
+
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+
         }
 
         if (data.courseName.length < 2 || data.firstName.length < 4
             || data.lastName.length < 4 || data.email.length < 9) {
-     
 
-                dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
-                setTimeout(() => {
-                    dispatch(setError(''));
-                }, 4000);
-                return
+
+            dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
         }
 
         if (data.lectorDescription.length < 5 || data.description.length < 20) {
- 
+
 
             dispatch(setError("Minimum field description length is 20 and minimum 5 for lectorDescription"));
             setTimeout(() => {
@@ -184,7 +186,7 @@ export const CourseProvider = ({ children }) => {
         }
 
         if (data.price === isNaN) {
-   
+
             dispatch(setError("The Price must be number"));
             setTimeout(() => {
                 dispatch(setError(''));
@@ -202,66 +204,66 @@ export const CourseProvider = ({ children }) => {
             console.log(err.message || err);
         }
     }
-    
+
     const onEditSubmitAdmin = async (data) => {
         if (!data.courseName ||
-         !data.firstName ||
-         !data.lastName ||
-         !data.email ||
-         !data.ownerCourse ||
-         !data.price ||
-         !data.description ||
-         !data.lectorDescription) {
-   
-
-     dispatch(setError("Some fields is empty"));
-     setTimeout(() => {
-         dispatch(setError(''));
-     }, 4000);
-     return
-      
-     }
-
-     if (data.courseName.length < 2 || data.firstName.length < 4
-         || data.lastName.length < 4 || data.email.length < 9) {
-  
-
-             dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
-             setTimeout(() => {
-                 dispatch(setError(''));
-             }, 4000);
-             return
-     }
-
-     if (data.lectorDescription.length < 5 || data.description.length < 20) {
+            !data.firstName ||
+            !data.lastName ||
+            !data.email ||
+            !data.ownerCourse ||
+            !data.price ||
+            !data.description ||
+            !data.lectorDescription) {
 
 
-         dispatch(setError("Minimum field description length is 20 and minimum 5 for lectorDescription"));
-         setTimeout(() => {
-             dispatch(setError(''));
-         }, 4000);
-         return
-     }
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
 
-     if (data.price === isNaN) {
+        }
 
-         dispatch(setError("The Price must be number"));
-         setTimeout(() => {
-             dispatch(setError(''));
-         }, 4000);
-         return
-
-     }
+        if (data.courseName.length < 2 || data.firstName.length < 4
+            || data.lastName.length < 4 || data.email.length < 9) {
 
 
-     try {
-         const result = await courseService.update(data._id, data)
-         setCourse(courses => courses.map(x => x._id === data._id ? result : x))
-         navigate(`/admin/all-courses`)
-     } catch (err) {
-         console.log(err.message || err);
-     }
- }
+            dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+
+        if (data.lectorDescription.length < 5 || data.description.length < 20) {
+
+
+            dispatch(setError("Minimum field description length is 20 and minimum 5 for lectorDescription"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+
+        if (data.price === isNaN) {
+
+            dispatch(setError("The Price must be number"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+
+        }
+
+
+        try {
+            const result = await courseService.update(data._id, data)
+            setCourse(courses => courses.map(x => x._id === data._id ? result : x))
+            navigate(`/admin/all-courses`)
+        } catch (err) {
+            console.log(err.message || err);
+        }
+    }
 
 
     const onSearchSubmit = async (data) => {
@@ -301,7 +303,38 @@ export const CourseProvider = ({ children }) => {
             console.log(err.message || err);
         }
     };
-    // console.log(searchResult)
+
+
+
+    const onSearchSubmitAdminCourse = async(data) => {
+
+        try {
+           const result= await courseService.getAll()
+
+            if (!data.searchTerm || data.searchCriteria === "all") {
+                setAdminSearch(result)
+            }
+            if (data.searchCriteria == "id") {
+                setAdminSearch(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
+            }
+            if (data.searchCriteria == "email") {
+                setAdminSearch(result.filter(x => x.email.toLowerCase().includes(data.searchTerm.toLowerCase())));
+            }
+            if (data.searchCriteria == "name") {
+                setAdminSearch(result.filter(x => x.courseName.toLowerCase().includes(data.searchTerm.toLowerCase())));
+            }
+            navigate("/admin/search-course")
+        } catch (error) {
+         console.log(error.message || error);
+
+
+    }
+}
+
+
+
+
+
 
     const onSubmitLanguageBar = async (language) => {
 
@@ -324,6 +357,7 @@ export const CourseProvider = ({ children }) => {
     const contextCourseValue = {
         searchResult,
         onSearchSubmit,
+        adminSearch,
         onCreateCourseSubmit,
         courses: course,
         selectCourse,
@@ -332,7 +366,9 @@ export const CourseProvider = ({ children }) => {
         onSubmitLanguageBar,
         languages,
         onEditSubmitAdmin,
-        onDeleteClickAdmin
+        onDeleteClickAdmin,
+        onSearchSubmitAdminCourse,
+        
     }
 
     return (

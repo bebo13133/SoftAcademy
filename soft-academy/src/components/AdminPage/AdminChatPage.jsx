@@ -115,9 +115,9 @@ export const AdminChatPage = () => {
   return (
     <>
       <div className="admin-dashboard">
-        <section className="sidebar">
+        {/* <section className="sidebar">
        <AdminSidebar/>
-        </section>
+        </section> */}
         {/* Други компоненти или секции могат да бъдат добавени тук */}
 
         <section className="render-section">

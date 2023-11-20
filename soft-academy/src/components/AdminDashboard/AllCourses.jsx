@@ -5,7 +5,8 @@ import { AdminSidebar } from './AdminSideBar';
 import { courseServiceFactory } from "../Services/courseService";
 import { RowSectionCourse } from './RowSectionCourse';
 import { useCourseContext } from '../contexts/CourseContext';
-
+import "../AdminDashboard/SearchBarAdmin/searchBarAdmin.css"
+import { SearchBarAdminCourses } from './SearcAdminCourses/SearchBarAdminCourses';
 
 export const AllCourses = () => {
 
@@ -46,15 +47,15 @@ export const AllCourses = () => {
         <>
             <div className="admin-dashboard">
 
-                <section className="sidebar">
+                {/* <section className="sidebar">
                     <AdminSidebar />
-                </section>
+                </section> */}
 
 
                 <section className="render-section">
                     <div className="customer-list">
                         <h2>All courses</h2>
-
+                        <SearchBarAdminCourses/>
                         {currentResults && currentResults.map(user => <RowSectionCourse key={user._id} onDeleteClick={()=>handleDelete(user._id)} {...user}  />)}
                     </div>
                     <ul className="pagination-admin">

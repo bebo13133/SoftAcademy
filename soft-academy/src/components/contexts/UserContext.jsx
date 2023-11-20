@@ -1,4 +1,4 @@
-import { createContext, useContext, useState,useCallback } from "react"
+import { createContext, useContext, useState, useCallback } from "react"
 import { useLocalStorage } from "../Hooks/useLocalStorage"
 import { userServiceFactory } from "../Services/userService"
 import { useNavigate } from "react-router-dom"
@@ -12,54 +12,56 @@ export const UserProvider = ({ children }) => {
 
     const [isAuth, setIsAuth] = useLocalStorage('auth', {})
     const [avatarUrl, setAvatarUrl] = useState(null);
-    const [errorMessage, setErrorMessage] = useState(''); 
-    const[users,setUsers]=useState([])
-// console.log("errorMessage",errorMessage)
+    const [errorMessage, setErrorMessage] = useState('');
+    const [searchResult, setSearchResult] = useState([])
+  
+    const [users, setUsers] = useState([])
+    // console.log("errorMessage",errorMessage)
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
-   
+
 
     const onLoginSubmit = async (data) => {
 
         try {
             if (!data.password || !data.email) {
-             
+
                 setErrorMessage("Some fields is empty")
-            
+
                 setTimeout(() => {
                     setErrorMessage('');
-                  }, 4000);
-            
-                  return;
+                }, 4000);
+
+                return;
             }
             if (data.password.length <= 5) {
-            
+
                 setErrorMessage("Minimum characters is 5")
-            
+
                 setTimeout(() => {
                     setErrorMessage('');
-                  }, 4000);
-            
-                  return;
-            } 
+                }, 4000);
+
+                return;
+            }
             const users = await userService.getAll()
             setUsers(users)
-         
+
             const newUser = await userService.login(data)
             setIsAuth(newUser)
             navigate("/")
         } catch (err) {
-          
-       
-            if (err.code === 403){
+
+
+            if (err.code === 403) {
                 setErrorMessage("Please enter a valid password or email address")
                 setTimeout(() => {
                     setErrorMessage('');
-                  }, 4000);
-            }else{
+                }, 4000);
+            } else {
                 throw new Error(err.message)
             }
-           
+
         }
 
     }
@@ -70,66 +72,89 @@ export const UserProvider = ({ children }) => {
         try {
             const { confirmPassword, ...registerData } = data
 
-            if (confirmPassword !== registerData.password){
-              
+            if (confirmPassword !== registerData.password) {
+
                 setErrorMessage("Please enter a valid password email")
-            
+
                 setTimeout(() => {
                     setErrorMessage('');
-                  }, 4000);
-            
-                  return;
+                }, 4000);
+
+                return;
             }
-            if (!confirmPassword || !registerData.password || !registerData.email){
+            if (!confirmPassword || !registerData.password || !registerData.email) {
                 setErrorMessage("Some fields is empty")
-            
+
                 setTimeout(() => {
                     setErrorMessage('');
-                  }, 4000);
-            
-                  return;
+                }, 4000);
+
+                return;
             }
             if (confirmPassword.length <= 5 || registerData.password.length <= 5) {
                 setErrorMessage("Minimum characters is 5")
-            
+
                 setTimeout(() => {
                     setErrorMessage('');
-                  }, 4000);
-            
-                  return;
+                }, 4000);
+
+                return;
             }
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
             navigate("/")
         } catch (err) {
-            
-       
-            if (err.code === 403){
+
+
+            if (err.code === 403) {
                 setErrorMessage("Please enter a valid password or email address")
                 setTimeout(() => {
                     setErrorMessage('');
-                  }, 4000);
-            }else{
+                }, 4000);
+            } else {
                 throw new Error(err.message)
             }
         }
 
     };
 
-    const onChangePassword = async (data)=>{
-     
-        const {oldPassword, confirmPassword, ...registerData } = data
+    const onChangePassword = async (data) => {
 
-        try{
+        const { oldPassword, confirmPassword, ...registerData } = data
+
+        try {
 
             const userId = isAuth._id
-            const newPass = await userService.changePassword(userId,data.oldPassword,  data.newPassword)
-       
-   
-        }catch (err) {
+            const newPass = await userService.changePassword(userId, data.oldPassword, data.newPassword)
+
+
+        } catch (err) {
             throw new Error(err.message)
         }
 
+    }
+
+    const onSearchSubmitAdmin = async (data) => {
+
+        try {
+            const result = await userService.getAll()
+
+            if (!data.searchTerm || data.searchCriteria === "all") {
+                setSearchResult(result)
+            }
+            if (data.searchCriteria === "id") {
+                setSearchResult(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
+            }
+            if (data.searchCriteria === "email") {
+                setSearchResult(result.filter(x => x.email.toLowerCase().includes(data.searchTerm.toLowerCase())));
+            }
+
+            navigate("/admin/search-customer")
+        } catch (error) {
+            console.log(error.message || error);
+
+
+        }
     }
 
 
@@ -144,9 +169,9 @@ export const UserProvider = ({ children }) => {
     }
 
     const updateAvatarUrl = useCallback((newUrl) => {
-      setAvatarUrl(newUrl);
+        setAvatarUrl(newUrl);
     }, []);   // ползвам го за да сменя снимката на аватара в реално време ,като при зареждане на сайта съм сложил заявка която да я вземе от firebase
-  
+
 
 
 
@@ -161,7 +186,9 @@ export const UserProvider = ({ children }) => {
         onRegisterSubmit,
         onLogout,
         onChangePassword,
-        users
+        users,
+        onSearchSubmitAdmin,
+        searchResult
     }
 
     return (
@@ -171,10 +198,10 @@ export const UserProvider = ({ children }) => {
             {children}
 
             {errorMessage && (
-        <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
-          <p>{errorMessage}</p>
-        </div>
-      )}
+                <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
+                    <p>{errorMessage}</p>
+                </div>
+            )}
         </UserContext.Provider>
 
     )

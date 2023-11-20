@@ -2,8 +2,9 @@ import { AdminChatPage } from '../AdminPage/AdminChatPage'
 import { AdminSidebar } from './AdminSideBar'
 import { AllCourses } from './AllCourses'
 import { CustomerList } from './CustomerList'
+import { SearchBarAdminCourses } from './SearcAdminCourses/SearchBarAdminCourses'
 import './adminDashboard.css'
-import { Link, useRoutes } from 'react-router-dom'
+import { Link, Route, Routes, useRoutes } from 'react-router-dom'
 
 
 export const AdminDashboard = () => {
@@ -31,6 +32,7 @@ export const AdminDashboard = () => {
                 </section>
 
             </div>
+     
         </>
 
     )
