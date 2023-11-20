@@ -59,6 +59,7 @@ import { IsAdmin } from './components/common/IsAdmin'
 import { AdminDashboard } from './components/AdminDashboard/AdminDashboard'
 import { CustomerList } from './components/AdminDashboard/CustomerList'
 import { AllCourses } from './components/AdminDashboard/AllCourses'
+import { CourseDetails } from './components/AdminDashboard/CourseDetails'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -207,9 +208,14 @@ function App() {
                     </IsAdmin>
                   } />
                    <Route path={"/admin/all-courses"} element={
-                    // <IsAdmin>
+                    <IsAdmin>
                       <AllCourses />
-                    // </IsAdmin>
+                     </IsAdmin>
+                  } />
+                    <Route path={"/admin/all-courses/:courseId"} element={
+                    <IsAdmin>
+                      <CourseDetails />
+                    </IsAdmin>
                   } />
 
                 </Routes>

@@ -1,0 +1,109 @@
+.course-details-admin{
+    display: flex;
+    gap:330px;
+    flex-direction: row;
+}
+
+
+.form-admin-course {
+
+    display: flex;
+    flex-direction: column;
+    width: 506px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+
+.banner-custom {
+    /* Стилове за банера, ако има такъв */
+  }
+  
+  /* Затварящ бутон на формата */
+  .close-button-forum-custom {
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: auto;
+  }
+  
+  /* Заглавие на формата */
+  .render-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin: 0;
+    color: #343a3f;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  
+  /* Стилове за всяка една "item" във формата */
+  .item-custom {
+    margin-bottom: 9px;
+  }
+  
+  /* Стилове за "name-item" */
+  .name-item-custom {
+    display: flex;
+  }
+  
+  /* Стилове за изображението */
+  .image-container-custom {
+    margin-top: 10px;
+  }
+  
+  .image-container-custom img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Стилове за бутоните */
+  .btn-block-edit-custom {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .render-section p {
+    margin: 0px;
+    color: #767f86;
+    font-size: 14px;
+    line-height: -0.2;
+    text-transform: initial;
+  }
+  .btn-block-edit-custom button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-block-edit-custom button:hover {
+    background-color: #45a049;
+  }
+
+  /* Допълнителни стилове за селектора */
+  .city-item-custom select {
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Стилове за календар и други елементи */
+  .item-custom input[type="date"],
+  .item-custom input[type="text"],
+  .item-custom input[type="number"] {
+    width: 100%;
+    padding: 4px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .item-custom i {
+    margin-left: 5px;
+  }

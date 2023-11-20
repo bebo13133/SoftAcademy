@@ -1,6 +1,17 @@
+import { useNavigate } from 'react-router-dom'
 import './rowSection.css'
 
 export const RowSectionCourse=({_id,_createdOn,email,date})=>{
+
+    const courseId = _id
+
+const navigate= useNavigate()
+
+const onNavigateDetails=()=>{
+    navigate(`/admin/all-courses/${courseId}`)
+
+}
+
 
 return(
 
@@ -13,7 +24,7 @@ return(
         <p><strong>Students:</strong> </p>
 
 
-        <button className="btn btn-primary-course"> Details</button>
+        <button className="btn btn-primary-course" onClick={onNavigateDetails}> Details</button>
     </div>
 </>
 )
