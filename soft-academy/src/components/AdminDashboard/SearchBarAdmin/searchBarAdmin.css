@@ -9,6 +9,8 @@
     margin-right: 10px; 
     padding: 8px; 
     font-size: 14px; 
+    border-radius: 14px;
+    background-color: #f1f1f1;
 }
 .search-bar select{
     width: 200px;

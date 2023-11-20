@@ -1,27 +1,41 @@
+import { useForm } from "../../Hooks/useForm"
+import { useCourseContext } from "../../contexts/CourseContext"
+
 export const SearchBar = () => {
+
+const {} = useCourseContext()
+const {values,onSubmit,onChangeHandler}=useForm({
+    searchTerm:"",
+    searchCriteria:'',
+})
+
+
+
     return (
         <>
-            <div className="search-bar">
+            <form  id="search-bar-admin" className="search-bar" onSubmit={onSubmit}>
                 <input
                     type="text"
                     placeholder="Search..."
-                    value="{searchTerm}"
-                    onChange="{(e) => setSearchTerm(e.target.value)}"
+                    name="searchTerm"
+                    value={values.searchTerm}
+                    onChange={onChangeHandler}
                 />
 
                 <select
-                    value="{searchCriteria}"
-                    onChange="{(e) => setSearchCriteria(e.target.value)}"
+                    name="searchCriteria"
+                    value={values.searchCriteria}
+                    onChange={onChangeHandler}
                 >
                     <option value="name">Name</option>
                     <option value="id">ID</option>
                     <option value="email">Email</option>
                     {/* Add more options based on your user object structure */}
                 </select>
-                <button onClick="{() => setCurrentResults(filterUsers(searchTerm, searchCriteria))}">
+                <button type="submit" form="search-bar-admin">
                     Search
                 </button>
-            </div>
+            </form>
         </>
 
     )
