@@ -52,10 +52,15 @@
     margin: 0 5px;
     border: 1px solid #dd6007;;
     border-radius: 3px;
+    transition: background-color 0.3s ease;
   }
   
   .pagination-admin li:hover {
     background-color: #008e9d;
+  }
+  .pagination-admin  li.active {
+    background-color: #007bff; /* Change to your preferred active color */
+    color: #fff; /* Change to your preferred text color for active page */
   }
   .customer-list{
     /* display: flex; */

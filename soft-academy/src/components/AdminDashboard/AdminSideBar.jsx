@@ -22,6 +22,12 @@ export const AdminSidebar = () => {
                 <Link to="/admin/all-courses"><h2>All courses</h2></Link>
 
             </div>
+            <div className="admin-chat">
+
+
+                <Link to="/admin/all-forums"><h2>All forums</h2></Link>
+
+            </div>
         </>
     )
 }

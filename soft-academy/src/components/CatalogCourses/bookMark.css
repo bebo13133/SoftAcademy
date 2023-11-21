@@ -1,3 +1,26 @@
 .single-explore-image-icon-box ul li{
     background: none;
 }
+.pagination-catalog {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+  }
+  
+  .pagination-catalog  li {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #dd6007;;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination-catalog li:hover {
+    background-color: #008e9d;
+  }
+  .pagination-catalog  li.active {
+    background-color: #007bff; /* Change to your preferred active color */
+    color: #fff; /* Change to your preferred text color for active page */
+  }

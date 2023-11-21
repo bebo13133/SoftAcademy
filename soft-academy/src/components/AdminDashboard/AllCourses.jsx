@@ -60,7 +60,7 @@ export const AllCourses = () => {
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => setCurrentPage(index + 1)}>
+                            <li key={index} onClick={() => setCurrentPage(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
                                 {index + 1}
                             </li>
                         ))}

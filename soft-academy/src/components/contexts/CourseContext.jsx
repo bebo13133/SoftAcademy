@@ -112,7 +112,7 @@ export const CourseProvider = ({ children }) => {
         return course.find(course => course._id === courseId)
     }
 
-console.log(selectCourse(),"bobo")
+
     const onDeleteClick = async (id) => {
 
         try {

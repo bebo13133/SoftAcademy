@@ -1,6 +1,7 @@
 import { AdminChatPage } from '../AdminPage/AdminChatPage'
 import { AdminSidebar } from './AdminSideBar'
 import { AllCourses } from './AllCourses'
+import { AllForums } from './AllForums/AllForums'
 import { CustomerList } from './CustomerList'
 import { SearchBarAdminCourses } from './SearcAdminCourses/SearchBarAdminCourses'
 import './adminDashboard.css'
@@ -14,6 +15,8 @@ export const AdminDashboard = () => {
         { path: 'customers-list', element: <CustomerList /> },
         { path: 'admin-chat', element: <AdminChatPage /> },
         { path: 'all-courses', element: <AllCourses /> },
+        { path: 'all-forums', element: <AllForums /> },
+
 
 
 
