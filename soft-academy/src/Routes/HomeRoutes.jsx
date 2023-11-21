@@ -27,7 +27,7 @@ import { AvatarHeader } from "../components/ProfilePage/AvatarHeader"
       <Route path="/language-catalog" element={<LanguageCatalog />} />
 
       <Route path="/catalog/:courseId/edit" element={
-            <IsOwnerCourse>
+      <IsOwnerCourse>
       <EditCourse />
       </IsOwnerCourse>
       } />
