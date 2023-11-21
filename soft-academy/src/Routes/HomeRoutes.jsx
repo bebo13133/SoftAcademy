@@ -45,10 +45,6 @@ import { AvatarHeader } from "../components/ProfilePage/AvatarHeader"
       <Route path="/change-avatar" element={<AvatarHeader />} />
 
 
-
-
-
-
     </Routes>
     </>
     )
