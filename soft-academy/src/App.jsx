@@ -34,7 +34,7 @@ import { RouteGuard } from './components/common/RouteGuard'
 import { PageNotFound } from './components/404/PageNotFound'
 import { GuardLoginRegister } from './components/common/GuardLoginRegister'
 import { EditCourse } from './components/EditCourse/EditCourse'
-import { IsOwnerCourse } from './components/common/isOwnerCourse'
+import  IsOwnerCourse  from './components/common/isOwnerCourse'
 // import { ChatBox } from './components/ChatBox/ChatBox'
 
 const ChatBox = lazy(() => import('./components/ChatBox/ChatBox'))

@@ -17,7 +17,7 @@ export const CourseProvider = ({ children }) => {
     const [course, setCourse] = useState([])
     const [searchResult, setSearchResult] = useState([])
     const [adminSearch,setAdminSearch] = useState([])
-    console.log("result43", adminSearch)
+
     const [languages, setLanguage] = useState(null)
     // const [errorMessage, setErrorMessage] = useState(''); //error messages
     const dispatch = useDispatch()
@@ -33,6 +33,7 @@ export const CourseProvider = ({ children }) => {
 
         courseService.getAll()
             .then(result => {
+             
                 setCourse(result)
             })
             .catch(error => {
@@ -108,10 +109,10 @@ export const CourseProvider = ({ children }) => {
 
     const selectCourse = (courseId) => {  //използвам го при гарда IsOwner за да отделя текущият курс 
 
-        return course.find(course => course.id === courseId)
+        return course.find(course => course._id === courseId)
     }
 
-
+console.log(selectCourse(),"bobo")
     const onDeleteClick = async (id) => {
 
         try {

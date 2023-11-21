@@ -4,7 +4,7 @@ import { CreateCourse } from "../components/CreateCourse/CreateCourse"
 import { DetailsCourse } from "../components/DetailsCourse/DetailsCourse"
 import { LanguageCatalog } from "../components/Home/LanguageBar/LanguageCatalog"
 import { EditCourse } from "../components/EditCourse/EditCourse"
-import { IsOwnerCourse } from "../components/common/isOwnerCourse"
+import  IsOwnerCourse  from "../components/common/isOwnerCourse"
 import { ForumStudents } from "../components/Forum/ForumStudents"
 import { ForumDetails } from "../components/Forum/ForumDetails/ForumDetails"
 import { EditForumPost } from "../components/Forum/ForumDetails/EditForumPost/EditForumPost"
@@ -20,13 +20,17 @@ import { AvatarHeader } from "../components/ProfilePage/AvatarHeader"
     return(
         <>
     <Routes>
-  
+
       <Route path="/logout" element={<Logout />} />
       <Route path="/create" element={<CreateCourse />} />
       <Route path="/catalog/:courseId" element={<DetailsCourse />} />
       <Route path="/language-catalog" element={<LanguageCatalog />} />
 
-      <Route path="/catalog/:courseId/edit" element={<IsOwnerCourse><EditCourse /></IsOwnerCourse>} />
+      <Route path="/catalog/:courseId/edit" element={
+            <IsOwnerCourse>
+      <EditCourse />
+      </IsOwnerCourse>
+      } />
 
       <Route path="/forum" element={<ForumStudents />} />
       <Route path="/forum/:forumId" element={<ForumDetails />} />
