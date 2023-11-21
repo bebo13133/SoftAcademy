@@ -331,6 +331,30 @@ export const CourseProvider = ({ children }) => {
 
     }
 }
+const onSearchSubmitAdminCourse = async(data) => {
+
+    try {
+       const result= await courseService.getAll()
+
+        if (!data.searchTerm || data.searchCriteria === "all") {
+            setAdminSearch(result)
+        }
+        if (data.searchCriteria == "id") {
+            setAdminSearch(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
+        }
+        if (data.searchCriteria == "email") {
+            setAdminSearch(result.filter(x => x.email.toLowerCase().includes(data.searchTerm.toLowerCase())));
+        }
+        if (data.searchCriteria == "name") {
+            setAdminSearch(result.filter(x => x.courseName.toLowerCase().includes(data.searchTerm.toLowerCase())));
+        }
+        navigate("/admin/search-forum")
+    } catch (error) {
+     console.log(error.message || error);
+
+
+}
+}
 
 
 

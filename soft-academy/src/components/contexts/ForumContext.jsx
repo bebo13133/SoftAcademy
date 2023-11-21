@@ -148,7 +148,48 @@ export const ForumProvider = ({ children }) => {
             dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
         }
     };
+    const onEditSubmitAdmin = async (forumData) => {
+        if (!forumData.title || !forumData.description || !forumData.author) {
 
+
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+
+        if (forumData.author.length < 4 || forumData.title.length < 4) {
+
+            dispatch(setError("Minimum field length is 4"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (forumData.description.length < 40) {
+
+
+
+            dispatch(setError("Minimum description length is 40"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+
+
+        try {
+
+
+            const post = await forumService.update(forumData._id, forumData)
+
+            dispatch(editForumPost(forumData, post))
+            navigate(`/admin/all-forums`)
+        } catch (err) {
+            dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
+        }
+    };
 
 
 
@@ -158,6 +199,7 @@ export const ForumProvider = ({ children }) => {
         onDeleteClick,
         onEditSubmitPost,
         onDeleteForumAdmin,
+        onEditSubmitAdmin
 
     }
 

@@ -145,3 +145,19 @@
         margin-bottom: 10px; /* Add spacing between buttons */
     }
 }
+
+@media only screen and (max-width: 600px) {
+  .YourComponent .ImageSection img {
+      width: 100%; /* Adjust to fit container width on smaller screens */
+  }
+
+  .YourComponent .ButtonsSection {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .YourComponent .ButtonsSection button {
+      width: 100%; /* Make buttons full width on smaller screens */
+      margin-bottom: 10px; /* Add spacing between buttons */
+  }
+}

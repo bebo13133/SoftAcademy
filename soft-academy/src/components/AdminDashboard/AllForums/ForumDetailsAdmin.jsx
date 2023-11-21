@@ -8,7 +8,7 @@ import { useEffect } from "react"
 import { AdminSidebar } from "../AdminSideBar"
 export const ForumDetailsAdmin = () => {
 
-    const { onEditSubmitPost } = useForumContext()
+    const { onEditSubmitAdmin } = useForumContext()
     const { forumId } = useParams()
     const forumService = useService(forumServiceFactory)
     const navigate = useNavigate()
@@ -37,7 +37,7 @@ export const ForumDetailsAdmin = () => {
         description: "",
         author: "",
         createdAt: new Date().toLocaleString(),
-    }, onEditSubmitPost)
+    }, onEditSubmitAdmin)
 
 
     

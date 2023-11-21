@@ -198,6 +198,7 @@ export const ForumDetails = () => {
                         <button className="likeButton" onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</button>
                         <button className="commentButton" onClick={openCommentsPopUp}>Comments</button>
 
+
                         <button className="back-to-forum-btn" onClick={onBackHandler}>Back to Forum</button>
                     </div>
                     <ul>

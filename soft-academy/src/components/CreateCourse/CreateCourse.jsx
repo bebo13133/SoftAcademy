@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useForm } from '../Hooks/useForm'
-
+import {v4} from 'uuid'
 import { useCourseContext } from '../contexts/CourseContext'
 import Footer from '../Footer/Footer'
 
@@ -119,7 +119,7 @@ export const CreateCourse = () => {
                     <div className="item">
                         <p>Language</p>
                         <div className="city-item">
-                            <select value={selectOption} placeholder="Choice your language" name="language" onChange={selectOptionHandler} >
+                            <select key={v4()}value={selectOption} placeholder="Choice your language" name="language" onChange={selectOptionHandler} >
                                 <option value="">Select an option</option>
                                 <option value="JavaScript">Java Script</option>
                                 <option value="Java">Java</option>
@@ -135,7 +135,6 @@ export const CreateCourse = () => {
 
                             </select>
                         </div>
-
                     </div>
                     {selectedImage ? (
                         <div className="image-container" name="imageUrl" value={imageUrl} id="image-container">
