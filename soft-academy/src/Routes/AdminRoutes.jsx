@@ -11,6 +11,8 @@ import { SearchBarAdminCourses } from "../components/AdminDashboard/SearcAdminCo
 import { CourseDetails } from "../components/AdminDashboard/CourseDetails"
 import EmailAdmin from "../components/AdminDashboard/EmailAdmin"
 import { SearchAdminCourses } from "../components/AdminDashboard/SearcAdminCourses/SearcAdminCourses"
+import { AllForums } from "../components/AdminDashboard/AllForums/AllForums"
+import { ForumDetailsAdmin } from "../components/AdminDashboard/AllForums/ForumDetailsAdmin"
 
 const AdminRoutes = () => {
 
@@ -22,9 +24,13 @@ const AdminRoutes = () => {
                     <Route path="admin-chat" element={<AdminChatPage />} />
                     <Route path="customers-list" element={<CustomerList />} />
                     <Route path="all-courses" element={<AllCourses />} />
+                    <Route path="all-forums" element={<AllForums />} />
+
                 </Route>
                 <Route path="search-customer" element={<IsAdmin><SearchBarPage /></IsAdmin>} />
                 <Route path="all-courses/:courseId" element={<IsAdmin><CourseDetails /></IsAdmin>} />
+                <Route path="all-forums/:forumId" element={<IsAdmin><ForumDetailsAdmin/></IsAdmin>} />
+
                 <Route path="send-email/:userId" element={<IsAdmin><EmailAdmin /></IsAdmin>} />
                 <Route path="search-course" element={<IsAdmin><SearchAdminCourses /></IsAdmin>} />
             </Routes>

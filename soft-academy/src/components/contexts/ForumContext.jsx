@@ -79,21 +79,35 @@ export const ForumProvider = ({ children }) => {
     }
 
     const onDeleteClick = async (forumId) => {
-        const deletePost = await forumService.delete(forumId)
 
-        dispatch(deleteForumPost(forumId))
-
-        navigate("/forum")
         try {
+            const deletePost = await forumService.delete(forumId)
 
+            dispatch(deleteForumPost(forumId))
+
+            navigate("/forum")
         } catch (err) {
             dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
         }
 
     }
 
+    const onDeleteForumAdmin = async (forumId) => {
+        
+        try {
+            const deletePost = await forumService.delete(forumId)
+            dispatch(deleteForumPost(forumId))
+
+            navigate("/admin/all-forums")
+
+        } catch (err) {
+            dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
+        }
+    }
+
+
     const onEditSubmitPost = async (forumData) => {
-        if (!forumData.title || !forumData.description || !forumData.author ) {
+        if (!forumData.title || !forumData.description || !forumData.author) {
 
 
             dispatch(setError("Some fields is empty"));
@@ -143,6 +157,7 @@ export const ForumProvider = ({ children }) => {
         forumPosts,
         onDeleteClick,
         onEditSubmitPost,
+        onDeleteForumAdmin,
 
     }
 

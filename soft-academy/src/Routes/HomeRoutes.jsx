@@ -35,7 +35,11 @@ import { AvatarHeader } from "../components/ProfilePage/AvatarHeader"
       <Route path="/forum" element={<ForumStudents />} />
       <Route path="/forum/:forumId" element={<ForumDetails />} />
 
-      <Route path="/forum/:forumId/edit" element={<IsOwnerCourse><EditForumPost /></IsOwnerCourse>} />
+      <Route path="/forum/:forumId/edit" element={
+      // <IsOwnerCourse>
+        <EditForumPost />
+        // </IsOwnerCourse>
+      }/>
 
       <Route path="/add-new-post" element={<AddForumPost />} />
       <Route path="/profile" element={<ProfilePage />} />

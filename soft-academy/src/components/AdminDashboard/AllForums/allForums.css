@@ -1,0 +1,125 @@
+.course-details-admin{
+    display: flex;
+    gap:330px;
+    flex-direction: row;
+}
+
+
+.form-admin-forum {
+
+    display: flex;
+    flex-direction: column;
+    width: 606px;
+    max-width: 800px;
+    background: url(/img/createForm.jpg);
+    margin: 18px ;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  .form-admin-forum h2{
+    text-align: center;
+    margin-bottom: 10px;
+    margin: 10px;
+    color: #0a2167;
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  .form-admin-forum input{
+    width: 100%;
+
+color:#0a2167;
+  }
+.close-button-forum-custom{
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: 20px;
+    float: right;
+
+}
+.item-custom label{
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.item-custom  textarea{
+    overflow:visible;
+height: 110px;
+max-height: 110px;
+color: #0a2167;
+/* margin:20px */
+}
+
+  .item-custom {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+  }
+  
+  .image-container-custom {
+    margin-top: -6px;
+  }
+  
+  .image-container-custom img {
+    margin-left: 10px;
+    width: 200px;
+    max-width: 100%;
+    height: 200px;
+  }
+  
+  .btn-block-edit-custom {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .btn-block-edit-custom button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-block-edit-custom button:hover {
+    background-color: #45a049;
+  }
+  
+
+  
+  .item-custom input[type="date"],
+  .item-custom input[type="text"],
+  .item-custom input[type="number"] {
+    /* width: 100%; */
+    
+    padding: 4px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .item-custom i {
+    margin-left: 5px;
+  }
+  
+  /* Additional styles for the banner */
+  .banner-custom {
+    /* Styles for the banner, if any */
+  }
+  .image-container-custom P{
+    width: 200px;
+    margin:10px;
+    color: #1e2124;
+    font-size: 22px;
+    line-height: -0.2;
+    text-transform: initial;
+  }
+  .item-custom input[type="text"]{
+    padding:5px;
+  }

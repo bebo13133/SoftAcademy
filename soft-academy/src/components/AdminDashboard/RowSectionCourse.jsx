@@ -20,6 +20,7 @@ export const RowSectionCourse = ({ _id, _createdOn, email, date, courseName, onD
     const onCloseDelete = () => {
         setIsOpen(false)
     }
+
     useEffect(() => {
 
 
@@ -42,7 +43,7 @@ export const RowSectionCourse = ({ _id, _createdOn, email, date, courseName, onD
                 <button className="btn-delete-course" onClick={() => openDelete()}> Delete</button>
             </div>
 
-            <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()}                // title={deleteData?.name}
+            <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()}               // title={deleteData?.name}
                 deleteFunction={() => { setIsOpen(false), onDeleteClick(courseId) }}
             />
         </>

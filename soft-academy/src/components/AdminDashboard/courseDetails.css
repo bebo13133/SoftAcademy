@@ -27,9 +27,18 @@ color:#0a2167
   
   /* Затварящ бутон на формата */
   .close-button-forum-custom {
+    position: absolute;
+    top: 118px;
+    right: 400px;
+    font-size: 20px;
     cursor: pointer;
-    font-size: 1.5em;
-    margin-left: auto;
+    color: #fff;
+    background: #c18d3c;
+    padding: 5px 10px;
+    border-radius: 30%;
+  }
+  .close-button-forum-custom:hover{
+    background-color: brown;
   }
   
   /* Заглавие на формата */

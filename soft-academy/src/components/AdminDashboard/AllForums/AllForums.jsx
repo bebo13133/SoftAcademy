@@ -1,7 +1,41 @@
+import { useEffect, useState } from "react";
+import { forumServiceFactory } from "../../Services/forumService";
+import { RowSectionForum } from "./RowSectionForum";
+import { SearchBarAdminCourses } from "../SearcAdminCourses/SearchBarAdminCourses";
+import '../../AdminDashboard/adminDashboard.css'
+import { useForumContext } from "../../contexts/ForumContext";
+
+
 export const AllForums = () => {
+    const [forumsInfo, setForumsInfo] = useState([])
+    const [currentPage, setCurrentPage] = useState(1);
 
+    const { onDeleteForumAdmin } = useForumContext()
 
+    const forumService = forumServiceFactory()
+    const resultsPerPage = 5;
+    const indexOfLastResult = currentPage * resultsPerPage;   //първа страница почва от едно по номера на резултатите които искаме да се показват 
+    const indexOfFirstResult = indexOfLastResult - resultsPerPage;
+    const currentResults = forumsInfo.slice(indexOfFirstResult, indexOfLastResult);
 
+    const totalPages = Math.ceil(forumsInfo.length / resultsPerPage);
+
+    useEffect(() => {
+        forumService.getAll()
+            .then(result => {
+                setForumsInfo(result)
+            })
+            .catch(error => {
+                console.log(error.message || error)
+            })
+
+    }, [])
+
+    const handleDelete = async (forumId) => {
+        await onDeleteForumAdmin(forumId)
+        const forums = await forumService.getAll()
+        setForumsInfo(forums)
+    }
     return (
 
 
@@ -18,7 +52,7 @@ export const AllForums = () => {
                     <div className="customer-list">
                         <h2>All courses</h2>
                         <SearchBarAdminCourses />
-                        {currentResults && currentResults.map(user => <RowSectionForums key={user._id} onDeleteClick={() => handleDelete(user._id)} {...user} />)}
+                        {currentResults && currentResults.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />)}
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (
