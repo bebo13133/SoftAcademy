@@ -1,0 +1,29 @@
+@media only screen and (max-width: 600px) {
+    .admin-dashboard {
+      flex-direction: column;
+    }
+  
+    .chat-admin-container {
+      flex-direction: column;
+    }
+  
+    .chat-admin-sidebar {
+      width: 100%;
+    }
+  
+    .chat-admin-content {
+      width: 100%;
+    }
+  
+    .chat-admin {
+      padding: 10px;
+    }
+  
+    .user-list {
+      padding: 10px;
+    }
+  
+    .admin-message-input {
+      padding: 10px;
+    }
+}

@@ -103,3 +103,23 @@
     background-color: rgb(8 207 172);
 
   }
+
+@media only screen and (max-width: 600px) {
+  .row-section,
+  .row-section-course {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+  .btn-primary-course,
+  .btn-delete-course,
+  .btn-primary-customer {
+      font-size: 14px;
+  }
+  .large-cell {
+    /* Adjust styles for the large cell on smaller screens */
+    width: 100%; /* or any other appropriate value */
+}
+}

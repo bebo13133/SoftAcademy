@@ -1,10 +1,10 @@
 .footer {
     display: flex;
     justify-content: space-around;
-    /* align-items: center; */
+
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    /* padding: 20px; */
     position: static;
     bottom: 0;
     width: 100%;
@@ -15,9 +15,9 @@
     flex: 1;
     text-align: center;
     display: flex;
-    /* Add this line to make each section flex */
+  
     flex-direction: column;
-    /* Stack the items vertically within each section */
+   
 }
 
 .footer-section h3 {
@@ -67,3 +67,54 @@
     margin-bottom: -18px;
     float: none;
 }
+@media only screen and (max-width: 768px) {
+    .footer-section {
+        margin-bottom: 0; 
+        font-size: 12px;
+    }
+    .contact p{
+        font-size: 10px;
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+    .footer-section {
+        text-align: left; 
+    }
+
+    .footer-section h3 {
+        margin-top: 0;
+        font-size: 12px;
+    }
+
+}
+ @media only screen and (max-width: 768px) {
+    .social-icons {
+        display: block;
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .social-icons a {
+        font-size: 10px;
+        
+        margin-bottom: 10px; 
+    }
+}
+
+
+
+/* Media Query for Smaller Screens */
+@media only screen and (max-width: 768px) {
+    .terms a {
+        margin-top: 0;
+    }
+    .terms a {
+        font-size: 10px;
+        color: #96a7b3;
+        display: block; 
+        text-align: center;
+        margin-top: 10px; 
+    }
+} 

@@ -89,3 +89,26 @@
 .read-more-button:hover {
   background-color: #b92929;
 }
+@media only screen and (max-width: 768px) {
+  .article-students {
+    width: 100%;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+
+
+  .open-chat-button {
+    right: 8rem;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .posts-field {
+    top: 0;
+    padding: 5px;
+  }
+
+}

@@ -62,7 +62,13 @@ height: 300px;
 
 /* Responsive styling */
 @media (max-width: 768px) {
-    .custom-form {
+    .admin-dashboard-email {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .form-container {
         width: 90%;
     }
 }

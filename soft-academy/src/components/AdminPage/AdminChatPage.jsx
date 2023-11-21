@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
 import { Link } from "react-router-dom";
 import { AdminSidebar } from "../AdminDashboard/AdminSideBar";
+import "./adminChat.css"
 const ENDPOINT =
   window.location.host.indexOf("localhost") >= 0
     ? "http://127.0.0.1:4000"

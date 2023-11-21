@@ -130,4 +130,18 @@
   #root > section.TextSection > div > div.like-component > p{
     font-size: 22px ;
   }
- 
+  @media only screen and (max-width: 600px) {
+    .ImageSection img {
+        width: 100%; /* Adjust to fit container width on smaller screens */
+    }
+
+    .ButtonsSection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ButtonsSection button {
+        width: 100%; /* Make buttons full width on smaller screens */
+        margin-bottom: 10px; /* Add spacing between buttons */
+    }
+}

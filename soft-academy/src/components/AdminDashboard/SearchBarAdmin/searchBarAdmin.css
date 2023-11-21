@@ -31,3 +31,40 @@
 .search-bar button:hover {
     background-color: #0056b3; 
 }
+@media only screen and (max-width: 600px) {
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar input,
+    .search-bar select {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .search-bar select {
+        width: 100%;
+    }
+
+    .search-bar button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    @media only screen and (max-width: 600px) {
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch; /* Stretch items to full width */
+    }
+
+    .search-bar input,
+    .search-bar select,
+    .search-bar button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .search-bar select {
+        max-width: none; /* Remove max-width for select on smaller screens */
+    }
+}
+}

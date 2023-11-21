@@ -123,3 +123,38 @@ color: #0a2167;
   .item-custom input[type="text"]{
     padding:5px;
   }
+  /* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
+  .course-details-admin {
+      gap: 10px; 
+      flex-direction: column; 
+  }
+
+  .form-admin-forum {
+      width: 100%; 
+      max-width: 100%; 
+  }
+
+  .form-admin-forum h2 {
+      font-size: 18px;
+  }
+
+  .form-admin-forum input,
+  .form-admin-forum textarea {
+      font-size: 16px;
+  }
+
+  .item-custom label,
+  .item-custom input,
+  .item-custom textarea {
+      font-size: 16px;
+  }
+
+  .image-container-custom p {
+      font-size: 18px;
+  }
+
+  .btn-block-edit-custom button {
+      font-size: 16px;
+  }
+}

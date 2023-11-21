@@ -72,3 +72,25 @@ h1 {
 .close-button1:hover{
   background: red;
 }
+@media only screen and (max-width: 600px) {
+  .forum-page {
+    padding: 10px; 
+  }
+
+  .pagination {
+    padding: 10px; 
+  }
+
+  .pagination-button {
+    margin: 0 3px; 
+  }
+
+  h1 {
+    font-size: 24px; 
+  }
+
+  .close-button1 {
+    font-size: 14px;
+    padding: 3px 6px; 
+  }
+}

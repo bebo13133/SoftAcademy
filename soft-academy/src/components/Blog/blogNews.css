@@ -84,3 +84,12 @@
   /* Променете броя на редовете (думите) според вашите предпочитания */
   -webkit-box-orient: vertical;
 }
+@media only screen and (max-width: 768px) {
+  .single-blog-item-txt p,
+  .single-blog-item-txt a {
+    -webkit-line-clamp: unset;
+    /* Reset line clamp for smaller screens */
+    overflow: visible;
+    display: block;
+  }
+}
