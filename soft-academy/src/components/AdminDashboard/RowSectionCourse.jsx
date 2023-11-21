@@ -38,8 +38,8 @@ export const RowSectionCourse = ({ _id, _createdOn, email, date, courseName, onD
                 <p><strong>Students:</strong> </p>
 
 
-                {/* <button className="btn-primary-course" onClick={onNavigateDetails}> Details</button>
-                <button className="btn-delete-course" onClick={() => openDelete()}> Delete</button> */}
+                <button className="btn-primary-course" onClick={onNavigateDetails}> Details</button>
+                <button className="btn-delete-course" onClick={() => openDelete()}> Delete</button>
             </div>
 
             <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()}                // title={deleteData?.name}

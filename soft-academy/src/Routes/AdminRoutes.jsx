@@ -28,6 +28,7 @@ const AdminRoutes = () => {
                 <Route path="send-email/:userId" element={<IsAdmin><EmailAdmin /></IsAdmin>} />
                 <Route path="search-course" element={<IsAdmin><SearchAdminCourses /></IsAdmin>} />
             </Routes>
+
         </>
 
 
