@@ -53,6 +53,7 @@ export const AllCourses = () => {
 
 
                 <section className="render-section">
+                    
                     <div className="customer-list">
                         <h2>All courses</h2>
                         <SearchBarAdminCourses/>

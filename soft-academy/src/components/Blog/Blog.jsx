@@ -11,10 +11,10 @@ const Blog = () => {
     const [currentPage, setCurrentPage] = useState(1);//начални 
     const [newsPerPage] = useState(3);
     const [isLoading, setIsLoading] = useState(true)
-    const [footer,setFooter] = useState(false) // искам футъра да се зарежда след заявката от апито
+    const [footer, setFooter] = useState(false) // искам футъра да се зарежда след заявката от апито
     useEffect(() => {
         newsApi()
-       
+
         setIsLoading(false)
 
 
@@ -47,9 +47,9 @@ const Blog = () => {
             setNews(data.articles);
             // console.log(data)
             // console.log(news)
-  setFooter(true)
+            setFooter(true)
         } catch (error) {
-          console.log(error.message)
+            console.log(error.message)
         }
 
 
@@ -74,25 +74,25 @@ const Blog = () => {
                         <h2>News and Articles</h2>
                         <p>Stay up to date with our latest News and Articles</p>
                     </div>
-                    {isLoading ? <IsLoading /> : (<>  
-                    <div className="blog-content">
-                        <div className="row">
-                            {currentNews.map((article, index) => (
-                                <div className="col-md-4 col-sm-6" key={index}>
-                                    <div className="single-blog-item">
-                                        <div className="single-blog-item-img">
-                                            <img src={article.thumbnail || "./src/assets/images/blog/b3.jpg"} alt="blog image" />
-                                        </div>
-                                        <div className="single-blog-item-txt">
-                                            <h2><a href={article.url}>{article.title}</a></h2>
-                                            <h4>Posted <span>by</span> <a href="#">{article.author}</a> {new Date(article.published_date).toDateString()}</h4>
-                                            <p>{article.description}</p>
+                    {isLoading ? <IsLoading /> : (<>
+                        <div className="blog-content">
+                            <div className="row">
+                                {currentNews.map((article, index) => (
+                                    <div className="col-md-4 col-sm-6" key={index}>
+                                        <div className="single-blog-item">
+                                            <div className="single-blog-item-img">
+                                                <img src={article.thumbnail || "./src/assets/images/blog/b3.jpg"} alt="blog image" />
+                                            </div>
+                                            <div className="single-blog-item-txt">
+                                                <h2><a href={article.url}>{article.title}</a></h2>
+                                                <h4>Posted <span>by</span> <a href="#">{article.author}</a> {new Date(article.published_date).toDateString()}</h4>
+                                                <p>{article.description}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
-                    </div>
 
 
 
@@ -103,7 +103,7 @@ const Blog = () => {
                         {Array.from({ length: Math.ceil(news.length / newsPerPage) }, (_, index) => (
                             <li key={index}>
                                 {/* извиква номер на страницатa която потребителя иска да види , променям стейта му също currentpage  */}
-                                <button onClick={() => paginate(index + 1)}>
+                                <button onClick={() => paginate(index + 1)}  className={currentPage === index + 1 ? "active" : ""} >
                                     {index + 1}
                                 </button>
                             </li>
@@ -112,7 +112,7 @@ const Blog = () => {
                 </div>
 
             </section>
-         {footer &&  <ul>
+            {footer && <ul>
                 <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
             </ul>}
 

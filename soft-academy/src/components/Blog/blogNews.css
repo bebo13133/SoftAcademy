@@ -10,8 +10,13 @@
 .pagination li {
   margin: 0 5px;
   display: inline-block;
-}
+  transition: background-color 0.3s ease;
 
+}
+.pagination li.active {
+  background-color: #007bff; /* Change to your preferred active color */
+  color: #fff; 
+}
 /* Pagination Link */
 .pagination button {
   background-color: #3498db;
@@ -19,7 +24,7 @@
   border: 1px solid #3498db;
   padding: 8px 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Pagination Link Hover */

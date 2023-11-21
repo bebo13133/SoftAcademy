@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react"
 import './bookMark.css'
+import { Bounce, Fade,Flip,Hinge,JackInTheBox,Roll,Rotate,Slide, Zoom  } from "react-awesome-reveal";
 
 import { CourseContext, useCourseContext } from "../contexts/CourseContext"
 import { IsLoading } from "../IsLoading/IsLoading"
@@ -28,13 +29,17 @@ const CatalogCourses = () => {
 
     return (
         <>
-            {isLoading ? <IsLoading /> : (<> <section id="explore" className="explore">
+            {isLoading ? <IsLoading /> : (<> <Fade delay="10" duration="2000" triggerOnce='true'><section id="explore" className="explore">
+    
+
                 <div className="container">
                     <div className="section-header">
                         <h2>Courses</h2>
                         <p>Explore New place, food, culture around the world and many more</p>
                     </div>
+
                     <div className="explore-content">
+
                         <div className="row">
 
 
@@ -52,12 +57,16 @@ const CatalogCourses = () => {
                         </ul>
 
                     </div>
+
                 </div>
                 <ul>
                     <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                 </ul>
                 <Footer />
-            </section></>
+              
+
+            </section>  </Fade></>
+            
             )}
 
         </>
