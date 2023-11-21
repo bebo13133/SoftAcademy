@@ -4,6 +4,7 @@ import { RowSectionForum } from "./RowSectionForum";
 import { SearchBarAdminCourses } from "../SearcAdminCourses/SearchBarAdminCourses";
 import '../../AdminDashboard/adminDashboard.css'
 import { useForumContext } from "../../contexts/ForumContext";
+import { SearchBarAdminForum } from "./SearchBarForum/SearchBarForum";
 
 
 export const AllForums = () => {
@@ -51,7 +52,7 @@ export const AllForums = () => {
 
                     <div className="customer-list">
                         <h2>All courses</h2>
-                        <SearchBarAdminCourses />
+                        <SearchBarAdminForum />
                         {currentResults && currentResults.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />)}
                     </div>
                     <ul className="pagination-admin">

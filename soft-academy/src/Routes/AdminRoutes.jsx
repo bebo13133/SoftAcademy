@@ -13,6 +13,7 @@ import EmailAdmin from "../components/AdminDashboard/EmailAdmin"
 import { SearchAdminCourses } from "../components/AdminDashboard/SearcAdminCourses/SearcAdminCourses"
 import { AllForums } from "../components/AdminDashboard/AllForums/AllForums"
 import { ForumDetailsAdmin } from "../components/AdminDashboard/AllForums/ForumDetailsAdmin"
+import { SearchAdminForum } from "../components/AdminDashboard/AllForums/SearchBarForum/SearchAdminForum"
 
 const AdminRoutes = () => {
 
@@ -33,7 +34,7 @@ const AdminRoutes = () => {
 
                 <Route path="send-email/:userId" element={<IsAdmin><EmailAdmin /></IsAdmin>} />
                 <Route path="search-course" element={<IsAdmin><SearchAdminCourses /></IsAdmin>} />
-                <Route path="search-forum" element={<IsAdmin><SearchAdminCourses /></IsAdmin>} />
+                <Route path="search-forum" element={<IsAdmin><SearchAdminForum /></IsAdmin>} />
             </Routes>
 
         </>

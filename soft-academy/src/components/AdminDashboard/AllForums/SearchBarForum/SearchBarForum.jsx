@@ -1,15 +1,17 @@
-import { useCourseContext } from "../../../contexts/CourseContext"
-import { useForm } from "../../Hooks/useForm"
+import { useForm } from "../../../Hooks/useForm"
+
+import { useForumContext } from "../../../contexts/ForumContext"
+
 
 
 
 export const SearchBarAdminForum = () => {
 
-    const { onSearchSubmitAdminCourse } = useCourseContext()
+    const { onSearchSubmitAdminForum } = useForumContext()
     const { values, onSubmit, onChangeHandler } = useForm({
         searchTerm: "",
         searchCriteria: '',
-    }, onSearchSubmitAdminCourse)
+    }, onSearchSubmitAdminForum)
 
 
 
@@ -32,8 +34,8 @@ export const SearchBarAdminForum = () => {
 
 
                     <option value="all">All</option>
-                    <option value="name">Name</option>
-                    <option value="email">Email</option>
+                    <option value="title">Name</option>
+                    <option value="author">Author</option>
                     <option value="id">ID</option>
 
                     {/* Add more options based on your user object structure */}

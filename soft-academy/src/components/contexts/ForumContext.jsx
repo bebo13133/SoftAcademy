@@ -18,7 +18,8 @@ export const ForumProvider = ({ children }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
-
+    const [forumSearch, setForumSearch] = useState([])
+  
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
 
 
@@ -190,6 +191,30 @@ export const ForumProvider = ({ children }) => {
             dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
         }
     };
+    const onSearchSubmitAdminForum = async (data) => {
+
+        try {
+            const result = await forumService.getAll()
+                   
+            if (!data.searchTerm || data.searchCriteria === "all") {
+                setForumSearch(result)
+            }
+            if (data.searchCriteria == "id") {
+                setForumSearch(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
+            }
+            if (data.searchCriteria == "author") {
+                setForumSearch(result.filter(x => x.email.toLowerCase().includes(data.searchTerm.toLowerCase())));
+            }
+            if (data.searchCriteria == "name") {
+                setForumSearch(result.filter(x => x.courseName.toLowerCase().includes(data.searchTerm.toLowerCase())));
+            }
+            navigate("/admin/search-forum")
+        } catch (error) {
+            console.log(error.message || error);
+
+
+        }
+    }
 
 
 
@@ -199,7 +224,9 @@ export const ForumProvider = ({ children }) => {
         onDeleteClick,
         onEditSubmitPost,
         onDeleteForumAdmin,
-        onEditSubmitAdmin
+        onEditSubmitAdmin,
+        onSearchSubmitAdminForum,
+        forumSearch
 
     }
 
