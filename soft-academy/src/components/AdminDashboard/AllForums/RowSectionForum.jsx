@@ -3,18 +3,41 @@ import '../../AdminDashboard/rowSection.css'
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useForumContext } from "../../contexts/ForumContext"
+import { forumServiceFactory } from "../../Services/forumService"
+import { useService } from "../../Hooks/useService"
 export const RowSectionForum = ({ _id, title,
     author,
     createdAt,
     onDeleteClick
 }) => {
-
+    const [comments, setComments] = useState([])
+    const [likes, setLikes] = useState([])
     const [isOpen, setIsOpen] = useState(false)
+    const forumService = useService(forumServiceFactory)
 
     const forumId = _id
     const navigate = useNavigate()
-   
+
+
+    const fetchData = async () => {
+        try {
+            const commentForum = await forumService.getAllPosts(forumId)
+            setComments(commentForum)
+
+            const forumLikes = await forumService.getAllForumLikes(forumId)
+          
+            const likesForum = forumLikes.filter(x => x.forumId === forumId)
+            setLikes(likesForum)
+        } catch (error) {
+            console.log("Error fetching forum post", error);
+        }
+
+    }
+
+
+
     const onNavigateDetails = () => {
+
         navigate(`/admin/all-forums/${forumId}`)
 
     }
@@ -26,9 +49,9 @@ export const RowSectionForum = ({ _id, title,
     }
 
     useEffect(() => {
+        fetchData()
 
-
-    }, [onCloseDelete,])
+    }, [])
 
 
     return (
@@ -40,9 +63,8 @@ export const RowSectionForum = ({ _id, title,
 
                 <p><strong>Author:</strong> {author}</p>
                 <p><strong>Created On:</strong> {createdAt}</p>
-                <p><strong>Comments</strong> 1</p>
-                <p><strong>Likes</strong> 1</p>
-
+                <p><strong>Comments</strong> {comments.length}</p>
+                <p><strong>Likes</strong> {likes.length}</p>
 
 
 

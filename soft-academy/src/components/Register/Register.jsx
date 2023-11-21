@@ -4,6 +4,7 @@ import { UserContext } from "../contexts/UserContext"
 import { useContext } from "react"
 import'./loginRegisterForms.css'
 import Footer from "../Footer/Footer"
+import { Fade, Slide } from "react-awesome-reveal"
 
 
 export const Register = () => {
@@ -17,6 +18,7 @@ export const Register = () => {
 
     return (
         <>
+         <Slide direction='right' delay="10" duration="2000" triggerOnce='true'>
             <section className="login-root-section">
                 <section className="image-section">
                     <div className="image-container1">
@@ -54,6 +56,7 @@ export const Register = () => {
                 </section>
                
             </section>
+            </Slide>
             <Footer/>
         </>
 

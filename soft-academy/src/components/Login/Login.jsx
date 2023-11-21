@@ -3,6 +3,7 @@ import './loginRegisterForms.css'
 import { useForm } from '../Hooks/useForm'
 import { Link } from 'react-router-dom'
 import Footer from '../Footer/Footer'
+import { Fade, Slide } from 'react-awesome-reveal'
 
 export const Login = () => {
 
@@ -19,6 +20,7 @@ export const Login = () => {
 
     return (
         <>
+        <Slide direction='right' delay="10" duration="2000" triggerOnce='true'>
             <section className="login-root-section">
                 <section className="image-section">
                     <div className="image-container2">
@@ -54,6 +56,7 @@ export const Login = () => {
                     </form>
                 </section>
             </section>
+            </Slide>
             <Footer />
         </>
     )
