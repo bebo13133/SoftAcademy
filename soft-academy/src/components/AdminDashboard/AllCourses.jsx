@@ -57,7 +57,8 @@ export const AllCourses = () => {
                     <div className="customer-list">
                         <h2>All courses</h2>
                         <SearchBarAdminCourses/>
-                        {currentResults && currentResults.map(user => <RowSectionCourse key={user._id} onDeleteClick={()=>handleDelete(user._id)} {...user}  />)}
+                        {currentResults.length>0 ? currentResults.map(user => <RowSectionCourse key={user._id} onDeleteClick={()=>handleDelete(user._id)} {...user}  />)
+                        :(<h2 className="no-articles">No courses yet</h2>)}
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (

@@ -53,7 +53,7 @@ export const AllForums = () => {
                     <div className="customer-list">
                         <h2>All courses</h2>
                         <SearchBarAdminForum />
-                        {currentResults && currentResults.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />)}
+                        {currentResults.length>0 ? currentResults.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />):(<h2 className="no-articles">No courses yet</h2>)}
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (

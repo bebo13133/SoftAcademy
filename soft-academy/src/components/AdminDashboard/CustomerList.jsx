@@ -28,7 +28,7 @@ export const CustomerList = () => {
     useEffect(() => {
         userService.getAll()
             .then(result => {
-
+console.log(result)
                 setUsers(result)
             })
             .catch(error => {
@@ -50,7 +50,7 @@ export const CustomerList = () => {
                     <div className="customer-list">
                         <h2>User information</h2>
                        <SearchBar/>
-                        {currentResults && currentResults.map(user => <RowSection key={user._id} {...user} />)}
+                        {currentResults.length>0 ? currentResults.map(user => <RowSection key={user._id} {...user} />):(<h2 className="no-articles">No customer yet</h2>)}
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (
