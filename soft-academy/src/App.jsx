@@ -1,6 +1,6 @@
 // import { useState,useEffect } from 'react'
 import { useEffect, useState, lazy, Suspense } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Router, Routes, useLocation } from 'react-router-dom'
 import ErrorBoundary from './components/ErrorBoundary'
 import { UserProvider } from './components/contexts/UserContext'
 import { useCookies } from 'react-cookie'
@@ -38,7 +38,7 @@ import { IsOwnerCourse } from './components/common/isOwnerCourse'
 // import { ChatBox } from './components/ChatBox/ChatBox'
 
 const ChatBox = lazy(() => import('./components/ChatBox/ChatBox'))
-import { AdminChatPage } from './components/AdminPage/AdminChatPage'
+// import { AdminChatPage } from './components/AdminPage/AdminChatPage'
 import { IsLoading } from './components/IsLoading/IsLoading'
 import { CookieConsent } from './components/CookieConsent/CookieConsent'
 import { PrivacyPolicy } from './components/CookieConsent/PrivacyPolicy'
@@ -59,11 +59,12 @@ import { IsAdmin } from './components/common/IsAdmin'
 // import { AdminDashboard } from './components/AdminDashboard/AdminDashboard'
 // import { CustomerList } from './components/AdminDashboard/CustomerList'
 // import { AllCourses } from './components/AdminDashboard/AllCourses'
-import { CourseDetails } from './components/AdminDashboard/CourseDetails'
-import EmailAdmin from './components/AdminDashboard/EmailAdmin'
-import { SearchBarPage } from './components/AdminDashboard/SearchBarAdmin/SearchBarPage'
-import { SearchAdminCourses } from './components/AdminDashboard/SearcAdminCourses/SearcAdminCourses'
+// import { CourseDetails } from './components/AdminDashboard/CourseDetails'
+// import EmailAdmin from './components/AdminDashboard/EmailAdmin'
+// import { SearchBarPage } from './components/AdminDashboard/SearchBarAdmin/SearchBarPage'
+// import { SearchAdminCourses } from './components/AdminDashboard/SearcAdminCourses/SearcAdminCourses'
 import AdminRoutes from './Routes/AdminRoutes'
+import HomeRoutes from './Routes/HomeRoutes'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -107,9 +108,9 @@ function App() {
                 <Routes>
                   <Route path={"/"} element={
                     <Suspense fullback={<IsLoading />}>
-                      <Home /> 
-                       </Suspense>
-                    } />
+                      <Home />
+                    </Suspense>
+                  } />
                   <Route path={"/privacy-policy"} element={<PrivacyPolicy />} />
                   <Route path={"/terms"} element={<TermsAndConditions />} />
 
@@ -150,8 +151,10 @@ function App() {
 
                   {/* Route Guard */}
                   <Route element={<RouteGuard />}>
-
-                    <Route path={"/logout"} element={<Logout />} />
+                  
+                      <Route path="/*" element={<HomeRoutes />} />
+                   
+                    {/* <Route path={"/logout"} element={<Logout />} />
 
                     <Route path={"/create"} element={<CreateCourse />} />
                     <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
@@ -179,8 +182,8 @@ function App() {
                     <Route path="/change-password" element={<ChangePassword />} />
                     <Route path="/my-added-courses" element={<AddedCourses />} />
                     <Route path="/favorite-courses" element={<FavoriteCourses />} />
-                    <Route path="/change-avatar" element={<AvatarHeader />} />
-                    
+                    <Route path="/change-avatar" element={<AvatarHeader />} /> */}
+
                     <Route path="/admin/*" element={<AdminRoutes />} />
                     {/* <Route path={"/admin/*"} element={
                       <IsAdmin> <AdminDashboard />      </IsAdmin>
@@ -210,7 +213,7 @@ function App() {
                         <EmailAdmin />
                       </IsAdmin>
                     } /> */}
-                        {/* <Route path={"/admin/search-customer"} element={
+                    {/* <Route path={"/admin/search-customer"} element={
                       <IsAdmin>
                         <SearchBarPage />
                       </IsAdmin>
