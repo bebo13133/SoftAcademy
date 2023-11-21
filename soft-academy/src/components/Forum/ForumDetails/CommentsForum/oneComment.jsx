@@ -39,7 +39,7 @@ export const OneComment = ({
                 setLikeUser(forumLikes.find(like => like.userId === userId));
             })
             .catch(error => {
-                console.error('Error fetching likes:', error);
+                console.log('Error fetching likes:', error);
             });
 
     }, [commentId, userId, likeCounter])
@@ -56,7 +56,7 @@ export const OneComment = ({
                 setLiked(false)
 
             } catch (err) {
-                console.error('Error removing like:', err);
+                console.log('Error removing like:', err);
 
             }
 
@@ -68,7 +68,7 @@ export const OneComment = ({
 
                 setLiked(true)
             } catch (error) {
-                console.error('Error adding like:', error);
+                console.log('Error adding like:', error);
             }
         }
     }

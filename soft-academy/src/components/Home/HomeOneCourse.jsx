@@ -55,7 +55,7 @@ const HomeOneCourse = ({
                 setBookmarkUser(bookMarkCourse.find(like => like._ownerId === userId));
             })
             .catch(error => {
-                console.error('Error fetching likes:', error);
+                console.log('Error fetching likes:', error);
             });
     }, [setBookmarkUser]);
 

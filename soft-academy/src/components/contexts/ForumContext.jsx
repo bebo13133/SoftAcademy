@@ -203,10 +203,10 @@ export const ForumProvider = ({ children }) => {
                 setForumSearch(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
             }
             if (data.searchCriteria == "author") {
-                setForumSearch(result.filter(x => x.email.toLowerCase().includes(data.searchTerm.toLowerCase())));
+                setForumSearch(result.filter(x => x.author.toLowerCase().includes(data.searchTerm.toLowerCase())));
             }
             if (data.searchCriteria == "name") {
-                setForumSearch(result.filter(x => x.courseName.toLowerCase().includes(data.searchTerm.toLowerCase())));
+                setForumSearch(result.filter(x => x.title.toLowerCase().includes(data.searchTerm.toLowerCase())));
             }
             navigate("/admin/search-forum")
         } catch (error) {
