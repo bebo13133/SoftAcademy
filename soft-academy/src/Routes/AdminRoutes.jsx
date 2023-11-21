@@ -1,33 +1,37 @@
 import { Route, Routes } from "react-router-dom"
 import { AdminDashboard } from "../components/AdminDashboard/AdminDashboard"
 import { AllCourses } from "../components/AdminDashboard/AllCourses"
-import { CourseDetails } from "../components/AdminDashboard/CourseDetails"
+
 import { CustomerList } from "../components/AdminDashboard/CustomerList"
-import EmailAdmin from "../components/AdminDashboard/EmailAdmin"
-import { SearchBarAdminCourses } from "../components/AdminDashboard/SearcAdminCourses/SearchBarAdminCourses"
-import { SearchBarPage } from "../components/AdminDashboard/SearchBarAdmin/SearchBarPage"
+
 import { AdminChatPage } from "../components/AdminPage/AdminChatPage"
 import { IsAdmin } from "../components/common/IsAdmin"
+import { SearchBarPage } from "../components/AdminDashboard/SearchBarAdmin/SearchBarPage"
+import { SearchBarAdminCourses } from "../components/AdminDashboard/SearcAdminCourses/SearchBarAdminCourses"
+import { CourseDetails } from "../components/AdminDashboard/CourseDetails"
+import EmailAdmin from "../components/AdminDashboard/EmailAdmin"
+import { SearchAdminCourses } from "../components/AdminDashboard/SearcAdminCourses/SearcAdminCourses"
 
-const AdminRoutes = ()=>{
+const AdminRoutes = () => {
 
-return(
-<>
-<Routes>
-      <Route path="/*" element={<IsAdmin><AdminDashboard /></IsAdmin>}>
-        <Route path="admin-chat" element={<AdminChatPage replace/>} />
-        <Route path="customers-list" element={<CustomerList />} />
-        <Route path="all-courses" element={<AllCourses/>} />
-        {/* <Route path="all-courses/:courseId" element={<CourseDetails />} />
-        <Route path="send-email/:userId" element={<EmailAdmin />} /> */}
-        {/* <Route path="search-customer" element={<SearchBarPage />} />
-        <Route path="search-course" element={<SearchBarAdminCourses />} /> */}
-      </Route>
-    </Routes>
-</>
+    return (
+        <>
+
+            <Routes>
+                <Route path="/*" element={<IsAdmin><AdminDashboard /></IsAdmin>}>
+                    <Route path="admin-chat" element={<AdminChatPage />} />
+                    <Route path="customers-list" element={<CustomerList />} />
+                    <Route path="all-courses" element={<AllCourses />} />
+                </Route>
+                <Route path="search-customer" element={<IsAdmin><SearchBarPage /></IsAdmin>} />
+                <Route path="all-courses/:courseId" element={<IsAdmin><CourseDetails /></IsAdmin>} />
+                <Route path="send-email/:userId" element={<IsAdmin><EmailAdmin /></IsAdmin>} />
+                <Route path="search-course" element={<IsAdmin><SearchAdminCourses /></IsAdmin>} />
+            </Routes>
+        </>
 
 
-)
+    )
 
 }
 export default AdminRoutes

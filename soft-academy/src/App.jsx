@@ -180,6 +180,7 @@ function App() {
                     <Route path="/my-added-courses" element={<AddedCourses />} />
                     <Route path="/favorite-courses" element={<FavoriteCourses />} />
                     <Route path="/change-avatar" element={<AvatarHeader />} />
+                    
                     <Route path="/admin/*" element={<AdminRoutes />} />
                     {/* <Route path={"/admin/*"} element={
                       <IsAdmin> <AdminDashboard />      </IsAdmin>
@@ -199,7 +200,7 @@ function App() {
                         <AllCourses />
                       </IsAdmin>
                     } /> */}
-                    <Route path={"/admin/all-courses/:courseId"} element={
+                    {/* <Route path={"/admin/all-courses/:courseId"} element={
                       <IsAdmin>
                         <CourseDetails />
                       </IsAdmin>
@@ -208,8 +209,8 @@ function App() {
                       <IsAdmin>
                         <EmailAdmin />
                       </IsAdmin>
-                    } />
-                        <Route path={"/admin/search-customer"} element={
+                    } /> */}
+                        {/* <Route path={"/admin/search-customer"} element={
                       <IsAdmin>
                         <SearchBarPage />
                       </IsAdmin>
@@ -218,7 +219,7 @@ function App() {
                       <IsAdmin>
                         <SearchAdminCourses />
                       </IsAdmin>
-                    } />
+                    } /> */}
 
                   </Route>
                   {/* End RouteGuard */}

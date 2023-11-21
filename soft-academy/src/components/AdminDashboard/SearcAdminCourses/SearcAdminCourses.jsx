@@ -6,14 +6,14 @@ import { useAuthContext } from "../../contexts/UserContext";
 import { courseServiceFactory } from "../../Services/courseService";
 import { RowSectionCourse } from "../RowSectionCourse";
 
-export const SearchAdminCourses=()=>{
+export const SearchAdminCourses = () => {
 
-const{adminSearch} = useCourseContext()
-
+    const { adminSearch } = useCourseContext()
+console.log("adminSearch",adminSearch)
     const [currentPage, setCurrentPage] = useState(1);
-    const {onDeleteClickAdmin} = useCourseContext()
+    const { onDeleteClickAdmin } = useCourseContext()
     const [courseInfo, setCourseInfo] = useState([])
-    const{token}=useAuthContext()
+    const { token } = useAuthContext()
     const courseService = courseServiceFactory(token)
     // setCourseInfo(adminSearch)
 
@@ -34,34 +34,36 @@ const{adminSearch} = useCourseContext()
 
 
 
-return(
-    <>
-        <div className="admin-dashboard">
+    return (
+        <>
+            <div className="admin-dashboard">
 
-<section className="sidebar">
-    <AdminSidebar />
-</section>
+                <section className="sidebar">
+                    <AdminSidebar />
+                </section>
 
 
-<section className="render-section">
-    <div className="customer-list">
-        <h2>All courses</h2>
-        <SearchBarAdminCourses/>
-        {currentResults && currentResults.map(user => <RowSectionCourse key={user._id} onDeleteClick={()=>handleDelete(user._id)} {...user}  />)}
-    </div>
-    <ul className="pagination-admin">
-        {Array.from({ length: totalPages }, (_, index) => (
-            <li key={index} onClick={() => setCurrentPage(index + 1)}>
-                {index + 1}
-            </li>
-        ))}
-    </ul>
-</section>
+                <section className="render-section">
+                    <div className="customer-list">
+                        <h2>All courses</h2>
+                        <SearchBarAdminCourses />
+                        {currentResults && currentResults.map(user => <RowSectionCourse key={user._id} 
+                        // onDeleteClick={() => handleDelete(user._id)}
+                         {...user} />)}
+                    </div>
+                    <ul className="pagination-admin">
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <li key={index} onClick={() => setCurrentPage(index + 1)}>
+                                {index + 1}
+                            </li>
+                        ))}
+                    </ul>
+                </section>
 
-</div>
+            </div>
 
-    
-    </>
-)
+
+        </>
+    )
 
 }
