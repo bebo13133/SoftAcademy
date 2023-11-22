@@ -4,7 +4,7 @@
 
     background-color: #333;
     color: #fff;
-    /* padding: 20px; */
+    padding: 20px;
     position: static;
     bottom: 0;
     width: 100%;
@@ -82,7 +82,9 @@
     .footer-section {
         text-align: left; 
     }
-
+    .footer{
+        padding: 0px;
+    }
     .footer-section h3 {
         margin-top: 0;
         font-size: 12px;
