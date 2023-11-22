@@ -54,8 +54,13 @@
     background: #ff8010;
     font-size: 26px;
     width: 199px;
+    color: white;
 }
+#root>section.contact-us-softacademy>div>div:nth-child(2)>div.col-lg-7>form>button:hover{
+    background: #038dbf;
+    color: white;
 
+}
 .contact-us-softacademy #name {
     font-size: 22px;
 }
