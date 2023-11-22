@@ -24,10 +24,7 @@ export const RowSectionForum = ({ _id, title,
             const commentForum = await forumService.getAllPosts(forumId)
             setComments(commentForum)
 
-            const forumLikes = await forumService.getAllForumLikes(forumId)
-          
-            const likesForum = forumLikes.filter(x => x.forumId === forumId)
-            setLikes(likesForum)
+        
         } catch (error) {
             console.log("Error fetching forum post", error);
         }
@@ -45,12 +42,18 @@ export const RowSectionForum = ({ _id, title,
         setIsOpen(true)
     }
     const onCloseDelete = () => {
+
         setIsOpen(false)
     }
 
     useEffect(() => {
         fetchData()
+        forumService.getAllForumLikes(forumId)
+          .then(result =>{
+        const likesForum = result.filter(x => x.forumId === forumId)
+        setLikes(likesForum)
 
+          })
     }, [])
 
 
