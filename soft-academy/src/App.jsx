@@ -26,15 +26,13 @@ const Home = lazy(() => import('./components/Home/Home'))
 
 import { Login } from './components/Login/Login'
 import { Register } from './components/Register/Register'
-import { Logout } from './components/Logout/Logout'
-import { CreateCourse } from './components/CreateCourse/CreateCourse'
+
 import { CourseProvider } from './components/contexts/CourseContext'
-import { DetailsCourse } from './components/DetailsCourse/DetailsCourse'
+
 import { RouteGuard } from './components/common/RouteGuard'
 import { PageNotFound } from './components/404/PageNotFound'
 import { GuardLoginRegister } from './components/common/GuardLoginRegister'
-import { EditCourse } from './components/EditCourse/EditCourse'
-import  IsOwnerCourse  from './components/common/isOwnerCourse'
+
 // import { ChatBox } from './components/ChatBox/ChatBox'
 
 const ChatBox = lazy(() => import('./components/ChatBox/ChatBox'))
@@ -42,27 +40,13 @@ const ChatBox = lazy(() => import('./components/ChatBox/ChatBox'))
 import { IsLoading } from './components/IsLoading/IsLoading'
 import { CookieConsent } from './components/CookieConsent/CookieConsent'
 import { PrivacyPolicy } from './components/CookieConsent/PrivacyPolicy'
-import { ProfilePage } from './components/ProfilePage/ProfilePage'
-import { ChangePassword } from './components/ProfilePage/ChangePassword'
-import { AddedCourses } from './components/ProfilePage/AddedCourses'
-import { FavoriteCourses } from './components/ProfilePage/FavoriteCourses'
-import { AvatarHeader } from './components/ProfilePage/AvatarHeader'
+
 import { SearchPage } from './components/SearchPage/SearchPage'
-import { ForumStudents } from './components/Forum/ForumStudents'
-import { ForumDetails } from './components/Forum/ForumDetails/ForumDetails'
-import { AddForumPost } from './components/Forum/AddForumPost/AddForumPost'
+
 import { ForumProvider } from './components/contexts/ForumContext'
-import { EditForumPost } from './components/Forum/ForumDetails/EditForumPost/EditForumPost'
+
 import { TermsAndConditions } from './components/Footer/TermsAndConditions/TermsAndConditions'
-import { LanguageCatalog } from './components/Home/LanguageBar/LanguageCatalog'
-import { IsAdmin } from './components/common/IsAdmin'
-// import { AdminDashboard } from './components/AdminDashboard/AdminDashboard'
-// import { CustomerList } from './components/AdminDashboard/CustomerList'
-// import { AllCourses } from './components/AdminDashboard/AllCourses'
-// import { CourseDetails } from './components/AdminDashboard/CourseDetails'
-// import EmailAdmin from './components/AdminDashboard/EmailAdmin'
-// import { SearchBarPage } from './components/AdminDashboard/SearchBarAdmin/SearchBarPage'
-// import { SearchAdminCourses } from './components/AdminDashboard/SearcAdminCourses/SearcAdminCourses'
+
 import AdminRoutes from './Routes/AdminRoutes'
 import HomeRoutes from './Routes/HomeRoutes'
 
@@ -79,13 +63,7 @@ function App() {
   const location = useLocation(); // Get the current location
 
   // const isProfilePage = location.pathname.startsWith('/profile') || location.pathname.startsWith("/change-password")
-  //   || location.pathname.startsWith("/my-added-courses") || location.pathname.startsWith("/favorite-courses") || location.pathname.startsWith("/change-avatar")
-  //   || location.pathname.startsWith("/404")
-  //   || location.pathname.startsWith("/terms")
-  //   || location.pathname.startsWith("/admin")
-  //   || location.pathname.startsWith("/forum")
-  //   || location.pathname.startsWith("/blog")
-  //   || location.pathname.startsWith("/")
+
 
 
 
@@ -95,7 +73,7 @@ function App() {
   return (
 
     <>
-      {/* {isLoading && <IsLoading />} */}
+       {isLoading && <IsLoading />} 
       <Provider store={store}>
         <UserProvider>
           <CourseProvider>
@@ -154,75 +132,10 @@ function App() {
                   
                       <Route path="/*" element={<HomeRoutes />} />
                    
-                    {/* <Route path={"/logout"} element={<Logout />} />
-
-                    <Route path={"/create"} element={<CreateCourse />} />
-                    <Route path={"/catalog/:courseId"} element={<DetailsCourse />} />
-                    <Route path={"/language-catalog"} element={<LanguageCatalog />} />
-
-                    <Route path={"/catalog/:courseId/edit"} element={
-                      <IsOwnerCourse>
-                        <EditCourse />
-                      </IsOwnerCourse>
-                    } />
-
-                    <Route path={"/forum"} element={<ForumStudents />} />
-                    <Route path={"/forum/:forumId"} element={<ForumDetails />} />
-
-                    <Route path={"/forum/:forumId/edit"} element={
-                      <IsOwnerCourse>
-                        <EditForumPost />
-                      </IsOwnerCourse>
-                    } />
-
-                    <Route path={"/add-new-post"} element={<AddForumPost />} />
-
-                    <Route path={"/profile"} element={<ProfilePage />} />
-
-                    <Route path="/change-password" element={<ChangePassword />} />
-                    <Route path="/my-added-courses" element={<AddedCourses />} />
-                    <Route path="/favorite-courses" element={<FavoriteCourses />} />
-                    <Route path="/change-avatar" element={<AvatarHeader />} /> */}
+                
 
                     <Route path="/admin/*" element={<AdminRoutes />} />
-                    {/* <Route path={"/admin/*"} element={
-                      <IsAdmin> <AdminDashboard />      </IsAdmin>
-                    } ></Route>
-                    <Route path={"admin/admin-chat"} element={
-                      <IsAdmin>
-                        <AdminChatPage />
-                      </IsAdmin>
-                    } />
-                    <Route path={"/admin/customers-list"} element={
-                      <IsAdmin>
-                        <CustomerList />
-                      </IsAdmin>
-                    } />
-                    <Route path={"/admin/all-courses"} element={
-                      <IsAdmin>
-                        <AllCourses />
-                      </IsAdmin>
-                    } /> */}
-                    {/* <Route path={"/admin/all-courses/:courseId"} element={
-                      <IsAdmin>
-                        <CourseDetails />
-                      </IsAdmin>
-                    } />
-                    <Route path={"/admin/send-email/:userId"} element={
-                      <IsAdmin>
-                        <EmailAdmin />
-                      </IsAdmin>
-                    } /> */}
-                    {/* <Route path={"/admin/search-customer"} element={
-                      <IsAdmin>
-                        <SearchBarPage />
-                      </IsAdmin>
-                    } />
-                         <Route path={"/admin/search-course"} element={
-                      <IsAdmin>
-                        <SearchAdminCourses />
-                      </IsAdmin>
-                    } /> */}
+            
 
                   </Route>
                   {/* End RouteGuard */}
