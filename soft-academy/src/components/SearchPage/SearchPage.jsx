@@ -62,7 +62,7 @@ export const SearchPage = ({
                             <li>
                                 <div className="single-list-topics-content">
                                     <div className="single-list-topics-icon">
-                                        <img className="home-top-lang" src="./img/Python-logo-notext.svg.png" />
+                                        <img className="home-top-lang" src="./img/pythonLogo.png" />
 
                                     </div>
                                     <h2><Link to={"https://www.python.org/"} target="_blank" rel="noopener noreferrer">Python</Link></h2>
