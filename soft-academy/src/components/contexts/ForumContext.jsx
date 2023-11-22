@@ -19,7 +19,7 @@ export const ForumProvider = ({ children }) => {
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
     const [forumSearch, setForumSearch] = useState([])
-  
+
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
 
 
@@ -33,6 +33,13 @@ export const ForumProvider = ({ children }) => {
             });
 
     }, [dispatch])
+
+    const selectForum =(forumId) => {
+
+  return forumPosts.find(x => x._id === forumId)
+// console.log("forumPosts1",result)
+
+    }
 
     const onPostSubmit = async (forumData) => {
 
@@ -94,7 +101,7 @@ export const ForumProvider = ({ children }) => {
     }
 
     const onDeleteForumAdmin = async (forumId) => {
-        
+
         try {
             const deletePost = await forumService.delete(forumId)
             dispatch(deleteForumPost(forumId))
@@ -195,7 +202,7 @@ export const ForumProvider = ({ children }) => {
 
         try {
             const result = await forumService.getAll()
-                   
+
             if (!data.searchTerm || data.searchCriteria === "all") {
                 setForumSearch(result)
             }
@@ -226,7 +233,8 @@ export const ForumProvider = ({ children }) => {
         onDeleteForumAdmin,
         onEditSubmitAdmin,
         onSearchSubmitAdminForum,
-        forumSearch
+        forumSearch,
+        selectForum
 
     }
 

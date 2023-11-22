@@ -5,7 +5,7 @@ import  useCourseOwnership  from "../Hooks/useCourseOwnerShip"
 
 const IsOwnerCourse = ({ children }) => {
     const { courseId } = useParams()
-    const { selectCourse } = useCourseContext()
+    // const { selectCourse } = useCourseContext()
  
 
     const isOwner = useCourseOwnership(courseId)
@@ -14,7 +14,7 @@ const IsOwnerCourse = ({ children }) => {
 
      if (!isOwner){
      return <Navigate to={`/catalog/${courseId}`} replace />
-        
+  
       }
      return  children ? children : <Outlet />
 

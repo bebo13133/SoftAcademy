@@ -14,6 +14,7 @@ import { ChangePassword } from "../components/ProfilePage/ChangePassword"
 import { AddedCourses } from "../components/ProfilePage/AddedCourses"
 import { FavoriteCourses } from "../components/ProfilePage/FavoriteCourses"
 import { AvatarHeader } from "../components/ProfilePage/AvatarHeader"
+import IsOwnerForum from "../components/common/IsOwnerForum"
 
  const HomeRoutes = ()=>{
 
@@ -36,9 +37,9 @@ import { AvatarHeader } from "../components/ProfilePage/AvatarHeader"
       <Route path="/forum/:forumId" element={<ForumDetails />} />
 
       <Route path="/forum/:forumId/edit" element={
-      // <IsOwnerCourse>
+        <IsOwnerForum>
         <EditForumPost />
-        // </IsOwnerCourse>
+         </IsOwnerForum>
       }/>
 
       <Route path="/add-new-post" element={<AddForumPost />} />
