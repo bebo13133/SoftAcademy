@@ -50,7 +50,7 @@ export const AllForums = () => {
                 <section className="render-section">
 
                     <div className="customer-list">
-                        <h2>All courses</h2>
+                        <h2>All Forums</h2>
                         <SearchBarAdminForum />
                         {currentResults.length>0 ? currentResults.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />):(<h2 className="no-articles">No courses yet</h2>)}
                     </div>

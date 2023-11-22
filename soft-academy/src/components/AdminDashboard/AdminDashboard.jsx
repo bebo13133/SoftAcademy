@@ -1,4 +1,5 @@
 import { AdminChatPage } from '../AdminPage/AdminChatPage'
+import { TermsAndConditions } from '../Footer/TermsAndConditions/TermsAndConditions'
 import { AdminSidebar } from './AdminSideBar'
 import { AllCourses } from './AllCourses'
 import { AllForums } from './AllForums/AllForums'
@@ -24,13 +25,16 @@ export const AdminDashboard = () => {
 
     return (
         <>
+        
             <div className="admin-dashboard">
                 <section className="sidebar">
                 <AdminSidebar/>
+
+
                 </section>
 
-
                 <section className="render-section">
+             
                     {routes}
                 </section>
 

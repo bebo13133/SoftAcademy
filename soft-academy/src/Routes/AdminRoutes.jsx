@@ -30,7 +30,7 @@ const AdminRoutes = () => {
                 </Route>
                 <Route path="search-customer" element={<IsAdmin><SearchBarPage /></IsAdmin>} />
                 <Route path="all-courses/:courseId" element={<IsAdmin><CourseDetails /></IsAdmin>} />
-                <Route path="all-forums/:forumId" element={<IsAdmin><ForumDetailsAdmin/></IsAdmin>} />
+                <Route path="all-forums/:forumId" element={<IsAdmin><ForumDetailsAdmin /></IsAdmin>} />
 
                 <Route path="send-email/:userId" element={<IsAdmin><EmailAdmin /></IsAdmin>} />
                 <Route path="search-course" element={<IsAdmin><SearchAdminCourses /></IsAdmin>} />
