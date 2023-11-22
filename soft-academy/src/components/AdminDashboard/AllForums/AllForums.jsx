@@ -39,7 +39,7 @@ export const AllForums = () => {
     }
     return (
 
-
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sed laboriosam error dicta facilis iure esse in neque inventore possimus aliquid, autem, molestiae enim dignissimos atque, voluptas veritatis et harum reprehenderit tempora. A dolor velit totam repellat accusantium, sapiente quos omnis nesciunt itaque iste nulla porro molestiae. Quidem, obcaecati accusamus.
         <>
             <div className="admin-dashboard">
 
