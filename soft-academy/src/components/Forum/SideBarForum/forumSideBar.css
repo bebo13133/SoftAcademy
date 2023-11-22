@@ -2,10 +2,10 @@
 
 .forum-sidebar {
   position: absolute;
-  top: 0;
+  /* top: 0; */
   left: -250px;
   width: 250px;
-  height: 98%;
+  height:119vh;
   background-color: rgb(73 73 73);
   /*     background-color: rgba(0, 0, 0, 0);  прозрачно*/
   color: #fff;

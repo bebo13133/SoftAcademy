@@ -62,6 +62,7 @@ export const AllForums = () => {
                         ))}
                     </ul>
                 </section>
+                
 
             </div>
         </>

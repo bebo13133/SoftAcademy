@@ -88,13 +88,29 @@ setIsLoading(false)
   };
 
 
+  // const handleToggleUserMenu = () => {
+  //   setAnchorElUser((prevAnchor) => !prevAnchor);
+  // };
 
-  // export { fetchUserLastAvatar };
-  // useEffect(() => {
-  //   if (!anchorElUser) {
-  //     handleCloseUserMenu();
-  //   }
-  // }, [anchorElUser]);
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if the user menu is open and close it if scrolling down
+      if (anchorElUser) {
+        handleToggleUserMenu();
+      }
+    };
+
+    // Attach the scroll event listener to the document
+    document.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener when the component is unmounted
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+      
+    };
+  }, [anchorElUser]);
+
+
   return (
     <>
     {isLoading&& <IsLoading/>}

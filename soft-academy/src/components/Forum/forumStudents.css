@@ -4,13 +4,19 @@
 }
 
 .forum-page {
+  /* променен  */
+  height: 90vh; 
+  /* gap: 4px; */
   display: flex;
   flex-direction: column;
   padding: 20px;
   align-content: space-around;
-  justify-content: space-around;
+  /* променен  */
+
+  justify-content: flex-start; 
   flex-wrap: wrap;
 }
+
 
 .pagination {
   

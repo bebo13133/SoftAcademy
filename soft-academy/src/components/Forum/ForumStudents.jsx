@@ -30,7 +30,14 @@ export const ForumStudents = () => {
             .catch(error => {
                 console.log(error.message || error)
             })
-        setLoading(false)
+            const timeoutId = setTimeout(() => {
+                setIsSidebarOpen(true);
+              }, 1160); // Променете времето според вашите предпочитания
+              setLoading(false)
+
+
+              return () => clearTimeout(timeoutId);
+      
     }, []);
 
 
