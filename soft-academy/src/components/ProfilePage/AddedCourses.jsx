@@ -7,6 +7,7 @@ import { IsLoading } from "../IsLoading/IsLoading"
 import { useLoading } from "../Hooks/useLoading"
 import { Pagination } from "../Pagination/Pagination"
 import { usePaginations } from "../Hooks/usePaginations"
+import Footer from "../Footer/Footer"
 
 
 
@@ -79,9 +80,9 @@ export const AddedCourses = () => {
 
                         </div>
                     </div>
-
+                    {/* <Footer/> */}
                 </section>
-
+               
             </>)}
 
 

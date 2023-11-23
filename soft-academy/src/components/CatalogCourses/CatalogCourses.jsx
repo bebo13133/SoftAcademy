@@ -6,27 +6,28 @@ import { CourseContext, useCourseContext } from "../contexts/CourseContext"
 import { IsLoading } from "../IsLoading/IsLoading"
 import { OneCourse } from "./OneCourse"
 import Footer from "../Footer/Footer"
-import { Pagination } from "@mui/material";
+
 import { usePaginations } from "../Hooks/usePaginations";
+import { Pagination } from "../Pagination/Pagination";
 
 const CatalogCourses = () => {
 
     const { courses } = useContext(CourseContext)
     const [isLoading, setIsLoading] = useState(true)
 
-    const [usersInfo, setUsers] = useState([])
+    const [coursesInfo, setCoursesInfo] = useState([])
     const resultsPerPage = 3;
 
 
     const { getPaginationData } = usePaginations(resultsPerPage)
 
-
+    const {totalPages,currentPage,currentResult,paginate}= getPaginationData(coursesInfo)
 
 
 
     useEffect(() => {
 
-        setUsers(courses)
+        setCoursesInfo(courses)
         setIsLoading(false)
 
     }, [courses])
@@ -48,7 +49,7 @@ const CatalogCourses = () => {
 
 
 
-                            {currentResults.length > 0 ? currentResults.map(course => <OneCourse key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
+                            {currentResult.length > 0 ? currentResult.map(course => <OneCourse key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
 
 
                         </div>

@@ -8,7 +8,8 @@ import { useCourseContext } from '../contexts/CourseContext';
 import "../AdminDashboard/SearchBarAdmin/searchBarAdmin.css"
 import { SearchBarAdminCourses } from './SearcAdminCourses/SearchBarAdminCourses';
 import { usePaginations } from '../Hooks/usePaginations';
-import { Pagination } from '@mui/material';
+import { Pagination } from '../Pagination/Pagination';
+
 
 export const AllCourses = () => {
 
