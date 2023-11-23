@@ -75,11 +75,11 @@ export const ForumStudents = () => {
 
                     <div className="forum-page">
 
-                        {currentResult && currentResult.map((article) => (
+                        {currentResult.length > 0 ? currentResult.map((article) => (
                       
                             <OneForumPost key={article._id} {...article}/>
                   
-                        ))}
+                        )):(<h2 className="no-articles">No forums yet</h2>)}
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (

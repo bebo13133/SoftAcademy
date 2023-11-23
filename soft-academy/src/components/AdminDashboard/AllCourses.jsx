@@ -13,13 +13,17 @@ export const AllCourses = () => {
 
     const { token } = useAuthContext()
     const [courseInfo, setCourseInfo] = useState([])
-    const [currentPage, setCurrentPage] = useState(1);
+   
     const courseService = courseServiceFactory(token)
     const { onDeleteClickAdmin } = useCourseContext()
 
     const resultsPerPage = 5;
 
     const { getPaginationData } = usePaginations(resultsPerPage)
+
+    const {currentResult,currentPage,totalPages,paginate}=getPaginationData(courseInfo)
+
+
 
     useEffect(() => {
 
@@ -53,12 +57,12 @@ export const AllCourses = () => {
                     <div className="customer-list">
                         <h2>All courses</h2>
                         <SearchBarAdminCourses />
-                        {currentResults.length > 0 ? currentResults.map(user => <RowSectionCourse key={user._id} onDeleteClick={() => handleDelete(user._id)} {...user} />)
+                        {currentResult.length > 0 ? currentResult.map(user => <RowSectionCourse key={user._id} onDeleteClick={() => handleDelete(user._id)} {...user} />)
                             : (<h2 className="no-articles">No courses yet</h2>)}
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => setCurrentPage(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
+                            <li key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
                                 {index + 1}
                             </li>
                         ))}

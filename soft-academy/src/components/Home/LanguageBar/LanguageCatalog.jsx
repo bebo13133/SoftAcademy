@@ -1,20 +1,20 @@
 
 import { useContext, useState, useEffect } from "react"
-
-
 import { CourseContext, useCourseContext } from "../../contexts/CourseContext"
-// import { IsLoading } from "../IsLoading/IsLoading"
 
 import Footer from "../../Footer/Footer"
 import { CatalogOneCourse } from "./CatalogOneCourse"
-import { red } from "@mui/material/colors"
+import { usePaginations } from "../../Hooks/usePaginations"
+
 
 export const LanguageCatalog=()=>{
 const [courses,setCourses] = useState([])
     const { languages } = useCourseContext()
   
-    const [isLoading, setIsLoading] = useState(true)
+ const resultPerPage = 3
 
+ const {getPaginationData}=usePaginations(resultPerPage)
+const {totalPages,currentResult,currentPage,paginate}=getPaginationData(courses)
 
     useEffect(() => {
 
@@ -27,7 +27,7 @@ const [courses,setCourses] = useState([])
     
     return (
         <>
-            {/* {isLoading && <IsLoading />} */}
+          
 
             <section id="explore" className="explore">
                 <div className="container">
@@ -39,11 +39,17 @@ const [courses,setCourses] = useState([])
                         <div className="row">
 
 
-                            {courses.length > 0 ?  courses.map(course => <CatalogOneCourse key={course._id} {...course} />) : <h3 className="no-articles" style={{color:red}}>No articles yet</h3>}
+                            {currentResult.length > 0 ?  currentResult.map(course => <CatalogOneCourse key={course._id} {...course} />) : <h3 className="no-articles" style={{color:"red"}}>No articles yet</h3>}
 
 
                         </div>
-
+                        <ul className="pagination-admin">
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <li key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
+                                {index + 1}
+                            </li>
+                        ))}
+                    </ul>
                     </div>
                 </div>
                 <ul>
