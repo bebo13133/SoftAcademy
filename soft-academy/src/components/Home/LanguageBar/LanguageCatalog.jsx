@@ -5,7 +5,8 @@ import { CourseContext, useCourseContext } from "../../contexts/CourseContext"
 import Footer from "../../Footer/Footer"
 import { CatalogOneCourse } from "./CatalogOneCourse"
 import { usePaginations } from "../../Hooks/usePaginations"
-import { Pagination } from "@mui/material"
+import { Pagination } from "../../Pagination/Pagination"
+
 
 
 export const LanguageCatalog=()=>{
