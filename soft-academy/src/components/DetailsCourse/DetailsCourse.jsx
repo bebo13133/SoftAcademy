@@ -7,6 +7,7 @@ import { OneCourse } from "./OneCourse"
 import { AddComments } from "../Comments/AddComments"
 import { LectorPage } from "./LectorsPage"
 import Footer from "../Footer/Footer"
+import { SignUpCourse } from "./SignUpCourse"
 
 
 export const DetailsCourse = () => {
@@ -38,6 +39,7 @@ export const DetailsCourse = () => {
 
                 <OneCourse {...details} />
                 <LectorPage {...details} />
+                <SignUpCourse/>
                 {/* <AddComments onCommentSubmit={onCommentSubmit} /> */}
 
             </section>

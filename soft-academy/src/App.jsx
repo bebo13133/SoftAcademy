@@ -11,11 +11,7 @@ import store from './store/store'
 // import { Contact } from './components/Contact/Contact'
 const Contact = lazy(() => import('./components/Contact/Contact'))
 // import { Blog } from './components/Blog/Blog'
-
 const Blog = lazy(() => import('./components/Blog/Blog'))
-
-
-
 // import { CatalogCourses } from './components/CatalogCourses/CatalogCourses'
 const CatalogCourses = lazy(() => import('./components/CatalogCourses/CatalogCourses'))
 import Footer from './components/Footer/Footer'
@@ -26,27 +22,19 @@ const Home = lazy(() => import('./components/Home/Home'))
 
 import { Login } from './components/Login/Login'
 import { Register } from './components/Register/Register'
-
 import { CourseProvider } from './components/contexts/CourseContext'
-
 import { RouteGuard } from './components/common/RouteGuard'
 import { PageNotFound } from './components/404/PageNotFound'
 import { GuardLoginRegister } from './components/common/GuardLoginRegister'
-
 // import { ChatBox } from './components/ChatBox/ChatBox'
-
 const ChatBox = lazy(() => import('./components/ChatBox/ChatBox'))
 // import { AdminChatPage } from './components/AdminPage/AdminChatPage'
 import { IsLoading } from './components/IsLoading/IsLoading'
 import { CookieConsent } from './components/CookieConsent/CookieConsent'
 import { PrivacyPolicy } from './components/CookieConsent/PrivacyPolicy'
-
 import { SearchPage } from './components/SearchPage/SearchPage'
-
 import { ForumProvider } from './components/contexts/ForumContext'
-
 import { TermsAndConditions } from './components/Footer/TermsAndConditions/TermsAndConditions'
-
 import AdminRoutes from './Routes/AdminRoutes'
 import HomeRoutes from './Routes/HomeRoutes'
 
@@ -63,9 +51,6 @@ function App() {
   const location = useLocation(); // Get the current location
 
   // const isProfilePage = location.pathname.startsWith('/profile') || location.pathname.startsWith("/change-password")
-
-
-
 
   const isAdminPage = location.pathname.startsWith('/admin')
 

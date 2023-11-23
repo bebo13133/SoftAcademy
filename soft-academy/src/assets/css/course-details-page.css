@@ -9,8 +9,11 @@
 /* grid-column-gap: 5rem; */
 justify-content: center;
 grid-gap: 10px;
-grid-template-columns: [col1-start] 300px  [col2-start] 500px  [col3-start] 300px [col3-end];
+grid-template-columns: 
+[col1-start] 330px  [col2-start] 500px  [col3-start] 330px [col3-end];
 grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
+
+
     /* flex-wrap: wrap;
     align-content: flex-start;
     justify-content: space-between; */
@@ -20,7 +23,8 @@ grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
 
 #details-page > div.main_card {
     grid-column: col1-start / col3-start;
-    grid-row: row1-start ;
+    grid-row-start: 1;
+  grid-row-end: 3;
     color: #060606;
     height: 300px auto;
     margin: -10px auto;

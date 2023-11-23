@@ -114,6 +114,7 @@ export const OneCourse = ({
                             </span>
                             <a href="#">Start date : {date}</a>
                         </p>
+                        {/* Lector part */}
                         <div className="explore-person">
                             <div className="row">
                                 <h2>Lector name:</h2>
@@ -130,6 +131,7 @@ export const OneCourse = ({
                                 </div>
                             </div>
                         </div>
+                            {/* close button */}
                         <div className="explore-open-close-part">
                             <div className="row">
                                 <div className="col-sm-5">
@@ -139,6 +141,7 @@ export const OneCourse = ({
 
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
