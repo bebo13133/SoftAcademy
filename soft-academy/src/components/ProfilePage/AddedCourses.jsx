@@ -20,9 +20,9 @@ export const AddedCourses = () => {
     const { userId } = useAuthContext()
 
     const resultPerPage = 3
-    const {getPaginationData } = usePaginations(courses)
+    const {getPaginationData } = usePaginations(resultPerPage)
 
-
+    const {totalPages,currentPage,currentResult,paginate}=getPaginationData(courses)
 
 
 
@@ -68,7 +68,7 @@ export const AddedCourses = () => {
                             <div className="row">
 
 
-                                {courses.length > 0 ? courses.map(course => <OneAddedCourse
+                                {currentResult.length > 0 ? currentResult.map(course => <OneAddedCourse
                                     key={course._id}
                                     {...course} />) : <h3 className="no-articles">No articles yet</h3>}
 

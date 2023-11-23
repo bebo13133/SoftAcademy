@@ -8,6 +8,7 @@ import { useCourseContext } from '../contexts/CourseContext';
 import "../AdminDashboard/SearchBarAdmin/searchBarAdmin.css"
 import { SearchBarAdminCourses } from './SearcAdminCourses/SearchBarAdminCourses';
 import { usePaginations } from '../Hooks/usePaginations';
+import { Pagination } from '@mui/material';
 
 export const AllCourses = () => {
 
@@ -60,13 +61,7 @@ export const AllCourses = () => {
                         {currentResult.length > 0 ? currentResult.map(user => <RowSectionCourse key={user._id} onDeleteClick={() => handleDelete(user._id)} {...user} />)
                             : (<h2 className="no-articles">No courses yet</h2>)}
                     </div>
-                    <ul className="pagination-admin">
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
-                                {index + 1}
-                            </li>
-                        ))}
-                    </ul>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage}/>
                 </section>
 
             </div>

@@ -18,7 +18,7 @@ export const AllForums = () => {
 
     const forumService = forumServiceFactory()
 
-    const resultsPerPage = 2;
+    const resultsPerPage = 5;
     const { getPaginationData } = usePaginations(resultsPerPage)
 
 

@@ -9,6 +9,7 @@ import "../AdminDashboard/SearchBarAdmin/searchBarAdmin.css"
 import { AdminSidebar } from './AdminSideBar';
 import { SearchBar } from './SearchBarAdmin/SearchBar';
 import { usePaginations } from '../Hooks/usePaginations';
+import { Pagination } from '../Pagination/Pagination';
 
 
 
@@ -51,13 +52,7 @@ console.log(result)
                        <SearchBar/>
                         {currentResult.length>0 ? currentResult.map(user => <RowSection key={user._id} {...user} />):(<h2 className="no-articles">No customer yet</h2>)}
                     </div>
-                    <ul className="pagination-admin">
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
-                                {index + 1}
-                            </li>
-                        ))}
-                    </ul>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage}/>
                 </section>
 
             </div>
