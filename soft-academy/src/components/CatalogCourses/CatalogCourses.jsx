@@ -1,27 +1,31 @@
 import { useContext, useState, useEffect } from "react"
 import './bookMark.css'
-import { Bounce, Fade,Flip,Hinge,JackInTheBox,Roll,Rotate,Slide, Zoom  } from "react-awesome-reveal";
+import { Bounce, Fade, Flip, Hinge, JackInTheBox, Roll, Rotate, Slide, Zoom } from "react-awesome-reveal";
 
 import { CourseContext, useCourseContext } from "../contexts/CourseContext"
 import { IsLoading } from "../IsLoading/IsLoading"
 import { OneCourse } from "./OneCourse"
 import Footer from "../Footer/Footer"
+import { Pagination } from "@mui/material";
+import { usePaginations } from "../Hooks/usePaginations";
 
 const CatalogCourses = () => {
 
     const { courses } = useContext(CourseContext)
     const [isLoading, setIsLoading] = useState(true)
-    const [currentPage, setCurrentPage] = useState(1);
+
     const [usersInfo, setUsers] = useState([])
     const resultsPerPage = 3;
 
-    const indexOfLastResult = currentPage * resultsPerPage;   //първа страница почва от едно по номера на резултатите които искаме да се показват 
-    const indexOfFirstResult = indexOfLastResult - resultsPerPage;
-    const currentResults = usersInfo.slice(indexOfFirstResult, indexOfLastResult);
 
-    const totalPages = Math.ceil(usersInfo.length / resultsPerPage);
+    const { getPaginationData } = usePaginations(resultsPerPage)
+
+
+
+
+
     useEffect(() => {
-      
+
         setUsers(courses)
         setIsLoading(false)
 
@@ -30,7 +34,7 @@ const CatalogCourses = () => {
     return (
         <>
             {isLoading ? <IsLoading /> : (<> <Fade delay="10" duration="2000" triggerOnce='true'><section id="explore" className="explore">
-    
+
 
                 <div className="container">
                     <div className="section-header">
@@ -48,13 +52,7 @@ const CatalogCourses = () => {
 
 
                         </div>
-                        <ul className="pagination-catalog" style={{marginTop:"0px"}}>
-                            {Array.from({ length: totalPages }, (_, index) => (
-                                <li key={index} onClick={() => setCurrentPage(index + 1)}  className={currentPage === index + 1 ? "active" : ""}>
-                                    {index + 1}
-                                </li>
-                            ))}
-                        </ul>
+                        <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} />
 
                     </div>
 
@@ -63,10 +61,10 @@ const CatalogCourses = () => {
                     <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                 </ul>
                 <Footer />
-              
+
 
             </section>  </Fade></>
-            
+
             )}
 
         </>

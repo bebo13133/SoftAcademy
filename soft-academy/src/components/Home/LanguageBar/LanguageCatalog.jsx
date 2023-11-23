@@ -5,6 +5,7 @@ import { CourseContext, useCourseContext } from "../../contexts/CourseContext"
 import Footer from "../../Footer/Footer"
 import { CatalogOneCourse } from "./CatalogOneCourse"
 import { usePaginations } from "../../Hooks/usePaginations"
+import { Pagination } from "@mui/material"
 
 
 export const LanguageCatalog=()=>{
@@ -43,13 +44,7 @@ const {totalPages,currentResult,currentPage,paginate}=getPaginationData(courses)
 
 
                         </div>
-                        <ul className="pagination-admin">
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
-                                {index + 1}
-                            </li>
-                        ))}
-                    </ul>
+                        <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage}/>
                     </div>
                 </div>
                 <ul>
