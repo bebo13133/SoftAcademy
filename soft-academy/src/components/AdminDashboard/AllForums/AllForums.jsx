@@ -7,6 +7,7 @@ import { useForumContext } from "../../contexts/ForumContext";
 import { SearchBarAdminForum } from "./SearchBarForum/SearchBarForum";
 
 import { usePaginations } from "../../Hooks/usePaginations";
+import { Pagination } from "../../Pagination/Pagination";
 
 
 export const AllForums = () => {
@@ -17,7 +18,7 @@ export const AllForums = () => {
 
     const forumService = forumServiceFactory()
 
-    const resultsPerPage = 5;
+    const resultsPerPage = 2;
     const { getPaginationData } = usePaginations(resultsPerPage)
 
 
@@ -58,13 +59,7 @@ const {paginate,totalPages,currentPage,currentResult} = getPaginationData(forums
                         <SearchBarAdminForum />
                         {currentResult.length > 0 ? currentResult.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />) : (<h2 className="no-articles">No courses yet</h2>)}
                     </div>
-                    <ul className="pagination-admin">
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
-                                {index + 1}
-                            </li>
-                        ))}
-                    </ul>
+                   <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage}/>
                 </section>
 
             </div>

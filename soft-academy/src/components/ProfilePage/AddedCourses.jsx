@@ -5,6 +5,8 @@ import { useAuthContext } from "../contexts/UserContext"
 import { ProfileSidebar } from "./ProfileSidebar"
 import { IsLoading } from "../IsLoading/IsLoading"
 import { useLoading } from "../Hooks/useLoading"
+import { Pagination } from "../Pagination/Pagination"
+import { usePaginations } from "../Hooks/usePaginations"
 
 
 
@@ -16,6 +18,14 @@ export const AddedCourses = () => {
     const [courses, setCourses] = useState([])
 
     const { userId } = useAuthContext()
+
+    const resultPerPage = 3
+    const {getPaginationData } = usePaginations(courses)
+
+
+
+
+
 
     useEffect(() => {
 
@@ -32,7 +42,7 @@ export const AddedCourses = () => {
 
             })
 
-            setIsLoading(false)
+        setIsLoading(false)
 
     }, [])
 
@@ -58,29 +68,23 @@ export const AddedCourses = () => {
                             <div className="row">
 
 
-                                {courses.length > 0 ? courses.map(course => <OneAddedCourse 
-                                     key={course._id} 
+                                {courses.length > 0 ? courses.map(course => <OneAddedCourse
+                                    key={course._id}
                                     {...course} />) : <h3 className="no-articles">No articles yet</h3>}
 
 
 
                             </div>
-                            <ul className="pagination-admin">
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
-                                {index + 1}
-                            </li>
-                        ))}
-                    </ul>
+                            <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} />
 
                         </div>
                     </div>
 
                 </section>
-            
+
             </>)}
-  
-   
+
+
         </>
     )
 
