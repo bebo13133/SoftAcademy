@@ -1,6 +1,6 @@
 import React, { useState, useEffect,lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import'../Hooks/paginations.css'
 
 import './forumStudents.css'
 import { SideBarForum } from './SideBarForum/SideBarForum';
@@ -9,6 +9,7 @@ import { forumServiceFactory } from "../Services/forumService";
 
 import Footer from '../Footer/Footer';
 import { IsLoading } from '../IsLoading/IsLoading';
+import { usePaginations } from '../Hooks/usePaginations';
 
 export const ForumStudents = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,7 +18,7 @@ export const ForumStudents = () => {
     const [isLoading, setLoading] = useState(true);
  
     const forumService = forumServiceFactory()
-    const [currentPage, setCurrentPage] = useState(1);
+  
     const postsPerPage = 3;
 
     useEffect(() => {
@@ -54,9 +55,8 @@ export const ForumStudents = () => {
         setIsSidebarOpen(false);
     };
 
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = articles.slice(indexOfFirstPost, indexOfLastPost);
+    const {getPaginationData}=usePaginations(postsPerPage)
+    const {currentPage,totalPages,paginate,currentResult } = getPaginationData(articles)
 
 
 
@@ -75,19 +75,16 @@ export const ForumStudents = () => {
 
                     <div className="forum-page">
 
-                        {currentPosts.map((article) => (
+                        {currentResult && currentResult.map((article) => (
                       
                             <OneForumPost key={article._id} {...article}/>
                   
                         ))}
                     </div>
-                    <ul className="pagination">
-                        {Array.from({ length: Math.ceil(articles.length / postsPerPage) }, (_, index) => (
-                            <li key={index} >
-                                <button className="pagination-button" onClick={() => setCurrentPage(index + 1)}>
-                                    {index + 1}
-                                </button>
-
+                    <ul className="pagination-admin">
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <li key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
+                                {index + 1}
                             </li>
                         ))}
                     </ul>

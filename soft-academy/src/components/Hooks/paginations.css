@@ -1,0 +1,23 @@
+.pagination-admin {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-admin  li {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #dd6007;;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination-admin li:hover {
+    background-color: #008e9d;
+  }
+  .pagination-admin  li.active {
+    background-color: #007bff;
+    color: #fff; 
+  }

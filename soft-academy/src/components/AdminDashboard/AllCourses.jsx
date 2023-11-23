@@ -7,23 +7,19 @@ import { RowSectionCourse } from './RowSectionCourse';
 import { useCourseContext } from '../contexts/CourseContext';
 import "../AdminDashboard/SearchBarAdmin/searchBarAdmin.css"
 import { SearchBarAdminCourses } from './SearcAdminCourses/SearchBarAdminCourses';
+import { usePaginations } from '../Hooks/usePaginations';
 
 export const AllCourses = () => {
 
-    const{token}=useAuthContext()
+    const { token } = useAuthContext()
     const [courseInfo, setCourseInfo] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const courseService = courseServiceFactory(token)
-    const {onDeleteClickAdmin} =useCourseContext()
+    const { onDeleteClickAdmin } = useCourseContext()
 
     const resultsPerPage = 5;
 
-
-    const indexOfLastResult = currentPage * resultsPerPage;   //първа страница почва от едно по номера на резултатите които искаме да се показват 
-    const indexOfFirstResult = indexOfLastResult - resultsPerPage;
-    const currentResults = courseInfo.slice(indexOfFirstResult, indexOfLastResult);
-
-    const totalPages = Math.ceil(courseInfo.length / resultsPerPage);
+    const { getPaginationData } = usePaginations(resultsPerPage)
 
     useEffect(() => {
 
@@ -35,12 +31,12 @@ export const AllCourses = () => {
                 console.log(error.message || error)
             })
     }, [])
-        
- const handleDelete=async(courseId)=>{
-    await onDeleteClickAdmin(courseId)
-    const courses = await courseService.getAll()
-    setCourseInfo(courses)
- }
+
+    const handleDelete = async (courseId) => {
+        await onDeleteClickAdmin(courseId)
+        const courses = await courseService.getAll()
+        setCourseInfo(courses)
+    }
 
 
     return (
@@ -53,12 +49,12 @@ export const AllCourses = () => {
 
 
                 <section className="render-section">
-                    
+
                     <div className="customer-list">
                         <h2>All courses</h2>
-                        <SearchBarAdminCourses/>
-                        {currentResults.length>0 ? currentResults.map(user => <RowSectionCourse key={user._id} onDeleteClick={()=>handleDelete(user._id)} {...user}  />)
-                        :(<h2 className="no-articles">No courses yet</h2>)}
+                        <SearchBarAdminCourses />
+                        {currentResults.length > 0 ? currentResults.map(user => <RowSectionCourse key={user._id} onDeleteClick={() => handleDelete(user._id)} {...user} />)
+                            : (<h2 className="no-articles">No courses yet</h2>)}
                     </div>
                     <ul className="pagination-admin">
                         {Array.from({ length: totalPages }, (_, index) => (

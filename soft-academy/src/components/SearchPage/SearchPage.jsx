@@ -83,7 +83,6 @@ export const SearchPage = ({
                         </ul>
                     </div>
                 </div>
-
             </section>
 
             <br />
