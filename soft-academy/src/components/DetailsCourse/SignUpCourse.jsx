@@ -16,7 +16,7 @@ export const SignUpCourse = ({
 }) => {
 
     const [studentsPayment, setStudentsPayment] = useState([])
-    console.log(studentsPayment, "'students")
+ 
     const { token, userId } = useAuthContext()
     const courseService = courseServiceFactory(token)
 
@@ -31,7 +31,7 @@ export const SignUpCourse = ({
     useEffect(() => {
         courseService.getAllStudentsPayment(courseId)
             .then(result => {
-                console.log(result,"payment result")
+                
                 setStudentsPayment(state => result.filter(x => x.userId === userId))
             })
     }, [courseId, userId])

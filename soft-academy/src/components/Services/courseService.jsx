@@ -31,12 +31,7 @@ export const courseServiceFactory = (token) => {
 
 // signUp form //
 const signup = async (data) => await request.post(baseUrl2,data)
-const pay = async(data) => request.post(baseUrl3,data)
-const getAllStudentsPayment = async (courseId) =>{
-    const response = await request.get(`${baseUrl3}?where=courseId%3D%22${courseId}%22`)
-    const result=Object.values(response)
-return result
-}
+
 
 const getAllStudentsPerCourse = async (courseId) => {
  const response = await request.get(`${baseUrl2}?where=courseId%3D%22${courseId}%22`)
@@ -46,6 +41,23 @@ const getAllStudentsPerCourse = async (courseId) => {
 
 }
 
+//payments///
+const pay = async(data) => request.post(baseUrl3,data)
+
+
+const getAllStudentsPayment = async (courseId) =>{
+    const response = await request.get(`${baseUrl3}?where=courseId%3D%22${courseId}%22`)
+    const result=Object.values(response)
+return result
+}
+
+
+
+const getAllPaymentsByUser = async(userId) => {
+    const response = await request.get(`${baseUrl3}?where=userId%3D%22${userId}%22`)
+    const result = Object.values(response)
+    return result
+}
     return {
         getAll,
         create,
@@ -55,7 +67,8 @@ const getAllStudentsPerCourse = async (courseId) => {
         signup,
         pay,
         getAllStudentsPerCourse,
-        getAllStudentsPayment
+        getAllStudentsPayment,
+        getAllPaymentsByUser
     }
 
 }
