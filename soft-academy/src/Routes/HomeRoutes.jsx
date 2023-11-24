@@ -15,6 +15,7 @@ import { AddedCourses } from "../components/ProfilePage/AddedCourses"
 import { FavoriteCourses } from "../components/ProfilePage/FavoriteCourses"
 import { AvatarHeader } from "../components/ProfilePage/AvatarHeader"
 import IsOwnerForum from "../components/common/IsOwnerForum"
+import { SignForm } from "../components/DetailsCourse/SignForm/SignForm"
 
  const HomeRoutes = ()=>{
 
@@ -26,6 +27,7 @@ import IsOwnerForum from "../components/common/IsOwnerForum"
       <Route path="/create" element={<CreateCourse />} />
       <Route path="/catalog/:courseId" element={<DetailsCourse />} />
       <Route path="/language-catalog" element={<LanguageCatalog />} />
+      <Route path="/catalog/:courseId/sign-form" element={<SignForm />} />
 
       <Route path="/catalog/:courseId/edit" element={
       <IsOwnerCourse>

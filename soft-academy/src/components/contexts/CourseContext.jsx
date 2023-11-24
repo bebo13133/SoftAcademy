@@ -16,8 +16,8 @@ export const CourseProvider = ({ children }) => {
     const { token } = useAuthContext()
     const [course, setCourse] = useState([])
     const [searchResult, setSearchResult] = useState([])
-    const [adminSearch,setAdminSearch] = useState([])
-
+    const [adminSearch, setAdminSearch] = useState([])
+    const [students,setStudents] =useState([])
     const [languages, setLanguage] = useState(null)
     // const [errorMessage, setErrorMessage] = useState(''); //error messages
     const dispatch = useDispatch()
@@ -33,7 +33,7 @@ export const CourseProvider = ({ children }) => {
 
         courseService.getAll()
             .then(result => {
-             
+
                 setCourse(result)
             })
             .catch(error => {
@@ -141,6 +141,33 @@ export const CourseProvider = ({ children }) => {
             console.log(err.message || err)
         }
 
+
+    }
+    const onSignUp = async (values) => {
+        if (!values.firstName || !values.lastName || !values.phoneNumber || !values.socialNumber ) {
+
+            dispatch(setError("Some field is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+
+        }
+        try {
+            if (values.isChecked) {
+                const result = await courseService.signup(values)
+                setStudents(state => [...state, result])
+            } else (
+                alert("Please accept the terms and conditions")
+            )
+
+        } catch (err) {
+            console.log(err.message || err)
+
+        }
+
+
+        // }
 
     }
 
@@ -307,10 +334,10 @@ export const CourseProvider = ({ children }) => {
 
 
 
-    const onSearchSubmitAdminCourse = async(data) => {
+    const onSearchSubmitAdminCourse = async (data) => {
 
         try {
-           const result= await courseService.getAll()
+            const result = await courseService.getAll()
 
             if (!data.searchTerm || data.searchCriteria === "all") {
                 setAdminSearch(result)
@@ -326,11 +353,11 @@ export const CourseProvider = ({ children }) => {
             }
             navigate("/admin/search-course")
         } catch (error) {
-         console.log(error.message || error);
+            console.log(error.message || error);
 
 
+        }
     }
-}
 
 
 
@@ -369,7 +396,9 @@ export const CourseProvider = ({ children }) => {
         onEditSubmitAdmin,
         onDeleteClickAdmin,
         onSearchSubmitAdminCourse,
-        
+        onSignUp,
+        students
+
     }
 
     return (

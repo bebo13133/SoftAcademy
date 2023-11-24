@@ -8,6 +8,7 @@ import { AddComments } from "../Comments/AddComments"
 import { LectorPage } from "./LectorsPage"
 import Footer from "../Footer/Footer"
 import { SignUpCourse } from "./SignUpCourse"
+import { v4 } from "uuid"
 
 
 export const DetailsCourse = () => {
@@ -39,7 +40,7 @@ export const DetailsCourse = () => {
 
                 <OneCourse {...details} />
                 <LectorPage {...details} />
-                <SignUpCourse/>
+                <SignUpCourse key={v4()} {...details}/>
                 {/* <AddComments onCommentSubmit={onCommentSubmit} /> */}
 
             </section>

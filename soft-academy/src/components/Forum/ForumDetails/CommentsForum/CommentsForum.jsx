@@ -18,15 +18,15 @@ export const CommentsForum = ({
     handleLikeToggle,
     liked,
     likeCounter
- 
+
 }) => {
     const [showAll, setShowAll] = useState(false);
-    const {userEmail,userId } = useAuthContext()
-   
+    const { userEmail, userId } = useAuthContext()
+
 
     const { onSubmit, onChangeHandler, values } = useForm({
         comment: "",
-        user:userEmail
+        user: userEmail
     }, onPostSubmit)
 
 
@@ -58,18 +58,18 @@ export const CommentsForum = ({
                 <div className="article-section">
                     <img className="article-image" src={imageUrl} alt={title} />
                     <h2 className="article-title">{title}</h2>
-                    <h3><span style={{color:"red"}}>{author}</span></h3>
-                    
+                    <h3><span style={{ color: "red" }}>{author}</span></h3>
+
                     <div className="like-component1">
-                    <button className="like-button" onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</button>
-                  <div className="like-button2">     
-                           <p>
-                           {likeCounter}
-                        </p>
-                    <BiLike className="svg-like" key={_id} style={{ size: "60px,", color: "blue" }} ></BiLike>
-                    </div> 
+                        <button className="like-button" onClick={handleLikeToggle}>{liked ? "Unlike" : "Like"}</button>
+                        <div className="like-button2">
+                            <p>
+                                {likeCounter}
+                            </p>
+                            <BiLike className="svg-like" key={_id} style={{ size: "60px,", color: "blue" }} ></BiLike>
+                        </div>
                     </div>
-                    <p className="comment-count">Comments: {comments.length } </p>
+                    <p className="comment-count">Comments: {comments.length} </p>
 
                     <div className="author-section">
                         {initialComments && initialComments.map((comment) => <OneComment key={comment._id} {...comment} onDeletePostHandler={onDeletePostHandler} />)}

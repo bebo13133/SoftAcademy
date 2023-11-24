@@ -4,7 +4,7 @@ import { useForm } from "../Hooks/useForm"
 import { useService } from "../Hooks/useService"
 import { courseServiceFactory } from "../Services/courseService"
 import { useCourseContext } from "../contexts/CourseContext"
-import { useParams,useNavigate} from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 
 import './editCourse.css'
@@ -17,22 +17,22 @@ export const EditCourse = () => {
     const { onEditSubmit } = useCourseContext()
     const courseService = useService(courseServiceFactory)
     const { courseId } = useParams()
-const navigate = useNavigate()
+    const navigate = useNavigate()
 
-const lectorImageHandler = (e) => {
-    const file = e.target.files[0] // подсигурявам да вземе сам оедин файл
+    const lectorImageHandler = (e) => {
+        const file = e.target.files[0] // подсигурявам да вземе сам оедин файл
 
-    if (file) {
+        if (file) {
 
-        const reader = new FileReader()
+            const reader = new FileReader()
 
-        reader.onloadend = () => {
+            reader.onloadend = () => {
 
-            onChangeHandler({ target: { name: 'lectorImage', value: reader.result } });
+                onChangeHandler({ target: { name: 'lectorImage', value: reader.result } });
+            }
+            reader.readAsDataURL(file);
         }
-        reader.readAsDataURL(file);
     }
-}
 
 
     const imageMap = {
@@ -64,7 +64,7 @@ const lectorImageHandler = (e) => {
 
 
 
-    
+
     const { onSubmitWithOut, onChangeHandler, onChangeValues, values } = useForm({
         courseName: "",
         firstName: "",
@@ -75,6 +75,10 @@ const lectorImageHandler = (e) => {
         description: "",
         imageUrl2: "",
         lectorDescription: "",
+        creditsCourse: "",
+        weeksCourse: "",
+        date: "",
+
         // selectOption,
         // imageUrl,
     }, onEditSubmit)
@@ -97,16 +101,16 @@ const lectorImageHandler = (e) => {
     }
     return (
         <>
-            <div className="testbox" 
+            <div className="testbox"
             // onClick={handleClickOutside}
-             >
+            >
                 <form method="POST" onSubmit={onSubmitWithOut}>
                     <div className="banner">
 
                     </div>
                     <div className="close-button-forum" onClick={onCloseForm}>
-                    X
-                </div>
+                        X
+                    </div>
                     <h2>Course Details</h2>
                     <div className="item">
                         <p>Course name</p>
@@ -176,6 +180,14 @@ const lectorImageHandler = (e) => {
                     <div className="item">
                         <p>Description</p>
                         <input type="text" name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
+                    </div>
+                    <div className="item">
+                        <p>Credits</p>
+                        <input type="text" name="creditsCourse" placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
+                    </div>
+                    <div className="item">
+                        <p>Weeks</p>
+                        <input type="text" name="weeksCourse" placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>Price</p>

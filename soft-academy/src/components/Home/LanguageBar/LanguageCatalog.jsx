@@ -54,7 +54,6 @@ const {totalPages,currentResult,currentPage,paginate}=getPaginationData(courses)
                 </ul>
                 <Footer />
             </section>
-
         </>
     )
 }

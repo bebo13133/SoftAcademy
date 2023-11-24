@@ -1,6 +1,7 @@
 import { requestFactory } from "./requester"
 
 const baseUrl = `http://localhost:3030/data/courses`
+const baseUrl2 = `http://localhost:3030/data/students`
 
 export const courseServiceFactory = (token) => {
     const request = requestFactory(token)
@@ -26,12 +27,27 @@ export const courseServiceFactory = (token) => {
     }
     const deleteCourse = (courseId) => request.del(`${baseUrl}/${courseId}`)
     const updateCourse = (courseId, data) => request.put(`${baseUrl}/${courseId}`, data)
+
+// signUp form //
+const signup = async (data) => await request.post(baseUrl2,data)
+
+
+const getAllStudentsPerCourse = async (courseId) => {
+ const response = await request.get(`${baseUrl2}?where=courseId%3D%22${courseId}%22`)
+ const result = Object.values(response)
+
+ return result
+
+}
+
     return {
         getAll,
         create,
         getOne,
         delete: deleteCourse,
         update: updateCourse,
+        signup,
+        getAllStudentsPerCourse
     }
 
 }

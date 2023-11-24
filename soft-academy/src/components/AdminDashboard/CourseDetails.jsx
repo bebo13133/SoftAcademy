@@ -73,6 +73,8 @@ export const CourseDetails = () => {
         description: "",
         imageUrl2: "",
         lectorDescription: "",
+        creditsCourse: "",
+        weeksCourse: "",
     },onEditSubmitAdmin)
 
     useEffect(() => {
@@ -98,7 +100,7 @@ export const CourseDetails = () => {
             </section>
 
             <section className="render-section">
-                <form method="POST" className="form-admin-course" onSubmit={onSubmit}>
+                <form method="POST" className="form-admin-course" onSubmit={onSubmitWithOut}>
                     <div className="banner-custom"></div>
                     <div className="close-button-forum-custom" onClick={onCloseForm}>
                         X
@@ -163,6 +165,14 @@ export const CourseDetails = () => {
                     <div className="item-custom">
                         <p>Description</p>
                         <input type="text" name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
+                    </div>
+                    <div className="item">
+                        <p>Credits</p>
+                        <input type="number" name="creditsCourse" placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
+                    </div>
+                    <div className="item">
+                        <p>Weeks</p>
+                        <input type="number" name="weeksCourse" placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item-custom">
                         <p>Price</p>

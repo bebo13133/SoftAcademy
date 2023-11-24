@@ -15,7 +15,21 @@
 
 margin-top:-10px;
 }
-
+.sign-h2{
+text-align: center;
+margin-top: 22px;
+border: 1px solid;
+border-radius: 14px;
+background-color: #fd7070;
+font-size: 22px
+}
+.sign-h2 h3 {
+  font-weight: 700;
+margin: 5px;
+}
+.sign-h2:hover{
+  background-color: #72b39b;
+}
 
 .sign-course-card p{
  font-family: 'Times New Roman', serif;
