@@ -18,6 +18,7 @@ export const CourseProvider = ({ children }) => {
     const [searchResult, setSearchResult] = useState([])
     const [adminSearch, setAdminSearch] = useState([])
     const [students,setStudents] =useState([])
+    const [payStudents,setPayStudent] = useState([])
     const [languages, setLanguage] = useState(null)
     // const [errorMessage, setErrorMessage] = useState(''); //error messages
     const dispatch = useDispatch()
@@ -175,6 +176,21 @@ export const CourseProvider = ({ children }) => {
 
     }
 
+    const onSubmitPayment=async (values) => {
+      console.log("pay",values)
+        if (!values.cardNumber || !values.ownerName || !values.expiDate || !values.cvc ) {
+
+            dispatch(setError("Some field is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+
+        }
+        const result = await courseService.pay(values)
+        setPayStudent(state => [...state, result])
+        navigate(`/catalog/${values.courseId}`)
+    }
 
 
     const onEditSubmit = async (data) => {
@@ -401,7 +417,9 @@ export const CourseProvider = ({ children }) => {
         onDeleteClickAdmin,
         onSearchSubmitAdminCourse,
         onSignUp,
-        students
+        students,
+        payStudents,
+        onSubmitPayment
 
     }
 

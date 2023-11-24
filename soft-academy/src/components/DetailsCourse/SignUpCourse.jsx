@@ -15,8 +15,8 @@ export const SignUpCourse = ({
 
 }) => {
 
-    const [students, setStudents] = useState([])
-    console.log(students, "'students")
+    const [studentsPayment, setStudentsPayment] = useState([])
+    console.log(studentsPayment, "'students")
     const { token, userId } = useAuthContext()
     const courseService = courseServiceFactory(token)
 
@@ -29,13 +29,14 @@ export const SignUpCourse = ({
 
 
     useEffect(() => {
-        courseService.getAllStudentsPerCourse(courseId)
+        courseService.getAllStudentsPayment(courseId)
             .then(result => {
-                setStudents(state => result.filter(x => x.owner === userId))
+                console.log(result,"payment result")
+                setStudentsPayment(state => result.filter(x => x.userId === userId))
             })
     }, [courseId, userId])
 
-    const isSignUp = students.length > 0
+    const isSignUp = studentsPayment.length > 0
 
     const onStudentSign = () => {
 
@@ -53,9 +54,9 @@ export const SignUpCourse = ({
                     <p className="lector-disc"> <span role="img" aria-label="calendar">📆</span> {weeksCourse} weeks </p>
 
                     <p className="lector-disc"> <span role="img" aria-label="credits">💳</span> {creditsCourse} credits </p>
-                    {/* {!isSignUp ?  */}
+                    {!isSignUp ? 
                     <button className="show-more-button-join" onClick={onStudentSign}>Sign Up</button> 
-                     {/* : (<div className="sign-h2"><h3>You already in course</h3></div>)} */}
+                      : (<div className="sign-h2"><h3>You already in course</h3></div>)} 
                 </div>
                 {/* {!showMore && <button className="show-more-button-course" onClick={toggleShowMore}>Show More</button>}
                 {showMore && <button className="show-more-button-course" onClick={toggleShowMore}>Show Less</button>} */}

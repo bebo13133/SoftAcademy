@@ -2,6 +2,7 @@ import { requestFactory } from "./requester"
 
 const baseUrl = `http://localhost:3030/data/courses`
 const baseUrl2 = `http://localhost:3030/data/students`
+const baseUrl3 = `http://localhost:3030/data/payments`
 
 export const courseServiceFactory = (token) => {
     const request = requestFactory(token)
@@ -30,7 +31,12 @@ export const courseServiceFactory = (token) => {
 
 // signUp form //
 const signup = async (data) => await request.post(baseUrl2,data)
-
+const pay = async(data) => request.post(baseUrl3,data)
+const getAllStudentsPayment = async (courseId) =>{
+    const response = await request.get(`${baseUrl3}?where=courseId%3D%22${courseId}%22`)
+    const result=Object.values(response)
+return result
+}
 
 const getAllStudentsPerCourse = async (courseId) => {
  const response = await request.get(`${baseUrl2}?where=courseId%3D%22${courseId}%22`)
@@ -47,7 +53,9 @@ const getAllStudentsPerCourse = async (courseId) => {
         delete: deleteCourse,
         update: updateCourse,
         signup,
-        getAllStudentsPerCourse
+        pay,
+        getAllStudentsPerCourse,
+        getAllStudentsPayment
     }
 
 }
