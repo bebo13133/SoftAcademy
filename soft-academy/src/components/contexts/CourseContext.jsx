@@ -157,10 +157,11 @@ export const CourseProvider = ({ children }) => {
             if (values.isChecked) {
                 const result = await courseService.signup(values)
                 setStudents(state => [...state, result])
+                navigate(`/catalog/${values.courseId}/payment-card`)
+
             } else (
                 alert("Please accept the terms and conditions")
             )
-
         } catch (err) {
             console.log(err.message || err)
 

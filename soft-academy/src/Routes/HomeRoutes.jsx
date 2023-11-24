@@ -16,6 +16,7 @@ import { FavoriteCourses } from "../components/ProfilePage/FavoriteCourses"
 import { AvatarHeader } from "../components/ProfilePage/AvatarHeader"
 import IsOwnerForum from "../components/common/IsOwnerForum"
 import { SignForm } from "../components/DetailsCourse/SignForm/SignForm"
+import { InvoiceCard } from "../components/DetailsCourse/InvoiceCard/InvoiceCard"
 
  const HomeRoutes = ()=>{
 
@@ -28,6 +29,7 @@ import { SignForm } from "../components/DetailsCourse/SignForm/SignForm"
       <Route path="/catalog/:courseId" element={<DetailsCourse />} />
       <Route path="/language-catalog" element={<LanguageCatalog />} />
       <Route path="/catalog/:courseId/sign-form" element={<SignForm />} />
+      <Route path="/catalog/:courseId/payment-card" element={<InvoiceCard />} />
 
       <Route path="/catalog/:courseId/edit" element={
       <IsOwnerCourse>

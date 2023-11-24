@@ -53,7 +53,9 @@ export const SignUpCourse = ({
                     <p className="lector-disc"> <span role="img" aria-label="calendar">📆</span> {weeksCourse} weeks </p>
 
                     <p className="lector-disc"> <span role="img" aria-label="credits">💳</span> {creditsCourse} credits </p>
-                    {!isSignUp ? <button className="show-more-button-join" onClick={onStudentSign}>Sign Up</button> : (<div className="sign-h2"><h3>You already in course</h3></div>)}
+                    {/* {!isSignUp ?  */}
+                    <button className="show-more-button-join" onClick={onStudentSign}>Sign Up</button> 
+                     {/* : (<div className="sign-h2"><h3>You already in course</h3></div>)} */}
                 </div>
                 {/* {!showMore && <button className="show-more-button-course" onClick={toggleShowMore}>Show More</button>}
                 {showMore && <button className="show-more-button-course" onClick={toggleShowMore}>Show Less</button>} */}
