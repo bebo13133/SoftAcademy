@@ -1,8 +1,9 @@
 .invoice-card {
+    width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
+    max-width: 600px;
     margin: 50px auto;
     padding: 20px;
     border: 2px solid #ccc;
@@ -11,6 +12,7 @@
   }
   
   .card-icons {
+    font-size: 20px;
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -46,7 +48,7 @@
   .pay-button {
     background-color: #4caf50;
     color: #fff;
-    padding: 10px;
+    padding: 10px 35px;
     margin-top: 20px;
     border: none;
     border-radius: 5px;

@@ -49,7 +49,7 @@ display:block !important;
 .form-container-sign {
     display: flex;
     /* text-align: center; */
-    height: 305px;
+    height: 335px;
     width: 600px; 
     margin: 20px;
     border: 2px solid #ccc;
@@ -108,7 +108,7 @@ display:block !important;
  height: 320px;
 /* overflow-y:auto; */
 
-margin-top:-10px;
+margin-top:20px;
 }
 
 
@@ -182,4 +182,11 @@ margin-top:-10px;
   }
   .show-more-button-signUp:hover {
     background-color: #72b39b; 
+  }
+  .show-more-button-back{
+    margin: 5px;
+    text-transform: none;
+  }
+  .show-more-button-back:hover{
+    text-transform: none;
   }

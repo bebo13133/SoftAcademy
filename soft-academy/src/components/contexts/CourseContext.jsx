@@ -50,7 +50,10 @@ export const CourseProvider = ({ children }) => {
             !courseData.ownerCourse ||
             !courseData.price ||
             !courseData.description ||
-            !courseData.lectorDescription) {
+            !courseData.lectorDescription ||
+            !courseData.weeksCourse ||
+            !courseData.creditsCourse 
+            ) {
 
 
             dispatch(setError("Some fields is empty"));

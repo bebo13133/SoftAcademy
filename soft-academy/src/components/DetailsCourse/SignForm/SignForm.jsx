@@ -3,11 +3,12 @@ import { useEffect, useState } from "react"
 import Footer from "../../Footer/Footer"
 import "./signForm.css"
 import { useForm } from "../../Hooks/useForm"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useCourseContext } from "../../contexts/CourseContext"
 import { useAuthContext } from "../../contexts/UserContext"
 import { FaCheck } from 'react-icons/fa';
 import { courseServiceFactory } from "../../Services/courseService"
+import { HiChevronLeft } from "react-icons/hi2";
 
 export const SignForm = () => {
     const [course,setCourse]=useState([])
@@ -53,8 +54,13 @@ export const SignForm = () => {
     return (
         <>
             <div className="form-container-outer">
+
                 <section className="form-container-sign">
+                    
                     <form className="user-form-sign" onSubmit={onSubmit}>
+                        <div style={{display:"flex",flexDirection:"row", gap:"5px", alignItems:"center", marginBottom:"10px",marginTop:"10px"}}><HiChevronLeft  /><Link to={`/catalog/${courseId}`}className="show-more-button-back"> back </Link></div>
+          
+
                         <h3>Sign up for a course - <strong>{course.courseName}</strong></h3>
                         <div className="divider"></div>
 
