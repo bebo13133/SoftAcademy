@@ -10,6 +10,7 @@ import './FavoriteCourses.css'
 import { Pagination } from "../Pagination/Pagination";
 import { usePaginations } from "../Hooks/usePaginations";
 import { Fade } from "react-awesome-reveal";
+import { useLocation } from "react-router-dom";
 
 export const FavoriteCourses = () => {
     const { userId } = useAuthContext()
@@ -17,12 +18,12 @@ export const FavoriteCourses = () => {
     const [favorites, setFavorites] = useState([])
     const [favCourses, setFavCourses] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-
+const location=useLocation()
 
 
     const resultPerPage = 3
     const { getPaginationData } = usePaginations(resultPerPage)
-    const { totalPages, currentPage, currentResult, paginate } = getPaginationData(favCourses)
+    const { totalPages, currentPage, currentResult, paginate,setCurrentPage } = getPaginationData(favCourses)
 
 
 
@@ -60,12 +61,6 @@ export const FavoriteCourses = () => {
     }, [courses, favorites]);
 
 
-
-
-
-
-
-
     return (
         <>
 
@@ -87,7 +82,7 @@ export const FavoriteCourses = () => {
                             {currentResult.length > 0 ? currentResult.map(course => <OneFavoriteCourses key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
 
                         </div>
-                        <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} />
+                        <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
                     </div>
                 </div>

@@ -14,7 +14,7 @@ export const TrainingCourses = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [payMentCourse, setPayMentsCourses] = useState([])
     const [payCourses, setMyPayCourses] = useState([])
-    console.log(payCourses, "payCourses")
+
     const { courses } = useCourseContext()
     const { userId, token } = useAuthContext()
 
@@ -24,7 +24,7 @@ export const TrainingCourses = () => {
 
     const resultPerPage = 3
     const { getPaginationData } = usePaginations(resultPerPage)
-    const { totalPages, currentPage, currentResult, paginate } = getPaginationData(payMentCourse)
+    const { totalPages, currentPage, currentResult, paginate,setCurrentPage } = getPaginationData(payMentCourse)
 
     useEffect(() => {
 
@@ -71,7 +71,7 @@ export const TrainingCourses = () => {
                                 {currentResult.length > 0 ? currentResult.map(course => <OnePaymentCourse key={course._id} {...course} />) : <h3 className="no-articles">No courses yet</h3>}
 
                             </div>
-                            <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} />
+                            <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
 
                         </div>
                     </div>

@@ -22,7 +22,7 @@ export const AllForums = () => {
     const { getPaginationData } = usePaginations(resultsPerPage)
 
 
-const {paginate,totalPages,currentPage,currentResult} = getPaginationData(forumsInfo)
+const {paginate,totalPages,currentPage,currentResult,setCurrentPage} = getPaginationData(forumsInfo)
 
 
 
@@ -59,7 +59,7 @@ const {paginate,totalPages,currentPage,currentResult} = getPaginationData(forums
                         <SearchBarAdminForum />
                         {currentResult.length > 0 ? currentResult.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />) : (<h2 className="no-articles">No courses yet</h2>)}
                     </div>
-                   <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage}/>
+                   <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                 </section>
 
             </div>

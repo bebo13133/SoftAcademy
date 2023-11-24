@@ -2,6 +2,8 @@ import { courseServiceFactory } from "../Services/courseService";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "./UserContext";
+import emailjs from '@emailjs/browser'
+
 import './error.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { setError } from "../actions";
@@ -13,13 +15,15 @@ export const CourseProvider = ({ children }) => {
 
 
 
-    const { token } = useAuthContext()
+    const { token,userEmail } = useAuthContext()
     const [course, setCourse] = useState([])
     const [searchResult, setSearchResult] = useState([])
     const [adminSearch, setAdminSearch] = useState([])
     const [students,setStudents] =useState([])
     const [payStudents,setPayStudent] = useState([])
     const [languages, setLanguage] = useState(null)
+    const [toEmail,setToEmail] = useState("")
+
     // const [errorMessage, setErrorMessage] = useState(''); //error messages
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
@@ -100,6 +104,9 @@ export const CourseProvider = ({ children }) => {
             const newCourse = await courseService.create(courseData)
 
             setCourse(state => [...state, newCourse])
+
+     
+
             navigate("/catalog")
 
         } catch (err) {
@@ -161,6 +168,7 @@ export const CourseProvider = ({ children }) => {
             if (values.isChecked) {
                 const result = await courseService.signup(values)
                 setStudents(state => [...state, result])
+
                 navigate(`/catalog/${values.courseId}/payment-card`)
 
             } else (
@@ -189,7 +197,46 @@ export const CourseProvider = ({ children }) => {
         }
         const result = await courseService.pay(values)
         setPayStudent(state => [...state, result])
+
+    
+
+
+
         navigate(`/catalog/${values.courseId}`)
+        const sendEmail = () => {
+               
+            const templateParams={
+                to_email: userEmail,
+                message:"You have signed up for the SoftAcademy course"
+            }
+            emailjs
+                .send(
+                    "service_zxhuqbx",
+                    "template_ym4dhid",
+                    templateParams,   // Взимам като 3 параметър според изискванията на emailjs информацията от формата с помоща ref={form}
+                    "iRYFR4BuAXZEBF1ld",
+                )
+                .then(result => {
+                    // setEmails(state=>[{...state,[e.target.name]: e.target.value}]);   
+             
+                        console.log("Email sent successfully:", result);
+                   
+                    },
+    
+                    (err) => {
+                        throw new Error(err)
+                    }
+                )
+            console.log(form.current)
+        
+        }
+
+
+        sendEmail()
+
+
+
+
     }
 
 

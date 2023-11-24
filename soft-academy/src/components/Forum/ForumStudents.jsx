@@ -10,6 +10,7 @@ import { forumServiceFactory } from "../Services/forumService";
 import Footer from '../Footer/Footer';
 import { IsLoading } from '../IsLoading/IsLoading';
 import { usePaginations } from '../Hooks/usePaginations';
+import { Pagination } from '../Pagination/Pagination';
 
 export const ForumStudents = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -56,9 +57,11 @@ export const ForumStudents = () => {
     };
 
     const {getPaginationData}=usePaginations(postsPerPage)
-    const {currentPage,totalPages,paginate,currentResult } = getPaginationData(articles)
+    const {currentPage,totalPages,paginate,currentResult,setCurrentPage } = getPaginationData(articles)
 
+   
 
+   
 
     return (
         <>
@@ -81,13 +84,8 @@ export const ForumStudents = () => {
                   
                         )):(<h2 className="no-articles">No forums yet</h2>)}
                     </div>
-                    <ul className="pagination-admin">
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
-                                {index + 1}
-                            </li>
-                        ))}
-                    </ul>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+
                     <button className="close-button2" onClick={openSidebar}>Open Sidebar</button>
                     <Footer/>
                 </section>

@@ -9,8 +9,10 @@ import Footer from "../Footer/Footer"
 
 import { usePaginations } from "../Hooks/usePaginations";
 import { Pagination } from "../Pagination/Pagination";
+import { useLocation } from "react-router-dom";
 
 const CatalogCourses = () => {
+ 
 
     const { courses } = useContext(CourseContext)
     const [isLoading, setIsLoading] = useState(true)
@@ -21,9 +23,14 @@ const CatalogCourses = () => {
 
     const { getPaginationData } = usePaginations(resultsPerPage)
 
-    const {totalPages,currentPage,currentResult,paginate}= getPaginationData(coursesInfo)
+    const {totalPages,currentPage,currentResult,paginate,setCurrentPage}= getPaginationData(coursesInfo)
 
-
+    // const handleBack = () => {
+    //     if (currentPage > 1) {
+    //         paginate(currentPage - 1);
+    //         setCurrentPage(currentPage - 1);
+    //     }
+    // };
 
     useEffect(() => {
 
@@ -31,6 +38,8 @@ const CatalogCourses = () => {
         setIsLoading(false)
 
     }, [courses])
+
+
 
     return (
         <>
@@ -53,7 +62,7 @@ const CatalogCourses = () => {
 
 
                         </div>
-                        <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} />
+                        <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
                     </div>
 

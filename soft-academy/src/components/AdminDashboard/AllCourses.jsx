@@ -23,7 +23,7 @@ export const AllCourses = () => {
 
     const { getPaginationData } = usePaginations(resultsPerPage)
 
-    const {currentResult,currentPage,totalPages,paginate}=getPaginationData(courseInfo)
+    const {currentResult,currentPage,totalPages,paginate,setCurrentPage}=getPaginationData(courseInfo)
 
 
 
@@ -62,7 +62,7 @@ export const AllCourses = () => {
                         {currentResult.length > 0 ? currentResult.map(user => <RowSectionCourse key={user._id} onDeleteClick={() => handleDelete(user._id)} {...user} />)
                             : (<h2 className="no-articles">No courses yet</h2>)}
                     </div>
-                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage}/>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                 </section>
 
             </div>

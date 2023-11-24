@@ -22,7 +22,7 @@ export const CustomerList = () => {
     const resultsPerPage = 5;
 
 const {getPaginationData}=usePaginations(resultsPerPage)
-const{currentResult,currentPage,totalPages,paginate} = getPaginationData(usersInfo)
+const{currentResult,currentPage,totalPages,paginate,setCurrentPage} = getPaginationData(usersInfo)
 
 
     useEffect(() => {
@@ -52,7 +52,7 @@ console.log(result)
                        <SearchBar/>
                         {currentResult.length>0 ? currentResult.map(user => <RowSection key={user._id} {...user} />):(<h2 className="no-articles">No customer yet</h2>)}
                     </div>
-                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage}/>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                 </section>
 
             </div>

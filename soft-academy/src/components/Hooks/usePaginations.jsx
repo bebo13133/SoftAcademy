@@ -17,7 +17,8 @@ export const usePaginations = (itemsPerPage) => {
             currentResult,
             totalPages: Math.ceil(data.length / itemsPerPage), // брой на страниците , делим дължината с броя който искаме да се виждат ан страница
             currentPage,
-            paginate
+            paginate,
+            setCurrentPage
         }
 
     }

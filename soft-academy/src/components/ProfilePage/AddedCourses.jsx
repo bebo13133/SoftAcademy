@@ -9,6 +9,7 @@ import { Pagination } from "../Pagination/Pagination"
 import { usePaginations } from "../Hooks/usePaginations"
 import Footer from "../Footer/Footer"
 import { Fade } from "react-awesome-reveal"
+import { useLocation } from "react-router-dom"
 
 
 
@@ -20,11 +21,12 @@ export const AddedCourses = () => {
     const [courses, setCourses] = useState([])
 
     const { userId } = useAuthContext()
-
+const location=useLocation()
+console.log("added courses",location.pathname)
     const resultPerPage = 3
     const {getPaginationData } = usePaginations(resultPerPage)
 
-    const {totalPages,currentPage,currentResult,paginate}=getPaginationData(courses)
+    const {totalPages,currentPage,currentResult,paginate,setCurrentPage}=getPaginationData(courses)
 
 
 
@@ -78,7 +80,7 @@ export const AddedCourses = () => {
 
 
                             </div>
-                            <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} />
+                            <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
                         </div>
                     </div>

@@ -5,12 +5,13 @@ import { SearchBarAdminCourses } from "./SearchBarAdminCourses"
 import { useAuthContext } from "../../contexts/UserContext";
 import { courseServiceFactory } from "../../Services/courseService";
 import { RowSectionCourse } from "../RowSectionCourse";
+import { Pagination } from "../../Pagination/Pagination";
+import { usePaginations } from "../../Hooks/usePaginations";
 
 export const SearchAdminCourses = () => {
 
     const { adminSearch } = useCourseContext()
 // console.log("adminSearch",adminSearch)
-    const [currentPage, setCurrentPage] = useState(1);
     const { onDeleteClickAdmin } = useCourseContext()
     const [courseInfo, setCourseInfo] = useState([])
     const { token } = useAuthContext()
@@ -32,11 +33,10 @@ export const SearchAdminCourses = () => {
 
     const resultsPerPage = 5;
 
+    const { getPaginationData } = usePaginations(resultsPerPage)
 
-    const indexOfLastResult = currentPage * resultsPerPage;   //първа страница почва от едно по номера на резултатите които искаме да се показват 
-    const indexOfFirstResult = indexOfLastResult - resultsPerPage;
-    const currentResults = courseInfo.slice(indexOfFirstResult, indexOfLastResult);
-    const totalPages = Math.ceil(courseInfo.length / resultsPerPage);
+    const {paginate,totalPages,currentPage,currentResult,setCurrentPage} = getPaginationData(forumsInfo)
+
 
 
 
@@ -52,17 +52,12 @@ export const SearchAdminCourses = () => {
                     <div className="customer-list">
                         <h2>All courses</h2>
                         <SearchBarAdminCourses />
-                        {currentResults && currentResults.map(user => <RowSectionCourse key={user._id} 
+                        {currentResult && currentResult.map(user => <RowSectionCourse key={user._id} 
                         onDeleteClick={() => handleDelete(user._id)}
                          {...user} />)}
                     </div>
-                    <ul className="pagination-admin">
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => setCurrentPage(index + 1)}>
-                                {index + 1}
-                            </li>
-                        ))}
-                    </ul>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+
                 </section>
 
             </div>

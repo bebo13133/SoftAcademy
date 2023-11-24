@@ -5,20 +5,20 @@ import { AdminSidebar } from '../AdminSideBar'
 import { SearchBar } from './SearchBar'
 import "./searchBarAdmin.css"
 import { RowSection } from '../RowSection'
+import { usePaginations } from '../../Hooks/usePaginations'
+import { Pagination } from '../../Pagination/Pagination'
+
 
 export const SearchBarPage = () => {
 // const [usersInfo,setUsersInfo]=useState([])
-const [currentPage, setCurrentPage] = useState(1);
+
 
 const{searchResult}=useAuthContext()
 
     const resultsPerPage = 5;
+    const { getPaginationData } = usePaginations(resultsPerPage)
 
-    const indexOfLastResult = currentPage * resultsPerPage;   //първа страница почва от едно по номера на резултатите които искаме да се показват 
-    const indexOfFirstResult = indexOfLastResult - resultsPerPage;
-    const currentResults = searchResult.slice(indexOfFirstResult, indexOfLastResult);
-
-    const totalPages = Math.ceil(searchResult.length / resultsPerPage);
+    const {paginate,totalPages,currentPage,currentResult,setCurrentPage} = getPaginationData(forumsInfo)
 
 
 
@@ -35,15 +35,10 @@ const{searchResult}=useAuthContext()
                     <div className="customer-list">
                         <h2>User information</h2>
                         <SearchBar />
-                        {currentResults.length>0 ? (currentResults.map(user => <RowSection key={user._id} {...user} />)):(<h2 className="no-articles">No results</h2>)}
+                        {currentResult.length>0 ? (currentResult.map(user => <RowSection key={user._id} {...user} />)):(<h2 className="no-articles">No results</h2>)}
                     </div>
-                    <ul className="pagination-admin">
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => setCurrentPage(index + 1)}>
-                                {index + 1}
-                            </li>
-                        ))}
-                    </ul>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+
                 </section>
 
             </div>

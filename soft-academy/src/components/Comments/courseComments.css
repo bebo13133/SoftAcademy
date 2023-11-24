@@ -51,7 +51,7 @@
   }
   
   .like-button {
-    background-color: #3498db;
+    background-color: #007bff;
     color: #fff;
     border: none;
     padding: 8px 16px;
@@ -63,7 +63,20 @@
   .comment-count {
     margin-top: 10px;
   }
-  
+  .comment-button{
+        /* display: inline-block; */
+    /* position: relative; */
+    /* outline: none; */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 9px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
   .author-section-course {
     background: url("/img/background-addcourse.jpg");
 
