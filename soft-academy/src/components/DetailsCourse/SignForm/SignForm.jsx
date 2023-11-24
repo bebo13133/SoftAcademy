@@ -69,15 +69,15 @@ const courseId =courseIdObject.courseId
                 <section className="sign-course-card-finish">
                     <img className="sign-course-img" src="/img/joinUp.webp" alt="sign-course" />
                     <h2>Course: <span>""</span> </h2>
-                    <h3  > Price ""</h3>
+                    <h3> Price ""</h3>
                     <span></span>
                   <p className="lector-disc">  <FaCheck color="red"/> Start in: ""
                     </p>
-                    <p className="lector-disc">19.10.2023</p>
+                    <h4 className="lector-disc-h4">19.10.2023</h4>
                    
                     <p className="lector-disc"> <FaCheck color="red"/>  Duration of the course</p>
 
-                    <p className="lector-disc"> "" weeks </p>
+                    <h4 className="lector-disc-h4"> "" weeks </h4>
 
                 </section>
 
