@@ -8,17 +8,18 @@ import { useAuthContext } from "../../contexts/UserContext"
 import { useCourseContext } from "../../contexts/CourseContext"
 import { OnePaymentCourse } from "../OnePaymentCourse"
 import { Pagination } from "../../Pagination/Pagination"
+import { Fade } from "react-awesome-reveal"
 
 export const TrainingCourses = () => {
-    // const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [payMentCourse, setPayMentsCourses] = useState([])
     const [payCourses, setMyPayCourses] = useState([])
-console.log(payCourses,"payCourses")
+    console.log(payCourses, "payCourses")
     const { courses } = useCourseContext()
     const { userId, token } = useAuthContext()
 
     const courseService = courseServiceFactory(token)
-   
+
 
 
     const resultPerPage = 3
@@ -35,26 +36,27 @@ console.log(payCourses,"payCourses")
             .catch(error => {
                 console.error('Error fetching likes:', error);
             });
-        // setIsLoading(false)
-    }, [courses,userId])
+            
+        setIsLoading(false)
+    }, [courses, userId])
 
     useEffect(() => {
-        const paymentID = payCourses.map(x => x.courseId)
-        // console.log(paymentID, "id")
+        const paymentID = payCourses.map(x => x.courseId)//взимам само тези с courseId
+     
         const myCourses = courses.filter(course => {
-            return paymentID.includes(course._id)
+            return paymentID.includes(course._id) // отделям мойте курсове
         })
 
         setPayMentsCourses(myCourses)
         // setIsLoading(false)
 
-   
-    }, [courses,payCourses])
+
+    }, [courses, payCourses])
 
     return (
         <>
             <ProfileSidebar />
-     
+           {isLoading ? <IsLoading/> : (<Fade delay="50" duration="4000" triggerOnce='true'>
                 <section id="explore" className="explore" style={{ height: "376px" }}>
 
                     <div className="container">
@@ -75,7 +77,7 @@ console.log(payCourses,"payCourses")
                     </div>
 
                 </section>
-
+            </Fade>)}
 
         </>
     )

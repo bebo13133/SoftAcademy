@@ -9,6 +9,7 @@ import { IsLoading } from "../IsLoading/IsLoading"
 import './FavoriteCourses.css'
 import { Pagination } from "../Pagination/Pagination";
 import { usePaginations } from "../Hooks/usePaginations";
+import { Fade } from "react-awesome-reveal";
 
 export const FavoriteCourses = () => {
     const { userId } = useAuthContext()
@@ -70,6 +71,7 @@ export const FavoriteCourses = () => {
 
             {isLoading && <IsLoading />}
             <ProfileSidebar />
+            <Fade delay="50" duration="4000" triggerOnce='true'>
 
             <section id="explore" className="explore" style={{ height: "376px" }}>
 
@@ -81,7 +83,7 @@ export const FavoriteCourses = () => {
                     <div className="explore-content">
                         <div className="row">
 
-                            {/* {isLoading && <IsLoading /> } */}
+                    
                             {currentResult.length > 0 ? currentResult.map(course => <OneFavoriteCourses key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
 
                         </div>
@@ -91,6 +93,7 @@ export const FavoriteCourses = () => {
                 </div>
 
             </section>
+            </Fade>
         </>
 
     )

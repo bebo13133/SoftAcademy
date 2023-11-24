@@ -8,6 +8,7 @@ import { useLoading } from "../Hooks/useLoading"
 import { Pagination } from "../Pagination/Pagination"
 import { usePaginations } from "../Hooks/usePaginations"
 import Footer from "../Footer/Footer"
+import { Fade } from "react-awesome-reveal"
 
 
 
@@ -59,6 +60,7 @@ export const AddedCourses = () => {
                 zIndex: 40,
             }} />
             {isLoading ? <IsLoading /> : (<>
+                <Fade delay="50" duration="4000" triggerOnce='true'>
                 <section id="explore" className="explore" style={{ height: "376px" }}>
                     <div className="container">
                         <div className="section-header">
@@ -82,7 +84,7 @@ export const AddedCourses = () => {
                     </div>
                     {/* <Footer/> */}
                 </section>
-               
+                </Fade>
             </>)}
 
 
