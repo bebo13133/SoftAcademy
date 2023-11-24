@@ -28,8 +28,8 @@ export const ProfileSidebar = () => {
   const onChangeAvatar = () => {
     navigate("/change-avatar")
   }
-  const onChangeUserName = () => {
-    navigate('/change-username')
+  const onChangeTrainingCourses = () => {
+    navigate('/training-courses')
   }
   const onChangePassword = () => {
     navigate('/change-password')
@@ -51,7 +51,7 @@ export const ProfileSidebar = () => {
             <button className="close-button3" onClick={(onNavigateFavoriteCourse)}>Favorite Courses</button>
           </li>
           <li>
-            <button className="close-button3" onClick={(onChangeUserName)}>Change Username</button>
+            <button className="close-button3" onClick={(onChangeTrainingCourses)}>Training Courses</button>
           </li>
           <li>
             <button className="close-button3" onClick={(onChangeAvatar)}>Change Photo</button>

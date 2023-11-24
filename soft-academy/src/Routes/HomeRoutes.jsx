@@ -17,6 +17,7 @@ import { AvatarHeader } from "../components/ProfilePage/AvatarHeader"
 import IsOwnerForum from "../components/common/IsOwnerForum"
 import { SignForm } from "../components/DetailsCourse/SignForm/SignForm"
 import { InvoiceCard } from "../components/DetailsCourse/InvoiceCard/InvoiceCard"
+import { TrainingCourses } from "../components/ProfilePage/TrainingCourses/TrainingCourses"
 
  const HomeRoutes = ()=>{
 
@@ -45,10 +46,12 @@ import { InvoiceCard } from "../components/DetailsCourse/InvoiceCard/InvoiceCard
         <EditForumPost />
          </IsOwnerForum>
       }/>
-
+/training-courses
       <Route path="/add-new-post" element={<AddForumPost />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/change-password" element={<ChangePassword />} />
+      <Route path="/training-courses" element={<TrainingCourses />} />
+
       <Route path="/my-added-courses" element={<AddedCourses />} />
       <Route path="/favorite-courses" element={<FavoriteCourses />} />
       <Route path="/change-avatar" element={<AvatarHeader />} />

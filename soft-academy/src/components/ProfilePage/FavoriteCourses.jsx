@@ -82,7 +82,7 @@ export const FavoriteCourses = () => {
                         <div className="row">
 
                             {/* {isLoading && <IsLoading /> } */}
-                            {favCourses.length > 0 ? favCourses.map(course => <OneFavoriteCourses key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
+                            {currentResult.length > 0 ? currentResult.map(course => <OneFavoriteCourses key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
 
                         </div>
                         <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} />
