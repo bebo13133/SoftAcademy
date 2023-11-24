@@ -55,7 +55,7 @@ const Footer = () => {
                     <div className="divider"></div>
                     <div className="social-icons">
                         <Link to="https://www.facebook.com/groups/706263354783010" target="_blank"><img src="/img/Facebook_Logo_2023.png" alt="Facebook" /></Link>
-                        <a href="https://twitter.com" target="_blank"><img src="/img/twiter-png.webp" alt="Twitter" /></a>
+                        <a href="https://twitter.com/SoftAcademyy" target="_blank"><img src="/img/twiter-png.webp" alt="Twitter" /></a>
                         <a href="https://www.instagram.com/softacademy85/" target="_blank"><img src="/img/insagram.png" alt="Instagram" /></a>
                     </div>
                 </section>
