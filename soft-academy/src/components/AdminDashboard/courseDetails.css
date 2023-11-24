@@ -54,7 +54,7 @@ color:#0a2167
   
   /* Стилове за всяка една "item" във формата */
   .item-custom {
-    margin-bottom: 9px;
+    margin-bottom: -5px;
   }
   
   /* Стилове за "name-item" */
@@ -116,7 +116,7 @@ color:#0a2167
     width: 100%;
     padding: 4px;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;

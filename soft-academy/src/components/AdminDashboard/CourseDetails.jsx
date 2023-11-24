@@ -166,11 +166,11 @@ export const CourseDetails = () => {
                         <p>Description</p>
                         <input type="text" name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
                     </div>
-                    <div className="item">
+                    <div className="item-custom">
                         <p>Credits</p>
                         <input type="number" name="creditsCourse" placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
                     </div>
-                    <div className="item">
+                    <div className="item-custom">
                         <p>Weeks</p>
                         <input type="number" name="weeksCourse" placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
                     </div>
