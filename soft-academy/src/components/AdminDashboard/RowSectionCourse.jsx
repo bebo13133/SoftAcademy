@@ -3,12 +3,18 @@ import './rowSection.css'
 import { useEffect, useState } from 'react'
 import { ConfirmBox } from '../ConfirmBox/ConfirmBox'
 import { useCourseContext } from '../contexts/CourseContext'
+import { courseServiceFactory } from '../Services/courseService'
+import { useAuthContext } from '../contexts/UserContext'
 
 export const RowSectionCourse = ({ _id, _createdOn, email, date, courseName, onDeleteClick }) => {
     const [isOpen, setIsOpen] = useState(false)
+    const [payments,setPayments] = useState([])
+    const { token } = useAuthContext()
+
     const courseId = _id
     const { onDeleteClickAdmin } = useCourseContext()
     const navigate = useNavigate()
+    const courseService = courseServiceFactory(token)
 
     const onNavigateDetails = () => {
         navigate(`/admin/all-courses/${courseId}`)
@@ -22,7 +28,10 @@ export const RowSectionCourse = ({ _id, _createdOn, email, date, courseName, onD
     }
 
     useEffect(() => {
-
+        courseService.getAllStudentsPayment(courseId)
+        .then(result=>{
+            setPayments(result)
+        })
 
     }, [onCloseDelete, onDeleteClickAdmin])
 
@@ -36,7 +45,7 @@ export const RowSectionCourse = ({ _id, _createdOn, email, date, courseName, onD
                 <p><strong>Email:</strong> {email}</p>
                 <p><strong>Created On:</strong> {_createdOn}</p>
                 <p><strong>Start date:</strong> {date}</p>
-                <p><strong>Students:</strong> </p>
+                <p><strong>Students:</strong> {payments.length}</p>
 
 
                 <button className="btn-primary-course" onClick={onNavigateDetails}> Details</button>
