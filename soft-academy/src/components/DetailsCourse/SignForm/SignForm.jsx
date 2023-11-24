@@ -77,7 +77,9 @@ export const SignForm = () => {
                         <div className="divider"></div>
 
                         <button type="submit" className="how-more-button-signUp" >Sign Up</button>
-
+                        <ul>
+                <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right",marginTop: "-35px" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+            </ul>
                     </form>
 
                 </section>
