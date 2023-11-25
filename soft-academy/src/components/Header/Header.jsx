@@ -1,7 +1,7 @@
 import { Link, NavLink, Route, Routes } from "react-router-dom"
 import { UserContext, useAuthContext } from "../contexts/UserContext"
-import { useContext } from "react"
-import * as React from 'react';
+import { useContext, useEffect, useState } from "react"
+import './navBar.css'
 
 import { ResponsiveUserBar } from "../ResponsiveUserBar";
 // import { Logout } from "../Logout/Logout";
@@ -10,6 +10,8 @@ export const Header = () => {
 	const { isAuthentication, } = useContext(UserContext)
 
     const { userEmail } = useAuthContext()
+
+
 const IsAdmin = userEmail === "peter@abv.bg"
 	return (
 		<>
@@ -64,7 +66,7 @@ const IsAdmin = userEmail === "peter@abv.bg"
 			</header>
 			<section className="top-area">
 				<div className="header-area">
-					<nav className="navbar navbar-default bootsnav  wrap-sticky navbar-scrollspy" data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+					<nav id="myNavbar" className="myNavbar navbar navbar-default bootsnav  wrap-sticky navbar-scrollspy" data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
 
 						<div className="container">
 

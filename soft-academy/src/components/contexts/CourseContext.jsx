@@ -209,6 +209,7 @@ export const CourseProvider = ({ children }) => {
 
 
         navigate(`/catalog/${values.courseId}`)
+        
         const sendEmail = () => {
 
             const templateParams = {

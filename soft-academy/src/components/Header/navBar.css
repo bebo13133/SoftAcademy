@@ -1,0 +1,12 @@
+/* .navbar {
+    position: fixed;
+    top: 1;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+} */

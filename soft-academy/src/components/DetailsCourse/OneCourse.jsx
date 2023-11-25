@@ -207,9 +207,9 @@ const [oneCourse,setOneCourse] = useState([])
                     <img src={imageUrl ? imageUrl : imageUrl2} alt="images" />
                     <br />
                     <div className="footer-social social-details ">
-                        <Link href="https://www.facebook.com/groups/706263354783010"><i className="fa fa-facebook"></i></Link>
-                        <a href="#"><i className="fa fa-twitter"></i></a>
-                        <Link to="https://www.instagram.com/softacademy85/"><i className="fa fa-instagram"></i></Link>
+                        <Link to="https://www.facebook.com/groups/706263354783010" target="_blank" ><i className="fa fa-facebook" ></i></Link>
+                        <Link to="https://twitter.com/SoftAcademyy" target="_blank"><i className="fa fa-twitter" ></i></Link>
+                        <Link to="https://www.instagram.com/softacademy85/" target="_blank"><i className="fa fa-instagram" ></i></Link>
                     </div>
                     <br />
                     <br />

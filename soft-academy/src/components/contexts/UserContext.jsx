@@ -2,6 +2,8 @@ import { createContext, useContext, useState, useCallback } from "react"
 import { useLocalStorage } from "../Hooks/useLocalStorage"
 import { userServiceFactory } from "../Services/userService"
 import { useNavigate } from "react-router-dom"
+import emailjs from '@emailjs/browser'
+
 // import { Login } from "../Login/Login"
 // import { Register } from "../Register/Register"
 
@@ -103,6 +105,42 @@ export const UserProvider = ({ children }) => {
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
             navigate("/")
+
+            const sendEmail = () => {
+
+                const templateParams = {
+                    to_email: registerData.email,
+                    message: `Welcome to SoftAcademy . Your username: ${registerData.email}  password:${registerData.password}`,
+                    to_name: `${registerData.email}`
+                }
+    
+                emailjs
+                    .send(
+                        "service_zxhuqbx",
+                        "template_ym4dhid",
+                        templateParams,   // Взимам като 3 параметър според изискванията на emailjs информацията 
+                        "iRYFR4BuAXZEBF1ld",
+                    )
+                    .then(result => {
+                  
+    
+                        console.log("Email sent successfully:", result);
+    
+                    },
+    
+                        (err) => {
+                            throw new Error(err)
+                        }
+                    )
+                console.log(templateParams)
+    
+            }
+    
+    
+            sendEmail()
+
+
+
         } catch (err) {
 
 
