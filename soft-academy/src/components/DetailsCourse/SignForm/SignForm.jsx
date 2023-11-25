@@ -38,7 +38,7 @@ export const SignForm = () => {
     },[courseId,owner,userId])
 
 
-    const { onSubmit, onChangeHandler, values } = useForm({
+    const { onSubmit, onChangeHandler, values,onSubmitWithOut } = useForm({
         firstName: "",
         lastName: "",
         phoneNumber: "",
@@ -57,7 +57,7 @@ export const SignForm = () => {
 
                 <section className="form-container-sign">
                     
-                    <form className="user-form-sign" onSubmit={onSubmit}>
+                    <form className="user-form-sign" onSubmit={onSubmitWithOut}>
                         <div style={{display:"flex",flexDirection:"row", gap:"5px", alignItems:"center", marginBottom:"10px",marginTop:"10px"}}><HiChevronLeft  /><Link to={`/catalog/${courseId}`}className="show-more-button-back"> back </Link></div>
           
 
