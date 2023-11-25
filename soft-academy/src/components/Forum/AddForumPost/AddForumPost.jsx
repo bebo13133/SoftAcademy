@@ -28,7 +28,7 @@ export const AddForumPost = () => {
 
     // onChangeHandler({ target: { name: 'image', value: selectedImage } });
 
-    const { onSubmit, values, onChangeHandler } = useForm({
+    const { onSubmit, values, onChangeHandler ,onSubmitWithOut} = useForm({
         title: "",
         description: "",
         author: "",
@@ -40,7 +40,7 @@ export const AddForumPost = () => {
     return (
 
         <>
-            <form className="post-form" onSubmit={onSubmit}>
+            <form className="post-form" onSubmit={onSubmitWithOut}>
                 <label>
                     Title:
                     <input type="text" name="title" value={values.title} onChange={onChangeHandler} />
