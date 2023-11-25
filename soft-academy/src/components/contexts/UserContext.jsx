@@ -46,6 +46,16 @@ export const UserProvider = ({ children }) => {
 
                 return;
             }
+            if (data.email.length <= 9) {
+
+                setErrorMessage("Minimum characters is 9")
+
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 4000);
+
+                return;
+            }
             const users = await userService.getAll()
             setUsers(users)
 

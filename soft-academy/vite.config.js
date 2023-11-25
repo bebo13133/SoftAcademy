@@ -15,6 +15,12 @@ export default defineConfig({
     cors:false
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    css: true,
+    setupFiles: './setup.js',
+},
   define: {
     'process.env': {}
   }
