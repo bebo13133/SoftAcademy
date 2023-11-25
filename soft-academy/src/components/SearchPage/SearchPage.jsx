@@ -4,11 +4,21 @@ import { SearchField } from "./SearchField"
 import { Link } from "react-router-dom"
 import { useCourseContext } from "../contexts/CourseContext"
 import  HomeOneCourse  from "../Home/HomeOneCourse"
+import { Pagination } from "../Pagination/Pagination"
+import { usePaginations } from "../Hooks/usePaginations"
+import Footer from "../Footer/Footer"
+
 export const SearchPage = ({
 
 }) => {
     const { searchResult } = useCourseContext()
 
+
+    const resultsPerPage = 3;
+
+    const { getPaginationData } = usePaginations(resultsPerPage)
+
+    const {paginate,totalPages,currentPage,currentResult,setCurrentPage} = getPaginationData(searchResult)
     return (
         <>
             <section id="home" className="welcome-hero">
@@ -96,11 +106,13 @@ export const SearchPage = ({
                     <div className="works-content">
                         <div className="row">
                             {/* one course */}
-                            {searchResult.length>0 ? searchResult.map(x => <HomeOneCourse key={x._id} {...x} />): (<h2 className="no-articles">No results</h2>)}
+                            {currentResult.length>0 ? currentResult.map(x => <HomeOneCourse key={x._id} {...x} />): (<h2 className="no-articles">No results</h2>)}
                         </div>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+
                     </div>
                 </div>
-
+                <Footer/>
             </section>
 
 

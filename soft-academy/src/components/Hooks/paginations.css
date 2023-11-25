@@ -2,7 +2,8 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-bottom: 40px;
   }
   
   .pagination-admin  li {

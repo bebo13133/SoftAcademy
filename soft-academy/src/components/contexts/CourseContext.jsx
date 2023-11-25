@@ -23,6 +23,7 @@ export const CourseProvider = ({ children }) => {
     const [payStudents,setPayStudent] = useState([])
     const [languages, setLanguage] = useState(null)
     const [toEmail,setToEmail] = useState("")
+    const [currentStudentInfo, setCurrentStudentInfo] =useState([])
 
     // const [errorMessage, setErrorMessage] = useState(''); //error messages
     const dispatch = useDispatch()
@@ -154,6 +155,9 @@ export const CourseProvider = ({ children }) => {
 
 
     }
+
+
+
     const onSignUp = async (values) => {
         if (!values.firstName || !values.lastName || !values.phoneNumber || !values.socialNumber ) {
 
@@ -168,7 +172,7 @@ export const CourseProvider = ({ children }) => {
             if (values.isChecked) {
                 const result = await courseService.signup(values)
                 setStudents(state => [...state, result])
-
+                setCurrentStudentInfo(result)
                 navigate(`/catalog/${values.courseId}/payment-card`)
 
             } else (
@@ -183,6 +187,8 @@ export const CourseProvider = ({ children }) => {
         // }
 
     }
+
+
 
     const onSubmitPayment=async (values) => {
       console.log("pay",values)
@@ -207,8 +213,10 @@ export const CourseProvider = ({ children }) => {
                
             const templateParams={
                 to_email: userEmail,
-                message:"You have signed up for the SoftAcademy course"
+                message:"You have signed up for the SoftAcademy course",
+                to_name: `${currentStudentInfo.firstName} ${currentStudentInfo.lastName} `
             }
+
             emailjs
                 .send(
                     "service_zxhuqbx",

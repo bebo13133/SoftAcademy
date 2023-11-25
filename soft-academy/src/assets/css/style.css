@@ -415,7 +415,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 /*-------------------------------------
         6. Works 
 --------------------------------------*/
-.works{padding: 0 0 90px;}
+.works{padding: 0 0 90px; height: 80vh;}
 .works-content {margin-top: 73px;}
 
 .single-how-works{
