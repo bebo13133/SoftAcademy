@@ -10,15 +10,15 @@ import { Pagination } from '../../Pagination/Pagination'
 
 
 export const SearchBarPage = () => {
-// const [usersInfo,setUsersInfo]=useState([])
+    // const [usersInfo,setUsersInfo]=useState([])
 
 
-const{searchResult}=useAuthContext()
+    const { searchResult } = useAuthContext()
 
     const resultsPerPage = 5;
     const { getPaginationData } = usePaginations(resultsPerPage)
 
-    const {paginate,totalPages,currentPage,currentResult,setCurrentPage} = getPaginationData(forumsInfo)
+    const { paginate, totalPages, currentPage, currentResult, setCurrentPage } = getPaginationData(forumsInfo)
 
 
 
@@ -35,9 +35,9 @@ const{searchResult}=useAuthContext()
                     <div className="customer-list">
                         <h2>User information</h2>
                         <SearchBar />
-                        {currentResult.length>0 ? (currentResult.map(user => <RowSection key={user._id} {...user} />)):(<h2 className="no-articles">No results</h2>)}
+                        {currentResult.length > 0 ? (currentResult.map(user => <RowSection key={user._id} {...user} />)) : (<h2 className="no-articles">No results</h2>)}
                     </div>
-                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
                 </section>
 

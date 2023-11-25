@@ -13,6 +13,7 @@ export const SearchField = () => {
         searchName: "",
         criteria:''
     }, onSearchSubmit)
+    
     return (
         <>
 

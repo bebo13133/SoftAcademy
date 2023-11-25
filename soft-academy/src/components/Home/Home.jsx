@@ -17,6 +17,8 @@ import { LastForumsCarousel } from "./LastForumsCarousel/LastForumsCarousel"
 import Footer from "../Footer/Footer"
 import { WyWeStudy } from "./WyWeStudy/WyWeStudy"
 import { LanguageBar } from "./LanguageBar/LanguageBar"
+import { WelcomeScreen } from "./WelcomeScreen/WelcomeScreen";
+import { ListTopics } from "./ListTopics/ListTopics";
 
 const Home = () => {
 
@@ -52,106 +54,9 @@ const Home = () => {
     return (
         <>
             {isLoading ? <IsLoading /> : (<>
-                <section id="home" className="welcome-hero">
-                    <div className="container">
-                        <div className="welcome-hero-txt">
-                            <Slide direction="right" duration="2500" triggerOnce='true'>
-                                <h2>Welcome  in software world  <br />and best  software engineering courses </h2>
-                            </Slide>
-                            <Slide direction="left" duration="2500" triggerOnce='true'>
-                                <p >
-                                    Find Best Place, Restaurant, Hotel, Real State and many more think in just One click
-                                </p>
-                            </Slide>
+                <WelcomeScreen />
 
-                            <Slide direction="right" duration="2500" triggerOnce='true'>
-                                <p style={{ color: "#cf8800" }}><i className="fa fa-check" aria-hidden="true" style={{ color: "#cf8800" }}></i>&nbsp;Comprehensive Software program</p>
-                            </Slide>
-                            <Slide direction="left" duration="2500" triggerOnce='true'>
-                                <p style={{ color: "#cf8800" }}><i className="fa fa-check" aria-hidden="true" style={{ color: "#cf8800" }}></i>&nbsp;Learn how build DIY apps yourself&nbsp;&nbsp;
-                                </p>
-                            </Slide>
-                            <Slide direction="right" duration="2500" triggerOnce='true'>
-                                <p style={{ color: "#cf8800" }}><i className="fa fa-check" aria-hidden="true" style={{ color: "#cf8800" }}></i>&nbsp;Become a successful software engineer</p>
-                            </Slide>
-                        </div>
-
-                        <SearchField />
-
-                    </div>
-
-                </section>
-
-                <section id="list-topics" className="list-topics">
-                    <WaveAnimation />
-                    <div className="container">
-                        <div className="list-topics-content">
-                            <ul>
-                                <li>
-                                    <Link to={"https://www.javascript.com/"} target="_blank" rel="noopener noreferrer">
-                                        <div className="single-list-topics-content">
-                                            <div className="single-list-topics-icon">
-                                                <img className="home-top-lang" src="./img/javascript-7308311-5938360.webp" alt="javascript" />
-                                            </div>
-                                            <h2>JavaScript</h2>
-                                            <p>1 444 231 Libraries</p>
-                                        </div>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to={"https://learn.microsoft.com/en-us/dotnet/csharp/"} target="_blank" rel="noopener noreferrer">                                <div className="single-list-topics-content">
-                                        <div className="single-list-topics-icon">
-                                            <img className="home-top-lang" src="./img/c-sharp.png" alt="csharp" />
-                                        </div>
-                                        <h2>c-sharp</h2>
-                                        <p>214223 listings</p>
-                                    </div>
-                                    </Link>
-
-                                </li>
-                                <li>
-                                    <Link to={"https://www.java.com/en/"} target="_blank" rel="noopener noreferrer">
-                                        <div className="single-list-topics-content">
-                                            <div className="single-list-topics-icon">
-                                                <img className="home-top-lang" src="./img/java2.png" alt="Java" />
-
-                                            </div>
-                                            <h2>Java</h2>
-
-                                            <p>1118543 listings</p>
-                                        </div>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to={"https://www.python.org/"} target="_blank" rel="noopener noreferrer">
-                                        <div className="single-list-topics-content">
-                                            <div className="single-list-topics-icon">
-                                                <img className="home-top-lang" src="./img/pythonLogo.png" alt="Python" />
-
-                                            </div>
-                                            <h2>Python</h2>
-
-                                            <p>200323 listings</p>
-                                        </div>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to={"https://legacy.reactjs.org/"} target="_blank" rel="noopener noreferrer">
-                                        <div className="single-list-topics-content">
-                                            <div className="single-list-topics-icon">
-                                                <img className="home-top-lang" src="./img/react.png" alt="ReactJs" />
-
-                                            </div>
-                                            <h2>ReactJs</h2>
-                                            <p>1604301 listings</p>
-                                        </div>
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </section>
+                <ListTopics />
 
                 <div className="section-header section-header1">
                     <h2 style={{ color: "#BD6813" }}>we partner with</h2>

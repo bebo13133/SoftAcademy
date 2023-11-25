@@ -15,15 +15,15 @@ export const CourseProvider = ({ children }) => {
 
 
 
-    const { token,userEmail } = useAuthContext()
+    const { token, userEmail } = useAuthContext()
     const [course, setCourse] = useState([])
     const [searchResult, setSearchResult] = useState([])
     const [adminSearch, setAdminSearch] = useState([])
-    const [students,setStudents] =useState([])
-    const [payStudents,setPayStudent] = useState([])
+    const [students, setStudents] = useState([])
+    const [payStudents, setPayStudent] = useState([])
     const [languages, setLanguage] = useState(null)
-    const [toEmail,setToEmail] = useState("")
-    const [currentStudentInfo, setCurrentStudentInfo] =useState([])
+    const [toEmail, setToEmail] = useState("")
+    const [currentStudentInfo, setCurrentStudentInfo] = useState([])
 
     // const [errorMessage, setErrorMessage] = useState(''); //error messages
     const dispatch = useDispatch()
@@ -58,8 +58,8 @@ export const CourseProvider = ({ children }) => {
             !courseData.description ||
             !courseData.lectorDescription ||
             !courseData.weeksCourse ||
-            !courseData.creditsCourse 
-            ) {
+            !courseData.creditsCourse
+        ) {
 
 
             dispatch(setError("Some fields is empty"));
@@ -106,7 +106,7 @@ export const CourseProvider = ({ children }) => {
 
             setCourse(state => [...state, newCourse])
 
-     
+
 
             navigate("/catalog")
 
@@ -159,7 +159,7 @@ export const CourseProvider = ({ children }) => {
 
 
     const onSignUp = async (values) => {
-        if (!values.firstName || !values.lastName || !values.phoneNumber || !values.socialNumber ) {
+        if (!values.firstName || !values.lastName || !values.phoneNumber || !values.socialNumber) {
 
             dispatch(setError("Some field is empty"));
             setTimeout(() => {
@@ -190,9 +190,9 @@ export const CourseProvider = ({ children }) => {
 
 
 
-    const onSubmitPayment=async (values) => {
-      console.log("pay",values)
-        if (!values.cardNumber || !values.ownerName || !values.expiDate || !values.cvc ) {
+    const onSubmitPayment = async (values) => {
+        console.log("pay", values)
+        if (!values.cardNumber || !values.ownerName || !values.expiDate || !values.cvc) {
 
             dispatch(setError("Some field is empty"));
             setTimeout(() => {
@@ -204,16 +204,16 @@ export const CourseProvider = ({ children }) => {
         const result = await courseService.pay(values)
         setPayStudent(state => [...state, result])
 
-    
+
 
 
 
         navigate(`/catalog/${values.courseId}`)
         const sendEmail = () => {
-               
-            const templateParams={
+
+            const templateParams = {
                 to_email: userEmail,
-                message:"You have signed up for the SoftAcademy course",
+                message: "You have signed up for the SoftAcademy course",
                 to_name: `${currentStudentInfo.firstName} ${currentStudentInfo.lastName} `
             }
 
@@ -221,22 +221,22 @@ export const CourseProvider = ({ children }) => {
                 .send(
                     "service_zxhuqbx",
                     "template_ym4dhid",
-                    templateParams,   // Взимам като 3 параметър според изискванията на emailjs информацията от формата с помоща ref={form}
+                    templateParams,   // Взимам като 3 параметър според изискванията на emailjs информацията 
                     "iRYFR4BuAXZEBF1ld",
                 )
                 .then(result => {
-                    // setEmails(state=>[{...state,[e.target.name]: e.target.value}]);   
-             
-                        console.log("Email sent successfully:", result);
-                   
-                    },
-    
+              
+
+                    console.log("Email sent successfully:", result);
+
+                },
+
                     (err) => {
                         throw new Error(err)
                     }
                 )
-            console.log(form.current)
-        
+            console.log(templateParams)
+
         }
 
 
