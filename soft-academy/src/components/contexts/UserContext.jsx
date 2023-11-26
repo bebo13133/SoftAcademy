@@ -112,6 +112,16 @@ export const UserProvider = ({ children }) => {
 
                 return;
             }
+            if (data.email.length <= 9) {
+
+                setErrorMessage("Minimum characters is 9")
+
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 4000);
+
+                return;
+            }
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
             navigate("/")
