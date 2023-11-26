@@ -1,6 +1,6 @@
 // import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Login } from '../Login'; // Заменете с пътя до вашия компонент
+import { Login } from '../Login'; 
 import { UserProvider } from '../../contexts/UserContext';
 import { BrowserRouter, Router } from 'react-router-dom';
 import 'intersection-observer';
@@ -52,19 +52,16 @@ test('successful login redirects to home', async () => {
 
     const emailInput = screen.getByLabelText(/email/i);
     const passwordInput = screen.getByLabelText("Password:")
-    // const repeatPasswordInput = screen.getByLabelText(/confirm-password/i);
+
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
     fireEvent.change(passwordInput, { target: { value: 'testpassword' } });
-    // fireEvent.change(repeatPasswordInput, { target: { value: 'testpassword' } });
 
-    // Имитираме събитие "submit" на формата
 
-    // fireEvent.click(screen.getByText("Login"));
-    // Изчакваме асинхронната операция (логване) да приключи
-    // await waitFor(() => {});
+    fireEvent.click(screen.getByText("Login"));
 
-    // Проверяваме дали потребителят е пренасочен към "home"
-    expect(window.location.pathname).toBe('/'); // Ако използвате реакт рутера
+
+
+    expect(window.location.pathname).toBe('/'); 
 });
 test('login errors', async () => {
 
@@ -90,7 +87,7 @@ test('login errors', async () => {
     fireEvent.click(screen.getByText("Login"));
     await screen.findByText('Some fields is empty');
 
-    // Assert that the error message is rendered
+
     expect(screen.getByText('Some fields is empty')).toBeInTheDocument();
 
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
@@ -100,7 +97,6 @@ test('login errors', async () => {
     fireEvent.click(screen.getByText("Login"));
     await screen.findByText('Minimum characters is 5');
 
-    // Assert that the error message is rendered
     expect(screen.getByText('Minimum characters is 5')).toBeInTheDocument();
     fireEvent.change(emailInput, { target: { value: '' } });
     fireEvent.change(passwordInput, { target: { value: 'Password' } });
@@ -109,7 +105,7 @@ test('login errors', async () => {
     fireEvent.click(screen.getByText("Login"));
     await screen.findByText('Some fields is empty');
 
-    // Assert that the error message is rendered
+
     expect(screen.getByText('Some fields is empty')).toBeInTheDocument();
     fireEvent.change(emailInput, { target: { value: 'test@ex' } });
     fireEvent.change(passwordInput, { target: { value: 'Password' } });
@@ -118,7 +114,7 @@ test('login errors', async () => {
     fireEvent.click(screen.getByText("Login"));
     await screen.findByText('Minimum characters is 9');
 
-    // Assert that the error message is rendered
+
     expect(screen.getByText('Minimum characters is 9')).toBeInTheDocument();
 
 });

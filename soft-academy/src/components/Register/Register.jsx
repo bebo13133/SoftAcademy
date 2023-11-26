@@ -43,7 +43,7 @@ export const Register = () => {
 
                             <label htmlFor="login-password">Password:</label>
                             <input type="password" id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
-                            <label htmlFor="con-pass">Confirm Password:</label>
+                            <label htmlFor="confirm-password">Confirm Password:</label>
                             <input type="password" name="confirmPassword" id="confirm-password" value={values.confirmPassword} onChange={onChangeHandler} />
                             <input type="submit" className="btn submit-button" value="Register" />
 
