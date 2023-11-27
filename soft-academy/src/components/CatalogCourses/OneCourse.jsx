@@ -96,7 +96,7 @@ export const OneCourse = ({
 
                                     <li>
                                         <div className={`single-explore-image-icon ${isBookmarked ? 'bookmarked' : ''}`} >
-                                            <i className={`fa ${isBookmarked ? 'fa-heart' : 'fa-heart-o'}`} onClick={() => handleBookmarkToggle(courseId, userId, markId)} style={{ color: isBookmarked ? 'red' : 'blue', background: "none", fontSize: "32px", marginLeft: "-40px" }}></i>
+                                            <i data-testid="heart-icon" className={`fa ${isBookmarked ? 'fa-heart' : 'fa-heart-o'}`} onClick={() => handleBookmarkToggle(courseId, userId, markId)} style={{ color: isBookmarked ? 'red' : 'blue', background: "none", fontSize: "32px", marginLeft: "-40px" }}></i>
                                         </div>
                                     </li>
                                 </ul>

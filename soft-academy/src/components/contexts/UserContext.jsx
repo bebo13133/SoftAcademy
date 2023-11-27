@@ -232,7 +232,6 @@ export const UserProvider = ({ children }) => {
 
 
 
-
     const contextService = {
         onLoginSubmit,
         avatarUrl,
@@ -246,7 +245,7 @@ export const UserProvider = ({ children }) => {
         onChangePassword,
         users,
         onSearchSubmitAdmin,
-        searchResult
+        searchResult,
     }
 
     return (

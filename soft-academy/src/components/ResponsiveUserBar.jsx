@@ -52,20 +52,6 @@ setIsLoading(false)
   }, [userId]);
 
   const urlAv = (avatars.map(avatar => avatar.url))
-  // setUrlAvatar(urlAv);
-
-
-  // const handleOpenUserMenu = (event) => {
-  //   setAnchorElUser(true);
-  // };
-
-  // const handleCloseUserMenu = () => {
-  //   setAnchorElUser(false);
-  // };
-  // const handleAvatarClick = () => {
-  //   console.log("hi")
-  //   handleCloseUserMenu();
-  // };
 
   const handleToggleUserMenu = (event) => {
     setAnchorElUser((prevAnchor) =>
@@ -88,9 +74,6 @@ setIsLoading(false)
   };
 
 
-  // const handleToggleUserMenu = () => {
-  //   setAnchorElUser((prevAnchor) => !prevAnchor);
-  // };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -118,6 +101,7 @@ setIsLoading(false)
         <button
           onClick={handleToggleUserMenu}
           className="user-avatar-button"
+          
         >
           <img
             alt="User Avatar"

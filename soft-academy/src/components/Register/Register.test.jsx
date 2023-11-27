@@ -219,26 +219,52 @@ describe("Register error handler", () => {
 
         fireEvent.click(screen.getByText("Register"));
         await screen.findByText('Minimum characters is 9');
+        expect(screen.getByText('Minimum characters is 9')).toBeInTheDocument();
 
+        afterEach(() => {
+            fireEvent.change(emailInput, { target: { value: '' } });
+            fireEvent.change(passwordInput, { target: { value: '' } });
+            fireEvent.change(confirmInput, { target: { value: '' } });
+
+        });
        
     })
+    it('Please enter a valid password email', async () => {
 
+
+
+        fireEvent.change(emailInput, { target: { value: 'test@example2.com' } });
+        fireEvent.change(passwordInput, { target: { value: 'testpasswor12d' } });
+        fireEvent.change(confirmInput, { target: { value: 'testpassword' } });
+
+
+        fireEvent.click(screen.getByText("Register"));
+        expect(screen.getByText('Please enter a valid password email')).toBeInTheDocument();
+
+        afterEach(() => {
+            fireEvent.change(emailInput, { target: { value: '' } });
+            fireEvent.change(passwordInput, { target: { value: '' } });
+            fireEvent.change(confirmInput, { target: { value: '' } });
+
+        });
+        
+        fireEvent.change(emailInput, { target: { value: 'test@example2.com' } });
+        fireEvent.change(passwordInput, { target: { value: 'testpassword' } });
+        fireEvent.change(confirmInput, { target: { value: 'testpassword12' } });
+
+
+        fireEvent.click(screen.getByText("Register"));
+        expect(screen.getByText('Please enter a valid password email')).toBeInTheDocument();
+
+        afterEach(() => {
+            fireEvent.change(emailInput, { target: { value: '' } });
+            fireEvent.change(passwordInput, { target: { value: '' } });
+            fireEvent.change(confirmInput, { target: { value: '' } });
+
+        });
+    })
    
-    // test('Minimum characters is 9', async () => {
-    //     fireEvent.change(emailInput, { target: { value: 'c@abv.bg' } });
-    //     fireEvent.change(passwordInput, { target: { value: 'password' } });
-    //     fireEvent.click(screen.getByText("Login"));
-    //     await screen.findByText('Minimum characters is 9');
-
-    //     expect(screen.getByText('Minimum characters is 9')).toBeInTheDocument();
-    //     afterEach(() => {
-    //         fireEvent.change(emailInput, { target: { value: '1' } });
-    //         fireEvent.change(passwordInput, { target: { value: '1' } });
-    //     });
-    // })
-
-
-    afterEach(() => {
+      afterEach(() => {
         fireEvent.change(emailInput, { target: { value: '' } });
         fireEvent.change(passwordInput, { target: { value: '' } });
     });
