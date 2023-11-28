@@ -16,7 +16,13 @@ export const UserProvider = ({ children }) => {
     const [avatarUrl, setAvatarUrl] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
     const [searchResult, setSearchResult] = useState([])
-  
+    const [formErrors, setFormErrors] = useState({
+        email: false,
+        password: false,
+        confirmPassword:false,
+      });
+
+      console.log(formErrors,"dsads")
     const [users, setUsers] = useState([])
     // console.log("errorMessage",errorMessage)
     const userService = userServiceFactory(isAuth.accessToken)
@@ -26,12 +32,38 @@ export const UserProvider = ({ children }) => {
     const onLoginSubmit = async (data) => {
 
         try {
-            if (!data.password || !data.email) {
 
+            if (!data.email && !data.password) {
                 setErrorMessage("Some fields is empty")
+                setFormErrors({ password:true,email: true})
 
+              
                 setTimeout(() => {
                     setErrorMessage('');
+                    setFormErrors({ password:false,email: false})
+                }, 4000);
+
+                return;
+            }
+            if (!data.email ) {
+                setErrorMessage("Some fields is empty")
+                setFormErrors(state=>({ ...state,email: true}))
+              
+                setTimeout(() => {
+                    setErrorMessage('');
+                    setFormErrors(state=>({ ...state,email: false}))
+                }, 4000);
+
+                return;
+            }
+            if (!data.password ) {
+                setErrorMessage("Some fields is empty")
+                setFormErrors(state=>({ ...state,password: true}))
+              
+                setTimeout(() => {
+                    setErrorMessage('');
+                setFormErrors(state=>({ ...state,password: false}))
+
                 }, 4000);
 
                 return;
@@ -39,9 +71,12 @@ export const UserProvider = ({ children }) => {
             if (data.password.length <= 5) {
 
                 setErrorMessage("Minimum characters is 5")
-
+                setFormErrors(state=>({ ...state,
+                    password: true}))
                 setTimeout(() => {
                     setErrorMessage('');
+                    setFormErrors(state=>({ ...state,password: false}))
+
                 }, 4000);
 
                 return;
@@ -49,9 +84,12 @@ export const UserProvider = ({ children }) => {
             if (data.email.length <= 9) {
 
                 setErrorMessage("Minimum characters is 9")
+                setFormErrors(state=>({ ...state,email: true}))
 
                 setTimeout(() => {
                     setErrorMessage('');
+                setFormErrors(state=>({ ...state,email: false}))
+
                 }, 4000);
 
                 return;
@@ -84,40 +122,94 @@ export const UserProvider = ({ children }) => {
         try {
             const { confirmPassword, ...registerData } = data
 
-            if (confirmPassword !== registerData.password) {
-
-                setErrorMessage("Please enter a valid password email")
+           
+            if (!confirmPassword && !registerData.password && !registerData.email) {
+                setErrorMessage("Some fields is empty")
+                setFormErrors({ password:true,confirmPassword: true, email:true})
 
                 setTimeout(() => {
                     setErrorMessage('');
+                setFormErrors({ password:false,confirmPassword: false, email:false})
+
                 }, 4000);
 
                 return;
             }
-            if (!confirmPassword || !registerData.password || !registerData.email) {
+            if (!registerData.email) {
                 setErrorMessage("Some fields is empty")
+                setFormErrors(state=>({ ...state,email: true}))
+
 
                 setTimeout(() => {
                     setErrorMessage('');
+                setFormErrors(state=>({ ...state,email: false}))
+
+          
+
+                }, 4000);
+
+                return;
+            }
+            if ( !registerData.password) {
+                setErrorMessage("Some fields is empty")
+                setFormErrors(state=>({ ...state,password: true}))
+
+
+                setTimeout(() => {
+                    setErrorMessage('');
+                setFormErrors(state=>({ ...state,password: false}))
+      
+                }, 4000);
+
+                return;
+            }
+            if ( !confirmPassword) {
+                setErrorMessage("Some fields is empty")
+                setFormErrors(state=>({ ...state,confirmPassword: true}))
+
+
+                setTimeout(() => {
+                    setErrorMessage('');
+                setFormErrors(state=>({ ...state,confirmPassword: false}))
+      
+                }, 4000);
+
+                return;
+            }
+            if (confirmPassword !== registerData.password) {
+
+                setErrorMessage("Please enter a valid password email")
+                setFormErrors({ password:true,confirmPassword: true})
+
+                setTimeout(() => {
+                    setErrorMessage('');
+                setFormErrors({ password:false,confirmPassword: false})
+
                 }, 4000);
 
                 return;
             }
             if (confirmPassword.length <= 5 || registerData.password.length <= 5) {
                 setErrorMessage("Minimum characters is 5")
+                setFormErrors({ password:true,confirmPassword: true})
 
                 setTimeout(() => {
                     setErrorMessage('');
+                setFormErrors({ password:false,confirmPassword: false})
+
                 }, 4000);
 
                 return;
             }
             if (data.email.length <= 9) {
+                setFormErrors(state=>({ ...state,email: true}))
 
                 setErrorMessage("Minimum characters is 9")
 
                 setTimeout(() => {
                     setErrorMessage('');
+                setFormErrors(state=>({ ...state,email: false}))
+
                 }, 4000);
 
                 return;
@@ -246,6 +338,7 @@ export const UserProvider = ({ children }) => {
         users,
         onSearchSubmitAdmin,
         searchResult,
+        formErrors
     }
 
     return (

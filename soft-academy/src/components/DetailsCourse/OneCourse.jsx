@@ -178,7 +178,7 @@ const [oneCourse,setOneCourse] = useState([])
                         <div className="social-btn">
 
                             {isOwner && (<>
-                                <Link to={`/catalog/${_id}/edit`} className="edit-btn">Edit</Link>
+                                <Link to={`/catalog/${_id}/edit`} data-testid="edit-link" className="edit-btn">Edit</Link>
                                 <button onClick={() => openDelete()} className="del-btn">Delete</button>
                             </>
                             )}

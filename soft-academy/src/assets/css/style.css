@@ -99,7 +99,7 @@ ul li {
 	
 }
 select,input,textarea,button{box-shadow:none;outline:0!important;}
-button {background: transparent;border: 0;font-size: 12px;}
+button {background: transparent;border: 0;font-size: 18px;}
 
 html,body{height: 100%;}
 

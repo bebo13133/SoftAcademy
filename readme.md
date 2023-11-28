@@ -9,3 +9,4 @@
  directory (soft-academy folder), in the terminal and typing - **<span style="color:red">npm run dev</span>**
 
 3. **<span style="color:red"> Project uses firebase</span>** for profile pictures. The firebase server works 24/7.
+1. // "start": "concurrently \"node server/index.js\" \"node inside-sever/server.js\"",

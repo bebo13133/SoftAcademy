@@ -9,8 +9,8 @@ export const Login = () => {
 
 
 
-    const { onLoginSubmit } = useAuthContext()
-
+    const { onLoginSubmit ,formErrors} = useAuthContext()
+console.log(formErrors)
 
     const { onSubmit, values, onChangeHandler } = useForm({
         email: "",
@@ -40,11 +40,11 @@ export const Login = () => {
                         <div className="container-login">
                             <div className="brand-logo-login"></div>
 
-                            <label htmlFor="email">Email:</label>
-                            <input type="email" id="email" name="email" placeholder="peter@gmail.com" value={values.email} onChange={onChangeHandler} />
+                            <label htmlFor="email" >Email:</label>
+                            <input type="email" className={formErrors.email ? "error": ""} id="email" name="email" placeholder="peter@gmail.com" value={values.email} onChange={onChangeHandler} />
 
                             <label htmlFor="login-password">Password:</label>
-                            <input type="password" id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
+                            <input type="password" className={formErrors.password ? "error": ""} id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
                          
                             <input type="submit" className="btn submit-button" value="Login" />
                             <label htmlFor="confirm-password" style={{ visibility: 'hidden' }}>Confirm Password:</label>

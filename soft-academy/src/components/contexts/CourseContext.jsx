@@ -25,8 +25,7 @@ export const CourseProvider = ({ children }) => {
     const [languages, setLanguage] = useState(null)
     const [toEmail, setToEmail] = useState("")
     const [currentStudentInfo, setCurrentStudentInfo] = useState([])
-
-    // const [errorMessage, setErrorMessage] = useState(''); //error messages
+  
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
 
@@ -61,8 +60,8 @@ export const CourseProvider = ({ children }) => {
             !courseData.weeksCourse ||
             !courseData.creditsCourse
         ) {
-
-
+       
+            
             dispatch(setError("Some fields is empty"));
             setTimeout(() => {
                 dispatch(setError(''));

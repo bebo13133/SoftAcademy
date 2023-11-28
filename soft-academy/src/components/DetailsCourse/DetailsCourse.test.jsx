@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { CourseProvider } from '../contexts/CourseContext';
 
 import { vi, describe, test, expect, it } from 'vitest';
@@ -20,6 +20,8 @@ import { SignUpCourse } from './SignUpCourse';
 
 
 const mockDetails = { _id: '1', title: 'Course 1', description: 'Description for Course 1' };
+
+console.log("dasdsa", mockDetails._id);
 const paymentDetails = [{
     "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
     "cardNumber": "432432432",
@@ -64,7 +66,7 @@ vi.mock('../Services/courseService', () => ({
 //   });
 
 
-describe("test details page", async () => {
+describe("test render  details page", async () => {
 
 
     await act(async () => {
@@ -180,7 +182,7 @@ describe("test details page", async () => {
 
 
     })
-    test('renders OneCourse with details', async () => {
+    test('renders Lector with details', async () => {
 
         await act(async () => {
             const { debug, getByText } = render(
@@ -205,6 +207,46 @@ describe("test details page", async () => {
 
         const lang = screen.getByText("credits")
         expect(lang).toBeInTheDocument()
+
+
+    })
+
+
+    test('Edit button works', async () => {
+        const navigate = vi.fn();
+   
+        await act(async () => {
+          
+      
+            const { debug, getByText } = render(
+
+                <MemoryRouter >
+                    <UserProvider>
+                        <Provider store={store}>
+                            <CourseProvider >
+
+                                <ForumProvider>
+                                  <OneCourse/>
+                                </ForumProvider>
+
+                            </CourseProvider>
+                        </Provider>
+                    </UserProvider>
+                </MemoryRouter>
+            )
+        })
+
+
+    const editButton = screen.getByTestId('edit-link');
+    expect(editButton).toBeInTheDocument();
+    userEvent.click(editButton);
+    expect(window.location.pathname).toBe(`/`);
+
+
+
+
+
+      
 
 
     })

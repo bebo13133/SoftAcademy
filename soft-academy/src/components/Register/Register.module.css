@@ -72,3 +72,8 @@
   border: 3px solid grey;
   padding-left: 8px;
 }
+.error{
+  border: 1px solid red;
+  color: red;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
