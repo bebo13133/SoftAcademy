@@ -3,13 +3,13 @@ import { useForm } from '../Hooks/useForm'
 import {v4} from 'uuid'
 import { useCourseContext } from '../contexts/CourseContext'
 import Footer from '../Footer/Footer'
-
+import './errroCreate.css'
 export const CreateCourse = () => {
 
     const [selectOption, setSelectOptions] = useState("")
 
-    const { onCreateCourseSubmit } = useCourseContext()
-
+    const { onCreateCourseSubmit,formErrors } = useCourseContext()
+console.log("create",formErrors)
     const lectorImageHandler = (e) => {
         const file = e.target.files[0] // подсигурявам да вземе сам оедин файл
 
@@ -82,26 +82,26 @@ export const CreateCourse = () => {
                     <div className="item">
                         <p>Course name</p>
                         <div className="name-item">
-                            <input type="text" name="courseName" placeholder="Course name" value={values.courseName} onChange={onChangeHandler} />
+                            <input type="text" className={formErrors.courseName ? "error": ""} name="courseName" placeholder="Course name" value={values.courseName} onChange={onChangeHandler} />
                         </div>
                     </div>
                     <div className="item">
                         <p>Lector name</p>
                         <div className="name-item">
-                            <input type="text" name="firstName" placeholder="First" value={values.firstName} onChange={onChangeHandler} />
-                            <input type="text" name="lastName" placeholder="Last" value={values.lastName} onChange={onChangeHandler} />
+                            <input type="text" className={formErrors.firstName ? "error": ""} name="firstName" placeholder="First" value={values.firstName} onChange={onChangeHandler} />
+                            <input type="text" className={formErrors.lastName ? "error": ""} name="lastName" placeholder="Last" value={values.lastName} onChange={onChangeHandler} />
                         </div>
                     </div>
                     {/* <h2>Lector Description</h2> */}
                     <div className="item">
                         <p>Lector Description</p>
 
-                        <input type="text" name="lectorDescription" placeholder="Lector Description" value={values.lectorDescription} onChange={onChangeHandler} />
+                        <input type="text" className={formErrors.lectorDescription ? "error": ""} name="lectorDescription" placeholder="Lector Description" value={values.lectorDescription} onChange={onChangeHandler} />
                     </div>
 
                     <div className="item">
 
-                        <input type="file" name="lectorImage" placeholder="Lector Description" accept="image/*" onChange={lectorImageHandler} />
+                        <input type="file"className={formErrors.lectorImage ? "error": ""} name="lectorImage" placeholder="Lector Description" accept="image/*" onChange={lectorImageHandler} />
 
                     </div>
                     <div className="item">
@@ -113,11 +113,11 @@ export const CreateCourse = () => {
 
                     <div className="item">
                         <p>Email</p>
-                        <input type="text" name="email" placeholder="Email" value={values.email} onChange={onChangeHandler} />
+                        <input type="text" className={formErrors.email ? "error": ""}name="email" placeholder="Email" value={values.email} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>User name</p>
-                        <input type="text" name="ownerCourse" placeholder="User name" value={values.ownerCourse} onChange={onChangeHandler} />
+                        <input type="text"className={formErrors.ownerCourse ? "error": ""} name="ownerCourse" placeholder="User name" value={values.ownerCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>Language</p>
@@ -145,7 +145,7 @@ export const CreateCourse = () => {
                         </div>
                     ) :
                         (<div className="image-container empty" id="image-container">
-                            <input type="text" name="imageUrl2" placeholder="Enter URL icon " value={values.imageUrl2} onChange={onChangeHandler} />
+                            <input className={formErrors.imageUrl2 ? "error": ""} type="text" name="imageUrl2" placeholder="Enter URL icon " value={values.imageUrl2} onChange={onChangeHandler} />
                         </div>)}
 
 
@@ -153,24 +153,24 @@ export const CreateCourse = () => {
                     <h2>Course Description</h2>
                     <div className="item">
                         <p>Description</p>
-                        <input type="text" name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
+                        <input type="text"className={formErrors.description ? "error": ""} name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>Credits</p>
-                        <input type="text" name="creditsCourse" placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
+                        <input type="text"className={formErrors.creditsCourse ? "error": ""} name="creditsCourse" placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>Weeks</p>
-                        <input type="text" name="weeksCourse" placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
+                        <input type="text" className={formErrors.weeksCourse ? "error": ""}name="weeksCourse" placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>Price</p>
-                        <input type="number" name="price" placeholder="Course price" value={values.price} onChange={onChangeHandler} />
+                        <input type="number"className={formErrors.price ? "error": ""}name="price" placeholder="Course price" value={values.price} onChange={onChangeHandler} />
                     </div>
 
                     <div className="item">
                         <p>Start Date</p>
-                        <input type="date" name="date" value={values.date} onChange={onChangeHandler} />
+                        <input type="date"className={formErrors.date ? "error": ""} name="date" value={values.date} onChange={onChangeHandler} />
                         <i className="fas fa-calendar-alt"></i>
                     </div>
 

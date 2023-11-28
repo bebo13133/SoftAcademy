@@ -8,7 +8,7 @@ import emailjs from '@emailjs/browser'
 import './error.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { setError } from "../actions";
-
+import { useFormErrors } from "../Hooks/useFormErrors";
 export const CourseContext = createContext()
 
 
@@ -25,11 +25,10 @@ export const CourseProvider = ({ children }) => {
     const [languages, setLanguage] = useState(null)
     const [toEmail, setToEmail] = useState("")
     const [currentStudentInfo, setCurrentStudentInfo] = useState([])
-  
+
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
-
-
+    const { formErrors, setSpecificErrorToTrue } = useFormErrors()
 
 
     const courseService = courseServiceFactory(token)
@@ -60,8 +59,17 @@ export const CourseProvider = ({ children }) => {
             !courseData.weeksCourse ||
             !courseData.creditsCourse
         ) {
-       
-            
+
+            setSpecificErrorToTrue(["courseName",
+                "firstName",
+                "lastName",
+                "email",
+                "ownerCourse",
+                "price",
+                "description",
+                "lectorDescription",
+                "weeksCourse",
+                "creditsCourse"])
             dispatch(setError("Some fields is empty"));
             setTimeout(() => {
                 dispatch(setError(''));
@@ -209,7 +217,7 @@ export const CourseProvider = ({ children }) => {
 
 
         navigate(`/catalog/${values.courseId}`)
-        
+
         const sendEmail = () => {
 
             const templateParams = {
@@ -226,7 +234,7 @@ export const CourseProvider = ({ children }) => {
                     "iRYFR4BuAXZEBF1ld",
                 )
                 .then(result => {
-              
+
 
                     console.log("Email sent successfully:", result);
 
@@ -475,7 +483,8 @@ export const CourseProvider = ({ children }) => {
         onSignUp,
         students,
         payStudents,
-        onSubmitPayment
+        onSubmitPayment,
+        formErrors
 
     }
 

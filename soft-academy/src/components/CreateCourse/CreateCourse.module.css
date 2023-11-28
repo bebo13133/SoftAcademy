@@ -192,4 +192,8 @@
         max-width: 100%;
         max-height: 200px; /* Adjust to your preferred height */
       }
-      
+      .error{
+        border: 1px solid red;
+        color: red;
+        transition: border-color 0.3s ease, color 0.3s ease;
+      }
