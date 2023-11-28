@@ -3,3 +3,8 @@
     color: red;
     transition: border-color 0.3s ease, color 0.3s ease;
   }
+  .error-black{
+    border: 1px solid blue;
+    color: rgb(0, 38, 255)(12, 12, 12);
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }

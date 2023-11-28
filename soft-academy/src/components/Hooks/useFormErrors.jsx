@@ -41,6 +41,7 @@ export const useFormErrors = () => {
               return updatedErrors;
             });
           }, 4000);
+          return
     }
     return { formErrors, setSpecificErrorToTrue }
 

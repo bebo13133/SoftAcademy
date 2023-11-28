@@ -9,7 +9,7 @@ export const CreateCourse = () => {
     const [selectOption, setSelectOptions] = useState("")
 
     const { onCreateCourseSubmit,formErrors } = useCourseContext()
-console.log("create",formErrors)
+
     const lectorImageHandler = (e) => {
         const file = e.target.files[0] // подсигурявам да вземе сам оедин файл
 
@@ -153,15 +153,15 @@ console.log("create",formErrors)
                     <h2>Course Description</h2>
                     <div className="item">
                         <p>Description</p>
-                        <input type="text"className={formErrors.description ? "error": ""} name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
+                        <input type="text"className={formErrors.description ? "error-black": ""} name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>Credits</p>
-                        <input type="text"className={formErrors.creditsCourse ? "error": ""} name="creditsCourse" placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
+                        <input type="number"className={formErrors.creditsCourse ? "error": ""} name="creditsCourse" placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>Weeks</p>
-                        <input type="text" className={formErrors.weeksCourse ? "error": ""}name="weeksCourse" placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
+                        <input type="number" className={formErrors.weeksCourse ? "error": ""}name="weeksCourse" placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>Price</p>

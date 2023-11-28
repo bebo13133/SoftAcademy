@@ -47,16 +47,15 @@ export const CourseProvider = ({ children }) => {
     }, [])
 
     const onCreateCourseSubmit = async (courseData) => {
-
-        if (!courseData.courseName ||
-            !courseData.firstName ||
-            !courseData.lastName ||
-            !courseData.email ||
-            !courseData.ownerCourse ||
-            !courseData.price ||
-            !courseData.description ||
-            !courseData.lectorDescription ||
-            !courseData.weeksCourse ||
+        if (!courseData.courseName &&
+            !courseData.firstName &&
+            !courseData.lastName &&
+            !courseData.email &&
+            !courseData.ownerCourse &&
+            !courseData.price &&
+            !courseData.description &&
+            !courseData.lectorDescription &&
+            !courseData.weeksCourse &&
             !courseData.creditsCourse
         ) {
 
@@ -70,6 +69,8 @@ export const CourseProvider = ({ children }) => {
                 "lectorDescription",
                 "weeksCourse",
                 "creditsCourse"])
+
+
             dispatch(setError("Some fields is empty"));
             setTimeout(() => {
                 dispatch(setError(''));
@@ -77,10 +78,91 @@ export const CourseProvider = ({ children }) => {
             return
 
         }
+   
+        if (!courseData.courseName) {
+            setSpecificErrorToTrue('courseName')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (!courseData.firstName ) {
+            setSpecificErrorToTrue('firstName')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (!courseData.lastName) {
+            setSpecificErrorToTrue('lastName')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
 
-        if (courseData.courseName.length < 2 || courseData.firstName.length < 4
-            || courseData.lastName.length < 4 || courseData.email.length < 9) {
-
+        if (!courseData.email) {
+            setSpecificErrorToTrue('email')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (!courseData.ownerCourse) {
+            setSpecificErrorToTrue('ownerCourse')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (!courseData.price) {
+            setSpecificErrorToTrue('price')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (!courseData.description) {
+            setSpecificErrorToTrue('description')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (!courseData.lectorDescription) {
+            setSpecificErrorToTrue('lectorDescription')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (!courseData.weeksCourse) {
+            setSpecificErrorToTrue('weeksCourse')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (!courseData.creditsCourse) {
+            setSpecificErrorToTrue('creditsCourse')
+            dispatch(setError("Some fields is empty"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+     
+        if ( courseData.firstName.length < 4 || courseData.lastName.length < 4 ) {
+            setSpecificErrorToTrue(['firstName','lastName'])
 
             dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
             setTimeout(() => {
@@ -89,8 +171,37 @@ export const CourseProvider = ({ children }) => {
             return
         }
 
-        if (courseData.lectorDescription.length < 5 || courseData.description.length < 20) {
+        if (courseData.email.length < 9) {
+            setSpecificErrorToTrue(['email'])
 
+            dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+
+        if (courseData.courseName.length < 2) {
+            setSpecificErrorToTrue(['courseName'])
+
+            dispatch(setError("Minimum field length is 4 for names, 9 for email and 2 for course name"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (courseData.lectorDescription.length < 5 ) {
+          
+            setSpecificErrorToTrue(['lectorDescription'])
+            dispatch(setError("Minimum field description length is 20 and minimum 5 for lectorDescription"));
+            setTimeout(() => {
+                dispatch(setError(''));
+            }, 4000);
+            return
+        }
+        if (courseData.description.length < 20) {
+            setSpecificErrorToTrue(['description'])
+          
 
             dispatch(setError("Minimum field description length is 20 and minimum 5 for lectorDescription"));
             setTimeout(() => {
@@ -98,9 +209,8 @@ export const CourseProvider = ({ children }) => {
             }, 4000);
             return
         }
-
         if (courseData.price === isNaN) {
-
+            setSpecificErrorToTrue('price')
             dispatch(setError("The Price must be number"));
             setTimeout(() => {
                 dispatch(setError(''));
@@ -148,6 +258,7 @@ export const CourseProvider = ({ children }) => {
 
 
     }
+    
     const onDeleteClickAdmin = async (id) => {
 
         try {
