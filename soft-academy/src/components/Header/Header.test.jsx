@@ -104,7 +104,7 @@ describe('Header component auth component', async() => {
     test('Navigate to create',async () => {
     
    
- waitFor(() => {
+waitFor(() => {
     const addLink = screen.getByText("add course");
     expect(addLink).toBeInTheDocument();
     userEvent.click(addLink);
@@ -141,10 +141,10 @@ test('Navigate to forum',async () => {
             });
         
         })
-        test('Navigate to admin', () => {
+        test('Navigate to admin', async() => {
     
    
-            waitFor(() => {
+        waitFor(() => {
                 const addLink = screen.getByText("admin");
                 expect(addLink).toBeInTheDocument();          
                 userEvent.click(addLink);
@@ -170,13 +170,13 @@ const props ={
             </MemoryRouter>)
     })
 
-    it('negative Navigate to admin', () => {
-        const adminLink = screen.getByText("admin");
-        expect(adminLink).toBeInTheDocument();
-        
-        userEvent.click(adminLink);
+    it('negative Navigate to admin', async () => {
+     
         waitFor(() => {
-      
+            const adminLink = screen.getByText("admin");
+            expect(adminLink).toBeInTheDocument();
+            
+            userEvent.click(adminLink);
 
             // Тук можете да използвате async/await, ако ви е необходимо
             waitFor(() => {

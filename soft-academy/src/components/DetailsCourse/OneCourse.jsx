@@ -25,7 +25,7 @@ export const OneCourse = ({
     selectOption,
     courseName,
     comments,
- 
+  
     _ownerId,
     imageUrl2
 
@@ -123,6 +123,7 @@ const [oneCourse,setOneCourse] = useState([])
     }
     const openDelete = () => {
         setIsOpen(true)
+        onDeleteClick()
     }
     const onCloseDelete = () => {
         setIsOpen(false)

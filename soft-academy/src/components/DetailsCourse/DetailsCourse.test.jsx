@@ -20,7 +20,7 @@ import { SignUpCourse } from './SignUpCourse';
 
 
 const mockDetails = { _id: '1', title: 'Course 1', description: 'Description for Course 1' };
-const paymentDetails= [{
+const paymentDetails = [{
     "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
     "cardNumber": "432432432",
     "ownerName": "432234323",
@@ -31,7 +31,7 @@ const paymentDetails= [{
     "payType": "student-course",
     "_createdOn": 1701089877966,
     "_id": "1fd2d9ec-8fe1-4000-8ebd-14748c512cb9"
-},{
+}, {
     "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
     "cardNumber": "432432432",
     "ownerName": "432234323",
@@ -48,10 +48,20 @@ vi.mock('../Services/courseService', () => ({
     courseServiceFactory: () => ({
         getOne: vi.fn(async () => ((mockDetails))),
         getAllStudentsPayment: vi.fn(async () => ((paymentDetails))),
-        getAll:vi.fn(async () => ((mockDetails))),
-       
+        getAll: vi.fn(async () => ((mockDetails))),
+
     }),
 }));
+// const onOpenDelete = vi.fn();
+
+// beforeEach(() => {
+
+//     vi.spyOn(OneCourse.prototype, 'onOpenDelete').mockImplementation(onOpenDelete);
+// });
+// afterEach(() => {
+//     // Възстановете оригиналната реализация след всяко тестване
+//     vi.restoreAllMocks();
+//   });
 
 
 describe("test details page", async () => {
@@ -89,21 +99,21 @@ describe("test details page", async () => {
                             <CourseProvider >
 
 
-                             
-                                    <ForumProvider>
-                                        <OneCourse />
-                                    </ForumProvider>
-                           
+
+                                <ForumProvider>
+                                    <OneCourse />
+                                </ForumProvider>
+
                             </CourseProvider>
                         </Provider>
                     </UserProvider>
                 </MemoryRouter>
             )
         })
-     
+
         const TestRender = screen.getAllByText("Description for Course 1")
-            // expect(lang).toBeInTheDocument()
-    
+        expect(TestRender).toHaveLength(2);
+
 
     })
     test('renders OneCourse with details', async () => {
@@ -117,25 +127,59 @@ describe("test details page", async () => {
                             <CourseProvider >
 
 
-                             
-                                    <ForumProvider>
-                                        <LectorPage />
-                                    </ForumProvider>
-                           
+
+                                <ForumProvider>
+                                    <LectorPage />
+                                </ForumProvider>
+
                             </CourseProvider>
                         </Provider>
                     </UserProvider>
                 </MemoryRouter>
             )
         })
-     
+
         const lang = screen.getByText("Lector:")
-            expect(lang).toBeInTheDocument()
-            const showMore= screen.getByText("Show More")
-            expect(showMore).toBeInTheDocument()
+        expect(lang).toBeInTheDocument()
+        const showMore = screen.getByText("Show More")
+        expect(showMore).toBeInTheDocument()
 
     })
+    test('Delete button works', async () => {
+        const onClick = vi.fn()
 
+
+
+
+
+        await act(async () => {
+            const { debug, getByText } = render(
+
+                <MemoryRouter>
+                    <UserProvider>
+                        <Provider store={store}>
+                            <CourseProvider >
+
+                                <ForumProvider>
+                                    <OneCourse onOpenDelete={onClick} />
+                                </ForumProvider>
+
+                            </CourseProvider>
+                        </Provider>
+                    </UserProvider>
+                </MemoryRouter>
+            )
+        })
+        const deleteButton = screen.getByText('Delete');
+        expect(deleteButton).toBeInTheDocument();
+        waitFor(() => {
+            fireEvent.click(deleteButton);
+
+            expect(onClick).toHaveBeenCalled();
+        })
+
+
+    })
     test('renders OneCourse with details', async () => {
 
         await act(async () => {
@@ -147,21 +191,21 @@ describe("test details page", async () => {
                             <CourseProvider >
 
 
-                             
-                                    <ForumProvider>
-                                        <SignUpCourse />
-                                    </ForumProvider>
-                           
+
+                                <ForumProvider>
+                                    <SignUpCourse />
+                                </ForumProvider>
+
                             </CourseProvider>
                         </Provider>
                     </UserProvider>
                 </MemoryRouter>
             )
         })
-     
+
         const lang = screen.getByText("credits")
-            expect(lang).toBeInTheDocument()
-    
+        expect(lang).toBeInTheDocument()
+
 
     })
 
