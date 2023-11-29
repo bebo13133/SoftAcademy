@@ -153,7 +153,7 @@ export const CreateCourse = () => {
                     <h2>Course Description</h2>
                     <div className="item">
                         <p>Description</p>
-                        <input type="text"className={formErrors.description ? "error-black": ""} name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
+                        <input type="text" className={formErrors.description ? "error": ""} name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
                         <p>Credits</p>
