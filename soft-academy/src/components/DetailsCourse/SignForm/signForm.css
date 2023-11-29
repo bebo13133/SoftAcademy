@@ -237,6 +237,7 @@ margin-top:20px;
     /* margin-bottom: 10px; */
     width: 200px;
     border: 1px solid #ccc;
+    border-radius: 14px;
   }
   
   .vouchers-btn{
