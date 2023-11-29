@@ -42,20 +42,20 @@ export const AddForumPost = () => {
         <>
             <form className="post-form" onSubmit={onSubmitWithOut}>
                 <label>
-                    Title:
+                    Title:<span className="required-field">*</span>
                     <input type="text" name="title" value={values.title} onChange={onChangeHandler} />
                 </label>
                 <label>
-                    Description:
+                    Description:<span className="required-field">*</span>
                     <textarea name="description" value={values.description} onChange={onChangeHandler} />
                 </label>
                 <label>
-                    Image:
+                    Image:<span className="required-field">*</span>
                     <input type="file" name="imageUrl" onChange={handleImageChange} accept="image/*" />
                 </label>
 
                 <label>
-                    Author:
+                    Author:<span className="required-field">*</span>
                     <input type="text" name="author" value={values.author} onChange={onChangeHandler} />
                 </label>
                 <label>

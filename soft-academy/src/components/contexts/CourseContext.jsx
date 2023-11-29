@@ -2,7 +2,7 @@ import { courseServiceFactory } from "../Services/courseService";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "./UserContext";
-
+import {v4} from 'uuid'
 import emailjs from '@emailjs/browser'
 
 import './error.css'
@@ -303,6 +303,7 @@ export const CourseProvider = ({ children }) => {
 
     const onEditSubmit = async (data) => {
         validateCourseData(dispatch, data)
+
 
 
         try {

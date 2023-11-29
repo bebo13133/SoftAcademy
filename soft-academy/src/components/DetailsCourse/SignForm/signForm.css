@@ -50,7 +50,7 @@ display:block !important;
     display: flex;
     /* text-align: center; */
     height: 335px;
-    width: 600px; 
+    width: 630px; 
     margin: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -89,7 +89,7 @@ display:block !important;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 250px;
+    width: 300px;
   }
 
   /* signUpform */
@@ -98,14 +98,14 @@ display:block !important;
     flex-direction: column;
     /* grid-column: col3-start ;
  grid-row: row1-start / row2-end; */
- max-width: 260px;
+ max-width: 300px;
  border: 2px solid #333; 
  /* padding: 20px;  */
  margin: 20px;
  background: linear-gradient(to right, #c8e6ff, #c8e6ff);
  border-radius:15px ;
- width: 250px;
- height: 320px;
+ width: 260px;
+ height: 415px;
 /* overflow-y:auto; */
 
 margin-top:20px;
@@ -155,7 +155,38 @@ margin-top:20px;
     font-size: 18px;
     font-weight: 500;
     text-transform: capitalize;
+
+    
 }
+
+.old-price {
+  text-decoration: line-through;
+  color: red; /* Цвят на задраскването */
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  font-size:18px;
+}
+
+.new-price {
+  color: #5b3200; /* Цвят на новата цена */
+  
+  font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .sign-course-card-finish h4{
     margin: 0px;
     text-shadow: 0 4px 8px rgb(10 56 153 / 36%);
@@ -189,4 +220,35 @@ margin-top:20px;
   }
   .show-more-button-back:hover{
     text-transform: none;
+  }
+  .vouchers-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .vouchers-section label {
+    margin-bottom: 5px;
+  }
+  
+  .vouchers-section input {
+    padding: 8px;
+    /* margin-bottom: 10px; */
+    width: 200px;
+    border: 1px solid #ccc;
+  }
+  
+  .vouchers-btn{
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: #fff;
+    /* border: 1px solid black; */
+    border-radius: 14px;
+    cursor: pointer;
+
+  }
+  
+  .vouchers-btn button:hover {
+    background-color: #45a049;
   }

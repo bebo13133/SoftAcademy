@@ -3,7 +3,7 @@ import { useLocalStorage } from "../Hooks/useLocalStorage"
 import { userServiceFactory } from "../Services/userService"
 import { useNavigate } from "react-router-dom"
 import emailjs from '@emailjs/browser'
-
+import {v4} from "uuid"
 // import { Login } from "../Login/Login"
 // import { Register } from "../Register/Register"
 
@@ -16,13 +16,16 @@ export const UserProvider = ({ children }) => {
     const [avatarUrl, setAvatarUrl] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
     const [searchResult, setSearchResult] = useState([])
+    // const [voucherCodes,setPromoCodes] = useState([])
+    const voucherCodes =[]
+  
     const [formErrors, setFormErrors] = useState({
         email: false,
         password: false,
         confirmPassword:false,
       });
 
-      console.log(formErrors,"dsads")
+    
     const [users, setUsers] = useState([])
     // console.log("errorMessage",errorMessage)
     const userService = userServiceFactory(isAuth.accessToken)
@@ -216,14 +219,22 @@ export const UserProvider = ({ children }) => {
             }
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
+            const codes = v4()
+            const promoCodes=codes.slice(0,8)
+     
+            // setPromoCodes(state=>[...state,promoCodes])
+            const newPromoCodes = await userService.createPromo({code:promoCodes})
             navigate("/")
+
+           
 
             const sendEmail = () => {
 
                 const templateParams = {
                     to_email: registerData.email,
                     message: `Welcome to SoftAcademy . Your username: ${registerData.email}  password:${registerData.password}`,
-                    to_name: `${registerData.email}`
+                    to_name: `${registerData.email}`,
+                    promo_code: promoCodes
                 }
     
                 emailjs
@@ -338,7 +349,8 @@ export const UserProvider = ({ children }) => {
         users,
         onSearchSubmitAdmin,
         searchResult,
-        formErrors
+        formErrors,
+        voucherCodes
     }
 
     return (
