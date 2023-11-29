@@ -80,13 +80,13 @@ export const CreateCourse = () => {
                     </div>
                     <h2>Course Details</h2>
                     <div className="item">
-                        <p>Course name</p>
+                        <p>Course name <span className="required-field">*</span></p>
                         <div className="name-item">
                             <input type="text" className={formErrors.courseName ? "error": ""} name="courseName" placeholder="Course name" value={values.courseName} onChange={onChangeHandler} />
                         </div>
                     </div>
                     <div className="item">
-                        <p>Lector name</p>
+                        <p>Lector name<span className="required-field">*</span></p>
                         <div className="name-item">
                             <input type="text" className={formErrors.firstName ? "error": ""} name="firstName" placeholder="First" value={values.firstName} onChange={onChangeHandler} />
                             <input type="text" className={formErrors.lastName ? "error": ""} name="lastName" placeholder="Last" value={values.lastName} onChange={onChangeHandler} />
@@ -94,7 +94,7 @@ export const CreateCourse = () => {
                     </div>
                     {/* <h2>Lector Description</h2> */}
                     <div className="item">
-                        <p>Lector Description</p>
+                        <p>Lector Description<span className="required-field">*</span></p>
 
                         <input type="text" className={formErrors.lectorDescription ? "error": ""} name="lectorDescription" placeholder="Lector Description" value={values.lectorDescription} onChange={onChangeHandler} />
                     </div>
@@ -105,22 +105,22 @@ export const CreateCourse = () => {
 
                     </div>
                     <div className="item">
-                        <p>Lector Image</p>
+                        <p>Lector Image<span className="required-field">*</span></p>
                         {values.lectorImage && (
                             <img src={values.lectorImage} alt="Lector" />
                         )}
                     </div>
 
                     <div className="item">
-                        <p>Email</p>
+                        <p>Email<span className="required-field">*</span></p>
                         <input type="text" className={formErrors.email ? "error": ""}name="email" placeholder="Email" value={values.email} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>User name</p>
+                        <p>User name<span className="required-field">*</span></p>
                         <input type="text"className={formErrors.ownerCourse ? "error": ""} name="ownerCourse" placeholder="User name" value={values.ownerCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>Language</p>
+                        <p>Language<span className="required-field">*</span></p>
                         <div className="city-item">
                             <select key={v4()}value={selectOption} placeholder="Choice your language" name="language" onChange={selectOptionHandler} >
                                 <option value="">Select an option</option>
@@ -152,24 +152,24 @@ export const CreateCourse = () => {
                     <div className="overfill">
                     <h2>Course Description</h2>
                     <div className="item">
-                        <p>Description</p>
+                        <p>Description<span className="required-field">*</span></p>
                         <input type="text" className={formErrors.description ? "error": ""} name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>Credits</p>
+                        <p>Credits<span className="required-field">*</span></p>
                         <input type="number"className={formErrors.creditsCourse ? "error": ""} name="creditsCourse" placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>Weeks</p>
+                        <p>Weeks<span className="required-field">*</span></p>
                         <input type="number" className={formErrors.weeksCourse ? "error": ""}name="weeksCourse" placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>Price</p>
+                        <p>Price<span className="required-field">*</span></p>
                         <input type="number"className={formErrors.price ? "error": ""}name="price" placeholder="Course price" value={values.price} onChange={onChangeHandler} />
                     </div>
 
                     <div className="item">
-                        <p>Start Date</p>
+                        <p>Start Date<span className="required-field">*</span></p>
                         <input type="date"className={formErrors.date ? "error": ""} name="date" value={values.date} onChange={onChangeHandler} />
                         <i className="fas fa-calendar-alt"></i>
                     </div>

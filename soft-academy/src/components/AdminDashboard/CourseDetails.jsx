@@ -1,37 +1,37 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useForm } from '../Hooks/useForm'
 import { AdminSidebar } from './AdminSideBar'
-import './courseDetails.css'
+
 import { useCourseContext } from '../contexts/CourseContext'
 import { useService } from '../Hooks/useService'
 import { courseServiceFactory } from '../Services/courseService'
 import { useEffect, useState } from 'react'
-
+import './courseDetails.css'
 
 export const CourseDetails = () => {
     const [selectOption, setSelectOptions] = useState('')
 
-    const { onEditSubmitAdmin } = useCourseContext()
-
+    const { onEditSubmitAdmin, formErrors } = useCourseContext()
+console.log("fprms",formErrors)
     const courseService = useService(courseServiceFactory)
     const { courseId } = useParams()
     const navigate = useNavigate()
 
     const lectorImageHandler = (e) => {
         const file = e.target.files[0] // подсигурявам да вземе сам оедин файл
-    
+
         if (file) {
-    
+
             const reader = new FileReader()
-    
+
             reader.onloadend = () => {
-    
+
                 onChangeHandler({ target: { name: 'lectorImage', value: reader.result } });
             }
             reader.readAsDataURL(file);
         }
     }
-    
+
     const imageMap = {
         Java: "/img/java2.png",
         Python: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
@@ -63,7 +63,7 @@ export const CourseDetails = () => {
 
 
 
-    const {onSubmitWithOut,onSubmit, values,onChangeHandler,onChangeValues}=useForm({
+    const { onSubmitWithOut, onSubmit, values, onChangeHandler, onChangeValues } = useForm({
         courseName: "",
         firstName: "",
         lastName: "",
@@ -75,7 +75,7 @@ export const CourseDetails = () => {
         lectorDescription: "",
         creditsCourse: "",
         weeksCourse: "",
-    },onEditSubmitAdmin)
+    }, onEditSubmitAdmin)
 
     useEffect(() => {
         courseService.getOne(courseId)
@@ -107,35 +107,35 @@ export const CourseDetails = () => {
                     </div>
                     <h2>Course Details</h2>
                     <div className="item-custom">
-                        <p>Course name</p>
+                        <p>Course name  <span className="required-field">*</span></p>
                         <div className="name-item-custom">
-                            <input type="text" name="courseName" placeholder="Course name" value={values.courseName}onChange={onChangeHandler} />
+                            <input type="text" className={formErrors.courseName ? "error" : ""}  name="courseName" placeholder="Course name" value={values.courseName} onChange={onChangeHandler} />
                         </div>
                     </div>
                     <div className="item-custom">
-                        <p>Lector name</p>
+                        <p>Lector name <span className="required-field">*</span></p>
                         <div className="name-item-custom">
-                            <input type="text" name="firstName" placeholder="First" value={values.firstName} onChange={onChangeHandler} />
-                            <input type="text" name="lastName" placeholder="Last" value={values.lastName} onChange={onChangeHandler}  />
+                            <input type="text" name="firstName" className={formErrors.firstName ? "error" : ""} placeholder="First" value={values.firstName} onChange={onChangeHandler} />
+                            <input type="text" name="lastName" className={formErrors.lastName ? "error" : ""} placeholder="Last" value={values.lastName} onChange={onChangeHandler} />
                         </div>
                     </div>
                     <div className="item-custom">
-                        <p>Lector Description</p>
-                        <input type="text" name="lectorDescription" placeholder="Lector Description" value={values.lectorDescription} onChange={onChangeHandler}/>
+                        <p>Lector Description <span className="required-field">*</span> </p>
+                        <input type="text" name="lectorDescription" className={formErrors.lectorDescription ? "error" : ""} placeholder="Lector Description" value={values.lectorDescription} onChange={onChangeHandler} />
                     </div>
                     <div className="item-custom">
-                        <input type="file" name="lectorImage" placeholder="Lector Description" accept="image/*" onChange={lectorImageHandler} />
+                        <input type="file" name="lectorImage" className={formErrors.lectorImage ? "error" : ""} placeholder="Lector Description" accept="image/*" onChange={lectorImageHandler} />
                     </div>
                     <div className="item-custom">
-                        <p>Email</p>
-                        <input type="text" name="email" placeholder="Email" value={values.email}  onChange={onChangeHandler} />
+                        <p>Email <span className="required-field">*</span></p>
+                        <input type="text" name="email" className={formErrors.email ? "error" : ""} placeholder="Email" value={values.email} onChange={onChangeHandler} />
                     </div>
                     <div className="item-custom">
-                        <p>User name</p>
-                        <input type="text" name="ownerCourse" placeholder="User name" value={values.ownerCourse} onChange={onChangeHandler} />
+                        <p>User name<span className="required-field">*</span></p>
+                        <input type="text" name="ownerCourse" className={formErrors.ownerCourse ? "error" : ""} placeholder="User name" value={values.ownerCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item-custom">
-                        <p>Language</p>
+                        <p>Language<span className="required-field">*</span></p>
                         <div className="city-item-custom">
                             <select value="{selectOption}" placeholder="Choice your language" name="language" onChange={selectOptionHandler} >
                                 <option value="">Select an option</option>
@@ -158,29 +158,29 @@ export const CourseDetails = () => {
                             <img src={values.imageUrl} alt="Selected Image" />
                         </div>
                     ) :
-                        (<div className="image-container-custom empty" id="image-container">
-                            <input type="text" name="imageUrl2" placeholder="Enter URL icon " value={values.imageUrl2} onChange={onChangeHandler} />
+                        (<div className="image-container-custom empty" id="image-container" required >
+                            <input type="text" name="imageUrl2" className={formErrors.imageUrl2 ? "error" : ""} placeholder="Enter URL icon " value={values.imageUrl2} onChange={onChangeHandler}   />
                         </div>)}
-                    <h2>Course Description</h2>
+                    <h2>Course Description<span className="required-field">*</span></h2>
                     <div className="item-custom">
-                        <p>Description</p>
-                        <input type="text" name="description" placeholder="Description" value={values.description} onChange={onChangeHandler} />
+                        <p>Description<span className="required-field">*</span></p>
+                        <input type="text" name="description" className={formErrors.description ? "error" : ""} placeholder="Description" value={values.description} onChange={onChangeHandler} />
                     </div>
                     <div className="item-custom">
-                        <p>Credits</p>
-                        <input type="number" name="creditsCourse" placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
+                        <p>Credits<span className="required-field">*</span></p>
+                        <input type="number" name="creditsCourse" className={formErrors.creditsCourse ? "error" : ""} placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item-custom">
-                        <p>Weeks</p>
-                        <input type="number" name="weeksCourse" placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
+                        <p>Weeks<span className="required-field">*</span></p>
+                        <input type="number" name="weeksCourse" className={formErrors.weeksCourse ? "error" : ""} placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item-custom">
-                        <p>Price</p>
-                        <input type="number" name="price" placeholder="Course price" value={values.price} onChange={onChangeHandler} />
+                        <p>Price<span className="required-field">*</span></p>
+                        <input type="number" name="price" className={formErrors.price ? "error" : ""} placeholder="Course price" value={values.price} onChange={onChangeHandler} />
                     </div>
                     <div className="item-custom">
-                        <p>Start Date</p>
-                        <input type="date" name="date" value={values.date} onChange={onChangeHandler}/>
+                        <p>Start Date<span className="required-field">*</span></p>
+                        <input type="date" name="date" className={formErrors.date ? "error" : ""} value={values.date} onChange={onChangeHandler} />
                         <i className="fas fa-calendar-alt"></i>
                     </div>
                     <div className="btn-block-edit-custom">
