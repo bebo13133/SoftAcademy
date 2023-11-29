@@ -113,21 +113,21 @@ export const EditCourse = () => {
                     </div>
                     <h2>Course Details</h2>
                     <div className="item">
-                        <p>Course name</p>
+                        <p>Course name<span className="required-field">*</span></p>
                         <div className="name-item">
                             <input type="text" name="courseName" className={formErrors.courseName ? "error": ""} placeholder="Course name" value={values.courseName} onChange={onChangeHandler} />
 
                         </div>
                     </div>
                     <div className="item">
-                        <p>Lector name</p>
+                        <p>Lector name<span className="required-field">*</span></p>
                         <div className="name-item">
                             <input type="text" name="firstName" className={formErrors.firstName ? "error": ""} placeholder="First" value={values.firstName} onChange={onChangeHandler} />
                             <input type="text" name="lastName" className={formErrors.lastName ? "error": ""} placeholder="Last" value={values.lastName} onChange={onChangeHandler} />
                         </div>
                     </div>
                     <div className="item">
-                        <p>Lector Description</p>
+                        <p>Lector Description<span className="required-field">*</span></p>
 
                         <input type="text" name="lectorDescription" className={formErrors.lectorDescription ? "error": ""} placeholder="Lector Description" value={values.lectorDescription} onChange={onChangeHandler} />
                     </div>
@@ -139,15 +139,15 @@ export const EditCourse = () => {
                     </div>
 
                     <div className="item">
-                        <p>Email</p>
+                        <p>Email<span className="required-field">*</span></p>
                         <input type="text" name="email" className={formErrors.email ? "error": ""}  placeholder="Email" value={values.email} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>User name</p>
+                        <p>User name<span className="required-field">*</span></p>
                         <input type="text" className={formErrors.ownerCourse ? "error": ""} name="ownerCourse" placeholder="User name" value={values.ownerCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>Language</p>
+                        <p>Language<span className="required-field">*</span></p>
                         <div className="city-item">
                             <select value={selectOption} placeholder="Choice your language" name="language" onChange={selectOptionHandler} >
                                 <option value="">Select an option</option>
@@ -178,24 +178,24 @@ export const EditCourse = () => {
 
                     <h2>Course Description</h2>
                     <div className="item">
-                        <p>Description</p>
+                        <p>Description<span className="required-field">*</span></p>
                         <input type="text" name="description" className={formErrors.description ? "error": ""} placeholder="Description" value={values.description} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>Credits</p>
+                        <p>Credits<span className="required-field">*</span></p>
                         <input type="text" name="creditsCourse" className={formErrors.creditsCourse ? "error": ""} placeholder="credits.." value={values.creditsCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>Weeks</p>
+                        <p>Weeks<span className="required-field">*</span></p>
                         <input type="text" name="weeksCourse" className={formErrors.weeksCourse ? "error": ""}placeholder="weeks.." value={values.weeksCourse} onChange={onChangeHandler} />
                     </div>
                     <div className="item">
-                        <p>Price</p>
+                        <p>Price<span className="required-field">*</span></p>
                         <input type="number" name="price"className={formErrors.price ? "error": ""} placeholder="Course price" value={values.price} onChange={onChangeHandler} />
                     </div>
 
                     <div className="item">
-                        <p>Start Date</p>
+                        <p>Start Date<span className="required-field">*</span></p>
                         <input type="date" name="date" className={formErrors.date ? "error": ""} value={values.date} onChange={onChangeHandler} />
                         <i className="fas fa-calendar-alt"></i>
                     </div>
