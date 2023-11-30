@@ -110,7 +110,7 @@ Open a new terminal window/tab in the root directory of your project. and run:
     ```
 ## Project Structure
 
-The project follows a structured organization to enhance maintainability and ease of navigation. Here's a brief overview of the main directories and their purposes:
+The project follows a structured organization to enhance maintainability and ease of navigation. Here's a brief overview ofromf the main directories and their purposes:
 
 - **/soft-academy**: Contains the frontend application built with React.
 
@@ -135,7 +135,7 @@ Feel free to explore each directory for more detailed information on their conte
 
 ## Testing Project
 
-Soft Academy has its own tests to ensure a more reliable and secure platform operation. To run them, execute the following command of the main directories :
+Soft Academy has its own tests to ensure a more reliable and secure platform operation. To run them, execute the following command from the main directories :
 
   ```bash
     npm run test
