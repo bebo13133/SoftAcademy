@@ -69,9 +69,9 @@
     /* outline: none; */
     background-color: #007bff;
     color: #fff;
-    border: none;
+    border: 2px solid #03d4f5;
     font-size: 16px;
-    border-radius: 14px;
+    border-radius: 20px;
     padding: 9px 20px;
     margin: 0 10px;
     cursor: pointer;

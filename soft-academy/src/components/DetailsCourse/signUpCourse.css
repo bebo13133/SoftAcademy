@@ -70,8 +70,8 @@ margin: 5px;
     color: white; 
     padding: 5px 10px; 
     font-size: 22px; 
-    border: none; 
-    border-radius: 14px; 
+    border: 2px solid #03d4f5;
+    border-radius: 20px; 
     cursor: pointer; 
     margin: 22px;
   }

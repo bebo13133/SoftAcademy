@@ -51,9 +51,9 @@
   .like-button {
     background-color: #007bff;
     color: #fff;
-    border: none;
+    border: 2px solid #03d4f5;
     padding: 8px 16px;
-    border-radius: 14px;
+    border-radius: 20px;
     cursor: pointer;
     margin-top: 10px;
   }
