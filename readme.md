@@ -62,7 +62,7 @@ Access the chat feature conveniently from the "**Soft Academy**" platform. Enjoy
 
 At **Soft Academy**, we believe that effective communication is key to a successful learning journey, and our chat feature is designed to facilitate just that.
 
-# Installation and Running the Application
+## Installation and Running the Application
 
 1. Clone the repository.
    ```bash
@@ -88,16 +88,16 @@ Open a new terminal window/tab in the root directory of your project. and run:
     ```bash
     npm start
     ```
-# Project Structure
+## Project Structure
 
 The project follows a structured organization to enhance maintainability and ease of navigation. Here's a brief overview of the main directories and their purposes:
 
 - **/soft-academy**: Contains the frontend application built with React.
 
-- **/public**: Static assets and HTML template.
+    - **/public**: Static assets and HTML template.
 
-- **/src**: React components, styles, and application logic.
-- 
+    - **/src**: React components, styles, and application logic.
+
 - **/server**: Contains the frontend application built with React.
 
 - **/server/src**: SoftUni practice Server. Houses the backend application built with Node.js and Express.
