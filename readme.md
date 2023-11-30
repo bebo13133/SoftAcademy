@@ -115,5 +115,5 @@ Feel free to explore each directory for more detailed information on their conte
 
 Soft Academy has its own tests to ensure a more reliable and secure platform operation. To run them, execute the following command:
 
-```bash
+    ```bash
     npm run test
