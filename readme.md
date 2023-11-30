@@ -10,7 +10,7 @@ Description of the project.
 - **Supabase:** An open-source alternative to Firebase, providing a real-time database service.
 - **React Router DOM:** Declarative routing for React.js.
 - 
-[![React](https://img.shields.io/badge/React-✓-blue)]() [![Material-UI](https://img.shields.io/badge/Material--UI-✓-important)]() [![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-✓-9cf)]() [![Fire-base](https://img.shields.io/badge/Supabase-✓-yellowgreen)]() [![React Router DOM](https://img.shields.io/badge/React_Router_DOM-✓-brightgreen)]() [![React Share](https://img.shields.io/badge/React_Share-✓-ff69b4)]()
+[![React](https://img.shields.io/badge/React-✓-blue)]() [![Material-UI](https://img.shields.io/badge/Material--UI-✓-important)]() [![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-✓-9cf)]() [![Fire-base](https://img.shields.io/badge/Fire-base-✓-yellowgreen)]() [![React Router DOM](https://img.shields.io/badge/React_Router_DOM-✓-brightgreen)]() [![React Share](https://img.shields.io/badge/React_Share-✓-ff69b4)]()
 ## Features
 
 ### Variety of Courses:
