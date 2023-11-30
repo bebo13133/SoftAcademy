@@ -67,3 +67,7 @@ At **Soft Academy**, we believe that effective communication is key to a success
 1. Clone the repository.
    ```bash
    git clone https://github.com/bebo13133/SoftAcademy.git
+
+2. Install Dependencies:
+Before you begin, open a new terminal window or navigate to a new section within your terminal in the main directory of your project and run:
+npm install
