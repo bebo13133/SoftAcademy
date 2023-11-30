@@ -76,7 +76,7 @@ Open a new terminal window/tab in the root directory of your project. and run:
 3. Navigate to Project Directory:
  ```bash
 cd soft-academy
-
+4. Run client part
 ```bash
 npm run dev
 
