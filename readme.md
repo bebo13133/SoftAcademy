@@ -1,4 +1,4 @@
-# Project Name
+# Soft Academy
 
 Description of the project.
 
