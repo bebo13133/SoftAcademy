@@ -40,6 +40,7 @@ Courses include interactive materials, tasks, and projects that enrich learning 
 
 Stay up-to-date with the latest in the tech world through the "**Soft Academy**" News Blog. Our blog covers a wide range of topics, including industry trends, programming languages, new technologies, and more.
 
+We believe that staying informed is a crucial part of the learning journey, and our News Blog is here to provide valuable insights to the tech enthusiasts within the "**Soft Academy**" community.
 ## Installation
 
 1. Clone the repository.
