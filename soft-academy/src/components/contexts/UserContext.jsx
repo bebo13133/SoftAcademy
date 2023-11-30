@@ -88,7 +88,7 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-    
+
     const validateRegisterData = (data,confirmPassword) => {
         if (!checkFieldNotEmpty( 'email', data.email)) {
             console.log('Validation failed ');
@@ -164,8 +164,6 @@ export const UserProvider = ({ children }) => {
             const newPromoCodes = await userService.createPromo({code:promoCodes})
             navigate("/")
 
-           
-
             const sendEmail = () => {
 
                 const templateParams = {
@@ -174,8 +172,7 @@ export const UserProvider = ({ children }) => {
                     to_name: `${registerData.email}`,
                     promo_code: promoCodes
                 }
-    
-                emailjs
+                 emailjs
                     .send(
                         "service_zxhuqbx",
                         "template_ym4dhid",
@@ -183,10 +180,7 @@ export const UserProvider = ({ children }) => {
                         "iRYFR4BuAXZEBF1ld",
                     )
                     .then(result => {
-                  
-    
-                        console.log("Email sent successfully:", result);
-    
+                    console.log("Email sent successfully:", result);
                     },
     
                         (err) => {

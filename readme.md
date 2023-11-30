@@ -1,12 +1,21 @@
+# Project Name
 
+Description of the project.
 
+## Technologies Used
 
+- **React:** A JavaScript library for building user interfaces.
+- **Material-UI:** A popular React UI framework implementing Google's Material Design.
+- **Redux Toolkit:** The official, opinionated, batteries-included toolset for efficient Redux development.
+- **Supabase:** An open-source alternative to Firebase, providing a real-time database service.
+- **React Router DOM:** Declarative routing for React.js.
 
-1.**<span style="color:red">For start the two main servers:</span>**    in root directory terminal write **<span style="color:red">npm start</span>** ,
- just like that!
+## Features
 
-2. **<span style="color:red">Run project</span>**  - start the project by entering its 
- directory (soft-academy folder), in the terminal and typing - **<span style="color:red">npm run dev</span>**
+- Briefly describe key features or functionalities.
 
-3. **<span style="color:red"> Project uses firebase</span>** for profile pictures. The firebase server works 24/7.
-1. // "start": "concurrently \"node server/index.js\" \"node inside-sever/server.js\"",
+## Installation
+
+1. Clone the repository.
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
