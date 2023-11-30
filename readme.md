@@ -12,7 +12,17 @@ Description of the project.
 
 ## Features
 
-- Briefly describe key features or functionalities.
+Variety of Courses: "Soft Academy" offers a diverse range of courses covering various aspects of software engineering. This allows users to choose courses that align with their interests and goals.
+
+Easy Course Selection: The platform facilitates future learners in selecting suitable courses by providing detailed descriptions and preview options.
+
+User Profile: Each learner has their user profile, where they can track their activity, progress, and completed courses.
+
+Modern Design: The platform's design is user-oriented, combining easy navigation with a modern and pleasant interface.
+
+Interactive Learning: Courses include interactive materials, tasks, and projects that enrich learning and support the practical application of acquired knowledge.
+
+Discussion Forum: "Soft Academy" provides a dedicated forum for discussions. Learners can engage with peers, instructors, and industry professionals, fostering a collaborative learning environment. The forum allows users to ask questions, share insights, and participate in relevant discussions.
 
 ## Installation
 
