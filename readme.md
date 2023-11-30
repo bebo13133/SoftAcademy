@@ -1,4 +1,4 @@
-# Soft Academy
+# <span style="color:red">Soft</span> <span>Academy</span> 
 "Soft Academy" is an online platform designed for students and learners interested in studying software engineering. The goal is to make it easy and accessible for future learners to choose their software learning path, create a pleasant and non-intrusive learning experience, and ignite a passion for programming.
 Description of the project.
 

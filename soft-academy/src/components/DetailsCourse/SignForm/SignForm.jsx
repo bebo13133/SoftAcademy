@@ -16,7 +16,7 @@ export const SignForm = () => {
     const { userId, token } = useAuthContext()
     const courseService = courseServiceFactory(token)
     const [isChecked, setIsChecked] = useState(false)
-    const[voucherApplied,setVoucherApplied] = useState(false)
+    const [voucherApplied, setVoucherApplied] = useState(false)
     const [voucherPrice, setVoucherPrice] = useState(course.price)
     const userService = userServiceFactory(token)
     // console.log(isChecked)
@@ -29,7 +29,7 @@ export const SignForm = () => {
     const { onSignUp } = useCourseContext()
     // const {voucherCodes} = useAuthContext()
     const [vouchersCode, setVouchers] = useState([])
-    console.log("vouchersCode", voucherPrice,course.price,vouchersCode)
+    console.log("vouchersCode", vouchersCode)
     const handleTermsChange = () => {
         setIsChecked(state => !state);
     };
@@ -61,9 +61,17 @@ export const SignForm = () => {
             setVoucherPrice(discountedPrice.toFixed(2));
 
             setVoucherApplied(true)
+        } else {
+         
+            alert("Please enter a valid voucher")
+            setValues(state => ({ ...state, voucher: "" }))
+            return
         }
+      
+console.log(values, "hi")
+
     }
-    const { onSubmit, onChangeHandler, values, onSubmitWithOut } = useForm({
+    const { onSubmit, onChangeHandler, setValues, values, onSubmitWithOut } = useForm({
         firstName: "",
         lastName: "",
         phoneNumber: "",
@@ -74,7 +82,6 @@ export const SignForm = () => {
 
     }, () => onSignUp({ ...values, isChecked }))// налага се да подам директно на функцият isChecked защото реда за изпълнение е асинхронен и не гарантира кое първо ще се изпълни 
     // и се изпълнява първо useForma взима старата стойност на isChecked 
-
 
     return (
         <>
@@ -117,8 +124,8 @@ export const SignForm = () => {
                 <section className="sign-course-card-finish">
                     <img className="sign-course-img" src="/img/joinUp.webp" alt="sign-course" />
                     <h2>Course: <span>{course.courseName}</span> </h2>
-                    <h3>  
-                    Price:  <span className={voucherPrice !== undefined ? 'old-price strikethrough' : 'new-price'}>{course.price}$</span> {voucherPrice != undefined && (<span className='new-price'> {voucherPrice}$</span>)}</h3>
+                    <h3>
+                        Price:  <span className={voucherPrice !== undefined ? 'old-price strikethrough' : 'new-price'}>{course.price}$</span> {voucherPrice != undefined && (<span className='new-price'> {voucherPrice}$</span>)}</h3>
                     <span></span>
                     <p className="lector-disc">  <FaCheck color="red" /> Start in:
                     </p>
@@ -127,7 +134,7 @@ export const SignForm = () => {
                     <p className="lector-disc"> <FaCheck color="red" />  Duration of the course</p>
 
                     <h4 className="lector-disc-h4"> {course.weeksCourse} weeks </h4>
-                  { !voucherApplied ? <div className="vouchers-section">
+                    {!voucherApplied ? <div className="vouchers-section">
                         <label htmlFor="vouchersInput">Vouchers:</label>
                         <input
                             type="text"
@@ -138,7 +145,7 @@ export const SignForm = () => {
                             onChange={onChangeHandler}
                         />
                         <button className="vouchers-btn" onClick={handleVoucherSubmit}>Apply</button>
-                    </div>:(<div className="voucher-applied-message"><h3>You have already used a voucher for this course.</h3></div>)}
+                    </div> : (<div className="voucher-applied-message"><h3>You have already used a voucher for this course.</h3></div>)}
 
                 </section>
 

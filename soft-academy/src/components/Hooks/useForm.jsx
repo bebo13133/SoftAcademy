@@ -34,6 +34,7 @@ export const useForm = (initialValues, onSubmitHandler) => {
         values,
         onSubmit,
         onChangeValues,
-        onSubmitWithOut
+        onSubmitWithOut,
+        setValues
     }
 }
