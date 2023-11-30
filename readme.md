@@ -36,6 +36,9 @@ Courses include interactive materials, tasks, and projects that enrich learning 
 ### Discussion Forum:
 
 "**Soft Academy**" provides a dedicated forum for discussions. Learners can engage with peers, instructors, and industry professionals, fostering a collaborative learning environment. The forum allows users to ask questions, share insights, and participate in relevant discussions.
+### News Blog:
+
+Stay up-to-date with the latest in the tech world through the "**Soft Academy**" News Blog. Our blog covers a wide range of topics, including industry trends, programming languages, new technologies, and more.
 
 ## Installation
 
