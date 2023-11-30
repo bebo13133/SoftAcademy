@@ -73,4 +73,9 @@ Open a new terminal window/tab in the root directory of your project. and run:
    ```bash
    npm install
 
-3. 
+3. Navigate to Project Directory:
+ ```bash
+cd soft-academy
+```bash
+npm run dev
+
