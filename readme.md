@@ -11,6 +11,25 @@ Description of the project.
 - **React Router DOM:** Declarative routing for React.js.
 - 
 [![React/Vite](https://img.shields.io/badge/React/Vite-✓-blue)]() [![Material-UI](https://img.shields.io/badge/Material--UI-✓-important)]() [![react-redux](https://img.shields.io/badge/React_Redux-✓-9cf)]() [![Firebase](https://img.shields.io/badge/Firebase-✓-yellowgreen)]() [![React Router DOM](https://img.shields.io/badge/React_Router_DOM-✓-brightgreen)]() [![Emailjs browser](https://img.shields.io/badge/Еmailjs--Browser-✓-ff69b4)]() [![Bootstrap](https://img.shields.io/badge/Bootstrap-✓-red)]() [![Vitest/Jest](https://img.shields.io/badge/Vitest/Jest-✓-blue)]()
+
+## Table of Contents
+
+1. [Soft Academy](#soft-academy)
+2. [Technologies Used](#technologies-used)
+3. [Features](#features)
+   - [Variety of Courses](#variety-of-courses)
+   - [Easy Course Selection](#easy-course-selection)
+   - [User Profile](#user-profile)
+   - [Modern Design](#modern-design)
+   - [Interactive Learning](#interactive-learning)
+   - [Discussion Forum](#discussion-forum)
+   - [News Blog](#news-blog)
+   - [Chat Feature](#chat-feature)
+4. [Installation and Running the Application](#installation-and-running-the-application)
+5. [Project Structure](#project-structure)
+6. [Testing Project](#testing-project)
+7. [License](#license)
+
 ## Features
 
 ### Variety of Courses:
