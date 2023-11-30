@@ -101,14 +101,16 @@ The project follows a structured organization to enhance maintainability and eas
 
 - **/server**: SoftUni practice Server. Contains the frontend application built with React.
 
-- **/server/src**: Houses the backend application built with Node.js and Express.
-  - **/common**: Utility functions and helper modules.
+ - **/server/src**: Houses the backend application built with Node.js and Express.
+    - **/common**: Utility functions and helper modules.
 
-  - **/plugins**: Configuration files for the server.
+    - **/plugins**: Configuration files for the server.
   
-  - **/service**: Controllers handling the business logic.
+    - **/service**: Controllers handling the business logic.
   
-  - **/test**: Testing files.
+    - **/test**: Testing files.
+    
+- **/inside-server**: Socket.io server. For Chat service.
 
 Feel free to explore each directory for more detailed information on their contents. This structure is designed to enhance code organization, making it easier for developers to locate and work on specific aspects of the application.
 
