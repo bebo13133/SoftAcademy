@@ -10,7 +10,7 @@ Description of the project.
 - **Supabase:** An open-source alternative to Firebase, providing a real-time database service.
 - **React Router DOM:** Declarative routing for React.js.
 - 
-[![React/Vite](https://img.shields.io/badge/React/Vite-✓-blue)]() [![Material-UI](https://img.shields.io/badge/Material--UI-✓-important)]() [![react-redux](https://img.shields.io/badge/React_Redux-✓-9cf)]() [![Firebase](https://img.shields.io/badge/Firebase-✓-yellowgreen)]() [![React Router DOM](https://img.shields.io/badge/React_Router_DOM-✓-brightgreen)]() [![Emailjs browser](https://img.shields.io/badge/Еmailjs--Browser-✓-ff69b4)]()
+[![React/Vite](https://img.shields.io/badge/React/Vite-✓-blue)]() [![Material-UI](https://img.shields.io/badge/Material--UI-✓-important)]() [![react-redux](https://img.shields.io/badge/React_Redux-✓-9cf)]() [![Firebase](https://img.shields.io/badge/Firebase-✓-yellowgreen)]() [![React Router DOM](https://img.shields.io/badge/React_Router_DOM-✓-brightgreen)]() [![Emailjs browser](https://img.shields.io/badge/Еmailjs--Browser-✓-ff69b4)]() [![Bootstrap](https://img.shields.io/badge/Bootstrap-✓-red)]()
 ## Features
 emailjs
 ### Variety of Courses:
