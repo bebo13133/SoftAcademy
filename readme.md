@@ -98,9 +98,9 @@ The project follows a structured organization to enhance maintainability and eas
 
     - **/src**: React components, styles, and application logic.
 
-- **/server**: Contains the frontend application built with React.
+- **/server**: SoftUni practice Server. Contains the frontend application built with React.
 
-- **/server/src**: SoftUni practice Server. Houses the backend application built with Node.js and Express.
+- **/server/src**:  Houses the backend application built with Node.js and Express.
   - **/common**: Utility functions and helper modules.
 
   - **/plugins**: Configuration files for the server.
