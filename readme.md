@@ -83,9 +83,9 @@ Open a new terminal window/tab in the root directory of your project. and run:
     npm run dev
     ```
 5. Run servers:
-### Soft Academy has two main servers, and to make it as easy as possible to start them, we have taken care of it. Simply execute the following command in the main directory:
+Soft Academy has two main servers, and to make it as easy as possible to start them, we have taken care of it. Simply execute the following command in the main directory:
 
-```bash
+    ```bash
     npm start
-```
+ 
 
