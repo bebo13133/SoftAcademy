@@ -123,4 +123,4 @@ Soft Academy has its own tests to ensure a more reliable and secure platform ope
   ```
 
 ## License:
-This project is licensed under the MIT License
+This project is licensed under the [MIT License](LICENSE).
