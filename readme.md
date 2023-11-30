@@ -41,6 +41,27 @@ Courses include interactive materials, tasks, and projects that enrich learning 
 Stay up-to-date with the latest in the tech world through the "**Soft Academy**" News Blog. Our blog covers a wide range of topics, including industry trends, programming languages, new technologies, and more.
 
 We believe that staying informed is a crucial part of the learning journey, and our News Blog is here to provide valuable insights to the tech enthusiasts within the "**Soft Academy**" community.
+
+### Chat Feature:
+
+**Soft Academy** understands the importance of quick and easy communication for its users. That's why we offer a dedicated chat feature directly on the platform.
+
+#### Key Highlights:
+
+- **Real-time Communication:** Engage in real-time conversations with other learners, instructors, and support staff.
+
+- **Instant Support:** Get quick assistance and support by reaching out to our chat support for any queries or issues.
+
+- **Community Interaction:** Connect with fellow learners, discuss course-related topics, and share your experiences.
+
+- **Notification System:** Stay informed about new messages and updates through our notification system.
+
+#### How to Access:
+
+Access the chat feature conveniently from the "**Soft Academy**" platform. Enjoy seamless communication and enhance your learning experience through instant interactions with the community and support team.
+
+At **Soft Academy**, we believe that effective communication is key to a successful learning journey, and our chat feature is designed to facilitate just that.
+
 ## Installation
 
 1. Clone the repository.
