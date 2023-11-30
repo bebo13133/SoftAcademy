@@ -1,17 +1,8 @@
 import { useState } from "react";
 
-export const useFormErrors = () => {
-    const [formErrors, setFormErrors] = useState({
-        courseName: false,
-        firstName: false,
-        lastName: false,
+export const useLoginRegisterValidation = () => {
+    const [formError, setFormErrors] = useState({
         email: false,
-        ownerCourse: false,
-        price: false,
-        description: false,
-        lectorDescription: false,
-        weeksCourse: false,
-        creditsCourse: false,
         password: false,
         confirmPassword: false,
     });
@@ -45,6 +36,6 @@ export const useFormErrors = () => {
           }, 4000);
           return
     }
-    return { formErrors, setSpecificErrorToTrue }
+    return { formError, setSpecificErrorToTrue }
 
 }

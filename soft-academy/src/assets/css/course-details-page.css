@@ -26,7 +26,7 @@ grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
     grid-row-start: 1;
   grid-row-end: 3;
     color: #060606;
-    height: 300px auto;
+    height: 690px;
     margin: -10px auto;
     display: flex;
     left: 60%;

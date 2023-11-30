@@ -9,7 +9,7 @@ import { Fade, Slide } from "react-awesome-reveal"
 
 export const Register = () => {
 
-    const { onRegisterSubmit ,formErrors} = useContext(UserContext)
+    const { onRegisterSubmit ,formError} = useContext(UserContext)
     const { onSubmit, onChangeHandler, values } = useForm({
         email: "",
         password: "",
@@ -39,12 +39,12 @@ export const Register = () => {
                             <div className="brand-logo-login"></div>
 
                             <label htmlFor="email">Email:</label>
-                            <input type="email" className={formErrors.email ? "error": ""} id="email" name="email" placeholder="peter@gmail.com" value={values.email} onChange={onChangeHandler} />
+                            <input type="email" className={formError.email ? "error": ""} id="email" name="email" placeholder="peter@gmail.com" value={values.email} onChange={onChangeHandler} />
 
                             <label htmlFor="login-password">Password:</label>
-                            <input type="password" className={formErrors.password ? "error": ""} id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
+                            <input type="password" className={formError.password ? "error": ""} id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
                             <label htmlFor="confirm-password">Confirm Password:</label>
-                            <input type="password" className={formErrors.confirmPassword ? "error": ""} name="confirmPassword" id="confirm-password" value={values.confirmPassword} onChange={onChangeHandler} />
+                            <input type="password" className={formError.confirmPassword ? "error": ""} name="confirmPassword" id="confirm-password" value={values.confirmPassword} onChange={onChangeHandler} />
                             <input type="submit" className="btn submit-button" value="Register" />
 
                             <p className="field">

@@ -16,6 +16,7 @@ export const SignForm = () => {
     const { userId, token } = useAuthContext()
     const courseService = courseServiceFactory(token)
     const [isChecked, setIsChecked] = useState(false)
+    const[voucherApplied,setVoucherApplied] = useState(false)
     const [voucherPrice, setVoucherPrice] = useState(course.price)
     const userService = userServiceFactory(token)
     // console.log(isChecked)
@@ -59,7 +60,7 @@ export const SignForm = () => {
             const discountedPrice = course.price * 0.8; // Изчисляване на цената с отстъпката 20%
             setVoucherPrice(discountedPrice.toFixed(2));
 
-
+            setVoucherApplied(true)
         }
     }
     const { onSubmit, onChangeHandler, values, onSubmitWithOut } = useForm({
@@ -117,7 +118,7 @@ export const SignForm = () => {
                     <img className="sign-course-img" src="/img/joinUp.webp" alt="sign-course" />
                     <h2>Course: <span>{course.courseName}</span> </h2>
                     <h3>  
-                    Price:  <span className={voucherPrice !== undefined ? 'old-price strikethrough' : 'new-price'}>{course.price}$</span> {voucherPrice != undefined && voucherPrice}</h3>
+                    Price:  <span className={voucherPrice !== undefined ? 'old-price strikethrough' : 'new-price'}>{course.price}$</span> {voucherPrice != undefined && (<span className='new-price'> {voucherPrice}$</span>)}</h3>
                     <span></span>
                     <p className="lector-disc">  <FaCheck color="red" /> Start in:
                     </p>
@@ -126,7 +127,7 @@ export const SignForm = () => {
                     <p className="lector-disc"> <FaCheck color="red" />  Duration of the course</p>
 
                     <h4 className="lector-disc-h4"> {course.weeksCourse} weeks </h4>
-                    <div className="vouchers-section">
+                  { !voucherApplied ? <div className="vouchers-section">
                         <label htmlFor="vouchersInput">Vouchers:</label>
                         <input
                             type="text"
@@ -137,7 +138,7 @@ export const SignForm = () => {
                             onChange={onChangeHandler}
                         />
                         <button className="vouchers-btn" onClick={handleVoucherSubmit}>Apply</button>
-                    </div>
+                    </div>:(<div className="voucher-applied-message"><h3>You have already used a voucher for this course.</h3></div>)}
 
                 </section>
 

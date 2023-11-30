@@ -4,6 +4,8 @@ import { userServiceFactory } from "../Services/userService"
 import { useNavigate } from "react-router-dom"
 import emailjs from '@emailjs/browser'
 import {v4} from "uuid"
+
+import { useLoginRegisterValidation } from "../Hooks/useLoginRegisterValidation"
 // import { Login } from "../Login/Login"
 // import { Register } from "../Register/Register"
 
@@ -17,13 +19,15 @@ export const UserProvider = ({ children }) => {
     const [errorMessage, setErrorMessage] = useState('');
     const [searchResult, setSearchResult] = useState([])
     // const [voucherCodes,setPromoCodes] = useState([])
+    const { formError, setSpecificErrorToTrue } = useLoginRegisterValidation()
+
     const voucherCodes =[]
   
-    const [formErrors, setFormErrors] = useState({
-        email: false,
-        password: false,
-        confirmPassword:false,
-      });
+    // const [formErrors, setFormErrors] = useState({
+    //     email: false,
+    //     password: false,
+    //     confirmPassword:false,
+    //   });
 
     
     const [users, setUsers] = useState([])
@@ -31,72 +35,98 @@ export const UserProvider = ({ children }) => {
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
 
+    const showErrorAndSetTimeouts = (error) => {
+
+        setErrorMessage(error)
+        setTimeout(() => {
+            setErrorMessage('')
+        }, 4000);
+       
+    
+    }
+    const checkFieldNotEmpty = (fieldName, value) => {
+        if (!value) {
+            setSpecificErrorToTrue(fieldName)
+            showErrorAndSetTimeouts("Some field is empty")
+            throw new Error("Some field is empty")
+        }
+        return true
+    }
+    const checkLengthField = (fieldName, value, minLength) => {
+        if (value.length < minLength) {
+            setSpecificErrorToTrue(fieldName)
+            showErrorAndSetTimeouts(`Minimum field length is ${minLength}`)
+            throw new Error(`Minimum field length is ${minLength}`)
+        }
+        return true
+    }
+    const checkPassAndConfirmPass = (fieldName, pass, confirmPass) => {
+        if (pass !== confirmPass) {
+            setSpecificErrorToTrue(fieldName)
+            showErrorAndSetTimeouts(`Please enter valid password `)
+            throw new Error(`Please enter valid password `)
+        }
+        return true
+    }
+    
+    const validateLoginData = (data) => {
+        if (!checkFieldNotEmpty( 'email', data.email)) {
+            console.log('Validation failed ');
+            return
+        }
+        if (!checkFieldNotEmpty( 'password', data.password)) {
+            console.log('Validation failed ');
+            return
+        }
+     
+        if (!checkLengthField('password', data.password, 5)) {
+            return
+        }
+      
+        if (!checkLengthField('email', data.email, 9)) {
+            return
+        }
+    }
+
+    
+    const validateRegisterData = (data,confirmPassword) => {
+        if (!checkFieldNotEmpty( 'email', data.email)) {
+            console.log('Validation failed ');
+            return
+        }
+        if (!checkFieldNotEmpty( 'password', data.password)) {
+            console.log('Validation failed ');
+            return
+        }
+     
+        if (!checkLengthField('password', data.password, 5)) {
+            return
+        }
+      
+        if (!checkLengthField('email', data.email, 9)) {
+            return
+        }
+     
+           if (!checkFieldNotEmpty( 'confirmPassword', confirmPassword)) {
+            console.log('Validation failed ');
+            return
+        }
+        if (!checkLengthField('confirmPassword', confirmPassword, 5)) {
+            return
+        }
+        if (!checkPassAndConfirmPass('confirmPassword', confirmPassword, data.password)) {
+            return
+        }
+    }
+
+
 
     const onLoginSubmit = async (data) => {
 
+        validateLoginData(data)
         try {
-
-            if (!data.email && !data.password) {
-                setErrorMessage("Some fields is empty")
-                setFormErrors({ password:true,email: true})
-
-              
-                setTimeout(() => {
-                    setErrorMessage('');
-                    setFormErrors({ password:false,email: false})
-                }, 4000);
-
-                return;
-            }
-            if (!data.email ) {
-                setErrorMessage("Some fields is empty")
-                setFormErrors(state=>({ ...state,email: true}))
-              
-                setTimeout(() => {
-                    setErrorMessage('');
-                    setFormErrors(state=>({ ...state,email: false}))
-                }, 4000);
-
-                return;
-            }
-            if (!data.password ) {
-                setErrorMessage("Some fields is empty")
-                setFormErrors(state=>({ ...state,password: true}))
-              
-                setTimeout(() => {
-                    setErrorMessage('');
-                setFormErrors(state=>({ ...state,password: false}))
-
-                }, 4000);
-
-                return;
-            }
-            if (data.password.length <= 5) {
-
-                setErrorMessage("Minimum characters is 5")
-                setFormErrors(state=>({ ...state,
-                    password: true}))
-                setTimeout(() => {
-                    setErrorMessage('');
-                    setFormErrors(state=>({ ...state,password: false}))
-
-                }, 4000);
-
-                return;
-            }
-            if (data.email.length <= 9) {
-
-                setErrorMessage("Minimum characters is 9")
-                setFormErrors(state=>({ ...state,email: true}))
-
-                setTimeout(() => {
-                    setErrorMessage('');
-                setFormErrors(state=>({ ...state,email: false}))
-
-                }, 4000);
-
-                return;
-            }
+           
+     
             const users = await userService.getAll()
             setUsers(users)
 
@@ -120,103 +150,11 @@ export const UserProvider = ({ children }) => {
     }
 
     const onRegisterSubmit = async (data) => {
+        const { confirmPassword, ...registerData } = data
 
-
+        validateRegisterData(registerData,confirmPassword)
         try {
-            const { confirmPassword, ...registerData } = data
 
-           
-            if (!confirmPassword && !registerData.password && !registerData.email) {
-                setErrorMessage("Some fields is empty")
-                setFormErrors({ password:true,confirmPassword: true, email:true})
-
-                setTimeout(() => {
-                    setErrorMessage('');
-                setFormErrors({ password:false,confirmPassword: false, email:false})
-
-                }, 4000);
-
-                return;
-            }
-            if (!registerData.email) {
-                setErrorMessage("Some fields is empty")
-                setFormErrors(state=>({ ...state,email: true}))
-
-
-                setTimeout(() => {
-                    setErrorMessage('');
-                setFormErrors(state=>({ ...state,email: false}))
-
-          
-
-                }, 4000);
-
-                return;
-            }
-            if ( !registerData.password) {
-                setErrorMessage("Some fields is empty")
-                setFormErrors(state=>({ ...state,password: true}))
-
-
-                setTimeout(() => {
-                    setErrorMessage('');
-                setFormErrors(state=>({ ...state,password: false}))
-      
-                }, 4000);
-
-                return;
-            }
-            if ( !confirmPassword) {
-                setErrorMessage("Some fields is empty")
-                setFormErrors(state=>({ ...state,confirmPassword: true}))
-
-
-                setTimeout(() => {
-                    setErrorMessage('');
-                setFormErrors(state=>({ ...state,confirmPassword: false}))
-      
-                }, 4000);
-
-                return;
-            }
-            if (confirmPassword !== registerData.password) {
-
-                setErrorMessage("Please enter a valid password email")
-                setFormErrors({ password:true,confirmPassword: true})
-
-                setTimeout(() => {
-                    setErrorMessage('');
-                setFormErrors({ password:false,confirmPassword: false})
-
-                }, 4000);
-
-                return;
-            }
-            if (confirmPassword.length <= 5 || registerData.password.length <= 5) {
-                setErrorMessage("Minimum characters is 5")
-                setFormErrors({ password:true,confirmPassword: true})
-
-                setTimeout(() => {
-                    setErrorMessage('');
-                setFormErrors({ password:false,confirmPassword: false})
-
-                }, 4000);
-
-                return;
-            }
-            if (data.email.length <= 9) {
-                setFormErrors(state=>({ ...state,email: true}))
-
-                setErrorMessage("Minimum characters is 9")
-
-                setTimeout(() => {
-                    setErrorMessage('');
-                setFormErrors(state=>({ ...state,email: false}))
-
-                }, 4000);
-
-                return;
-            }
             const newUser = await userService.register(registerData)
             setIsAuth(newUser)
             const codes = v4()
@@ -349,7 +287,7 @@ export const UserProvider = ({ children }) => {
         users,
         onSearchSubmitAdmin,
         searchResult,
-        formErrors,
+        formError,
         voucherCodes
     }
 
