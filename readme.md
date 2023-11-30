@@ -113,7 +113,7 @@ Feel free to explore each directory for more detailed information on their conte
 
 ## Testing Project
 
-Soft Academy has its own tests to ensure a more reliable and secure platform operation. To run them, execute the following command:
+Soft Academy has its own tests to ensure a more reliable and secure platform operation. To run them, execute the following command of the main directories :
 
   ```bash
     npm run test
