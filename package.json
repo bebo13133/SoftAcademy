@@ -4,7 +4,7 @@
   "description": "TODO :",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd .\\server && npm run client && npm run build\" \"cd .. && node server/index.js\" \"node inside-sever/server.js\"",
+    "start": "concurrently \"cd .\\server && npm install && npm run client && npm run build\" \"cd .. && node server/index.js\" .\\inside-sever && npm install \"\"cd .. && node inside-sever/server.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
