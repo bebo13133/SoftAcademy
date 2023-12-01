@@ -304,7 +304,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     margin-top: 25px;
 }
 
-.welcome-hero-serch-box{margin-top: 45px;display: flex;}
+.welcome-hero-serch-box{margin-top: 45px;display: flex;margin-left: 90px;}
 .welcome-hero-form {
     
     display: flex;
@@ -482,8 +482,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 
 }
 .explore-content{
-    margin-top: 428px;
-    /* margin-bottom: 100px; */
+    margin-top: 330px;
+    margin-bottom: 60px;
 }
 
 .single-explore-item {

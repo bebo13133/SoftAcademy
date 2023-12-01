@@ -37,7 +37,7 @@
     width: 750px;
 }
 #explore > div > div.explore-content > div > div{
-    width: 33.333333%;
+    width: 34.333333%;
     padding-left: 18px;
 
 }
@@ -62,7 +62,7 @@
     margin-left: 109px;
 }
 #explore > div > div.explore-content > div > div> div > div.single-explore-txt.bg-theme-1 > p > span > span{
-    font-size:16px;
+    font-size:20px;
 }
 #explore > div > div.explore-content > div > div> div > div.single-explore-txt.bg-theme-1 > div.explore-person{
     margin-left: 25px;

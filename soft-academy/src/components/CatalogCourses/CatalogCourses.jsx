@@ -48,8 +48,9 @@ const CatalogCourses = () => {
 
                 <div className="container">
                     <div className="section-header">
-                        <h2>Courses</h2>
-                        <p>Explore New place, food, culture around the world and many more</p>
+                        <h2 style={{color: "rgb(0 156 233)"}}>Your Gateway to Diverse Courses</h2>
+                        <p style={{color:"white", fontSize:"22px"}}>Discover a comprehensive catalog of courses covering a myriad of subjects. 
+                        From technology and business to arts and sciences, explore courses curated to enhance your skills and knowledge. Your educational journey starts here explore, learn, and excel with our diverse course catalog.</p>
                     </div>
 
                     <div className="explore-content">
