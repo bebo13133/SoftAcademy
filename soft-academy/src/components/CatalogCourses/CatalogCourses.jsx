@@ -50,7 +50,7 @@ const CatalogCourses = () => {
 
            
                 <div className="container">
-                <div className="image-section">
+                <div className="image-section-catalog">
                         {/* Добавете снимката тук */}
                         <img src="https://thumbs.dreamstime.com/b/foss-word-cloud-concept-vector-illustration-170695446.jpg" alt="Course Catalog Image" />
                     </div>

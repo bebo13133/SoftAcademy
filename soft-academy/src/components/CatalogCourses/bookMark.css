@@ -24,7 +24,7 @@
     background-color: #007bff; /* Change to your preferred active color */
     color: #fff; /* Change to your preferred text color for active page */
   }
-  .image-section {
+  .image-section-catalog {
     position: absolute;
     z-index: 11000;
     top: 115px;
@@ -42,7 +42,7 @@
     border: 1px solid #333;
 }
 
-.image-section img {
+.image-section-catalog img {
   z-index: 11000;
     max-width: 100%; /* Гарантира, че изображението няма да надвишава ширината на родителя си */
     height: 100%; /* Позволява на изображението да запази съотношението си на страни */
