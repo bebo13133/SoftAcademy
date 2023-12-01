@@ -18,7 +18,7 @@ export const Register = () => {
 
     return (
         <>
-         <Slide direction='right' delay="10" duration="2000" triggerOnce='true'>
+         <Slide direction='left' delay="10" duration="2000" triggerOnce='true'>
             <section className="login-root-section">
                 <section className="image-section">
                     <div className="image-container1">
