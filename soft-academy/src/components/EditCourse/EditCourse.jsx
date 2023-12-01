@@ -87,6 +87,8 @@ export const EditCourse = () => {
         courseService.getOne(courseId)
             .then(result => {
                 onChangeValues(result)
+                setSelectOptions(result.selectOption)
+            
             })
 
     }, [courseId])
@@ -99,6 +101,8 @@ export const EditCourse = () => {
         navigate(`/catalog/${courseId}`)
 
     }
+
+  
     return (
         <>
             <div className="testbox"
