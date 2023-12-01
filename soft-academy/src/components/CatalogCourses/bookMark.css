@@ -24,3 +24,27 @@
     background-color: #007bff; /* Change to your preferred active color */
     color: #fff; /* Change to your preferred text color for active page */
   }
+  .image-section {
+    position: absolute;
+    z-index: 11000;
+    top: 115px;
+    left: 0;
+    height: 80vh;
+    width: 100px;
+    background-color: #f0f0f0;
+    /* padding: 20px; */
+    /* box-sizing: border-box; */
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 144vh;
+    background: #223b55;
+    border: 1px solid #333;
+}
+
+.image-section img {
+  z-index: 11000;
+    max-width: 100%; /* Гарантира, че изображението няма да надвишава ширината на родителя си */
+    height: 100%; /* Позволява на изображението да запази съотношението си на страни */
+    display: block; /* Премахва вградения бял обрез при inline изображения */
+}

@@ -2,6 +2,7 @@
     display: flex;
     /* Други стилове за общия контейнер */
     height: 100%;
+    z-index: 99;
   }
   
   .sidebar {
@@ -59,8 +60,8 @@
     background-color: #008e9d;
   }
   .pagination-admin  li.active {
-    background-color: #007bff; /* Change to your preferred active color */
-    color: #fff; /* Change to your preferred text color for active page */
+    background-color: #007bff; 
+    color: #fff; 
   }
   .customer-list{
     /* display: flex; */
