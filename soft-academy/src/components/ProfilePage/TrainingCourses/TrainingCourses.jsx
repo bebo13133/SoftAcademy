@@ -57,7 +57,7 @@ export const TrainingCourses = () => {
         <>
             <ProfileSidebar />
            {isLoading ? <IsLoading/> : (<Fade delay="50" duration="4000" triggerOnce='true'>
-                <section id="explore" className="explore" style={{ height: "376px" }}>
+                <section id="explore" className="explore" style={{ height: "420px" }}>
 
                     <div className="container">
                         <div className="section-header">
