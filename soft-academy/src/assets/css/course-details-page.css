@@ -168,8 +168,23 @@ color: #060606;
     font-size: 22px;
     line-height: 27px;
     color: black;
-  
+    height: 120px;
 }
+.toggle-desc{
+    overflow: auto;
+}
+.show-more-button-details {
+    text-shadow: 0 4px 8px rgb(6 85 255 / 36%);
+    color: rgb(189, 104, 19);
+    font-size: 18px;
+    border: none;
+    
+    padding: 0px 80px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 9px;
+  }
 
 
 .social-btn>.edit-btn,

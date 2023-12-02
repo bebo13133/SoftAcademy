@@ -25,18 +25,19 @@ export const OneCourse = ({
     selectOption,
     courseName,
     comments,
-  
+
     _ownerId,
     imageUrl2
 
 }) => {
 
 
-const [oneCourse,setOneCourse] = useState([])
+    const [oneCourse, setOneCourse] = useState([])
     const [commentsPopUp, setCommentsPopUp] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [liked, setLiked] = useState(false)
     const [oneComment, setOneComment] = useState([])
+    const [showMore, setShowMore] = useState(false);
 
     const [likeCounter, setLikeCounter] = useState(0)
     const [likeUser, setLikeUser] = useState([])
@@ -45,6 +46,11 @@ const [oneCourse,setOneCourse] = useState([])
     const { userId, } = useAuthContext()
 
     const { courseId } = useParams()
+    const toggleShowMore = () => {
+        setShowMore((prev) => !prev);
+    };
+    const firstDescriptions = description?.slice(0, 300)
+
 
     const fetchData = async () => {
         try {
@@ -74,7 +80,7 @@ const [oneCourse,setOneCourse] = useState([])
                 values.user
             )
 
-              
+
 
             setOneComment(state => [...state, { comment: result.comment, user: result.user }]) //TODO ДА СЕ ДОБАВИ USERNAME, КАТО ВТОРИ ПАРАМЕТЪР
 
@@ -172,8 +178,9 @@ const [oneCourse,setOneCourse] = useState([])
                             <p className="card-date">Start date: {date}</p>
                         </div>
 
-                        <p className="disc">{description}</p>
-
+                        <p className="disc toggle-desc">{showMore ? description : firstDescriptions}</p>
+                        {!showMore && <button className="show-more-button-details" onClick={toggleShowMore}>Show More</button>}
+                        {showMore && <button className="show-more-button-details" onClick={toggleShowMore}>Show Less</button>}
 
                         <div className="social-btn">
 
@@ -227,20 +234,20 @@ const [oneCourse,setOneCourse] = useState([])
 
 
             <CommentsPopUp
-            key={courseId} // за да отразява правилно промяната 
-             onCommentSubmit={onCommentSubmit} 
-             {...oneCourse}
-             isOpenComments={commentsPopUp} 
-             onCloseComments={closeCommentsPopUp} 
-             oneComment={oneComment} 
-             liked={liked}
-             likeCounter={likeCounter}
-             handleLikeToggle={handleLikeToggle}
+                key={courseId} // за да отразява правилно промяната 
+                onCommentSubmit={onCommentSubmit}
+                {...oneCourse}
+                isOpenComments={commentsPopUp}
+                onCloseComments={closeCommentsPopUp}
+                oneComment={oneComment}
+                liked={liked}
+                likeCounter={likeCounter}
+                handleLikeToggle={handleLikeToggle}
 
-             onDeletePostHandler={onDeletePostHandler} 
+                onDeletePostHandler={onDeletePostHandler}
 
-             />
-             
+            />
+
 
             <ConfirmBox open={isOpen} closeDialog={() => onCloseDelete()}                // title={deleteData?.name}
                 deleteFunction={() => { setIsOpen(false), onDeleteClick(_id) }}
