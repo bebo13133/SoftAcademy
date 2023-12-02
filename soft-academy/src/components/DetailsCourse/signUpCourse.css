@@ -6,6 +6,7 @@
  max-width: 260px;
  border: 2px solid #333; 
  /* padding: 20px;  */
+ box-shadow: rgb(128 5 217 / 29%) 6px 4px 10px; 
  margin: 20px;
  background: linear-gradient(to right, #ebd28e, #f6cd93);
  border-radius:15px ;
@@ -37,6 +38,7 @@ margin: 5px;
  padding-left: 10px;
  font-size: 16px;
  background: linear-gradient(to right, #ebd28e, #f6cd93);
+ 
  border-radius:15px ;
  
 }

@@ -9,7 +9,7 @@ import { LectorPage } from "./LectorsPage"
 import Footer from "../Footer/Footer"
 import { SignUpCourse } from "./SignUpCourse"
 import { v4 } from "uuid"
-
+import './imageSideBar.css'
 
 export const DetailsCourse = () => {
     const [details, setDetails] = useState({})
@@ -37,7 +37,10 @@ export const DetailsCourse = () => {
     return (
         <>
             <section id="details-page">
-
+            <div className="image-section-details">
+                        {/* Добавете снимката тук */}
+                        <img src="/img/detailsSide.jpg" alt="Course Catalog Image" />
+                    </div>
                 <OneCourse {...details} />
                 <LectorPage {...details} />
                 <SignUpCourse key={v4()} {...details}/>
