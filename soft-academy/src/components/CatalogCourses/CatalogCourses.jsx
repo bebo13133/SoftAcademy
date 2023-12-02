@@ -75,10 +75,10 @@ const CatalogCourses = () => {
                     </div>
 
                 </div>
-                <ul>
+                {currentResult.length > 0 && (<ul>
                     <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
-                </ul>
-                <Footer />
+                </ul>)}
+               {currentResult.length > 0 && <Footer />}
 
 
             </section>  </Fade></>

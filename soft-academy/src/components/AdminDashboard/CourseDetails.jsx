@@ -81,6 +81,7 @@ console.log("fprms",formErrors)
         courseService.getOne(courseId)
             .then(result => {
                 onChangeValues(result)
+                setSelectOptions(result.selectOption)
             })
 
     }, [courseId])

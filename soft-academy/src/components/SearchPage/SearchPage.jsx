@@ -1,7 +1,7 @@
 // import { OneCourse } from "../CatalogCourses/OneCourse"
 import { WaveAnimation } from "../tools/WaveAnimation"
 import { SearchField } from "./SearchField"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useCourseContext } from "../contexts/CourseContext"
 import HomeOneCourse from "../Home/HomeOneCourse"
 import { Pagination } from "../Pagination/Pagination"
@@ -16,7 +16,12 @@ export const SearchPage = () => {
     const [isLoading, setIsloading] = useState(true)
     const [courses, setCourses] = useState([])
     const { searchResult } = useCourseContext()
+    const navigate=useNavigate()
 
+
+   const toggleShowMore = ()=>{
+    navigate("/")
+   }
 
 
     useEffect(() => {
@@ -55,6 +60,7 @@ setIsloading(false)
                         </div>
                     </div>
                     {/* <Footer/> */}
+                    <button className="show-more-button-details" style={{float:"right", marginRight:"240px", fontSize:"22px"}} onClick={toggleShowMore}>Back home</button>
                 </section>
             </>
             )}

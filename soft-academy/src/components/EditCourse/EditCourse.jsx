@@ -180,7 +180,7 @@ export const EditCourse = () => {
                             <input type="text" name="imageUrl2"className={formErrors.imageUrl2 ? "error": ""} placeholder="Enter URL icon " value={values.imageUrl2} onChange={onChangeHandler} />
                         </div>)}
 
-                    <h2>Course Description</h2>
+                    <h2 style={{paddingTop: "141px"}}>Course Description</h2>
                     <div className="item">
                         <p>Description<span className="required-field">*</span></p>
                         <input type="text" name="description" className={formErrors.description ? "error": ""} placeholder="Description" value={values.description} onChange={onChangeHandler} />

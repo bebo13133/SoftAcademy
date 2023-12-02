@@ -47,6 +47,7 @@ export const EditForumPost = () => {
             .then(result => {
 
                 onChangeValues(result)
+                
             })
             .catch(error => {
                 console.error(error.message || error);

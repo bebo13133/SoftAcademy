@@ -2,7 +2,7 @@
     height: 250px; 
     width: 100%;
     min-width: 450px;
-    background: url("./img/blue8.webp");
+    background: url("/img/blue8.webp");
     margin-bottom: 160px;
   }
   .blue-bar-h2 h2{
