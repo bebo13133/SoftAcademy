@@ -29,7 +29,7 @@ export const SignForm = () => {
     const { onSignUp } = useCourseContext()
     // const {voucherCodes} = useAuthContext()
     const [vouchersCode, setVouchers] = useState([])
-    console.log("vouchersCode", vouchersCode)
+    // console.log("vouchersCode", vouchersCode)
     const handleTermsChange = () => {
         setIsChecked(state => !state);
     };
@@ -68,7 +68,7 @@ export const SignForm = () => {
             return
         }
       
-console.log(values, "hi")
+
 
     }
     const { onSubmit, onChangeHandler, setValues, values, onSubmitWithOut } = useForm({

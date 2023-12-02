@@ -49,7 +49,7 @@ export const OneCourse = ({
     const toggleShowMore = () => {
         setShowMore((prev) => !prev);
     };
-    const firstDescriptions = description?.slice(0, 300)
+    const firstDescriptions = description?.slice(0, 320)
 
 
     const fetchData = async () => {
@@ -178,9 +178,9 @@ export const OneCourse = ({
                             <p className="card-date">Start date: {date}</p>
                         </div>
 
-                        <p className="disc toggle-desc">{showMore ? description : firstDescriptions}</p>
-                        {!showMore && <button className="show-more-button-details" onClick={toggleShowMore}>Show More</button>}
-                        {showMore && <button className="show-more-button-details" onClick={toggleShowMore}>Show Less</button>}
+                        <p className="disc toggle-desc">{showMore ? description : firstDescriptions}...</p>
+                        {!showMore && <button className="show-more-button-details" onClick={toggleShowMore}>Read More</button>}
+                        {showMore && <button className="show-more-button-details" onClick={toggleShowMore}>Read Less</button>}
 
                         <div className="social-btn">
 

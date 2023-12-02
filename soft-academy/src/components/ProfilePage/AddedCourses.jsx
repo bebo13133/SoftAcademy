@@ -22,7 +22,7 @@ export const AddedCourses = () => {
 
     const { userId } = useAuthContext()
 const location=useLocation()
-console.log("added courses",location.pathname)
+// console.log("added courses",location.pathname)
     const resultPerPage = 3
     const {getPaginationData } = usePaginations(resultPerPage)
 
