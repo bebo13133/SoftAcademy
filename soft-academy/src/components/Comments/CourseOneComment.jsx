@@ -15,7 +15,7 @@ export const CourseOneComponent = ({
     const [liked, setLiked] = useState(false)
     const [likeCounter, setLikeCounter] = useState(0)
     const [likeUser, setLikeUser] = useState([])
-console.log("user",user)
+
 
 
     // console.log("likeUser",likeUser)

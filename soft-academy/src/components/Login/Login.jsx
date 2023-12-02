@@ -10,7 +10,6 @@ export const Login = () => {
 
 
     const { onLoginSubmit ,formError} = useAuthContext()
-console.log("formErrors",formError)
 
     const { onSubmit, values, onChangeHandler } = useForm({
         email: "",

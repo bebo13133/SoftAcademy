@@ -50,7 +50,7 @@ function App() {
 
   const location = useLocation(); // Get the current location
 
-  // const isProfilePage = location.pathname.startsWith('/profile') || location.pathname.startsWith("/change-password")
+  
 
   const isAdminPage = location.pathname.startsWith('/admin')
 

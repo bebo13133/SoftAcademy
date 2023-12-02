@@ -243,7 +243,7 @@ export const CourseProvider = ({ children }) => {
 
 
     const onSubmitPayment = async (values) => {
-        console.log("pay", values)
+      
         if (!values.cardNumber || !values.ownerName || !values.expiDate || !values.cvc) {
 
             dispatch(setError("Some field is empty"));
