@@ -48,7 +48,9 @@ export const EditForumPost = () => {
 
                 onChangeValues(result)
             })
-
+            .catch(error => {
+                console.error(error.message || error);
+            });
 
     }, [forumId])
 

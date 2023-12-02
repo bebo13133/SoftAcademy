@@ -39,7 +39,7 @@ export const DetailsCourse = () => {
             <section id="details-page">
             <div className="image-section-details">
                         {/* Добавете снимката тук */}
-                        <img src="/img/detailsSide.jpg" alt="Course Catalog Image" />
+                        <img src="https://miro.medium.com/v2/resize:fit:800/1*4pTO-AkIKDMCJ_I04-MVLw.jpeg" alt="Course Catalog Image" />
                     </div>
                 <OneCourse {...details} />
                 <LectorPage {...details} />

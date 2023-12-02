@@ -52,7 +52,7 @@ const CatalogCourses = () => {
                 <div className="container">
                 <div className="image-section-catalog">
                         {/* Добавете снимката тук */}
-                        <img src="https://thumbs.dreamstime.com/b/foss-word-cloud-concept-vector-illustration-170695446.jpg" alt="Course Catalog Image" />
+                        <img src="/img/sideImage.webp" alt="Course Catalog Image" />
                     </div>
                     <div className="section-header">
                         <h2 style={{ color: "rgb(0 156 233)" }}>Your Gateway to Diverse Courses</h2>

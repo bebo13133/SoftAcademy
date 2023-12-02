@@ -55,10 +55,13 @@
 .chat-messages {
   max-height: 300px;
   overflow-y: auto;
+  color: black;
+  
 }
 
 .chat-message {
   margin-bottom: 10px;
+  color: black;
 }
 
 .message-input {
