@@ -19,6 +19,8 @@ export const ForumProvider = ({ children }) => {
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
     const [forumSearch, setForumSearch] = useState([])
+    const [forumSearchPage, setForumSearchPage] = useState([])
+
 
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
 
@@ -26,6 +28,7 @@ export const ForumProvider = ({ children }) => {
     useEffect(() => {
         forumService.getAll()
             .then(result => {
+                
                 dispatch({ type: 'SET_FORUM_POSTS', payload: result });
             })
             .catch(error => {
@@ -198,12 +201,13 @@ export const ForumProvider = ({ children }) => {
             dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
         }
     };
+
     const onSearchSubmitAdminForum = async (data) => {
 
         try {
             const result = await forumService.getAll()
 
-            if (!data.searchTerm || data.searchCriteria === "all") {
+            if (!data.searchTerm && data.searchCriteria === "all" || !data.searchTerm && data.searchCriteria === "") {
                 setForumSearch(result)
             }
             if (data.searchCriteria == "id") {
@@ -222,7 +226,32 @@ export const ForumProvider = ({ children }) => {
 
         }
     }
+const onSearchForms=async(data)=>{
+   try{
+    const result = await forumService.getAll()
 
+    if (!data.searchTerm && data.searchCriteria === "all" || !data.searchTerm && data.searchCriteria === "") {
+        const sortedResult = result.sort((a, b) => b._createdOn- a._createdOn);
+        setForumSearchPage(sortedResult)
+    }
+    
+    if  (data.searchTerm &&data.searchCriteria === "all" || data.searchTerm && data.searchCriteria === "") {
+     
+        setForumSearchPage(result.filter(x => x.title.toLowerCase().includes(data.searchTerm.toLowerCase())))
+    }
+    if (data.searchCriteria == "title") {
+        setForumSearchPage(result.filter(x => x.title.toLowerCase().includes(data.searchTerm.toLowerCase())));
+    }
+    if (data.searchCriteria == "author") {
+        setForumSearchPage(result.filter(x => x.author.toLowerCase().includes(data.searchTerm.toLowerCase())));
+    }
+
+
+    navigate("/forum/search-result")
+   }catch (error) {
+    console.log(error.message || error);
+   }
+}
 
 
     const contextForumValue = {
@@ -234,7 +263,9 @@ export const ForumProvider = ({ children }) => {
         onEditSubmitAdmin,
         onSearchSubmitAdminForum,
         forumSearch,
-        selectForum
+        selectForum,
+        onSearchForms,
+        forumSearchPage
 
     }
 

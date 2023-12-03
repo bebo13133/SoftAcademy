@@ -1,49 +1,63 @@
 import React, { useState, useEffect,lazy, Suspense } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import'../Hooks/paginations.css'
 
-import './forumStudents.css'
-import { SideBarForum } from './SideBarForum/SideBarForum';
-import OneForumPost  from './OneForumPost';
-import { forumServiceFactory } from "../Services/forumService";
+import'../../Hooks/paginations.css'
 
-import Footer from '../Footer/Footer';
-import { IsLoading } from '../IsLoading/IsLoading';
-import { usePaginations } from '../Hooks/usePaginations';
-import { Pagination } from '../Pagination/Pagination';
-import { SearchBarForum } from './SearcBarForum/SeacrhBarForum';
+import '../forumStudents.css'
+import { SideBarForum } from '../SideBarForum/SideBarForum';
+import OneForumPost  from '../OneForumPost';
+// import { forumServiceFactory } from "../../Services/forumService";
 
-export const ForumStudents = () => {
+import Footer from '../../Footer/Footer';
+import { IsLoading } from '../../IsLoading/IsLoading';
+
+import { Pagination } from '../../Pagination/Pagination';
+import { SearchBarForum } from '../SearcBarForum/SeacrhBarForum';
+import { useForumContext } from '../../contexts/ForumContext';
+import { usePaginations } from '../../Hooks/usePaginations';
+import { useAuthContext } from '../../contexts/UserContext';
+import { forumServiceFactory } from '../../Services/forumService';
+
+
+
+
+
+export const SearchPageForum =()=>{
+    const {forumSearchPage}=useForumContext()
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-   
-    const [articles, setArticles] = useState([]);
     const [sideBarArticles, setSideBarArticles] = useState([]);
+    const [articles, setArticles] = useState([]);
     const [isLoading, setLoading] = useState(true);
  
-    const forumService = forumServiceFactory()
+    const { token } = useAuthContext()
+    const forumService = forumServiceFactory(token)
   
     const postsPerPage = 3;
-
+  
     useEffect(() => {
-            forumService.getAll()
-            .then((posts) =>{
-                const sortedResult = posts.sort((a, b) => b._createdOn- a._createdOn);
-                setSideBarArticles(posts)
-                setArticles(posts)
 
-            })
-            .catch(error => {
-                console.log(error.message || error)
-            })
+        forumService.getAll()
+        .then((posts) =>{
+            const sortedResult = posts.sort((a, b) => b._createdOn- a._createdOn);
+            setSideBarArticles(sortedResult)
+         
+
+        })
+        .catch(error => {
+            console.log(error.message || error)
+        })
+
+        setArticles(forumSearchPage)
             const timeoutId = setTimeout(() => {
+               
                 setIsSidebarOpen(true);
-              }, 1160); // Променете времето според вашите предпочитания
-              setLoading(false)
-
-
+                setLoading(false)
+              }, 50); // Променете времето според вашите предпочитания
+             
+         
+           
               return () => clearTimeout(timeoutId);
       
-    }, [setLoading]);
+    }, [forumSearchPage]);
 
 
 
@@ -71,7 +85,7 @@ export const ForumStudents = () => {
 
             <SideBarForum
              sideBarArticles={sideBarArticles}
-                // toggleSidebar={toggleSidebar} 
+             articles={articles}
                 closeSidebar={closeSidebar} 
                 isOpen={isSidebarOpen} />
 
@@ -79,6 +93,7 @@ export const ForumStudents = () => {
   
                 <section className="forum-page-section">
                 <SearchBarForum/>
+                (<h2 className="no-articles" style={{marginBottom: "-56px",color: "rgb(189, 104, 19)",textShadow: "0 4px 8px rgb(6 85 255 / 36%)"}}>Find results: {sideBarArticles.length}</h2>)
                     <button className="close-button1" onClick={openSidebar}>Open Sidebar</button>
 
                     <div className="forum-page">

@@ -18,6 +18,7 @@ import IsOwnerForum from "../components/common/IsOwnerForum"
 import { SignForm } from "../components/DetailsCourse/SignForm/SignForm"
 import { InvoiceCard } from "../components/DetailsCourse/InvoiceCard/InvoiceCard"
 import { TrainingCourses } from "../components/ProfilePage/TrainingCourses/TrainingCourses"
+import { SearchPageForum } from "../components/Forum/SearcBarForum/SearcPagrForum"
 
  const HomeRoutes = ()=>{
 
@@ -39,6 +40,8 @@ import { TrainingCourses } from "../components/ProfilePage/TrainingCourses/Train
       } />
 
       <Route path="/forum" element={<ForumStudents />} />
+      <Route path="/forum/search-result" element={<SearchPageForum />} />
+
       <Route path="/forum/:forumId" element={<ForumDetails />} />
 
       <Route path="/forum/:forumId/edit" element={
