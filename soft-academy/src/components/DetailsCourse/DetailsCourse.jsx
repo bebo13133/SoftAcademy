@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import * as commentsService from "../Services/commentsService"
 import { Link, useParams } from "react-router-dom"
 import { Fade,Slide } from "react-awesome-reveal";
-
+import '../../../public/img/detailsSide.jpg'
 
 import { courseServiceFactory } from "../Services/courseService"
 import { useService } from "../Hooks/useService"
@@ -45,7 +45,7 @@ export const DetailsCourse = () => {
                 {/* <Slide direction='left' delay="10" duration="2000" triggerOnce='true'> */}
                     <div className="image-section-details">
                         {/* Добавете снимката тук */}
-                        <img src="https://miro.medium.com/v2/resize:fit:800/1*4pTO-AkIKDMCJ_I04-MVLw.jpeg" alt="Course Catalog Image" />
+                        <img src="/img/detailsSide.jpg" alt="Course Catalog Image" />
                     </div>
                 {/* </Slide> */}
                 <OneCourse {...details} />
