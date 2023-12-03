@@ -95,6 +95,7 @@ console.log("fprms",formErrors)
 
     }
     return (
+       
         <section className="course-details-admin">
             <section className="sidebar">
                 <AdminSidebar />
@@ -192,6 +193,6 @@ console.log("fprms",formErrors)
 
             </section>
         </section>
-
+   
     )
 }

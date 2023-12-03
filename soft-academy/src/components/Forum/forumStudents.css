@@ -7,14 +7,19 @@
   /* променен  */
   height: 90vh; 
   /* gap: 4px; */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   padding: 20px;
   align-content: space-around;
-  /* променен  */
-
-  justify-content: flex-start; 
-  flex-wrap: wrap;
+   justify-content: flex-start; 
+  flex-wrap: wrap; */
+  height: 90vh;
+gap: 4px;
+display: flex;
+padding: 20px;
+flex-direction: column;
+align-content: space-between;
+align-items: center;
 }
 
 

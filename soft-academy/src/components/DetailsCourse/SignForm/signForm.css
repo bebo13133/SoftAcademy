@@ -177,16 +177,6 @@ margin-top:20px;
 
 
 
-
-
-
-
-
-
-
-
-
-
 .sign-course-card-finish h4{
     margin: 0px;
     text-shadow: 0 4px 8px rgb(10 56 153 / 36%);
@@ -211,8 +201,8 @@ margin-top:20px;
     cursor: pointer; 
     margin: 0px;
   }
-  .show-more-button-signUp:hover {
-    background-color: #72b39b; 
+  .how-more-button-signUp:hover {
+    background-color: #05555e; 
   }
   .show-more-button-back{
     margin: 5px;
@@ -250,7 +240,7 @@ margin-top:20px;
 
   }
   
-  .vouchers-btn button:hover {
+  .vouchers-btn:hover {
     background-color: #45a049;
   }
   .voucher-applied-message{

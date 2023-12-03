@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import * as commentsService from "../Services/commentsService"
 import { Link, useParams } from "react-router-dom"
+import { Fade,Slide } from "react-awesome-reveal";
+
+
 import { courseServiceFactory } from "../Services/courseService"
 import { useService } from "../Hooks/useService"
 import { OneCourse } from "./OneCourse"
@@ -21,8 +24,8 @@ export const DetailsCourse = () => {
     useEffect(() => {
         courseService.getOne(courseId)
             .then(course => {
-               course && setDetails(course)
-               
+                course && setDetails(course)
+
 
             })
             .catch(error => {
@@ -35,15 +38,19 @@ export const DetailsCourse = () => {
 
 
     return (
-        <>
+
+        <> 
+        <Fade delay="10" duration="2000" triggerOnce='true'>
             <section id="details-page">
-            <div className="image-section-details">
+                {/* <Slide direction='left' delay="10" duration="2000" triggerOnce='true'> */}
+                    <div className="image-section-details">
                         {/* Добавете снимката тук */}
                         <img src="https://miro.medium.com/v2/resize:fit:800/1*4pTO-AkIKDMCJ_I04-MVLw.jpeg" alt="Course Catalog Image" />
                     </div>
+                {/* </Slide> */}
                 <OneCourse {...details} />
                 <LectorPage {...details} />
-                <SignUpCourse key={v4()} {...details}/>
+                <SignUpCourse key={v4()} {...details} />
                 {/* <AddComments onCommentSubmit={onCommentSubmit} /> */}
 
             </section>
@@ -51,6 +58,7 @@ export const DetailsCourse = () => {
                 <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
             </ul>
             <Footer />
+        </Fade>
         </>
     )
 }

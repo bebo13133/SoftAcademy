@@ -124,13 +124,18 @@ export const UserProvider = ({ children }) => {
     const onLoginSubmit = async (data) => {
 
         validateLoginData(data)
+        const trimmedData = {};
+        Object.keys(data).forEach(key => {
+            trimmedData[key] = data[key].trim();
+        });   //тримвам спейсовете
+    
         try {
            
      
             const users = await userService.getAll()
             setUsers(users)
 
-            const newUser = await userService.login(data)
+            const newUser = await userService.login(trimmedData)
             setIsAuth(newUser)
             navigate("/")
         } catch (err) {
@@ -150,12 +155,24 @@ export const UserProvider = ({ children }) => {
     }
 
     const onRegisterSubmit = async (data) => {
+      
         const { confirmPassword, ...registerData } = data
+        const trimmedRegisterData = {};
+        Object.keys(registerData).forEach(key => {
+            trimmedRegisterData[key] = registerData[key].trim();
+        });
+    
+        // Тримване на данните в confirmPassword
+        const trimmedConfirmPassword = confirmPassword.trim();
 
-        validateRegisterData(registerData,confirmPassword)
+
+        validateRegisterData(trimmedRegisterData,trimmedConfirmPassword)
+
+       
+      
         try {
 
-            const newUser = await userService.register(registerData)
+            const newUser = await userService.register(trimmedRegisterData)
             setIsAuth(newUser)
             const codes = v4()
             const promoCodes=codes.slice(0,8)

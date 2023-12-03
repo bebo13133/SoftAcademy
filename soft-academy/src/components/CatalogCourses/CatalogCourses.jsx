@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react"
 
 import './bookMark.css'
-import { Bounce, Fade, Flip, Hinge, JackInTheBox, Roll, Rotate, Slide, Zoom } from "react-awesome-reveal";
+import {  Fade } from "react-awesome-reveal";
 
 import { CourseContext, useCourseContext } from "../contexts/CourseContext"
 import { IsLoading } from "../IsLoading/IsLoading"

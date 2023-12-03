@@ -11,6 +11,7 @@ import Footer from '../Footer/Footer';
 import { IsLoading } from '../IsLoading/IsLoading';
 import { usePaginations } from '../Hooks/usePaginations';
 import { Pagination } from '../Pagination/Pagination';
+import { SearchBarForum } from './SearcBarForum/SeacrhBarForum';
 
 export const ForumStudents = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -73,7 +74,9 @@ export const ForumStudents = () => {
                 isOpen={isSidebarOpen} />
 
             {isLoading ? <IsLoading /> : (<>
+  
                 <section className="forum-page-section">
+                <SearchBarForum/>
                     <button className="close-button1" onClick={openSidebar}>Open Sidebar</button>
 
                     <div className="forum-page">
