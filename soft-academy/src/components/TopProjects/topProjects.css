@@ -14,11 +14,17 @@
     text-transform:none;
     /* color: black; */
   }
+  .project-section-second{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .title-projects h3{
-    margin-top: 50px;
+    margin-top: 100px;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 120px;
     text-transform:none;
     /* color: black; */
   }
@@ -26,6 +32,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    font-size: 16px;
   }
   
   .rights-projects{
@@ -57,9 +64,56 @@
 
 
 
+  .project-section {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 
+  }
+  .project-section-second {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .project-section h2 {
+    margin-left: 15px;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .description-project {
+    text-align: left;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 16px;
+    width: 800px;
+  }
+  
+  .image-container-project {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .image-container-project img {
+    /* max-width: 100%; */
+    width: 1080px;
+    height: 240px;
+    margin-left: 10px; 
+  }
 
+  .divider-project {
+    height: 1px;
+    width: 90%;
+    background-color:rgb(141, 5, 5);
 
+    margin: 10px 10px; /* Променете маргините според вашите нужди */
+    margin-bottom: 20px;
+  }
 
 
 
