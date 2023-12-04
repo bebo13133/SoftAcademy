@@ -12,6 +12,8 @@ const Blog = () => {
     const [newsPerPage] = useState(3);
     const [isLoading, setIsLoading] = useState(true)
     const [footer, setFooter] = useState(false) // искам футъра да се зарежда след заявката от апито
+
+    
     useEffect(() => {
         newsApi()
 
@@ -76,7 +78,8 @@ const Blog = () => {
                     </div>
                     {isLoading ? <IsLoading /> : (<>
                         <div className="blog-content">
-                            <div className="row">
+                            <div className="row"> 
+                            
                                 {currentNews.map((article, index) => (
                                     <div className="col-md-4 col-sm-6" key={index}>
                                         <div className="single-blog-item">
@@ -90,13 +93,15 @@ const Blog = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 ))}
+                                
+           
                             </div>
                         </div>
+                        </>)}
 
 
-
-                    </>)}
 
 
                     <ul className="pagination">

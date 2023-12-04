@@ -46,7 +46,7 @@ const CatalogCourses = () => {
     return (
         <>
 
-            {isLoading ? <IsLoading /> : (<>
+           
                 <Fade delay="10" duration="2000" triggerOnce='true'><section id="explore" className="explore">
 
 
@@ -60,7 +60,7 @@ const CatalogCourses = () => {
                             <p style={{ color: "white", fontSize: "22px", textShadow: "rgb(15 38 89 / 44%) 2px 2px 0px" }}>Discover a comprehensive catalog of courses covering a myriad of subjects.
                                 From technology and business to arts and sciences, explore courses curated to enhance your skills and knowledge. Your educational journey starts here explore, learn, and excel with our diverse course catalog.</p>
                         </div>
-
+                        {isLoading ? <IsLoading /> : (<>
                         <div className="explore-content">
 
                             <div className="row">
@@ -74,7 +74,7 @@ const CatalogCourses = () => {
                             <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
                         </div>
-
+                        </>)}
                     </div>
                     {currentResult.length > 0 && (<ul>
                         <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
@@ -83,7 +83,7 @@ const CatalogCourses = () => {
 
 
                 </section>  </Fade>
-            </>)}
+     
 
         </>
     )
