@@ -15,6 +15,8 @@ import { AllForums } from "../components/AdminDashboard/AllForums/AllForums"
 import { ForumDetailsAdmin } from "../components/AdminDashboard/AllForums/ForumDetailsAdmin"
 import { SearchAdminForum } from "../components/AdminDashboard/AllForums/SearchBarForum/SearchAdminForum"
 import { AddProjectForm } from "../components/AdminDashboard/AddProjectForm/AddProjectForm"
+import { AllProjects } from "../components/AdminDashboard/AllProjects/AllProjects"
+import { EditProject } from "../components/AdminDashboard/AllProjects/EditProject"
 
 const AdminRoutes = () => {
 
@@ -27,6 +29,7 @@ const AdminRoutes = () => {
                     <Route path="customers-list" element={<CustomerList />} />
                     <Route path="all-courses" element={<AllCourses />} />
                     <Route path="all-forums" element={<AllForums />} />
+
                 </Route>
                 <Route path="search-customer" element={<IsAdmin><SearchBarPage /></IsAdmin>} />
                 <Route path="all-courses/:courseId" element={<IsAdmin><CourseDetails /></IsAdmin>} />
@@ -35,8 +38,10 @@ const AdminRoutes = () => {
                 <Route path="send-email/:userId" element={<IsAdmin><EmailAdmin /></IsAdmin>} />
                 <Route path="search-course" element={<IsAdmin><SearchAdminCourses /></IsAdmin>} />
                 <Route path="search-forum" element={<IsAdmin><SearchAdminForum /></IsAdmin>} />
-                <Route path="project" element={<IsAdmin><AddProjectForm/></IsAdmin>} />
+                <Route path="add-project" element={<IsAdmin><AddProjectForm/></IsAdmin>} />
               
+                <Route path="projects" element={<IsAdmin><AllProjects/></IsAdmin>} />
+                <Route path="projects/:projectId" element={<IsAdmin><EditProject/></IsAdmin>} />
 
               
 

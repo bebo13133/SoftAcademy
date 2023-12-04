@@ -254,6 +254,7 @@ const onSearchForms=async(data)=>{
 }
 
 
+
     const contextForumValue = {
         onPostSubmit,
         forumPosts,
@@ -265,7 +266,8 @@ const onSearchForms=async(data)=>{
         forumSearch,
         selectForum,
         onSearchForms,
-        forumSearchPage
+        forumSearchPage,
+       
 
     }
 

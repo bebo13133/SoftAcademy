@@ -47,7 +47,9 @@ export const ForumDetailsAdmin = () => {
 
                 onChangeValues(result)
             })
-
+            .catch(error => {
+                console.log(error.message || error)
+            })
 
     }, [forumId])
 

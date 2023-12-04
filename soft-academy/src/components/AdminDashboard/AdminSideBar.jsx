@@ -31,7 +31,13 @@ export const AdminSidebar = () => {
             <div className="admin-chat">
 
 
-                <Link to="/admin/project"><h2>Add project</h2></Link>
+                <Link to="/admin/add-project"><h2>Add project</h2></Link>
+
+            </div>
+            <div className="admin-chat">
+
+
+                <Link to="/admin/projects"><h2>Projects</h2></Link>
 
             </div>
         </>

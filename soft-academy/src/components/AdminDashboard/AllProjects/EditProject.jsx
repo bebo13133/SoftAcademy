@@ -1,31 +1,30 @@
-import { useNavigate } from 'react-router-dom'
-import { useForm } from '../../Hooks/useForm'
-import { useService } from '../../Hooks/useService'
-import { forumServiceFactory } from '../../Services/forumService'
-import { AdminSidebar } from '../AdminSideBar'
-import '../adminDashboard.css'
-import './addProjectForm.css'
-import { useAuthContext } from '../../contexts/UserContext'
+import { useNavigate, useParams } from "react-router-dom"
+import { forumServiceFactory } from "../../Services/forumService"
+import { useService } from "../../Hooks/useService"
+import { useForm } from "../../Hooks/useForm"
+import { useEffect } from "react"
+import { AdminSidebar } from "../AdminSideBar"
+import { useForumContext } from "../../contexts/ForumContext"
 
-
-
-
-export const AddProjectForm = () => {
-    const navigate =useNavigate()
-
+export const EditProject=()=>{
+    const { projectId } = useParams()
     const forumService = useService(forumServiceFactory)
+    const navigate = useNavigate()
 
-
-    const onSubmitProject = async(data)=>{
-        try{
-           await forumService.createProject(data)
-
-            navigate("/projects")
-        }catch(err){
-            console.log(err.message || err);
+    const onEditSubmitProject =async(projectData)=>{
+        try {
+    
+    
+            const post = await forumService.updateProject(projectId , projectData)
+    
+            // dispatch(editForumPost(projectData, post))
+            navigate(`/admin/projects`)
+        } catch (err) {
+            // dispatch({ type: 'SET_ERROR_MESSAGE_PROJECTS', payload: err.message || 'An error occurred' });
         }
-
     }
+
+
 
 
     const handleImageChange = (e) => {
@@ -45,28 +44,48 @@ export const AddProjectForm = () => {
     
     }
     
-    const { onSubmitWithOut, values, onChangeHandler } = useForm({
+    const { onSubmitWithOut, values, onChangeHandler,onChangeValues } = useForm({
         title:"",
         description:"",
         team:"",
         youtube:"",
         techniques:"",
-    }, onSubmitProject)
+    }, onEditSubmitProject)
+
+   
+    useEffect(() => {
+        forumService.getOneProject(projectId )
+            .then(result => {
+
+                onChangeValues(result)
+            })
+            .catch(error => {
+                console.log(error.message || error)
+            })
+
+    }, [projectId ])
+
+
+    const onCloseComments = () => {
+        navigate(`/admin/projects`)
+
+    }
 
 
 
-    return (
-        <>
-            <div className="admin-dashboard">
+return(
+    <>
 
-                <section className="sidebar" >
-                    <AdminSidebar />
-                </section>
+    <section className="course-details-admin">
+        <section className="sidebar">
+            <AdminSidebar />
+        </section>
 
-
-                <section className="render-section">
-
-                    <form className="post-form-project" onSubmit={onSubmitWithOut}>
+        <section className="render-section">
+            <div className="close-button-forum-custom" onClick={onCloseComments}>
+                X
+            </div>
+            <form className="post-form-project" onSubmit={onSubmitWithOut}>
                         <label>
                             Title:<span className="required-field-project">*</span>
                             <input type="text" name="title" value={values.title} onChange={onChangeHandler} />
@@ -108,13 +127,9 @@ export const AddProjectForm = () => {
                             <li className="navbar-brand" style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                         </ul>
                     </form>
-                </section>
-
-            </div>
-
-
-
-        </>
-    )
+        </section>
+    </section>
+</>
+)
 
 }

@@ -98,6 +98,19 @@ const createProject = async (projectData) => {
     const result = await request.post(baseUrl6, projectData)
     return result
 }
+const getAllProjects = async () => {
+    const result = await request.get(baseUrl6)
+
+    const projects = Object.values(result)
+    return projects
+}
+const getOneProject= async (projectId) => {
+    const onePost = await request.get(`${baseUrl6}/${projectId}`)
+
+    return onePost
+}
+
+const updateProject =async (projectId, projectData) => request.put(`${baseUrl6}/${projectId}`, projectData)
 
 
     return {
@@ -115,7 +128,10 @@ const createProject = async (projectData) => {
         createForumLike,
         getAllForumLikes,
         deleteForumLike,
-        createProject
+        createProject,
+        getAllProjects,
+        getOneProject,
+        updateProject
     
     }
 }
