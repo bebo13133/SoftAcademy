@@ -28,6 +28,12 @@ export const AdminSidebar = () => {
                 <Link to="/admin/all-forums"><h2>All forums</h2></Link>
 
             </div>
+            <div className="admin-chat">
+
+
+                <Link to="/admin/project"><h2>Add project</h2></Link>
+
+            </div>
         </>
     )
 }

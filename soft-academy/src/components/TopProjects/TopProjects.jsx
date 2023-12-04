@@ -28,7 +28,9 @@ export const TopProjects = () => {
                     <h2> Wonder Reader, BINUS University International, Indonesia:</h2>
                     <div className="divider-project"></div>
                     <div className="description-project"> Wonder Reader is a 3D-printed digital braille device that helps students who are blind and low-vision learn. The device allows teachers to send questions to the device through Bluetooth and receive answers from students by using the built-in braille keyboard. To learn more, watch the demo video. 1</div>
+                   
                     <div className="description-project"> Built with: Google Cloud, Firebase, Flutter and Google Text-to-Speech API. 2</div>
+                    
                     </section>
                     <div className="image-container-project">
                         <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Wonder_Reader_UGC_Philipus_Jason.width-1000.format-webp.webp" alt="Project Image" />
