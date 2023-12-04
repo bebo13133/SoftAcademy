@@ -31,7 +31,7 @@ const Footer = () => {
                     <div className="divider"></div>
                     <ul>
                         <li><Link to="/terms">Terms and Conditions</Link></li>
-                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><Link to="/privacy-policy">Privacy Policy</Link></li>
                     </ul>
                 </section>
                 {/* Section 4: Partners */}

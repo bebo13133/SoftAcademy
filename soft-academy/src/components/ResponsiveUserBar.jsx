@@ -14,7 +14,9 @@ import { IsLoading } from "./IsLoading/IsLoading";
 
 
 // const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ["Profile", "Settings", "Logout"];
+const settings = ["Profile",
+  // "Settings", 
+  "Logout"];
 
 export const ResponsiveUserBar = () => {
   const navigate = useNavigate();
@@ -22,13 +24,13 @@ export const ResponsiveUserBar = () => {
   // console.log("anchorElUser",anchorElUser)
   const [avatars, setAvatar] = useState([]);
   const [urlAvatar, setUrlAvatar] = useState([]);
-const [isLoading,setIsLoading] = useState(true);
-  const { userId, avatarUrl} = useAuthContext()
-// console.log("avatar",avatarUrl)
+  const [isLoading, setIsLoading] = useState(true);
+  const { userId, avatarUrl } = useAuthContext()
+  // console.log("avatar",avatarUrl)
   const avatarImageList = ref(storage, `avatarImages/`)
   const menuRef = useRef(null);
 
- const fetchUserLastAvatar = (userId) => {
+  const fetchUserLastAvatar = (userId) => {
     listAll(avatarImageList)
       .then((response) => {
         const userAvatarItems = response.items.filter((item) => item.name.startsWith(userId));
@@ -36,8 +38,8 @@ const [isLoading,setIsLoading] = useState(true);
           const lastUserAvatarItem = userAvatarItems[userAvatarItems.length - 1];
           getDownloadURL(lastUserAvatarItem).then((url) => {
             setAvatar((prevAvatar) => {
-         
-              return[ prevAvatar.filter((avatar) => avatar.userId === userId), { userId, url }];
+
+              return [prevAvatar.filter((avatar) => avatar.userId === userId), { userId, url }];
             });
           });
         }
@@ -48,7 +50,7 @@ const [isLoading,setIsLoading] = useState(true);
   useEffect(() => {
     fetchUserLastAvatar(userId);
 
-setIsLoading(false)
+    setIsLoading(false)
   }, [userId]);
 
   const urlAv = (avatars.map(avatar => avatar.url))
@@ -68,10 +70,10 @@ setIsLoading(false)
     navigate('/profile', { replace: true });
     handleToggleUserMenu()
   };
-  const handleSettings = () => {
-    navigate('/settings', { replace: true });
-    handleToggleUserMenu()
-  };
+  // const handleSettings = () => {
+  //   navigate('/settings', { replace: true });
+  //   handleToggleUserMenu()
+  // };
 
 
 
@@ -89,19 +91,19 @@ setIsLoading(false)
     // Cleanup the event listener when the component is unmounted
     return () => {
       document.removeEventListener('scroll', handleScroll);
-      
+
     };
   }, [anchorElUser]);
 
 
   return (
     <>
-    {isLoading&& <IsLoading/>}
-    <div className="user-bar-container">
+      {isLoading && <IsLoading />}
+      <div className="user-bar-container">
         <button
           onClick={handleToggleUserMenu}
           className="user-avatar-button"
-          
+
         >
           <img
             alt="User Avatar"
@@ -109,7 +111,7 @@ setIsLoading(false)
             className="user-avatar"
           />
         </button>
-        {Boolean(anchorElUser)&& (
+        {Boolean(anchorElUser) && (
           <div className="user-menu">
             {settings.map((setting) => (
               <button
@@ -118,10 +120,10 @@ setIsLoading(false)
                   setting === "Profile"
                     ? handleProfile()
                     : setting === "Settings"
-                    ? handleSettings()
-                    : setting === "Logout"
-                    ? handleLogout()
-                    : handleCloseUserMenu()
+                      ? handleSettings()
+                      : setting === "Logout"
+                        ? handleLogout()
+                        : handleCloseUserMenu()
                 }
                 className="menu-item"
               >

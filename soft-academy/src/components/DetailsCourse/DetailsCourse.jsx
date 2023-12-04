@@ -57,8 +57,9 @@ export const DetailsCourse = () => {
             <ul>
                 <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
             </ul>
-            <Footer />
+           
         </Fade>
+        <Footer />
         </>
     )
 }

@@ -10,6 +10,7 @@ import { BiLike } from "react-icons/bi"
 import { useService } from "../Hooks/useService"
 import { courseServiceFactory } from "../Services/courseService"
 import * as commentsService from "../Services/commentsService"
+import { v4 } from "uuid"
 
 
 export const OneCourse = ({
@@ -234,7 +235,7 @@ export const OneCourse = ({
 
 
             <CommentsPopUp
-                key={courseId} // за да отразява правилно промяната 
+                key={v4()} // за да отразява правилно промяната 
                 onCommentSubmit={onCommentSubmit}
                 {...oneCourse}
                 isOpenComments={commentsPopUp}

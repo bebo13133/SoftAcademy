@@ -11,9 +11,9 @@ export const IsLoading = () => {
         height="280"
         width="280"
         ariaLabel="dna-loading"
-        wrapperStyle={{}}
+        // wrapperStyle={{}}
         wrapperClass="dna-wrapper"
-
+      
       />
 <h2>Loading...</h2>
 

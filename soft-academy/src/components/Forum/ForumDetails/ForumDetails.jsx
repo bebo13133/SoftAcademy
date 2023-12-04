@@ -13,6 +13,7 @@ import { ConfirmBox } from '../../ConfirmBox/ConfirmBox'
 import { useForumContext } from '../../contexts/ForumContext'
 import { CommentsForum } from './CommentsForum/CommentsForum'
 import Footer from '../../Footer/Footer'
+import { v4 } from 'uuid'
 // import './contexts/error.css';
 
 
@@ -208,7 +209,7 @@ export const ForumDetails = () => {
 
             </section>
             <CommentsForum
-                key={forumId} // подавам го заради кеша , vite да разпознае по лесно ако настъпи промяна 
+                key={v4()} // подавам го заради кеша , vite да разпознае по лесно ако настъпи промяна 
                 isOpenComments={commentsPopUp}
                 onCloseComments={closeCommentsPopUp}
                 onPostSubmit={onPostSubmit} {...onePost}

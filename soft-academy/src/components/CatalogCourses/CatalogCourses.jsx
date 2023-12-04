@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react"
 
 import './bookMark.css'
-import {  Fade } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 import { CourseContext, useCourseContext } from "../contexts/CourseContext"
 import { IsLoading } from "../IsLoading/IsLoading"
@@ -46,44 +46,44 @@ const CatalogCourses = () => {
     return (
         <>
 
-            {isLoading ? <IsLoading /> : (<> <Fade delay="10" duration="2000" triggerOnce='true'><section id="explore" className="explore">
-
-           
-                <div className="container">
-                <div className="image-section-catalog">
-                        {/* Добавете снимката тук */}
-                        <img src="/img/sideImage.webp" alt="Course Catalog Image" />
-                    </div>
-                    <div className="section-header">
-                        <h2 style={{ color: "rgb(0 156 233)" }}>Your Gateway to Diverse Courses</h2>
-                        <p style={{ color: "white", fontSize: "22px", textShadow:"rgb(15 38 89 / 44%) 2px 2px 0px" }}>Discover a comprehensive catalog of courses covering a myriad of subjects.
-                            From technology and business to arts and sciences, explore courses curated to enhance your skills and knowledge. Your educational journey starts here explore, learn, and excel with our diverse course catalog.</p>
-                    </div>
-
-                    <div className="explore-content">
-
-                        <div className="row">
+            {isLoading ? <IsLoading /> : (<>
+                <Fade delay="10" duration="2000" triggerOnce='true'><section id="explore" className="explore">
 
 
+                    <div className="container">
+                        <div className="image-section-catalog">
+                            {/* Добавете снимката тук */}
+                            <img src="/img/sideImage.webp" alt="Course Catalog Image" />
+                        </div>
+                        <div className="section-header">
+                            <h2 style={{ color: "rgb(0 156 233)" }}>Your Gateway to Diverse Courses</h2>
+                            <p style={{ color: "white", fontSize: "22px", textShadow: "rgb(15 38 89 / 44%) 2px 2px 0px" }}>Discover a comprehensive catalog of courses covering a myriad of subjects.
+                                From technology and business to arts and sciences, explore courses curated to enhance your skills and knowledge. Your educational journey starts here explore, learn, and excel with our diverse course catalog.</p>
+                        </div>
 
-                            {currentResult.length > 0 ? currentResult.map(course => <OneCourse key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
+                        <div className="explore-content">
 
+                            <div className="row">
+
+
+
+                                {currentResult.length > 0 ? currentResult.map(course => <OneCourse key={course._id} {...course} />) : <h3 className="no-articles">No articles yet</h3>}
+
+
+                            </div>
+                            <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
                         </div>
-                        <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
                     </div>
-
-                </div>
-                {currentResult.length > 0 && (<ul>
-                    <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
-                </ul>)}
-               {currentResult.length > 0 && <Footer />}
+                    {currentResult.length > 0 && (<ul>
+                        <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a", float: "right" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+                    </ul>)}
+                    {currentResult.length > 0 && <Footer />}
 
 
-            </section>  </Fade></>
-
-            )}
+                </section>  </Fade>
+            </>)}
 
         </>
     )

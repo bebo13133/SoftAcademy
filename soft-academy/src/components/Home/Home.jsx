@@ -53,11 +53,11 @@ const Home = () => {
 
     return (
         <>
-            {isLoading ? <IsLoading /> : (<>
+           
                 <WelcomeScreen />
 
                 <ListTopics />
-
+                {isLoading ? <IsLoading /> : (<>
                 <div className="section-header section-header1">
                     <h2 style={{ color: "#BD6813" }}>we partner with</h2>
                     <Fade triggerOnce="true"

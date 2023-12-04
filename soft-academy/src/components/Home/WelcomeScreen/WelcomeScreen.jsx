@@ -13,14 +13,14 @@ export const WelcomeScreen=() =>{
                           
 
                             <Slide direction="right" duration="2500" triggerOnce='true'>
-                                <p style={{ color: "#cf8800" }}><i className="fa fa-check" aria-hidden="true" style={{ color: "#cf8800" }}></i>&nbsp;Comprehensive Software program</p>
+                                <p style={{ color: "#cf8800" }}><i className="fa fa-check" aria-hidden="true" style={{ color: "#cf8800" }}></i>&nbsp;Comprehensive Software program</p>&nbsp;
                             </Slide>
                             <Slide direction="left" duration="2500" triggerOnce='true'>
-                                <p style={{ color: "#cf8800" }}><i className="fa fa-check" aria-hidden="true" style={{ color: "#cf8800" }}></i>&nbsp;Learn how build DIY apps yourself&nbsp;&nbsp;
+                                <p style={{ color: "#cf8800" }}>&nbsp;<i className="fa fa-check" aria-hidden="true" style={{ color: "#cf8800" }}></i>&nbsp;Learn how build DIY apps yourself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </p>
                             </Slide>
                             <Slide direction="right" duration="2500" triggerOnce='true'>
-                                <p style={{ color: "#cf8800" }}><i className="fa fa-check" aria-hidden="true" style={{ color: "#cf8800" }}></i>&nbsp;Become a successful software engineer</p>
+                                <p style={{ color: "#cf8800" }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i className="fa fa-check" aria-hidden="true" style={{ color: "#cf8800" }}></i>&nbsp;Become a successful software engineer</p>
                             </Slide>
                             <Slide direction="left" duration="2500" triggerOnce='true'>
                                 <p >
