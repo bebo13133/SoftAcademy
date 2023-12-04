@@ -4,6 +4,8 @@ const baseUrl2 = `http://localhost:3030/data/forumComments`
 const baseUrl3 = `http://localhost:3030/data/forumLikes`
 const baseUrl4 = `http://localhost:3030/data/oneforumLikes`
 const baseUrl5 = `http://localhost:3030/data/promoCodes`
+const baseUrl6 = `http://localhost:3030/data/projects`
+
 export const forumServiceFactory = (token) => {
 
     const request = requestFactory(token)
@@ -90,7 +92,12 @@ export const forumServiceFactory = (token) => {
         return result
 
     }
+// ============== Projects=================//
+const createProject = async (projectData) => {
 
+    const result = await request.post(baseUrl6, projectData)
+    return result
+}
 
 
     return {
@@ -108,6 +115,7 @@ export const forumServiceFactory = (token) => {
         createForumLike,
         getAllForumLikes,
         deleteForumLike,
+        createProject
     
     }
 }
