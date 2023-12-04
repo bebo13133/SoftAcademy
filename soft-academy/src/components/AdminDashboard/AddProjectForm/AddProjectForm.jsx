@@ -5,23 +5,24 @@ import { forumServiceFactory } from '../../Services/forumService'
 import { AdminSidebar } from '../AdminSideBar'
 import '../adminDashboard.css'
 import './addProjectForm.css'
+import { useAuthContext } from '../../contexts/UserContext'
 
 
 
 
 export const AddProjectForm = () => {
     const navigate =useNavigate()
+
     const forumService = useService(forumServiceFactory)
 
 
     const onSubmitProject = async(data)=>{
-        console.log("hi")
         try{
            await forumService.createProject(data)
 
-            navigate("/")
+            navigate("/projects")
         }catch(err){
-
+            console.log(err.message || err);
         }
 
     }
