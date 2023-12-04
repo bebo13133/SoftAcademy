@@ -19,6 +19,7 @@ import { SignForm } from "../components/DetailsCourse/SignForm/SignForm"
 import { InvoiceCard } from "../components/DetailsCourse/InvoiceCard/InvoiceCard"
 import { TrainingCourses } from "../components/ProfilePage/TrainingCourses/TrainingCourses"
 import { SearchPageForum } from "../components/Forum/SearcBarForum/SearcPagrForum"
+import { TopProjects } from "../components/TopProjects/TopProjects"
 
  const HomeRoutes = ()=>{
 
@@ -49,7 +50,9 @@ import { SearchPageForum } from "../components/Forum/SearcBarForum/SearcPagrForu
         <EditForumPost />
          </IsOwnerForum>
       }/>
-/training-courses
+      <Route path="/projects" element={<TopProjects />} />
+
+
       <Route path="/add-new-post" element={<AddForumPost />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/change-password" element={<ChangePassword />} />

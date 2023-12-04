@@ -95,6 +95,7 @@ const IsAdmin = userEmail === "peter@abv.bg"
 										<li className="scroll"><Link to={"/create"}>add course</Link></li>
 										<li className="scroll"><Link to={"/blog"}>news</Link></li>
 										<li className="scroll"><Link to={"/forum"}>forum</Link></li>
+										<li className="scroll"><Link to={"/projects"}>Top projects</Link></li>
 
 										{IsAdmin && <li className="scroll"><Link to={"/admin"}>admin</Link></li>}
 
