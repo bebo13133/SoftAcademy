@@ -1,35 +1,72 @@
 .section-a {
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     padding: 20px;
     text-align: center;
     width: 60%;
     margin: auto;
   }
   
-  .title-projects {
+  .title-projects h2{
+    margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    text-transform:none;
+    /* color: black; */
   }
-  
+  .title-projects h3{
+    margin-top: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform:none;
+    /* color: black; */
+  }
   .data-projects {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
   }
   
-  .rights-projects,
+  .rights-projects{
+    /* flex: 1; */
+    /* border: 1px solid #ccc; */
+    flex: 0 0 100px; /* Неразширяваща се ширина на 100px (променете според вашите нужди) */
+    white-space: nowrap;
+    padding: 10px;
+    color: black;
+  }
   .description-projects {
     flex: 1;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     padding: 10px;
+    color: black;
   }
-  
   .youtube-preview {
-    border: 1px solid #ccc;
-    padding: 20px;
+    border: 1px solid rgb(70, 70, 136);
+    border-radius: 10px;
+    /* padding: 20px; */
     overflow: hidden;
   }
+  .separator {
+    flex: 0 0 1px; 
+    height: 40px; 
+    background-color: #646262; 
+    margin: 0 10px; 
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* .section-a {
     border: 1px solid #ccc;
     padding: 20px;
