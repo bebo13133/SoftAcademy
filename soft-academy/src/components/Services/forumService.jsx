@@ -112,7 +112,11 @@ const getOneProject= async (projectId) => {
 
 const updateProject =async (projectId, projectData) => request.put(`${baseUrl6}/${projectId}`, projectData)
 
-
+const deleteProject =async (projectId)=>{
+    
+    const result = await request.del(`${baseUrl6}/${projectId}`);
+    return result
+}
     return {
         getAll,
         create,
@@ -131,7 +135,8 @@ const updateProject =async (projectId, projectData) => request.put(`${baseUrl6}/
         createProject,
         getAllProjects,
         getOneProject,
-        updateProject
+        updateProject,
+        deleteProject
     
     }
 }

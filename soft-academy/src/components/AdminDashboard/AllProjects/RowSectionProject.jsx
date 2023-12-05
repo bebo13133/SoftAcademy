@@ -1,4 +1,5 @@
 import '../../AdminDashboard/rowSection.css'
+import'./rowSectionPorject.css'
 import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 
@@ -40,13 +41,13 @@ export const RowSectionProject=({
 
     return(
     <>
-    <div className="row-section-course">
+    <div className="row-section-project">
         <p><strong>ID:</strong> {_id}</p>
         <p><strong>Project Name:</strong> {title}</p>
 
-        <p><strong>website:</strong><Link to={website}> {website}</Link></p>
+        <p><strong>website:</strong><Link to={website} target="_blank" style={{color:"blue"}}> {website}</Link></p>
         <p><strong>Created On:</strong> {_createdOn}</p>
-        <p><strong>youtube</strong> <Link to={youtube} target="_blank">{youtube}</Link></p>
+        <p><strong>youtube</strong> <Link to={youtube} target="_blank" style={{color:"blue"}}>{youtube}</Link></p>
         {/* <p><strong>Likes</strong> {likes.length}</p> */}
 
 

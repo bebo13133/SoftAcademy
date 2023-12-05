@@ -14,9 +14,23 @@ export const AllProjects = () => {
     const [projectInfo, setProjectInfo] = useState([])
     // const [currentPage, setCurrentPage] = useState(1);
 
-    const { onDeleteForumAdmin } = useForumContext()
-
+    // const { onDeleteForumAdmin } = useForumContext()
     const forumService = forumServiceFactory()
+
+    const onDeleteProject=async(projectId) => {
+        try {
+            const deletePost = await forumService.deleteProject(projectId)
+         
+
+            navigate("/admin/projects")
+
+        } catch (err) {
+            // dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
+        }
+
+    }
+
+
 
     const resultsPerPage = 5;
     const { getPaginationData } = usePaginations(resultsPerPage)
@@ -29,7 +43,7 @@ export const AllProjects = () => {
     useEffect(() => {
         forumService.getAllProjects()
             .then(result => {
-                console.log(result,"result")
+          
                 setProjectInfo(result)
             })
             .catch(error => {
@@ -39,7 +53,7 @@ export const AllProjects = () => {
     }, [])
 
     const handleDelete = async (forumId) => {
-        await onDeleteForumAdmin(forumId)
+        await onDeleteProject(forumId)
         const projects = await forumService.getAllProjects()
         setProjectInfo(projects)
     }

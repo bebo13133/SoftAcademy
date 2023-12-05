@@ -42,7 +42,7 @@ export const OneProject = ({
 
                         </iframe>
                     </div>
-                    <div className="description-project-second"> {techniques}</div>
+                    <div className="description-project-second">Built with: {techniques}</div>
 
                 </section>
                 <div className="image-container-project">

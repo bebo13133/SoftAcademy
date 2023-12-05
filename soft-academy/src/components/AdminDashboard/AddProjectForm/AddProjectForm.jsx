@@ -17,6 +17,15 @@ export const AddProjectForm = () => {
 
 
     const onSubmitProject = async(data)=>{
+
+   
+        const trimmedData = {};
+        Object.keys(data).forEach(key => {
+         
+            trimmedData[key] = data[key].trim()
+        });  
+
+
         try{
            await forumService.createProject(data)
 

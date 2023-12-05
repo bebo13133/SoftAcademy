@@ -1,3 +1,4 @@
+
 .row-section {
  
     display: flex;
@@ -25,19 +26,20 @@
   .row-section strong {
     font-weight: bold;
   }
-  .row-section-course{
+  .row-section-project{
+
     display: flex;
     flex-direction: row;
-    justify-content: space-between; /* Adjust as needed */
-    align-items: center; 
+    justify-content: space-between;
+    align-items: baseline;
     gap: 35px;
     background: url(/img/createForm.jpg);
     padding: 15px 10px;
     margin: 10px;
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
-  .row-section-course p {
+  .row-section-project p {
     color: black;
   }
   .btn-primary-course{
@@ -108,7 +110,7 @@
   @media only screen and (max-width: 600px) {
   
     .row-section,
-    .row-section-course {
+    .row-section-project {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -127,3 +129,15 @@
       /* or any other appropriate value */
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
