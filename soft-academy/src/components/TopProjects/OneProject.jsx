@@ -28,8 +28,8 @@ export const OneProject = ({
                 <section className="project-section-second">
                     <h2> {title}</h2>
                     <div className="divider-project"></div>
-                    <div className="description-project">  {description} <Link to={youtube}>demo video</Link>.</div>
-                    <div className="description-project" >Website: {website}</div>
+                    <div className="description-project">  {description} <Link to={youtube} target="_blank" >demo video</Link>.</div>
+                    <div className="description-project" >Website: <Link to={website} target="_blank"> {website} </Link></div>
                     <div className="youtube-preview">
                         <iframe 
                         width="760"

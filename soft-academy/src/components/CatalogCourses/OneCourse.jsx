@@ -110,7 +110,7 @@ export const OneCourse = ({
                             <a href="#"> {Math.floor(Math.random() * 10 + likes.length + 1) + likes.length} Likes</a>
                             <span className="explore-price-box">
                                 Price &ensp;
-                                <span className="explore-price">{price}$</span>
+                                <span className="explore-price">${price}</span>
                             </span>
                             <a href="#">Start date : {date}</a>
                         </p>

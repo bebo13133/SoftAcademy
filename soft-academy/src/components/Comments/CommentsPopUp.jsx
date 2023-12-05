@@ -6,6 +6,7 @@ import { useAuthContext } from '../contexts/UserContext';
 import { BiLike } from "react-icons/bi"
 import { CourseOneComponent } from './CourseOneComment';
 import './courseComments.css'
+import { v4 } from 'uuid';
 
 export const CommentsPopUp = ({
     isOpenComments,
@@ -76,7 +77,7 @@ export const CommentsPopUp = ({
                 <p className="comment-count">Comments: {oneComment.length} </p>
 
                 <div className="author-section-course">
-                    {initialComments && initialComments.map((comment) => <CourseOneComponent key={comment._id} {...comment}
+                    {initialComments && initialComments.map((comment) => <CourseOneComponent key={comment._id || v4()} {...comment}
                         onDeletePostHandler={onDeletePostHandler}
                     />)}
                     {oneComment.length > 5 && (

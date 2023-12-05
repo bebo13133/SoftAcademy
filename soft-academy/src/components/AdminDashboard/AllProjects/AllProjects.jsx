@@ -25,7 +25,7 @@ export const AllProjects = () => {
             navigate("/admin/projects")
 
         } catch (err) {
-            // dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
+          console.log(err.message || err)
         }
 
     }

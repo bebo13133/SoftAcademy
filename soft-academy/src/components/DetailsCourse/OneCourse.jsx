@@ -224,7 +224,7 @@ export const OneCourse = ({
                     <br />
                     <p className="card-keyword">Lector: <span>{firstName} {lastName}</span> </p>
                     {/* <p className="card-location">Location: </p> */}
-                    <h2>Price: {price}$</h2>
+                    <h2>Price: ${price}</h2>
                     {/* buttons */}
 
 

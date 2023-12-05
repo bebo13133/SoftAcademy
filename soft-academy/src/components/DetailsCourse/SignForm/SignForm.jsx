@@ -125,7 +125,7 @@ export const SignForm = () => {
                     <img className="sign-course-img" src="/img/joinUp.webp" alt="sign-course" />
                     <h2>Course: <span>{course.courseName}</span> </h2>
                     <h3>
-                        Price:  <span className={voucherPrice !== undefined ? 'old-price strikethrough' : 'new-price'}>{course.price}$</span> {voucherPrice != undefined && (<span className='new-price'> {voucherPrice}$</span>)}</h3>
+                        Price:  <span className={voucherPrice !== undefined ? 'old-price strikethrough' : 'new-price'}>${course.price}</span> {voucherPrice != undefined && (<span className='new-price'> ${voucherPrice}</span>)}</h3>
                     <span></span>
                     <p className="lector-disc">  <FaCheck color="red" /> Start in:
                     </p>
