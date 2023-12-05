@@ -88,6 +88,28 @@
   max-height: 250px;
   margin-top: 15px;
 }
+.error-project{
+  border: 1px solid red;
+  color: red;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.error-message {
+  position: fixed;
+  top: 130px;;
+  left: 100%;
+  transform: translateX(-100%);
+  /* background-color: #ff545a; */
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  width: 300px;
+  z-index:1000;
+  opacity: 0; 
+  transition: opacity 0.5s ease-in-out;
+  animation: slideIn 0.5s ease-in-out;
+   background-color: #ff545a;
+  color: #ffffff; 
+}
 
 @media (max-width: 768px) {
   .edit-form-project {

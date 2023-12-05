@@ -6,28 +6,101 @@ import { AdminSidebar } from '../AdminSideBar'
 import '../adminDashboard.css'
 import './addProjectForm.css'
 import { useAuthContext } from '../../contexts/UserContext'
+import { useState } from 'react'
 
 
 
 
 export const AddProjectForm = () => {
+    const [errorMessage, setErrorMessage] = useState("")
+    const [formErrors, setFormErrors] = useState({
+        title: false,
+        description: false,
+        team: false,
+        techniques: false,
+        youtube: false,
+        imageUrl: false,
+
+    })
     const navigate =useNavigate()
 
     const forumService = useService(forumServiceFactory)
 
 
-    const onSubmitProject = async(data)=>{
+    const onSubmitProject = async(projectData)=>{
 
    
+        if (!projectData.title && !projectData.description && !projectData.team && !projectData.techniques && !projectData.youtube && !projectData.imageUrl) {
+            setErrorMessage("Some fields is empty")
+            setFormErrors({ title: true, description: true, team: true, techniques: true, youtube: true, imageUrl: true, })
+            setTimeout(() => {
+                setErrorMessage('');
+                setFormErrors({ title: true, description: false, team: false, techniques: false, youtube: false, imageUrl: false, })
+            }, 4000);
+
+            return;
+        }
+        if (!projectData.title) {
+            setErrorMessage("Some fields is empty")
+            setFormErrors(state => ({ ...state, title: true }))
+            setTimeout(() => {
+                setErrorMessage('');
+                setFormErrors(state => ({ ...state, title: false }))
+            }, 4000);
+            return;
+        }
+        if (!projectData.description) {
+            setErrorMessage("Some fields is empty")
+            setFormErrors(state => ({ ...state, description: true }))
+            setTimeout(() => {
+                setErrorMessage('');
+                setFormErrors(state => ({ ...state, description: false }))
+            }, 4000);
+            return;
+        }   if (!projectData.team) {
+            setErrorMessage("Some fields is empty")
+            setFormErrors(state => ({ ...state, team: true }))
+            setTimeout(() => {
+                setErrorMessage('');
+                setFormErrors(state => ({ ...state, team: false }))
+            }, 4000);
+            return;
+        }   if (!projectData.techniques) {
+            setErrorMessage("Some fields is empty")
+            setFormErrors(state => ({ ...state, techniques: true }))
+            setTimeout(() => {
+                setErrorMessage('');
+                setFormErrors(state => ({ ...state, techniques: false }))
+            }, 4000);
+            return;
+        }   if (!projectData.youtube) {
+            setErrorMessage("Some fields is empty")
+            setFormErrors(state => ({ ...state, youtube: true }))
+            setTimeout(() => {
+                setErrorMessage('');
+                setFormErrors(state => ({ ...state, youtube: false }))
+            }, 4000);
+            return;
+        }   if (!projectData.imageUrl) {
+            setErrorMessage("Some fields is empty")
+            setFormErrors(state => ({ ...state, imageUrl: true }))
+            setTimeout(() => {
+                setErrorMessage('');
+                setFormErrors(state => ({ ...state, imageUrl: false }))
+            }, 4000);
+            return;
+        }
+    
+   
         const trimmedData = {};
-        Object.keys(data).forEach(key => {
+        Object.keys(projectData).forEach(key => {
          
-            trimmedData[key] = data[key].trim()
+            trimmedData[key] = projectData[key].trim()
         });  
 
 
         try{
-           await forumService.createProject(data)
+           await forumService.createProject(projectData)
 
             navigate("/projects")
         }catch(err){
@@ -117,8 +190,13 @@ export const AddProjectForm = () => {
                             <li className="navbar-brand" style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                         </ul>
                     </form>
+                    {errorMessage && (
+                    <div className={`error-message ${errorMessage && 'show-error custom-style'}`}>
+                        <p>{errorMessage}</p>
+                    </div>
+                )}
                 </section>
-
+             
             </div>
 
 
