@@ -4,23 +4,23 @@ import { useService } from "../../Hooks/useService"
 import { useForm } from "../../Hooks/useForm"
 import { useEffect } from "react"
 import { AdminSidebar } from "../AdminSideBar"
-import { useForumContext } from "../../contexts/ForumContext"
 
+import './allProjects.css'
 export const EditProject=()=>{
     const { projectId } = useParams()
     const forumService = useService(forumServiceFactory)
     const navigate = useNavigate()
 
     const onEditSubmitProject =async(projectData)=>{
+
+
         try {
-    
-    
-            const post = await forumService.updateProject(projectId , projectData)
+                const post = await forumService.updateProject(projectId , projectData)
     
             // dispatch(editForumPost(projectData, post))
             navigate(`/admin/projects`)
         } catch (err) {
-            // dispatch({ type: 'SET_ERROR_MESSAGE_PROJECTS', payload: err.message || 'An error occurred' });
+            console.error(err.message||err)
         }
     }
 
@@ -85,7 +85,7 @@ return(
             <div className="close-button-forum-custom" onClick={onCloseComments}>
                 X
             </div>
-            <form className="post-form-project" onSubmit={onSubmitWithOut}>
+            <form className="edit-form-project" onSubmit={onSubmitWithOut}>
                         <label>
                             Title:<span className="required-field-project">*</span>
                             <input type="text" name="title" value={values.title} onChange={onChangeHandler} />
@@ -122,7 +122,7 @@ return(
                             </div>
                         )}
 
-                        <button type="submit">Create project</button>
+                        <button type="submit">Edit project</button>
                         <ul>
                             <li className="navbar-brand" style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                         </ul>

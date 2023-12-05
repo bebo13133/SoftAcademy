@@ -32,7 +32,7 @@ export const OneProject = ({
                     <div className="description-project" >Website: {website}</div>
                     <div className="youtube-preview">
                         <iframe 
-                        width="680"
+                        width="760"
                          height="280" 
                          src={embedUrl}
                             title="Solution Challenge Demo Day 2023"

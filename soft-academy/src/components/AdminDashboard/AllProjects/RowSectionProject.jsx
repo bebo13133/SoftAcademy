@@ -1,5 +1,5 @@
 import '../../AdminDashboard/rowSection.css'
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 import { ConfirmBox } from "../../ConfirmBox/ConfirmBox"
@@ -44,15 +44,15 @@ export const RowSectionProject=({
         <p><strong>ID:</strong> {_id}</p>
         <p><strong>Project Name:</strong> {title}</p>
 
-        <p><strong>website:</strong> {website}</p>
+        <p><strong>website:</strong><Link to={website}> {website}</Link></p>
         <p><strong>Created On:</strong> {_createdOn}</p>
-        <p><strong>youtube</strong> {youtube}</p>
+        <p><strong>youtube</strong> <Link to={youtube} target="_blank">{youtube}</Link></p>
         {/* <p><strong>Likes</strong> {likes.length}</p> */}
 
 
 
       
-        <button className="btn-primary-course" onClick={onAddClick}> Add</button>
+        <button className="btn-primary-course" style={{backgroundColor:"#d3d358",marginLeft: "80px"}} onClick={onAddClick}> Add</button>
         <button className="btn-primary-course" onClick={onNavigateEdit}> Edit</button>
 
         <button className="btn-delete-course" onClick={() => openDelete()}> Delete</button>

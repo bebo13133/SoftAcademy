@@ -83,7 +83,9 @@ console.log("fprms",formErrors)
                 onChangeValues(result)
                 setSelectOptions(result.selectOption)
             })
-
+            .catch(error => {
+                console.log(error.message || error)
+            })
     }, [courseId])
     // const handleClickOutside = (e) => {                    //При натискане извън полето да се затвори 
     //     if (e.target.className === "testbox") {
