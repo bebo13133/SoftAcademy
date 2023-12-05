@@ -23,12 +23,12 @@ export const EditProject = () => {
     const navigate = useNavigate()
 
     const onEditSubmitProject = async (projectData) => {
-        if (!projectData.title && !projectData.description && !projectData.team && !projectData.techniques && !projectData.youtube && !projectData.imageUrl) {
+        if (!projectData.title && !projectData.description && !projectData.team && !projectData.techniques && !projectData.youtube && !projectData.imageUrl && !projectData.websiteUrl) {
             setErrorMessage("Some fields is empty")
-            setFormErrors({ title: true, description: true, team: true, techniques: true, youtube: true, imageUrl: true, })
+            setFormErrors({title: true, description: true, team: true, techniques: true, youtube: true, imageUrl: true,website:true })
             setTimeout(() => {
                 setErrorMessage('');
-                setFormErrors({ title: true, description: false, team: false, techniques: false, youtube: false, imageUrl: false, })
+                setFormErrors({ title: false, description: false, team: false, techniques: false, youtube: false, imageUrl: false,website:false })
             }, 4000);
 
             return;
@@ -39,6 +39,15 @@ export const EditProject = () => {
             setTimeout(() => {
                 setErrorMessage('');
                 setFormErrors(state => ({ ...state, title: false }))
+            }, 4000);
+            return;
+        }
+        if (!projectData.website) {
+            setErrorMessage("Some fields is empty")
+            setFormErrors(state => ({ ...state, website: true }))
+            setTimeout(() => {
+                setErrorMessage('');
+                setFormErrors(state => ({ ...state, website: false }))
             }, 4000);
             return;
         }
@@ -121,6 +130,7 @@ export const EditProject = () => {
         team: "",
         youtube: "",
         techniques: "",
+        website:"",
     }, onEditSubmitProject)
 
 
@@ -165,24 +175,24 @@ export const EditProject = () => {
                             Description:<span className="required-field-project">*</span>
                             <textarea name="description" className={formErrors.description ? "error-project" : ""} value={values.description} onChange={onChangeHandler} />
                         </label>
-                        <label>
+                        <label className={formErrors.techniques ? "error-project" : ""}>
                             Techniques used:<span className="required-field-project">*</span>
                             <input type="text" name="techniques" value={values.techniques} onChange={onChangeHandler} />
                         </label>
-                        <label>
+                        <label className={formErrors.youtube ? "error-project" : ""}>
                             Youtube url:<span className="required-field-project">*</span>
                             <input type="text" name="youtube" value={values.youtube} onChange={onChangeHandler} />
                         </label>
-                        <label>
+                        <label className={formErrors.website ? "error-project" : ""}>
                             Website:<span className="required-field-project">*</span>
                             <input type="text" name="website" value={values.website} onChange={onChangeHandler} />
                         </label>
-                        <label>
+                        <label className={formErrors.imageUrl ? "error-project" : ""}>
                             Image:<span className="required-field-project">*</span>
                             <input type="file" name="imageUrl" onChange={handleImageChange} accept="image/*" />
                         </label>
 
-                        <label>
+                        <label className={formErrors.team ? "error-project" : ""}>
                             Team description:<span className="required-field-project">*</span>
                             <input type="text" name="team" value={values.team} onChange={onChangeHandler} />
                         </label>
