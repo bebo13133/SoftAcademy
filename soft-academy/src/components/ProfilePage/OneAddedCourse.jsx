@@ -1,7 +1,8 @@
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import * as likeService from "../Services/likeService"
-
+import * as bookmarkService from "../Services/bookmarkService"
+import { useAuthContext } from "../contexts/UserContext"
 
 export const OneAddedCourse = ({
     imageUrl,
@@ -15,21 +16,63 @@ export const OneAddedCourse = ({
     _id,
     lectorImage
 }) => {
-    const [likes, setLikes]=useState([])
-    // const { courseId } = useParams()
+    const [likes, setLikes] = useState([])
+
+    const [isBookmarked, setBookmarked] = useState(false);
+    const [bookMarkUser, setBookmarkUser] = useState([])
+    const { userId } = useAuthContext()
     const courseId = _id
+    const markId = bookMarkUser?._id
+    useEffect(() => {
+        likeService.getAllLikes()
+            .then(result => {
+                const likesCourse = (result.filter(like => like.courseId === courseId));
+                setLikes(likesCourse)
 
-useEffect(() => {
-    likeService.getAllLikes()
-    .then(result=>{
-    const likesCourse = (result.filter(like => like.courseId === courseId));
-      setLikes(likesCourse)
 
-        
-    })
-        
+            })
+    }, [])
 
-},[])
+    const handleBookmarkToggle = async (courseId, userId, markId) => {
+      
+        if (isBookmarked) {
+
+            const result = bookmarkService.deleteBookmark(markId);
+            setBookmarked(false);
+            setBookmarkUser(result)
+        } else if (!isBookmarked) {
+
+            const result = await bookmarkService.createBookmark(courseId, userId);
+            setBookmarked(true);
+            return setBookmarkUser(result)
+        }
+    }
+
+    useEffect(() => {
+        bookmarkService.getAllMarks(courseId)
+
+            .then(response => {
+                const bookMarkCourse = (response.filter(like => like.courseId === courseId));
+                // console.log("bookMarkCourse", bookMarkCourse)
+
+                setBookmarked(bookMarkCourse.some(like => like.userId === userId));
+                setBookmarkUser(bookMarkCourse.find(like => like._ownerId === userId));
+
+
+            })
+            .catch(error => {
+                console.error('Error fetching likes:', error);
+            });
+    }, [setBookmarkUser]);
+
+
+
+
+
+
+
+
+
     return (
         <>
             <div className=" col-md-4 col-sm-6">
@@ -37,17 +80,17 @@ useEffect(() => {
                     <div className="single-explore-img">
                         <img src={imageUrl ? imageUrl : imageUrl2} alt="explore image" />
                         <div className="single-explore-img-info">
-                            {/* <button onClick="window.location.href='#'">best rated</button> */}
+                        
                             <div className="single-explore-image-icon-box">
                                 <ul>
-                                    <li>
+                                    {/* <li>
                                         <div className="single-explore-image-icon">
                                             <i className="fa fa-arrows-alt"></i>
                                         </div>
-                                    </li>
+                                    </li> */}
                                     <li>
-                                        <div className="single-explore-image-icon">
-                                            <i className="fa fa-bookmark-o"></i>
+                                        <div className={`single-explore-image-icon ${isBookmarked ? 'bookmarked' : ''}`} >
+                                            <i className={`fa ${isBookmarked ? 'fa-heart' : 'fa-heart-o'}`} onClick={() => handleBookmarkToggle(courseId, userId, markId)} style={{ color: isBookmarked ? 'red' : 'blue', background: "none", fontSize: "32px", marginLeft: "-40px" }}></i>
                                         </div>
                                     </li>
                                 </ul>
