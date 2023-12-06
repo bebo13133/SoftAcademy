@@ -71,10 +71,10 @@ const location=useLocation()
             <section id="explore" className="explore" style={{ height: "420px" }}>
 
                 <div className="container">
-                    <div className="section-header">
-                        <h2>Courses</h2>
-                        <p>Explore New place, food, culture around the world and many more</p>
-                    </div>
+                <div className="section-header">
+                            <h2 style={{color: "rgb(2 93 139)", textShadow: "0 4px 8px rgb(109 20 37)"}}>Beloved Courses</h2>
+                            <p style={{fontSize:"22px", color:"#fffefd"}}>Explore your Favorites and Elevate your learning Journey</p>
+                        </div>
                     <div className="explore-content">
                         <div className="row">
 
