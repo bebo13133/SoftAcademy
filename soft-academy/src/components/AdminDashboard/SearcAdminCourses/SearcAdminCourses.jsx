@@ -52,6 +52,8 @@ export const SearchAdminCourses = () => {
                     <div className="customer-list">
                         <h2>All courses</h2>
                         <SearchBarAdminCourses />
+                        <h2 className="no-articles" style={{ marginBottom: "0px", color: "rgb(189, 104, 19)", textShadow: "0 4px 8px rgb(6 85 255 / 36%)" }}>Find results: {courseInfo.length}</h2>
+
                         {currentResult && currentResult.map(user => <RowSectionCourse key={user._id} 
                         onDeleteClick={() => handleDelete(user._id)}
                          {...user} />)}

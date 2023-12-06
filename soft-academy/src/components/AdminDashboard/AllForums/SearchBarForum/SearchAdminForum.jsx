@@ -12,10 +12,9 @@ import { usePaginations } from "../../../Hooks/usePaginations";
 export const SearchAdminForum = () => {
     const { forumSearch } = useForumContext()
 
-    console.log(forumSearch,"before")
+
     const [forumsInfo, setForumsInfo] = useState([])
 
-    console.log(forumsInfo,"forum")
  
     const { onDeleteForumAdmin } = useForumContext()
    
@@ -57,7 +56,7 @@ export const SearchAdminForum = () => {
                     <div className="customer-list">
                         <h2>All courses</h2>
                         <SearchBarAdminForum/>
-                        {/* (<h2 className="no-articles" style={{ marginBottom: "-56px", color: "rgb(189, 104, 19)", textShadow: "0 4px 8px rgb(6 85 255 / 36%)" }}>Find results: {forumSearch.length}</h2>) */}
+                        <h2 className="no-articles" style={{ marginBottom: "0px", color: "rgb(189, 104, 19)", textShadow: "0 4px 8px rgb(6 85 255 / 36%)" }}>Find results: {forumsInfo.length}</h2>
                         {currentResult.length > 0 ? currentResult.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />)
                         :
                         (<h2 className="no-articles">No forums yet</h2>)

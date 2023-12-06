@@ -93,7 +93,7 @@ export const SearchPageForum = () => {
 
                 <section className="forum-page-section">
                     <SearchBarForum />
-                    (<h2 className="no-articles" style={{ marginBottom: "-56px", color: "rgb(189, 104, 19)", textShadow: "0 4px 8px rgb(6 85 255 / 36%)" }}>Find results: {articles.length}</h2>)
+                    <h2 className="no-articles" style={{ marginBottom: "-56px", color: "rgb(189, 104, 19)", textShadow: "0 4px 8px rgb(6 85 255 / 36%)" }}>Find results: {articles.length}</h2>
                     <button className="close-button1" onClick={openSidebar}>Open Sidebar</button>
 
                     <div className="forum-page">
