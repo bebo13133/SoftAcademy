@@ -12,15 +12,15 @@ const forumContext = createContext()
 
 export const ForumProvider = ({ children }) => {
     const [forumSearch, setForumSearch] = useState([])
-   
+
     const [forumSearchPage, setForumSearchPage] = useState([])
-const [searchProjects,setSearchProjects] = useState([])
+    const [searchProjects, setSearchProjects] = useState([])
     const { token } = useAuthContext()
     const forumService = forumServiceFactory(token)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
-  
+
 
 
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
@@ -262,12 +262,12 @@ const [searchProjects,setSearchProjects] = useState([])
     }
 
 
-    const onSearchProject=async(values)=>{
+    const onSearchProject = async (values) => {
         try {
-            console.log("Projects",values)
+            console.log("Projects", values)
 
             const result = await forumService.getAllProjects()
-            console.log("serachProjects",result)
+            console.log("serachProjects", result)
             const trimmedSearchTerm = values.searchTerm.trim();
 
 
@@ -294,7 +294,7 @@ const [searchProjects,setSearchProjects] = useState([])
         } catch (error) {
             console.log(error.message || error);
         }
- 
+
     }
 
 
