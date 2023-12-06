@@ -17,6 +17,7 @@ import { SearchAdminForum } from "../components/AdminDashboard/AllForums/SearchB
 import { AddProjectForm } from "../components/AdminDashboard/AddProjectForm/AddProjectForm"
 import { AllProjects } from "../components/AdminDashboard/AllProjects/AllProjects"
 import { EditProject } from "../components/AdminDashboard/AllProjects/EditProject"
+import { SearchProjectPage } from "../components/AdminDashboard/AllProjects/SearchProjectPage"
 
 const AdminRoutes = () => {
 
@@ -39,7 +40,7 @@ const AdminRoutes = () => {
                 <Route path="search-course" element={<IsAdmin><SearchAdminCourses /></IsAdmin>} />
                 <Route path="search-forum" element={<IsAdmin><SearchAdminForum /></IsAdmin>} />
                 <Route path="add-project" element={<IsAdmin><AddProjectForm/></IsAdmin>} />
-              
+                <Route path="search-project" element={<IsAdmin><SearchProjectPage/></IsAdmin>} />
                 <Route path="projects" element={<IsAdmin><AllProjects/></IsAdmin>} />
                 <Route path="projects/:projectId" element={<IsAdmin><EditProject/></IsAdmin>} />
 

@@ -11,16 +11,16 @@ const forumContext = createContext()
 
 
 export const ForumProvider = ({ children }) => {
-
-
+    const [forumSearch, setForumSearch] = useState([])
+   
+    const [forumSearchPage, setForumSearchPage] = useState([])
+const [searchProjects,setSearchProjects] = useState([])
     const { token } = useAuthContext()
     const forumService = forumServiceFactory(token)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
-    const [forumSearch, setForumSearch] = useState([])
-    console.log(forumSearch, "forumSearch")
-    const [forumSearchPage, setForumSearchPage] = useState([])
+  
 
 
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
@@ -262,6 +262,41 @@ export const ForumProvider = ({ children }) => {
     }
 
 
+    const onSearchProject=async(values)=>{
+        try {
+            console.log("Projects",values)
+
+            const result = await forumService.getAllProjects()
+            console.log("serachProjects",result)
+            const trimmedSearchTerm = values.searchTerm.trim();
+
+
+            if (!values.searchTerm && values.searchCriteria == "all" || !values.searchTerm && values.searchCriteria == "") {
+                setSearchProjects(result)
+            }
+            if (values.searchTerm && values.searchCriteria === "all" || values.searchTerm && values.searchCriteria === "") {
+
+                setSearchProjects(result.filter(x => x.title.toLowerCase().includes(trimmedSearchTerm.toLowerCase())))
+            }
+            if (values.searchCriteria == "id") {
+                setSearchProjects(result.filter(x => x._id.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
+            }
+            if (values.searchCriteria == "website") {
+                setSearchProjects(result.filter(x => x.website.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
+            }
+            if (values.searchCriteria === "youtube") {
+                setSearchProjects(result.filter(x => x.youtube.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
+            }
+            if (values.searchCriteria === "title") {
+                setSearchProjects(result.filter(x => x.title.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
+            }
+            navigate("/admin/search-project")
+        } catch (error) {
+            console.log(error.message || error);
+        }
+ 
+    }
+
 
     const contextForumValue = {
         onPostSubmit,
@@ -275,7 +310,8 @@ export const ForumProvider = ({ children }) => {
         selectForum,
         onSearchForms,
         forumSearchPage,
-
+        onSearchProject,
+        searchProjects,
 
     }
 

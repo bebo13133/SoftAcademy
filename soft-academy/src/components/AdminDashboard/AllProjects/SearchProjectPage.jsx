@@ -1,32 +1,29 @@
-import { useEffect, useState } from "react";
-import { useForumContext } from "../../contexts/ForumContext";
-import { usePaginations } from "../../Hooks/usePaginations";
+import { useEffect, useState } from "react"
+import { usePaginations } from "../../Hooks/usePaginations"
+import { forumServiceFactory } from "../../Services/forumService"
+import { AdminSidebar } from "../AdminSideBar"
+import { SearchBarProject } from "./SearchBarProject"
+import { Pagination } from "../../Pagination/Pagination"
+import { useForumContext } from "../../contexts/ForumContext"
+import { RowSectionProject } from "./RowSectionProject"
 
-import { Pagination } from "../../Pagination/Pagination";
-import '../../AdminDashboard/adminDashboard.css'
-import { RowSectionProject } from "./RowSectionProject";
-import { forumServiceFactory } from "../../Services/forumService";
-import { SearchBarAdminForum } from "../AllForums/SearchBarForum/SearchBarForum";
-import { AdminSidebar } from "../AdminSideBar";
-import { SearchBarProject } from "./SearchBarProject";
+export const SearchProjectPage = () => {
 
-
-export const AllProjects = () => {
     const [projectInfo, setProjectInfo] = useState([])
-    // const [currentPage, setCurrentPage] = useState(1);
-
+console.log(projectInfo)
+    const { searchProjects } = useForumContext()
     // const { onDeleteForumAdmin } = useForumContext()
     const forumService = forumServiceFactory()
 
-    const onDeleteProject=async(projectId) => {
+    const onDeleteProject = async (projectId) => {
         try {
             const deletePost = await forumService.deleteProject(projectId)
-         
+
 
             navigate("/admin/projects")
 
         } catch (err) {
-          console.log(err.message || err)
+            console.log(err.message || err)
         }
 
     }
@@ -42,16 +39,12 @@ export const AllProjects = () => {
 
 
     useEffect(() => {
-        forumService.getAllProjects()
-            .then(result => {
-          
-                setProjectInfo(result)
-            })
-            .catch(error => {
-                console.log(error.message || error)
-            })
 
-    }, [])
+        setProjectInfo(searchProjects)
+
+
+
+    }, [searchProjects])
 
     const handleDelete = async (forumId) => {
         await onDeleteProject(forumId)
@@ -64,8 +57,8 @@ export const AllProjects = () => {
             <div className="admin-dashboard">
 
                 <section className="sidebar">
-    <AdminSidebar />
-</section>
+                    <AdminSidebar />
+                </section>
 
 
                 <section className="render-section">
@@ -81,5 +74,6 @@ export const AllProjects = () => {
             </div>
         </>
     )
+
 
 }

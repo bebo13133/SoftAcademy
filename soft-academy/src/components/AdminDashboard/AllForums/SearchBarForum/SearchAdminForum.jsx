@@ -10,13 +10,11 @@ import { Pagination } from "../../../Pagination/Pagination";
 import { usePaginations } from "../../../Hooks/usePaginations";
 
 export const SearchAdminForum = () => {
-    const { forumSearch } = useForumContext()
-
-
+   
     const [forumsInfo, setForumsInfo] = useState([])
 
  
-    const { onDeleteForumAdmin } = useForumContext()
+    const { onDeleteForumAdmin,forumSearch  } = useForumContext()
    
     const { token } = useAuthContext()
     const forumService = forumServiceFactory(token)

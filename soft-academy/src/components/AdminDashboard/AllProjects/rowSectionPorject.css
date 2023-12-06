@@ -41,6 +41,7 @@
   }
   .row-section-project p {
     color: black;
+    /* text-transform: none; */
   }
   .btn-primary-course{
     display: inline-block;
