@@ -248,15 +248,20 @@ export const UserProvider = ({ children }) => {
 
         try {
             const result = await userService.getAll()
+            const trimmedSearchTerm = data.searchTerm.trim();
 
-            if (!data.searchTerm || data.searchCriteria === "all") {
+            if (!data.searchTerm && data.searchCriteria === "all"|| !data.searchTerm && data.searchCriteria === "") {
                 setSearchResult(result)
             }
+            if (data.searchTerm && data.searchCriteria === "all" || data.searchTerm && data.searchCriteria === "") {
+
+                setSearchResult(result.filter(x => x._id.toLowerCase().includes(trimmedSearchTerm.toLowerCase())))
+            }
             if (data.searchCriteria === "id") {
-                setSearchResult(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
+                setSearchResult(result.filter(x => x._id.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
             }
             if (data.searchCriteria === "email") {
-                setSearchResult(result.filter(x => x.email.toLowerCase().includes(data.searchTerm.toLowerCase())));
+                setSearchResult(result.filter(x => x.email.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
             }
 
             navigate("/admin/search-customer")

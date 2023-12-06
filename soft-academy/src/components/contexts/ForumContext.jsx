@@ -19,7 +19,7 @@ export const ForumProvider = ({ children }) => {
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
     const [forumSearch, setForumSearch] = useState([])
-    console.log(forumSearch,"forumSearch")
+    console.log(forumSearch, "forumSearch")
     const [forumSearchPage, setForumSearchPage] = useState([])
 
 
@@ -29,7 +29,7 @@ export const ForumProvider = ({ children }) => {
     useEffect(() => {
         forumService.getAll()
             .then(result => {
-                
+
                 dispatch({ type: 'SET_FORUM_POSTS', payload: result });
             })
             .catch(error => {
@@ -38,10 +38,10 @@ export const ForumProvider = ({ children }) => {
 
     }, [dispatch])
 
-    const selectForum =(forumId) => {
+    const selectForum = (forumId) => {
 
-  return forumPosts.find(x => x._id === forumId)
-// console.log("forumPosts1",result)
+        return forumPosts.find(x => x._id === forumId)
+        // console.log("forumPosts1",result)
 
     }
 
@@ -207,20 +207,24 @@ export const ForumProvider = ({ children }) => {
 
         try {
             const result = await forumService.getAll()
-            console.log(data,"bla bla")
+            const trimmedSearchTerm = data.searchTerm.trim();
 
-            // if (!data.searchTerm && data.searchCriteria == "all" || !data.searchTerm && data.searchCriteria == "") {
-            //     setForumSearch(result)
-            // }
-            // if (data.searchCriteria == "id") {
-            //     setForumSearch(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
-            // }
+
+            if (!data.searchTerm && data.searchCriteria == "all" || !data.searchTerm && data.searchCriteria == "") {
+                setForumSearch(result)
+            }
+            if (data.searchTerm && data.searchCriteria === "all" || data.searchTerm && data.searchCriteria === "") {
+
+                setForumSearch(result.filter(x => x.title.toLowerCase().includes(trimmedSearchTerm.toLowerCase())))
+            }
+            if (data.searchCriteria == "id") {
+                setForumSearch(result.filter(x => x._id.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
+            }
             if (data.searchCriteria == "author") {
-                setForumSearch(result.filter(x => x.author.toLowerCase().includes(data.searchTerm.toLowerCase())));
+                setForumSearch(result.filter(x => x.author.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
             }
             if (data.searchCriteria == "title") {
-                // setForumSearch(result.filter(x => x.title.toLowerCase().includes(data.searchTerm.toLowerCase())));
-                setForumSearch(result.filter(x => x.title.toLowerCase().includes(data.searchTerm.toLowerCase())));
+                setForumSearch(result.filter(x => x.title.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
             }
             navigate("/admin/search-forum")
         } catch (error) {
@@ -229,32 +233,33 @@ export const ForumProvider = ({ children }) => {
 
         }
     }
-const onSearchForms=async(data)=>{
-   try{
-    const result = await forumService.getAll()
+    const onSearchForms = async (data) => {
+        try {
+            const result = await forumService.getAll()
+            const trimmedSearchTerm = data.searchTerm.trim();
 
-    if (!data.searchTerm && data.searchCriteria === "all" || !data.searchTerm && data.searchCriteria === "") {
-        const sortedResult = result.sort((a, b) => b._createdOn- a._createdOn);
-        setForumSearchPage(sortedResult)
-    }
-    
-    if  (data.searchTerm &&data.searchCriteria === "all" || data.searchTerm && data.searchCriteria === "") {
-     
-        setForumSearchPage(result.filter(x => x.title.toLowerCase().includes(data.searchTerm.toLowerCase())))
-    }
-    if (data.searchCriteria == "title") {
-        setForumSearchPage(result.filter(x => x.title.toLowerCase().includes(data.searchTerm.toLowerCase())));
-    }
-    if (data.searchCriteria == "author") {
-        setForumSearchPage(result.filter(x => x.author.toLowerCase().includes(data.searchTerm.toLowerCase())));
-    }
+            if (!data.searchTerm && data.searchCriteria === "all" || !data.searchTerm && data.searchCriteria === "") {
+                const sortedResult = result.sort((a, b) => b._createdOn - a._createdOn);
+                setForumSearchPage(sortedResult)
+            }
+
+            if (data.searchTerm && data.searchCriteria === "all" || data.searchTerm && data.searchCriteria === "") {
+
+                setForumSearchPage(result.filter(x => x.title.toLowerCase().includes(trimmedSearchTerm.toLowerCase())))
+            }
+            if (data.searchCriteria == "title") {
+                setForumSearchPage(result.filter(x => x.title.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
+            }
+            if (data.searchCriteria == "author") {
+                setForumSearchPage(result.filter(x => x.author.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
+            }
 
 
-    navigate("/forum/search-result")
-   }catch (error) {
-    console.log(error.message || error);
-   }
-}
+            navigate("/forum/search-result")
+        } catch (error) {
+            console.log(error.message || error);
+        }
+    }
 
 
 
@@ -270,7 +275,7 @@ const onSearchForms=async(data)=>{
         selectForum,
         onSearchForms,
         forumSearchPage,
-       
+
 
     }
 

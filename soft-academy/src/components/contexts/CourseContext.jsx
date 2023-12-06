@@ -370,20 +370,29 @@ export const CourseProvider = ({ children }) => {
 
 
     const onSearchSubmitAdminCourse = async (data) => {
+    
 
         try {
             const result = await courseService.getAll()
+        const trimmedSearchTerm = data.searchTerm.trim();
+     
             if (!data.searchTerm || data.searchCriteria === "all" || data.searchCriteria === "") {
                 setAdminSearch(result)
             }
+            if (data.searchTerm && data.searchCriteria === "all" || data.searchTerm && data.searchCriteria === "") {
+
+                setAdminSearch(result.filter(x => x.courseName.toLowerCase().includes(trimmedSearchTerm.toLowerCase())))
+            }
+
+
             if (data.searchCriteria == "id") {
-                setAdminSearch(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
+                setAdminSearch(result.filter(x => x._id.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
             }
             if (data.searchCriteria == "email") {
-                setAdminSearch(result.filter(x => x.email.toLowerCase().includes(data.searchTerm.toLowerCase())));
+                setAdminSearch(result.filter(x => x.email.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
             }
             if (data.searchCriteria == "name") {
-                setAdminSearch(result.filter(x => x.courseName.toLowerCase().includes(data.searchTerm.toLowerCase())));
+                setAdminSearch(result.filter(x => x.courseName.toLowerCase().includes(trimmedSearchTerm.toLowerCase())));
             }
             navigate("/admin/search-course")
         } catch (error) {
