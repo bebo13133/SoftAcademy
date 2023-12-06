@@ -19,7 +19,7 @@ export const DetailsCourse = () => {
     // const [comments, setComments] = useState([])
     const { courseId } = useParams()
     const courseService = useService(courseServiceFactory)
-
+const [visible,setVisible] = useState(false)
 
     useEffect(() => {
         courseService.getOne(courseId)
@@ -31,6 +31,8 @@ export const DetailsCourse = () => {
             .catch(error => {
                 console.error('Error:', error);
             })
+
+
 
     }, [courseId])
 
