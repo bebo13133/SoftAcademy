@@ -781,7 +781,9 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     -o-transition:.3s;
     transition: .3s;
 }
-.single-blog-item-txt {padding:  25px 28px 27px;}
+.single-blog-item-txt {padding:  25px 28px 27px;   
+     height: 300px;
+    max-height: 300px;}
 .single-blog-item-txt h2 a {text-transform:  initial;line-height: 1.8;}
 .single-blog-item-txt h4 {
     font-size:  14px;

@@ -373,8 +373,7 @@ export const CourseProvider = ({ children }) => {
 
         try {
             const result = await courseService.getAll()
-
-            if (!data.searchTerm || data.searchCriteria === "all") {
+            if (!data.searchTerm || data.searchCriteria === "all" || data.searchCriteria === "") {
                 setAdminSearch(result)
             }
             if (data.searchCriteria == "id") {

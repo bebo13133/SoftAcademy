@@ -6,13 +6,17 @@ import { SearchBarAdminForum } from "./SearchBarForum";
 import { RowSectionForum } from "../RowSectionForum";
 import { forumServiceFactory } from "../../../Services/forumService";
 import { useAuthContext } from "../../../contexts/UserContext";
+import { Pagination } from "../../../Pagination/Pagination";
+import { usePaginations } from "../../../Hooks/usePaginations";
 
 export const SearchAdminForum = () => {
-    const [forumsInfo, setForumsInfo] = useState([])
-  
     const { forumSearch } = useForumContext()
 
-    const [currentPage, setCurrentPage] = useState(1);
+    console.log(forumSearch,"before")
+    const [forumsInfo, setForumsInfo] = useState([])
+
+    console.log(forumsInfo,"forum")
+ 
     const { onDeleteForumAdmin } = useForumContext()
    
     const { token } = useAuthContext()
@@ -21,7 +25,7 @@ export const SearchAdminForum = () => {
     useEffect(() => {
         setForumsInfo(forumSearch)
 
-    }, [])
+    }, [forumSearch])
 
 
     const handleDelete = async (forumId) => {
@@ -33,11 +37,9 @@ export const SearchAdminForum = () => {
 
     const resultsPerPage = 5;
 
+    const { getPaginationData } = usePaginations(resultsPerPage)
 
-    const indexOfLastResult = currentPage * resultsPerPage;   //първа страница почва от едно по номера на резултатите които искаме да се показват 
-    const indexOfFirstResult = indexOfLastResult - resultsPerPage;
-    const currentResults = forumsInfo.slice(indexOfFirstResult, indexOfLastResult);
-    const totalPages = Math.ceil(forumsInfo.length / resultsPerPage);
+    const {paginate,totalPages,currentPage,currentResult,setCurrentPage} = getPaginationData(forumsInfo)
 
 
 
@@ -55,15 +57,13 @@ export const SearchAdminForum = () => {
                     <div className="customer-list">
                         <h2>All courses</h2>
                         <SearchBarAdminForum/>
-                        {currentResults && currentResults.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />)}
+                        {/* (<h2 className="no-articles" style={{ marginBottom: "-56px", color: "rgb(189, 104, 19)", textShadow: "0 4px 8px rgb(6 85 255 / 36%)" }}>Find results: {forumSearch.length}</h2>) */}
+                        {currentResult.length > 0 ? currentResult.map(forum => <RowSectionForum key={forum._id} onDeleteClick={() => handleDelete(forum._id)} {...forum} />)
+                        :
+                        (<h2 className="no-articles">No forums yet</h2>)
+                        }
                     </div>
-                    <ul className="pagination-admin">
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <li key={index} onClick={() => setCurrentPage(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
-                                {index + 1}
-                            </li>
-                        ))}
-                    </ul>
+                    <Pagination paginate={paginate} totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                 </section>
             </div>
 

@@ -18,7 +18,7 @@ export const SearchBarPage = () => {
     const resultsPerPage = 5;
     const { getPaginationData } = usePaginations(resultsPerPage)
 
-    const { paginate, totalPages, currentPage, currentResult, setCurrentPage } = getPaginationData(forumsInfo)
+    const { paginate, totalPages, currentPage, currentResult, setCurrentPage } = getPaginationData(searchResult)
 
 
 

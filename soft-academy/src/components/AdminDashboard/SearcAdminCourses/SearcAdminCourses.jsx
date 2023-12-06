@@ -35,7 +35,7 @@ export const SearchAdminCourses = () => {
 
     const { getPaginationData } = usePaginations(resultsPerPage)
 
-    const {paginate,totalPages,currentPage,currentResult,setCurrentPage} = getPaginationData(forumsInfo)
+    const {paginate,totalPages,currentPage,currentResult,setCurrentPage} = getPaginationData(courseInfo)
 
 
 

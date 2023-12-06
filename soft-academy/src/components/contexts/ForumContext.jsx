@@ -19,6 +19,7 @@ export const ForumProvider = ({ children }) => {
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
     const [forumSearch, setForumSearch] = useState([])
+    console.log(forumSearch,"forumSearch")
     const [forumSearchPage, setForumSearchPage] = useState([])
 
 
@@ -206,17 +207,19 @@ export const ForumProvider = ({ children }) => {
 
         try {
             const result = await forumService.getAll()
+            console.log(data,"bla bla")
 
-            if (!data.searchTerm && data.searchCriteria === "all" || !data.searchTerm && data.searchCriteria === "") {
-                setForumSearch(result)
-            }
-            if (data.searchCriteria == "id") {
-                setForumSearch(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
-            }
+            // if (!data.searchTerm && data.searchCriteria == "all" || !data.searchTerm && data.searchCriteria == "") {
+            //     setForumSearch(result)
+            // }
+            // if (data.searchCriteria == "id") {
+            //     setForumSearch(result.filter(x => x._id.toLowerCase().includes(data.searchTerm.toLowerCase())));
+            // }
             if (data.searchCriteria == "author") {
                 setForumSearch(result.filter(x => x.author.toLowerCase().includes(data.searchTerm.toLowerCase())));
             }
-            if (data.searchCriteria == "name") {
+            if (data.searchCriteria == "title") {
+                // setForumSearch(result.filter(x => x.title.toLowerCase().includes(data.searchTerm.toLowerCase())));
                 setForumSearch(result.filter(x => x.title.toLowerCase().includes(data.searchTerm.toLowerCase())));
             }
             navigate("/admin/search-forum")
