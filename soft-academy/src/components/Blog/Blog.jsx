@@ -84,7 +84,7 @@ const Blog = () => {
                                     <div className="col-md-4 col-sm-6" key={index}>
                                         <div className="single-blog-item">
                                             <div className="single-blog-item-img">
-                                                <img src={article.thumbnail || "./src/assets/images/blog/b3.jpg"} alt="blog image" />
+                                                <img style={{height:"220px", width:"400px"}}src={article.thumbnail || "./src/assets/images/blog/b3.jpg"} alt="blog image" />
                                             </div>
                                             <div className="single-blog-item-txt">
                                                 <h2><a href={article.url}>{article.title}</a></h2>
