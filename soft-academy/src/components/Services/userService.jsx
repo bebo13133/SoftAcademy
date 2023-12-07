@@ -6,6 +6,7 @@ const baseUrl3 = `http://localhost:3030/data/promoCodes`
 export const userServiceFactory = (token) => {
 
   const requester = requestFactory(token)
+  
   const getPromoCodes = async (_ownerId) => {
     const response = await requester.get(`${baseUrl3}?where=_ownerId%3D%22${_ownerId}%22`)
     const result = Object.values(response)
@@ -14,9 +15,12 @@ export const userServiceFactory = (token) => {
   }
   return {
     getPromoCodes,
+
+
     getAll: () => {
       return requester.get(`${baseUrl2}/users`)
     },
+    
     login: (data) => {
       // requester.post(`${baseUrl}/login`,data)
       return requester.post(`${baseUrl2}/login`, data)

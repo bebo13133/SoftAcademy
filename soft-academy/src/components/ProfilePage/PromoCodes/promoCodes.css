@@ -1,0 +1,52 @@
+
+.promo-code-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
+.promo-code-section {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    margin-top: 300px;
+    border: 1px solid #d11919;
+  }
+  
+  .promo-code-type {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border: 1px solid #d11919;
+    color: #c91212;
+
+  }
+  
+  .promo-code {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #d11919;
+    border-radius: 5px;
+    color: #c91212;
+  }
+  
+  .promo-code button {
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .promo-code button:hover {
+    background-color: #45a049;
+  }
+  

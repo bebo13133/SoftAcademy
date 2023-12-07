@@ -34,6 +34,12 @@ export const ProfileSidebar = () => {
   const onChangePassword = () => {
     navigate('/change-password')
   }
+
+const onGetPromoCodes=() => {
+
+  navigate('/my-vouchers')
+}
+
   return (
     <>
       <div className={`profile-sidebar ${isOpen ? 'open' : ''}`} ref={sidebarRef}>
@@ -55,6 +61,9 @@ export const ProfileSidebar = () => {
           </li>
           <li>
             <button className="close-button3" onClick={(onChangeAvatar)}>Change Photo</button>
+          </li>
+          <li>
+            <button className="close-button3" onClick={(onGetPromoCodes)}>My promo codes</button>
           </li>
         </ul>
         <ul>

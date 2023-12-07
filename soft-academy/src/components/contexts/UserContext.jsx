@@ -178,7 +178,7 @@ export const UserProvider = ({ children }) => {
             const promoCodes=codes.slice(0,8)
      
             // setPromoCodes(state=>[...state,promoCodes])
-            const newPromoCodes = await userService.createPromo({code:promoCodes})
+            const newPromoCodes = await userService.createPromo({code:promoCodes, type:"20% for all courses"})
             navigate("/")
 
             const sendEmail = () => {
@@ -187,7 +187,8 @@ export const UserProvider = ({ children }) => {
                     to_email: registerData.email,
                     message: `Welcome to SoftAcademy . Your username: ${registerData.email}  password:${registerData.password}`,
                     to_name: `${registerData.email}`,
-                    promo_code: promoCodes
+                    promo_code: promoCodes,
+                    
                 }
                  emailjs
                     .send(

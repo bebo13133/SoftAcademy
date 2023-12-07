@@ -20,6 +20,7 @@ import { InvoiceCard } from "../components/DetailsCourse/InvoiceCard/InvoiceCard
 import { TrainingCourses } from "../components/ProfilePage/TrainingCourses/TrainingCourses"
 import { SearchPageForum } from "../components/Forum/SearcBarForum/SearcPagrForum"
 import { TopProjects } from "../components/TopProjects/TopProjects"
+import { MyPromoCodes } from "../components/ProfilePage/PromoCodes/MyPromoCodes"
 
  const HomeRoutes = ()=>{
 
@@ -57,6 +58,7 @@ import { TopProjects } from "../components/TopProjects/TopProjects"
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/change-password" element={<ChangePassword />} />
       <Route path="/training-courses" element={<TrainingCourses />} />
+      <Route path="/my-vouchers" element={<MyPromoCodes />} />
 
       <Route path="/my-added-courses" element={<AddedCourses />} />
       <Route path="/favorite-courses" element={<FavoriteCourses />} />
