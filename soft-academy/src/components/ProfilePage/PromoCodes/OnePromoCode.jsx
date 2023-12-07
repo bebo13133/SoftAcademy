@@ -22,9 +22,9 @@ console.log()
     return (
         <>
             <div className="promo-code-section">
-                <div className="promo-code-type">Type: {type}</div>
-                <div className="promo-code">promoCode: {code}</div>
-                <button onClick={handleCopyClick}>Copy</button>
+                <div className="promo-code-type">Type discount: <span>{type}</span></div>
+                <div className="promo-code">promoCode:<span> {code}</span></div>
+                <button className="promo-code-btn" onClick={handleCopyClick}>Copy</button>
             </div>
         </>
     )

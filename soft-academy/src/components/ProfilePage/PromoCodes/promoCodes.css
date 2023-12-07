@@ -9,36 +9,57 @@
 
 
 .promo-code-section {
-    width: 400px;
+    background-color: #d7d7d7;
+    width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px;
     margin-top: 300px;
-    border: 1px solid #d11919;
+    border: 1px solid #e57807;
+    border-radius: 15px;
   }
   
   .promo-code-type {
-    font-size: 18px;
+    padding: 4px;
+    font-weight: bold;
+    font-size: 22px;
     margin-bottom: 10px;
-    border: 1px solid #d11919;
+    /* border: 1px solid #e57807; */
     color: #c91212;
+    border-radius: 5px;
 
   }
-  
+  .promo-code-type span{
+    padding: 4px;
+    font-size: 22px;
+    margin-bottom: 10px;
+    /* border: 1px solid #e57807; */
+    color: #6b90ff;
+    border-radius: 5px;
+
+  }
   .promo-code {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #d11919;
+    border: 1px solid #e57807;
     border-radius: 5px;
     color: #c91212;
   }
-  
-  .promo-code button {
-    font-size: 16px;
+  .promo-code span {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
     padding: 10px;
+
+    color: #030303;
+  }
+  .promo-code-section button {
+    font-size: 16px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
     cursor: pointer;
     background-color: #4caf50;
     color: #fff;
@@ -46,7 +67,7 @@
     border-radius: 5px;
   }
   
-  .promo-code button:hover {
+  .promo-code-section button:hover {
     background-color: #45a049;
   }
   
