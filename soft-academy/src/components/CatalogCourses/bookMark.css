@@ -2,6 +2,7 @@
     background: none;
 }
 .pagination-catalog {
+
     list-style: none;
     display: flex;
     justify-content: center;
@@ -30,19 +31,20 @@
     top: 115px;
     left: 0;
     height: 80vh;
-    width: 100px;
+    /* width: 100px;s */
     background-color: #f0f0f0;
     /* padding: 20px; */
     /* box-sizing: border-box; */
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 330px;
     height: 144vh;
     background: #223b55;
     border: 1px solid #333;
 }
 
 .image-section-catalog img {
+  width: 330px ;
   z-index: 11000;
     max-width: 100%; /* Гарантира, че изображението няма да надвишава ширината на родителя си */
     height: 100%; /* Позволява на изображението да запази съотношението си на страни */
