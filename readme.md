@@ -29,6 +29,8 @@ Description of the project.
 5. [Project Structure](#project-structure)
 6. [Testing Project](#testing-project)
 7. [License](#license)
+8. [Demo](#Short-Demo-and-Video)
+ 
 
 ## Features
 
