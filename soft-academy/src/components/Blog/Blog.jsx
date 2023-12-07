@@ -3,6 +3,7 @@ import { useAuthContext } from "../contexts/UserContext";
 import './blogNews.css'
 // import  Footer  from "../Footer/Footer";
 import { IsLoading } from "../IsLoading/IsLoading";
+import { Link } from "react-router-dom";
 const Footer = lazy(() => import("../Footer/Footer"))
 
 const Blog = () => {
@@ -87,7 +88,7 @@ const Blog = () => {
                                                 <img style={{height:"220px", width:"400px"}}src={article.thumbnail || "./src/assets/images/blog/b3.jpg"} alt="blog image" />
                                             </div>
                                             <div className="single-blog-item-txt">
-                                                <h2><a href={article.url}>{article.title}</a></h2>
+                                                <h2><Link to={article.url} target="_blank">{article.title}</Link></h2>
                                                 <h4>Posted <span>by</span> <a href="#">{article.author}</a> {new Date(article.published_date).toDateString()}</h4>
                                                 <p>{article.description}</p>
                                             </div>
