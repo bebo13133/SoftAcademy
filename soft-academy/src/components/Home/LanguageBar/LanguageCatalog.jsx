@@ -39,7 +39,8 @@ const handleBackClick=()=>{
             <section id="explore" className="explore">
                 <div className="container">
                 <div className="section-header">
-                            <h2 style={{color: "rgb(2 93 139)", textShadow: "0 4px 8px rgb(109 20 37)"}}>Courses  </h2>
+                           {currentResult.length > 0 ?  <h2 style={{color: "rgb(2 93 139)", textShadow: "0 4px 8px rgb(109 20 37)"}}>Courses on {currentResult[0].courseName}</h2> 
+                           :<h2 style={{color: "rgb(2 93 139)", textShadow: "0 4px 8px rgb(109 20 37)"}}>Courses </h2> }
                             <p style={{fontSize:"22px", color:"#fffefd"}}>Unlocking Knowledge and Skills for You</p>
                         </div>
                     <div className="explore-content">
