@@ -16,7 +16,7 @@ export const MyPromoCodes = () => {
 
 
 
-    const resultPerPage = 3
+    const resultPerPage = 1
     const { getPaginationData } = usePaginations(resultPerPage)
     const { totalPages, currentPage, currentResult, paginate, setCurrentPage } = getPaginationData(promoCodes)
 
