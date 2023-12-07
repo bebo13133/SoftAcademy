@@ -3,8 +3,8 @@
 .forum-sidebar {
   position: absolute;
   /* top: 0; */
-  left: -250px;
-  width: 250px;
+  left: -300px;
+  width: 300px;
   height:125vh;
   background-color: rgb(73 73 73);
   /*     background-color: rgba(0, 0, 0, 0);  прозрачно*/
@@ -38,7 +38,7 @@
 
 .close-button1 {
   /* position: absolute; */
-  margin-left: 45px;
+  margin-left: 75px;
   margin-top: 10px;
   /* top: 10;y
   left: 0; */

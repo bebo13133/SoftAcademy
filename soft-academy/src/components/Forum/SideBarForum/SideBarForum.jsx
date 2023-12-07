@@ -29,7 +29,7 @@ export const SideBarForum = ({sideBarArticles, articles,closeSidebar, isOpen }) 
                     
                 <div className={`forum-sidebar ${isOpen ? 'open' : ''}`} style={sideBarArticles<=0 || articles<=0? { height: "121.5vh" } : { height: "125vh" }} >
                 <ul>
-          <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
+          <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a",marginLeft: "40px" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
         </ul>
                 <button className="close-button1" onClick={() => navigate('/add-new-post')}>Add New Post</button>
                 <button className="close-button1" onClick={closeSidebar} >
