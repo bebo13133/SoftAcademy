@@ -6,7 +6,12 @@ export const OnePromoCode = ({
     code,
     type,
 }) => {
-console.log()
+// console.log()
+
+
+
+
+
     const handleCopyClick = async () => {
         try {
             await copy(code)
@@ -23,7 +28,7 @@ console.log()
         <>
             <div className="promo-code-section">
                 <div className="promo-code-type">Type discount: <span>{type}</span></div>
-                <div className="promo-code">promoCode:<span> {code}</span></div>
+                <div className="promo-code">Promo code:<span> {code}</span></div>
                 <button className="promo-code-btn" onClick={handleCopyClick}>Copy</button>
             </div>
         </>
