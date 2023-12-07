@@ -146,5 +146,11 @@ Soft Academy has its own tests to ensure a more reliable and secure platform ope
 
 ## License:
 This project is licensed under the [MIT License](LICENSE).
-## Short demo:
-https://www.youtube.com/watch?v=sia_TJH-Svc
+
+## Short Demo and Video
+
+Explore a brief demo of the Soft Academy platform in the following video:
+
+[![Soft Academy Demo](https://img.youtube.com/vi/sia_TJH-Svc/0.jpg)](https://www.youtube.com/watch?v=sia_TJH-Svc)
+
+Click on the image to view the demo.
