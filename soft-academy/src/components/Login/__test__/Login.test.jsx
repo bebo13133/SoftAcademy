@@ -38,7 +38,7 @@ describe('Login component', () => {
         expect(passwordInput.value).toBe('testPassword');
         const submitButton = screen.getByText('Login');
         fireEvent.click(submitButton);
-
+        expect(window.location.pathname).toBe('/');
     });
 
     it('successful login redirects to home', async () => {
@@ -88,9 +88,9 @@ describe("Login error handler", () => {
         // fireEvent.change(repeatPasswordInput, { target: { value: 'testpassword' } });
 
         fireEvent.click(screen.getByText("Login"));
-        await screen.findByText('Some fields is empty');
+        await screen.findByText('Some field is empty');
 
-        expect(screen.getByText('Some fields is empty')).toBeInTheDocument();
+        expect(screen.getByText('Some field is empty')).toBeInTheDocument();
 
         afterEach(() => {
             fireEvent.change(emailInput, { target: { value: '1' } });
@@ -103,9 +103,9 @@ describe("Login error handler", () => {
         fireEvent.change(emailInput, { target: { value: '' } });
         fireEvent.change(passwordInput, { target: { value: 'password' } });
         fireEvent.click(screen.getByText("Login"));
-        await screen.findByText('Some fields is empty');
+        await screen.findByText('Some field is empty');
 
-        expect(screen.getByText('Some fields is empty')).toBeInTheDocument();
+        expect(screen.getByText('Some field is empty')).toBeInTheDocument();
         afterEach(() => {
             fireEvent.change(emailInput, { target: { value: '1' } });
             fireEvent.change(passwordInput, { target: { value: '1' } });
@@ -117,9 +117,9 @@ describe("Login error handler", () => {
         fireEvent.change(emailInput, { target: { value: '' } });
         fireEvent.change(passwordInput, { target: { value: '' } });
         fireEvent.click(screen.getByText("Login"));
-        await screen.findByText('Some fields is empty');
+        await screen.findByText('Some field is empty');
 
-        expect(screen.getByText('Some fields is empty')).toBeInTheDocument();
+        expect(screen.getByText('Some field is empty')).toBeInTheDocument();
         afterEach(() => {
             fireEvent.change(emailInput, { target: { value: '1' } });
             fireEvent.change(passwordInput, { target: { value: '1' } });
@@ -128,15 +128,15 @@ describe("Login error handler", () => {
     })
 
     test('Minimum characters is 5', async () => {
-
+        let minLength = 5
         fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
         fireEvent.change(passwordInput, { target: { value: 'vcc' } });
 
 
         fireEvent.click(screen.getByText("Login"));
-        await screen.findByText('Minimum characters is 5');
+        await screen.findByText(`Minimum field length is ${minLength}`);
 
-        expect(screen.getByText('Minimum characters is 5')).toBeInTheDocument();
+        expect(screen.getByText(`Minimum field length is ${minLength}`)).toBeInTheDocument();
 
         afterEach(() => {
             fireEvent.change(emailInput, { target: { value: '1' } });
@@ -145,12 +145,13 @@ describe("Login error handler", () => {
       
     })
     test('Minimum characters is 9', async () => {
+        let minLength = 9
         fireEvent.change(emailInput, { target: { value: 'c@abv.bg' } });
         fireEvent.change(passwordInput, { target: { value: 'password' } });
         fireEvent.click(screen.getByText("Login"));
-        await screen.findByText('Minimum characters is 9');
+        await screen.findByText(`Minimum field length is ${minLength}`);
 
-        expect(screen.getByText('Minimum characters is 9')).toBeInTheDocument();
+        expect(screen.getByText(`Minimum field length is ${minLength}`)).toBeInTheDocument();
         afterEach(() => {
             fireEvent.change(emailInput, { target: { value: '1' } });
             fireEvent.change(passwordInput, { target: { value: '1' } });
@@ -163,4 +164,3 @@ describe("Login error handler", () => {
         fireEvent.change(passwordInput, { target: { value: '' } });
       });
 })
-

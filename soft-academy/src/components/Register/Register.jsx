@@ -35,7 +35,7 @@ export const Register = () => {
                         <ul>
                             <li className="navbar-brand " style={{ fontSize: "25px", fontWeight: "bold", color: "#ff545a" }} href="/">Soft<span style={{ fontSize: "25px", textTransform: "none", color: "black" }}>Academy</span></li>
                         </ul>
-                        <div className="container-login">
+                        <div className="container-login" data-testid="parent-container">
                             <div className="brand-logo-login"></div>
 
                             <label htmlFor="email">Email:</label>
@@ -45,7 +45,7 @@ export const Register = () => {
                             <input type="password" className={formError.password ? "error": ""} id="login-password" name="password" value={values.password} onChange={onChangeHandler} />
                             <label htmlFor="confirm-password">Confirm Password:</label>
                             <input type="password" className={formError.confirmPassword ? "error": ""} name="confirmPassword" id="confirm-password" value={values.confirmPassword} onChange={onChangeHandler} />
-                            <input type="submit" className="btn submit-button" value="Register" />
+                            <input type="submit" className="btn submit-button" value="Register" data-testId="register-button" />
 
                             <p className="field">
                                 <span>IF you have a PROFILE CLICK <Link to={"/login"}>here</Link></span>
