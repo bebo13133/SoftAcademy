@@ -1,7 +1,7 @@
 # Soft Academy
 "Soft Academy" is an online platform designed for students and learners interested in studying software engineering. The goal is to make it easy and accessible for future learners to choose their software learning path, create a pleasant and non-intrusive learning experience, and ignite a passion for programming.
 Description of the project.
-## Visit the live site: [Soft Academy](https://softacadamy-a0183.web.app/)
+## [Visit the live site: Soft Academy](https://softacadamy-a0183.web.app/){:target="_blank"}
 ## Technologies Used
 
 - **React/Vite:** A JavaScript library for building user interfaces.
