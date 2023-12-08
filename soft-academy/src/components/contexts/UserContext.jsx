@@ -24,15 +24,6 @@ export const UserProvider = ({ children }) => {
 
     const voucherCodes =[]
   
-    // const [formErrors, setFormErrors] = useState({
-    //     email: false,
-    //     password: false,
-    //     confirmPassword:false,
-    //   });
-
-    
-
-    // console.log("errorMessage",errorMessage)
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()
 
@@ -89,7 +80,6 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-
     const validateRegisterData = (data,confirmPassword) => {
         if (!checkFieldNotEmpty( 'email', data.email)) {
             console.log('Validation failed ');
@@ -120,8 +110,6 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-
-
     const onLoginSubmit = async (data) => {
 
         validateLoginData(data)
@@ -131,16 +119,15 @@ export const UserProvider = ({ children }) => {
         });   //тримвам спейсовете
     
         try {
-           
-     
+               
             const users = await userService.getAll()
             setUsers(users)
 
             const newUser = await userService.login(trimmedData)
-            setIsAuth(newUser)
+            const {password, ...newUsers} = newUser
+            setIsAuth(newUsers)
             navigate("/")
         } catch (err) {
-
 
             if (err.code === 403) {
                 setErrorMessage("Please enter a valid password or email address")
@@ -154,7 +141,6 @@ export const UserProvider = ({ children }) => {
         }
 
     }
-
     const onRegisterSubmit = async (data) => {
       
         const { confirmPassword, ...registerData } = data
@@ -168,13 +154,12 @@ export const UserProvider = ({ children }) => {
 
 
         validateRegisterData(trimmedRegisterData,trimmedConfirmPassword)
-
-       
-      
+     
         try {
 
             const newUser = await userService.register(trimmedRegisterData)
-            setIsAuth(newUser)
+            const {password, ...newUsers} = newUser
+            setIsAuth(newUsers)
             const codes = v4()
             const promoCodes=codes.slice(0,8)
      
@@ -212,8 +197,6 @@ export const UserProvider = ({ children }) => {
     
     
             sendEmail()
-
-
 
         } catch (err) {
 

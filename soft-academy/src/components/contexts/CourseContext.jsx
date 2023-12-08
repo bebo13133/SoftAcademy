@@ -148,10 +148,6 @@ export const CourseProvider = ({ children }) => {
         }
     }
 
-
-
-
-
     const onCreateCourseSubmit = async (courseData) => {
         validateCourseData(dispatch, courseData)
 
@@ -167,9 +163,6 @@ export const CourseProvider = ({ children }) => {
         }
 
     }
-
-
-
     const selectCourse = (courseId) => {  //използвам го при гарда IsOwner за да отделя текущият курс 
 
         return course.find(course => course._id === courseId)
@@ -208,8 +201,6 @@ export const CourseProvider = ({ children }) => {
 
     }
 
-
-
     const onSignUp = async (values) => {
         if (!values.firstName || !values.lastName || !values.phoneNumber || !values.socialNumber) {
 
@@ -218,7 +209,6 @@ export const CourseProvider = ({ children }) => {
                 dispatch(setError(''));
             }, 4000);
             return
-
         }
         try {
             if (values.isChecked) {
@@ -235,12 +225,7 @@ export const CourseProvider = ({ children }) => {
 
         }
 
-
-        // }
-
     }
-
-
 
     const onSubmitPayment = async (values) => {
       
@@ -255,10 +240,6 @@ export const CourseProvider = ({ children }) => {
         }
         const result = await courseService.pay(values)
         setPayStudent(state => [...state, result])
-
-
-
-
 
         navigate(`/catalog/${values.courseId}`)
 
@@ -292,14 +273,9 @@ export const CourseProvider = ({ children }) => {
 
         }
 
-
         sendEmail()
 
-
-
-
     }
-
 
     const onEditSubmit = async (data) => {
         validateCourseData(dispatch, data)
@@ -327,7 +303,6 @@ export const CourseProvider = ({ children }) => {
             console.log(err.message || err);
         }
     }
-
 
     const onSearchSubmit = async (data) => {
         try {
@@ -368,7 +343,6 @@ export const CourseProvider = ({ children }) => {
     };
 
 
-
     const onSearchSubmitAdminCourse = async (data) => {
     
 
@@ -402,11 +376,6 @@ export const CourseProvider = ({ children }) => {
         }
     }
 
-
-
-
-
-
     const onSubmitLanguageBar = async (language) => {
 
         try {
@@ -421,9 +390,6 @@ export const CourseProvider = ({ children }) => {
 
         // console.log("language",language)
     }
-
-
-
 
     const contextCourseValue = {
         searchResult,

@@ -506,10 +506,10 @@ span {
 } */
 
 #root > div.testbox > form > div.banner{
-    border-radius: 25px;
+    border-radius: 65px;
 }
 
 #root > div.testbox > form > div.banner::after {
 
-    border-radius: 25px;
+    border-radius: 65px;
 }

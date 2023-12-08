@@ -21,8 +21,6 @@ export const ForumProvider = ({ children }) => {
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.errorReducer.errorMessage);
 
-
-
     const forumPosts = useSelector(state => state.forumReducer.forumPosts);
 
 
@@ -50,8 +48,6 @@ export const ForumProvider = ({ children }) => {
         try {
 
             if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
-
-
                 dispatch(setError("Some fields is empty"));
                 setTimeout(() => {
                     dispatch(setError(''));
@@ -192,8 +188,6 @@ export const ForumProvider = ({ children }) => {
 
 
         try {
-
-
             const post = await forumService.update(forumData._id, forumData)
 
             dispatch(editForumPost(forumData, post))
@@ -314,8 +308,6 @@ export const ForumProvider = ({ children }) => {
         searchProjects,
 
     }
-
-
 
     return (
         <forumContext.Provider value={contextForumValue}>
