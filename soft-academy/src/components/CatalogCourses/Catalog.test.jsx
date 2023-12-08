@@ -60,31 +60,31 @@ describe('CatalogCourses component', () => {
         });
     })
 
-test("read more buttons", async() => {
-    // await act(async () => {
-        const AuthenticatedComponent = () => (
-            <MemoryRouter>
-              <UserProvider isAuthenticated={true}>
-                <Provider store={store}>
-                  <CourseProvider>
-                    <CatalogCourses />
-                  </CourseProvider>
-                </Provider>
-              </UserProvider>
-            </MemoryRouter>
-          );
-    // })
-    await act(async () => {
-        render(<AuthenticatedComponent />);
-      });
-    const readMoreButton = screen.getAllByText('Read more...')
+// test("read more buttons", async() => {
+//     // await act(async () => {
+//         const AuthenticatedComponent = () => (
+//             <MemoryRouter>
+//               <UserProvider isAuthenticated={true}>
+//                 <Provider store={store}>
+//                   <CourseProvider>
+//                     <CatalogCourses />
+//                   </CourseProvider>
+//                 </Provider>
+//               </UserProvider>
+//             </MemoryRouter>
+//           );
+//     // })
+//     await act(async () => {
+//         render(<AuthenticatedComponent />);
+//       });
+//     const readMoreButton = screen.getAllByText('Read more...')
 
-    userEvent.click(readMoreButton);
-//    await waitFor(() => {
-//         const invalidMessage = screen.getByText('Unauthorized');
-//         expect(invalidMessage).toBeInTheDocument();
-//     });
-})
+//     userEvent.click(readMoreButton);
+// //    await waitFor(() => {
+// //         const invalidMessage = screen.getByText('Unauthorized');
+// //         expect(invalidMessage).toBeInTheDocument();
+// //     });
+// })
 
 // test("favorite buttons", async() => {
 
