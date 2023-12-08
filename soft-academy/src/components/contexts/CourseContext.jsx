@@ -81,7 +81,14 @@ export const CourseProvider = ({ children }) => {
         }
         return true
     }
-
+    const checkLengthFieldMax = (dispatch, fieldName, value, maxLength) => {
+        if (value.length > maxLength) {
+            setSpecificErrorToTrue(fieldName)
+            showErrorAndSetTimeout(dispatch, `Maximum field length is ${maxLength}`)
+            throw new Error(`Maximum field length is ${maxLength}`)
+        }
+        return true
+    }
 
 
     const validateCourseData = (dispatch, courseData) => {
@@ -144,6 +151,9 @@ export const CourseProvider = ({ children }) => {
             return
         }
         if (!checkLengthField(dispatch, 'lectorDescription', courseData.lectorDescription, 20)) {
+            return
+        }
+        if (!checkLengthFieldMax(dispatch, 'price', courseData.price, 5)) {
             return
         }
     }
