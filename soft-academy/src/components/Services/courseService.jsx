@@ -26,6 +26,28 @@ export const courseServiceFactory = (token) => {
         const result = await request.post(baseUrl, courseData)
         return result
     }
+
+    // const create = async (courseData) => {
+
+    //     const result = await request.post(baseUrl, courseData ,{
+    //         headers: {
+    //           'x-admin': '8d8f833f3e9608ff96f14ce01aa732fc8ad013a9ff31ed4c92fd5f254317b4be', // Подменете 'your-header-value' със стойността, която искате да използвате
+    //           // Допълнителни заглавия могат да се добавят тук, ако са необходими
+    //         }
+    // })
+    //     return result
+    // }
+
+
+
+
+
+
+
+
+
+
+
     const deleteCourse = (courseId) => request.del(`${baseUrl}/${courseId}`)
     const updateCourse = (courseId, data) => request.put(`${baseUrl}/${courseId}`, data)
 

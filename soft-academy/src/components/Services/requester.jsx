@@ -1,4 +1,7 @@
+import { useAuthContext } from "../contexts/UserContext";
 const requester = async (method, url, data) => {
+// const {userId}=useAuthContext()
+//   console.log(userEmail)
     const options = {};
 
     if (method !== 'GET') {
@@ -21,6 +24,14 @@ const requester = async (method, url, data) => {
             options.headers = {
                 ...options.headers,
                 'X-Authorization': auth.accessToken,
+            };
+        }
+     
+        if (auth.email === "peter@abv.bg") {
+            
+            options.headers = {
+                ...options.headers,
+                'X-Admin': auth.accessToken,
             };
         }
     }

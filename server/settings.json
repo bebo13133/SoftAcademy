@@ -385,7 +385,7 @@
             ".read": [
                 "Owner"
             ],
-            ".update": false,
+            ".update": true,
             ".delete": false
         },
         "members": {

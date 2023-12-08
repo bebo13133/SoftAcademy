@@ -173,6 +173,8 @@ export const CourseProvider = ({ children }) => {
         }
 
     }
+
+    
     const selectCourse = (courseId) => {  //използвам го при гарда IsOwner за да отделя текущият курс 
 
         return course.find(course => course._id === courseId)
