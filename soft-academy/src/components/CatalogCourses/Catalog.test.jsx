@@ -105,34 +105,34 @@ it("read more buttons", async() => {
 
 })
 
-// test("favorite buttons", async() => {
+test("favorite buttons", async() => {
 
-//     const handleBookmarkToggleMock = vi.fn();
+    const handleBookmarkToggleMock = vi.fn();
 
-//     await act(async () => {
-//         const { debug, getByText } = render(
+    await act(async () => {
+        const { debug, getByText } = render(
 
-//             <MemoryRouter>
-//                 <UserProvider>
-//                     <Provider store={store}>
-//                         <CourseProvider >
+            <MemoryRouter>
+                <UserProvider>
+                    <Provider store={store}>
+                        <CourseProvider >
 
 
 
-//                             <OneCourse handleBookmarkToggle={handleBookmarkToggleMock}/>
-//                         </CourseProvider>
-//                     </Provider>
-//                 </UserProvider>
-//             </MemoryRouter>
-//         )
-//     })
+                            <OneCourse handleBookmarkToggle={handleBookmarkToggleMock}/>
+                        </CourseProvider>
+                    </Provider>
+                </UserProvider>
+            </MemoryRouter>
+        )
+    })
 
-//     const heartIcon = screen.getByTestId('heart-icon');
-//     expect(heartIcon).toBeVisible();
+    const heartIcon = screen.getByTestId('heart-icon');
+    expect(heartIcon).toBeVisible();
  
-//     fireEvent.click(heartIcon);
+    fireEvent.click(heartIcon);
   
-
+})
  
 
 

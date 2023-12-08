@@ -14,7 +14,11 @@ const Contact = () => {
 
     const sendEmail = (e) => {
         e.preventDefault()
-
+        if (!userName || !userEmail || !userSubject || !message) {
+            alert("Please fill in all required fields");
+            return;
+        }
+    
         emailjs
             .sendForm(
                 "service_zxhuqbx",

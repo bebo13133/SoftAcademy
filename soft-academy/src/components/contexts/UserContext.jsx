@@ -18,6 +18,7 @@ export const UserProvider = ({ children }) => {
     const [avatarUrl, setAvatarUrl] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
     const [searchResult, setSearchResult] = useState([])
+    const [users, setUsers] = useState([])
     // const [voucherCodes,setPromoCodes] = useState([])
     const { formError, setSpecificErrorToTrue } = useLoginRegisterValidation()
 
@@ -30,7 +31,7 @@ export const UserProvider = ({ children }) => {
     //   });
 
     
-    const [users, setUsers] = useState([])
+
     // console.log("errorMessage",errorMessage)
     const userService = userServiceFactory(isAuth.accessToken)
     const navigate = useNavigate()

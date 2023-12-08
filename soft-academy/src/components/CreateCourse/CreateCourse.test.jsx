@@ -100,12 +100,12 @@ describe('Create component', () => {
             date,
           ];
         
-          // Проверка за наличие на всеки елемент в документа
+     
           elements.forEach(element => {
             if (element) {
                 expect(element).toBeInTheDocument();
               } else {
-                // Тук може да добавите други проверки или логика, ако елементът не е намерен
+           
                 console.error('Element not found:', element);
               }
           });
