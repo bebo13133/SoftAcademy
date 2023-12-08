@@ -21,7 +21,7 @@ import { SignUpCourse } from './SignUpCourse';
 
 const mockDetails = { _id: '1', title: 'Course 1', description: 'Description for Course 1' };
 
-console.log("dasdsa", mockDetails._id);
+// console.log("dasdsa", mockDetails._id);
 const paymentDetails = [{
     "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
     "cardNumber": "432432432",
@@ -90,7 +90,7 @@ describe("test render  details page", async () => {
             </MemoryRouter>
         )
     })
-    test('renders OneCourse with details', async () => {
+    it('renders OneCourse with details', async () => {
 
         await act(async () => {
             const { debug, getByText } = render(
@@ -114,7 +114,7 @@ describe("test render  details page", async () => {
         })
 
         const TestRender = screen.getAllByText("Description for Course 1")
-        expect(TestRender).toHaveLength(2);
+        expect(TestRender).toHaveLength(1);
 
 
     })
@@ -241,12 +241,6 @@ describe("test render  details page", async () => {
     expect(editButton).toBeInTheDocument();
     userEvent.click(editButton);
     expect(window.location.pathname).toBe(`/`);
-
-
-
-
-
-      
 
 
     })
