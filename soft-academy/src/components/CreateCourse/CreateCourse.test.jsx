@@ -81,37 +81,90 @@ describe('Create component', () => {
 
   
 
-    //    email = screen.getAllByText('Email');
-    //    ownerCourse = screen.getAllByText('User name');
-    //    price = screen.getAllByText('Price');
-    //    description = screen.getAllByText('Description');
-    //    lectorImage = screen.getAllByText('Lector Image');
-    //    lectorDescription = screen.getAllByText('Lector Description');
-    //    creditsCourse = screen.getAllByText('Credits');
-    //    weeksCourse = screen.getAllByText('Weeks');
-    //    date = screen.getAllByText('Start Date');
-    //    image= screen.getAllByText('Language');
 
-
-
-    //    [courseName, firstName, email, ownerCourse, price, description, lectorImage, lectorDescription, creditsCourse, weeksCourse, date, image].forEach(elementsArray => {
-    //     elementsArray.forEach(element => {
-    //         expect(element).toBeInTheDocument();
-    //     });
-    // });
-
+        const elements = [
+            courseName,
+            firstName,
+            lastName,
+            description,
+            lectorImage,
+            email,
+            ownerCourse,
+            language,
+            imageUrl,
+            imageUrl2,
+            description,
+            creditsCourse,
+            weeksCourse,
+            price,
+            date,
+          ];
+        
+          // Проверка за наличие на всеки елемент в документа
+          elements.forEach(element => {
+            if (element) {
+                expect(element).toBeInTheDocument();
+              } else {
+                // Тук може да добавите други проверки или логика, ако елементът не е намерен
+                console.error('Element not found:', element);
+              }
+          });
     });
-    it('successful uncorrected data', async () => {
 
 
-        // fireEvent.change(courseName, { target: { value: 'Java' } });
-        // fireEvent.change(firstName, { target: { value: 'Bobi Iliev' } });
+    it('successful corrected data', async () => {
+   
+        const file = new File(['(binary data)'], 'java.png', { type: 'image/png' });
+        const file1 = new File(['(binary data)'], 'java1.png', { type: 'image/png' });
 
-        // expect(emailInput.value).toBe('test@example.com');
-        // expect(passwordInput.value).toBe('testPassword');
-        // const submitButton = screen.getByText('Login');
-        // fireEvent.click(submitButton);
-        // expect(window.location.pathname).toBe('/');
+
+        fireEvent.change(courseName, { target: { value: 'Java' } });
+        fireEvent.change(firstName, { target: { value: 'Bobi' } });
+        fireEvent.change(lastName, { target: { value: 'Iliev' } });
+        fireEvent.change(description, { target: { value: 'Bobi is the best' } });
+
+     fireEvent.input(lectorImage, {target: { files: [file] }});
+    
+        fireEvent.change(email, { target: { value: 'Bobi@abv.bg' } });
+        fireEvent.change(ownerCourse, { target: { value: 'Bobi' } });
+    
+        fireEvent.input(imageUrl2, {target: { files: [file1] }});
+
+  
+        fireEvent.change(description, { target: { value: 'Bobi is the best' } });
+       
+        fireEvent.change(creditsCourse, { target: { value: "12" } });
+        fireEvent.change(weeksCourse, { target: { value: "12" } });
+        fireEvent.change(price, { target: { value: "222" } });
+        fireEvent.change(date, { target: { value: "" } });
+
+
+        expect(courseName.value).toBe('Java');
+        expect(firstName.value).toBe('Bobi');
+        expect(lastName.value).toBe('Iliev');
+        expect(description.value).toBe('Bobi is the best');
+
+        expect(lectorImage.files[0].name).toBe('java.png');
+        expect(imageUrl2.files[0].name).toBe('java1.png');
+     
+
+
+        expect(email.value).toBe('Bobi@abv.bg');
+        expect(ownerCourse.value).toBe('Bobi');
+    
+        expect(description.value).toBe('Bobi is the best');
+        expect(creditsCourse.value).toBe("12");
+        expect(weeksCourse.value).toBe("12");
+
+        expect(price.value).toBe("222");
+        expect(date.value).toBe('');
+
+
+
+        const submitButton = screen.getByText('Create');
+        fireEvent.click(submitButton);
+        expect(screen.getByText('Some field is empty')).toBeInTheDocument();
+        expect(window.location.pathname).toBe('/');
     })
 
     // it('successful login redirects to home', async () => {
@@ -119,16 +172,4 @@ describe('Create component', () => {
     //     // emailInput = screen.getByLabelText(/email/i);
     //     //  emailInput = screen.getByLabelText("Password:")
 
-    //     fireEvent.change(emailInput, { target: { value: 'test@example11.com' } });
-    //     fireEvent.change(passwordInput, { target: { value: 'testpassword' } });
-
-
-    //     fireEvent.click(screen.getByText("Login"));
-    //     expect(window.location.pathname).toBe('/');
-    //     afterEach(() => {
-    //         fireEvent.change(emailInput, { target: { value: '1' } });
-    //         fireEvent.change(passwordInput, { target: { value: '1' } });
-    //     });
-    // })
-
-})
+ })
