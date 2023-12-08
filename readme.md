@@ -15,9 +15,8 @@ Description of the project.
 ## Table of Contents
 
 1. [Soft Academy](#soft-academy)
-2. [**Visit the live site](**Visit-the-live-site)
-3. [Technologies Used](#technologies-used)
-4. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Features](#features)
    - [Variety of Courses](#variety-of-courses)
    - [Easy Course Selection](#easy-course-selection)
    - [User Profile](#user-profile)
@@ -26,11 +25,11 @@ Description of the project.
    - [Discussion Forum](#discussion-forum)
    - [News Blog](#news-blog)
    - [Chat Feature](#chat-feature)
-5. [Installation and Running the Application](#installation-and-running-the-application)
-6. [Project Structure](#project-structure)
-7. [Testing Project](#testing-project)
-8. [License](#license)
-9. [Demo](#Short-Demo-and-Video)
+4. [Installation and Running the Application](#installation-and-running-the-application)
+5. [Project Structure](#project-structure)
+6. [Testing Project](#testing-project)
+7. [License](#license)
+8. [Demo](#Short-Demo-and-Video)
  
 
 ## Features
