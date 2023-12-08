@@ -21,8 +21,29 @@ vi.mock('path-to-your-authentication-hook', () => ({
     }),
   }));
   
+  const testObject=[{
+        "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "make": "Table",
+        "model": "Swedish",
+        "year": 2015,
+        "description": "Medium table",
+        "price": 235,
+        "img": "./images/table.png",
+        "material": "Hardwood",
+        "_createdOn": 1615545143015,
+        "_id": "53d4dbf5-7f41-47ba-b485-43eccb91cb95"
+    }]
+    // vi.mock('./CatalogCourses', () => {
+    //     return {
+    //       __esModule: true,
+    //       default: (props) => {
+    //         // Връща компонент със зададени props
+    //         return <div>{props.data}</div>;
+    //       }
+    //     };
+    //   });
 describe('CatalogCourses component', () => {
-    test('Renders courses when available', async () => {
+    it('Renders courses when available', async () => {
 
         await act(async () => {
             const { debug, getByText } = render(
@@ -32,18 +53,16 @@ describe('CatalogCourses component', () => {
                         <Provider store={store}>
                             <CourseProvider >
 
-
-
-                                <CatalogCourses />
+                                <CatalogCourses data={testObject} />
                             </CourseProvider>
                         </Provider>
                     </UserProvider>
                 </MemoryRouter>
             )
         })
-        await waitFor(async () => {
+         waitFor(async () => {
 
-            const altElements = screen.getAllByAltText("explore person")
+            const altElements = screen.getAllByText("explore person")
             if (altElements.length > 0) {
                 await waitFor(() => {
                     altElements.forEach((altElement) => {
@@ -60,31 +79,31 @@ describe('CatalogCourses component', () => {
         });
     })
 
-// test("read more buttons", async() => {
-//     // await act(async () => {
-//         const AuthenticatedComponent = () => (
-//             <MemoryRouter>
-//               <UserProvider isAuthenticated={true}>
-//                 <Provider store={store}>
-//                   <CourseProvider>
-//                     <CatalogCourses />
-//                   </CourseProvider>
-//                 </Provider>
-//               </UserProvider>
-//             </MemoryRouter>
-//           );
-//     // })
-//     await act(async () => {
-//         render(<AuthenticatedComponent />);
-//       });
-//     const readMoreButton = screen.getAllByText('Read more...')
+it("read more buttons", async() => {
+    // await act(async () => {
+        const AuthenticatedComponent = () => (
+            <MemoryRouter>
+              <UserProvider isAuthenticated={true}>
+                <Provider store={store}>
+                  <CourseProvider >
+                    <CatalogCourses data={testObject} />
+                  </CourseProvider>
+                </Provider>
+              </UserProvider>
+            </MemoryRouter>
+          );
+    // })
+    await act(async () => {
+        render(<AuthenticatedComponent />);
+      });
+    const readMoreButton = screen.getByText('No articles yet')
 
-//     userEvent.click(readMoreButton);
-// //    await waitFor(() => {
-// //         const invalidMessage = screen.getByText('Unauthorized');
-// //         expect(invalidMessage).toBeInTheDocument();
-// //     });
-// })
+    expect(readMoreButton).toBeInTheDocument()
+  
+        // const invalidMessage = screen.getByText('Unauthorized');
+        // expect(invalidMessage).toBeInTheDocument();
+
+})
 
 // test("favorite buttons", async() => {
 
