@@ -5,7 +5,7 @@ import './lectorPage.css'
 
 export const LectorPage = ({
     lectorImage,
-    description,
+    lectorDescription,
     firstName,
     lastName,
 }) => {
@@ -16,7 +16,7 @@ export const LectorPage = ({
     setShowMore((prev) => !prev);
   };
 
-        const firstDescriptions =description?.slice(0,200)
+        const firstDescriptions =lectorDescription?.slice(0,200)
      
 
     return (
@@ -25,7 +25,7 @@ export const LectorPage = ({
                 <div className="lector-card">
                     <img className="lector-img" src={lectorImage} alt="lector-img" />
                     <h2>Lector: <span>{firstName} {lastName}</span> </h2>
-                    <p className="lector-disc"> {showMore ? description : firstDescriptions}
+                    <p className="lector-disc"> {showMore ? lectorDescription : firstDescriptions}
                     </p>
                 </div>
                 {!showMore && <button className="show-more-button-course" onClick={toggleShowMore}>Show More</button>}

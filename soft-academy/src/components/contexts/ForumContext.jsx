@@ -44,7 +44,7 @@ export const ForumProvider = ({ children }) => {
     }
 
     const onPostSubmit = async (forumData) => {
-
+console.log(forumData,"data")
         try {
 
             if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
@@ -77,6 +77,7 @@ export const ForumProvider = ({ children }) => {
             const newPost = await forumService.create(forumData)
 
             dispatch({ type: 'SET_FORUM_POSTS', payload: [...forumPosts, newPost] })
+            console.log([...forumPosts, newPost])
             navigate("/forum")
 
         } catch (err) {

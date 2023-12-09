@@ -1,17 +1,17 @@
 #details-page {
-    display:grid;
+    display: grid;
     margin-top: 5.5em;
     left: 70%;
     font-family: 'Times New Roman', serif;
     /* gap: 0px; */
-   
-/* grid-gap: 100px 2em;s */
-/* grid-column-gap: 5rem; */
-justify-content: center;
-grid-gap: 10px;
-grid-template-columns: 
-[col1-start] 330px  [col2-start] 500px  [col3-start] 330px [col3-end];
-grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
+
+    /* grid-gap: 100px 2em;s */
+    /* grid-column-gap: 5rem; */
+    justify-content: center;
+    grid-gap: 10px;
+    grid-template-columns:
+        [col1-start] 330px [col2-start] 500px [col3-start] 330px [col3-end];
+    grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
 
 
     /* flex-wrap: wrap;
@@ -21,10 +21,10 @@ grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
     flex-direction: row; */
 }
 
-#details-page > div.main_card {
+#details-page>div.main_card {
     grid-column: col1-start / col3-start;
     grid-row-start: 1;
-  grid-row-end: 3;
+    grid-row-end: 3;
     color: #060606;
     height: 690px;
     margin: -10px auto;
@@ -68,8 +68,9 @@ grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
 
 
 .card_details h3 {
-text-transform:none;
+    text-transform: none;
 }
+
 /* .card_right img {
     display: flex;
 
@@ -88,7 +89,7 @@ text-transform:none;
 
 
 .card_right {
-    
+
     position: relative;
     max-width: 250px;
     border-radius: 2px;
@@ -107,21 +108,26 @@ text-transform:none;
     font-weight: bold;
     border-radius: 15px;
 }
-.card_left p{
-font-size: 16px;
-color: #060606;
+
+.card_left p {
+    word-break: break-word;
+    font-size: 16px;
+    color: #060606;
 
 }
-.card_right p{
+
+.card_right p {
     font-size: 14px;
     color: #060606;
-    
+
 }
-.card_right span{
+
+.card_right span {
     font-size: 14px;
     color: #060606;
-  text-transform:none
+    text-transform: none
 }
+
 /* .card_right h2{
     font-size: 30px;
     color: #060606;
@@ -133,28 +139,40 @@ color: #060606;
 .card_right h2 {
     margin-right: 16px;
     /* position: absolute; */
-    bottom: 10px; /* Adjust the bottom distance as needed */
-    right: 10px; /* Adjust the right distance as needed */
+    bottom: 10px;
+    /* Adjust the bottom distance as needed */
+    right: 10px;
+    /* Adjust the right distance as needed */
     font-size: 24px;
-    color: #181819; /* A blue color, you can choose your preferred color */
+    color: #181819;
+    /* A blue color, you can choose your preferred color */
     font-weight: bold;
     text-align: center;
     /* margin: 10px 0; */
-    padding: 8px; /* Add padding for a highlighted effect */
+    padding: 8px;
+    /* Add padding for a highlighted effect */
     /* background-color: #060606; */
-    border: 3px solid #669b9b; /* Add a border around the price */
-    border-radius: 40px; /* Round the corners of the border */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Apply a subtle shadow */
-    transition: background-color 0.3s, color 0.3s; /* Add a smooth color transition on hover */
-    cursor: pointer; /* Change the cursor to a pointer on hover */
+    border: 3px solid #669b9b;
+    /* Add a border around the price */
+    border-radius: 40px;
+    /* Round the corners of the border */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    /* Apply a subtle shadow */
+    transition: background-color 0.3s, color 0.3s;
+    /* Add a smooth color transition on hover */
+    cursor: pointer;
+    /* Change the cursor to a pointer on hover */
 
-  }
-  
-  .card_right h2:hover {
-    background-color: #d03913; /* Change background color on hover */
-    color: #ffffff; /* Change text color on hover to white */
+}
+
+.card_right h2:hover {
+    background-color: #d03913;
+    /* Change background color on hover */
+    color: #ffffff;
+    /* Change text color on hover to white */
     transform: scale(1.1);
-  }
+}
+
 /* .PG {
  
     background: rgba(116, 153, 226, 0.89);
@@ -170,26 +188,27 @@ color: #060606;
     color: black;
     height: 130px;
 }
-.toggle-desc{
+
+.toggle-desc {
     overflow: auto;
 }
+
 .show-more-button-details {
     text-shadow: 0 4px 8px rgb(6 85 255 / 36%);
     color: rgb(255 129 3);
     font-size: 18px;
     border: none;
-    
+
     padding: 0px 80px;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 5px;
     margin-bottom: 9px;
-  }
+}
 
 
 .social-btn>.edit-btn,
-.del-btn
- {
+.del-btn {
     margin-left: 10px;
     margin-top: 2em;
 
@@ -215,48 +234,51 @@ color: #060606;
 }
 
 .edit-btn {
-   
+
 
     background-color: #EFC050;
     font-size: 16px;
 
 }
+
 /* Like icon */
-#details-page > div > div.card_left > div > div.social-btn > div:nth-child(1) > svg{
+#details-page>div>div.card_left>div>div.social-btn>div:nth-child(1)>svg {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    float:right;
-    color: #007bff; 
-  font-size: 24px; 
-  margin-right: 20px;
+    float: right;
+    color: #007bff;
+    font-size: 24px;
+    margin-right: 20px;
 }
-#details-page > div > div.card_left > div > div.social-btn > div:nth-child(1) > p{
+
+#details-page>div>div.card_left>div>div.social-btn>div:nth-child(1)>p {
     /* display: flex;
     align-items: right;
 
     color: #007bff; 
   font-size: 16px; 
   margin-right: 5px; */
-  
-  align-items: center;
-  color: #5b5b5b; 
-  font-size:16px; 
-  float:right;
-  margin-right: 5px;
-  float:right;
+
+    align-items: center;
+    color: #5b5b5b;
+    font-size: 16px;
+    float: right;
+    margin-right: 5px;
+    float: right;
 }
 
-#details-page > div > div.card_left > div > div.social-btn > div:nth-child(3) > svg{
+#details-page>div>div.card_left>div>div.social-btn>div:nth-child(3)>svg {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    float:right;
-    color: #007bff; 
-  font-size: 26px; 
-  margin-right: 20px;
+    float: right;
+    color: #007bff;
+    font-size: 26px;
+    margin-right: 20px;
 }
-#details-page > div > div.card_left > div > div.social-btn > div:nth-child(3) > p{
+
+#details-page>div>div.card_left>div>div.social-btn>div:nth-child(3)>p {
     /* display: flex;
     align-items: center;
     justify-content: space-between;
@@ -264,19 +286,18 @@ color: #060606;
    
 
   margin-right: 5px; */
-  align-items: center;
-  color: #5b5b5b; 
-  font-size: 16px; 
-  float:right;
-  margin-right: 5px;
+    align-items: center;
+    color: #5b5b5b;
+    font-size: 16px;
+    float: right;
+    margin-right: 5px;
 }
 
 
 
 
 .edit-btn:hover,
-.del-btn:hover
- {
+.del-btn:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
@@ -289,6 +310,7 @@ color: #060606;
         -webkit-transform: scale(0.8);
         opacity: 1;
     }
+
     10% {
         transform: scale(1.8);
         -webkit-transform: scale2;
@@ -302,6 +324,7 @@ color: #060606;
         -webkit-transform: scale(0.8);
         opacity: 1;
     }
+
     20% {
         transform: scale(1.8);
         -webkit-transform: scale2;
@@ -376,6 +399,7 @@ span {
     letter-spacing: .05em;
     margin: 2em 0 0 0;
 }
+
 /* 
 .thumb {
     max-height: 350px;
@@ -391,43 +415,46 @@ span {
     .item-1 {
         grid-column: 1 / span 2;
     }
+
     .item-1>h1 {
         font-size: 24px;
     }
 }
 
 
-  .card_right img {
+.card_right img {
     width: 180px;
     border: none;
     max-width: 100%;
     height: 170px;
-    
-    float: right; 
-    transition: transform 1s; 
-  }
-  .card_right img:hover {
+
+    float: right;
+    transition: transform 1s;
+}
+
+.card_right img:hover {
     /* transform: scale(1.1);  */
-    transform:scale(1.2);
-  }
-  .card_right a.trend-btn {
+    transform: scale(1.2);
+}
+
+.card_right a.trend-btn {
     text-align: center;
-    float: center; 
-    margin-left: 40px; 
-  }
+    float: center;
+    margin-left: 40px;
+}
 
 
-  /* like and comments btns */
-  /* ... (existing CSS) ... */
+/* like and comments btns */
+/* ... (existing CSS) ... */
 
 .comments-action-buttons {
     /* float:right; */
     text-align: right;
     margin-top: 26px;
-  }
-  
-  .like-button,
-  .comment-button {
+}
+
+.like-button,
+.comment-button {
     /* display: inline-block; */
     /* position: relative; */
     /* outline: none; */
@@ -440,47 +467,53 @@ span {
     margin: 0 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .like-button:hover,
-  .comment-button:hover {
- 
+}
+
+.like-button:hover,
+.comment-button:hover {
+
     background-color: #0056b3;
 
-  }
-  
-  .divider {
+}
+
+.divider {
     margin: 10px 0;
     border-top: 1px solid #ccc;
-  }
-  #details-page > div > div.card_right > a > img{
+}
+
+#details-page>div>div.card_right>a>img {
 
     border: none;
     max-width: 100%;
     height: 30px;
     float: right;
 
-  }
-  /* ... lector card... */
+}
+
+/* ... lector card... */
 
 
 /* Promqna 4.11.2023 */
-#explore > div > div.explore-content > div > div > div > div.single-explore-img > img{
+#explore>div>div.explore-content>div>div>div>div.single-explore-img>img {
     border: none;
- max-width: 100%;
+    max-width: 100%;
     height: 147px;
 }
-#explore > div > div.explore-content > div > div{
+
+#explore>div>div.explore-content>div>div {
     width: 26.333333%;
 }
-#explore > div > div.explore-content > div > div:nth-child(4) > div > div{
+
+#explore>div>div.explore-content>div>div:nth-child(4)>div>div {
     padding: -19px 25px 24px 15px;
 }
+
 .social-details {
-    padding-left:0px;
+    padding-left: 0px;
     margin-left: 15px;
 }
-.social-details a{
+
+.social-details a {
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -490,26 +523,27 @@ span {
     display: inline-block;
     color: #afb4bf;
     font-size: 24px;
-   
+
     /* -webkit-transition: .3s;
     -moz-transition: .3s;
     -ms-transition: .3s;
     -o-transition: .3s; */
     transition: .3s;
 
-    font-size:22px;
-    padding-left:0px
+    font-size: 22px;
+    padding-left: 0px
 }
+
 /* #root > div.testbox > form{
 
     background: url("/img/forum4.jpg");
 } */
 
-#root > div.testbox > form > div.banner{
+#root>div.testbox>form>div.banner {
     border-radius: 65px;
 }
 
-#root > div.testbox > form > div.banner::after {
+#root>div.testbox>form>div.banner::after {
 
     border-radius: 65px;
 }

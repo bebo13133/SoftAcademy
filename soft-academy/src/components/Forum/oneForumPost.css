@@ -31,6 +31,7 @@
 }
 
 .article-students p {
+  word-break: break-word;
   margin: 10px 0;
 }
 

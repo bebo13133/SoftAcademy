@@ -159,6 +159,8 @@ export const CourseProvider = ({ children }) => {
     }
 
     const onCreateCourseSubmit = async (courseData) => {
+
+ 
         const trimmedCreateCourse = {};
         Object.keys(courseData).forEach(key => {
             if (typeof courseData[key] === 'string') {

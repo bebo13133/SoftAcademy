@@ -16,6 +16,7 @@ margin-top:-10px;
 
 
 .lector-card p{
+  word-break: break-word;
  font-family: 'Times New Roman', serif;
  color: #060606;
  padding-left: 10px;
