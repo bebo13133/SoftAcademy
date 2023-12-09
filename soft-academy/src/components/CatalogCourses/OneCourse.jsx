@@ -107,7 +107,7 @@ export const OneCourse = ({
                         <h2><a href="#">{courseName}</a></h2>
                         <p className="explore-rating-price">
 
-                            <a href="#"> {Math.floor(Math.random() * 10 + likes.length + 1) + likes.length} Likes</a>
+                            <a href="#"> {likes.length} Likes</a>
                             <span className="explore-price-box">
                                 Price &ensp;
                                 <span className="explore-price">${price}</span>

@@ -18,6 +18,7 @@ import { AddProjectForm } from "../components/AdminDashboard/AddProjectForm/AddP
 import { AllProjects } from "../components/AdminDashboard/AllProjects/AllProjects"
 import { EditProject } from "../components/AdminDashboard/AllProjects/EditProject"
 import { SearchProjectPage } from "../components/AdminDashboard/AllProjects/SearchProjectPage"
+import { PageNotFound } from "../components/404/PageNotFound"
 
 const AdminRoutes = () => {
 
