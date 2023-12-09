@@ -159,10 +159,18 @@ export const CourseProvider = ({ children }) => {
     }
 
     const onCreateCourseSubmit = async (courseData) => {
-        validateCourseData(dispatch, courseData)
+        const trimmedCreateCourse = {};
+        Object.keys(courseData).forEach(key => {
+            if (typeof courseData[key] === 'string') {
+                trimmedCreateCourse[key] = courseData[key].trim();
+            }
+        });
+
+        
+        validateCourseData(dispatch, trimmedCreateCourse)
 
         try {
-            const newCourse = await courseService.create(courseData)
+            const newCourse = await courseService.create(trimmedCreateCourse)
 
             setCourse(state => [...state, newCourse])
             navigate("/catalog")
@@ -214,7 +222,14 @@ export const CourseProvider = ({ children }) => {
     }
 
     const onSignUp = async (values) => {
-        if (!values.firstName || !values.lastName || !values.phoneNumber || !values.socialNumber) {
+        const trimmedRegisterData = {};
+        Object.keys(values).forEach(key => {
+            if (typeof values[key] === 'string') {
+                trimmedRegisterData[key] = values[key].trim();
+            }
+        });
+        
+        if (!trimmedRegisterData.firstName || !trimmedRegisterData.lastName || !trimmedRegisterData.phoneNumber || !trimmedRegisterData.socialNumber) {
 
             dispatch(setError("Some field is empty"));
             setTimeout(() => {
@@ -224,10 +239,10 @@ export const CourseProvider = ({ children }) => {
         }
         try {
             if (values.isChecked) {
-                const result = await courseService.signup(values)
+                const result = await courseService.signup(trimmedRegisterData)
                 setStudents(state => [...state, result])
                 setCurrentStudentInfo(result)
-                navigate(`/catalog/${values.courseId}/payment-card`)
+                navigate(`/catalog/${trimmedRegisterData.courseId}/payment-card`)
 
             } else (
                 alert("Please accept the terms and conditions")
@@ -240,8 +255,14 @@ export const CourseProvider = ({ children }) => {
     }
 
     const onSubmitPayment = async (values) => {
-      
-        if (!values.cardNumber || !values.ownerName || !values.expiDate || !values.cvc) {
+        const trimmedRegisterData = {};
+        Object.keys(values).forEach(key => {
+            if (typeof values[key] === 'string') {
+                trimmedRegisterData[key] = values[key].trim();
+            }
+        });
+
+        if (!trimmedRegisterData.cardNumber || !trimmedRegisterData.ownerName || !trimmedRegisterData.expiDate || !trimmedRegisterData.cvc) {
 
             dispatch(setError("Some field is empty"));
             setTimeout(() => {
@@ -250,10 +271,10 @@ export const CourseProvider = ({ children }) => {
             return
 
         }
-        const result = await courseService.pay(values)
+        const result = await courseService.pay(trimmedRegisterData)
         setPayStudent(state => [...state, result])
 
-        navigate(`/catalog/${values.courseId}`)
+        navigate(`/catalog/${trimmedRegisterData.courseId}`)
 
         const sendEmail = () => {
 
@@ -290,26 +311,41 @@ export const CourseProvider = ({ children }) => {
     }
 
     const onEditSubmit = async (data) => {
-        validateCourseData(dispatch, data)
+        const trimmedRegisterData = {};
+        Object.keys(data).forEach(key => {
+            if (typeof data[key] === 'string') {
+                trimmedRegisterData[key] = data[key].trim();
+            }
+        });
+
+        validateCourseData(dispatch, trimmedRegisterData)
 
 
 
         try {
-            const result = await courseService.update(data._id, data)
-            setCourse(courses => courses.map(x => x._id === data._id ? result : x))
-            navigate(`/catalog/${data._id}`)
+            const result = await courseService.update(trimmedRegisterData._id, trimmedRegisterData)
+            setCourse(courses => courses.map(x => x._id === trimmedRegisterData._id ? result : x))
+            navigate(`/catalog/${trimmedRegisterData._id}`)
         } catch (err) {
             console.log(err.message || err);
         }
     }
 
     const onEditSubmitAdmin = async (data) => {
-        validateCourseData(dispatch, data)
+        const trimmedRegisterData = {};
+        Object.keys(data).forEach(key => {
+            if (typeof data[key] === 'string') {
+                trimmedRegisterData[key] = data[key].trim();
+            }
+        });
+
+
+        validateCourseData(dispatch, trimmedRegisterData)
 
 
         try {
-            const result = await courseService.update(data._id, data)
-            setCourse(courses => courses.map(x => x._id === data._id ? result : x))
+            const result = await courseService.update(trimmedRegisterData._id, trimmedRegisterData)
+            setCourse(courses => courses.map(x => x._id === trimmedRegisterData._id ? result : x))
             navigate(`/admin/all-courses`)
         } catch (err) {
             console.log(err.message || err);
