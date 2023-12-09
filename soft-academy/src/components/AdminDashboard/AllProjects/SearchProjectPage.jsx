@@ -10,7 +10,7 @@ import { RowSectionProject } from "./RowSectionProject"
 export const SearchProjectPage = () => {
 
     const [projectInfo, setProjectInfo] = useState([])
-console.log(projectInfo)
+
     const { searchProjects } = useForumContext()
     // const { onDeleteForumAdmin } = useForumContext()
     const forumService = forumServiceFactory()

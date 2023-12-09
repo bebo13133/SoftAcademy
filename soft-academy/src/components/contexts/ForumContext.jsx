@@ -258,10 +258,10 @@ export const ForumProvider = ({ children }) => {
 
     const onSearchProject = async (values) => {
         try {
-            console.log("Projects", values)
+          
 
             const result = await forumService.getAllProjects()
-            console.log("serachProjects", result)
+           
             const trimmedSearchTerm = values.searchTerm.trim();
 
 

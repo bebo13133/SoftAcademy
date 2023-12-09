@@ -10,7 +10,7 @@ export const OneProject = ({
     website
 }) => {
 
-    console.log(`${youtube}`, "projects")
+    
 
     function convertYouTubeUrlToEmbed(url) {
         return url.replace(/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=/, 'https://www.youtube.com/embed/');

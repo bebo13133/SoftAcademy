@@ -12,7 +12,7 @@ export const CourseDetails = () => {
     const [selectOption, setSelectOptions] = useState('')
 
     const { onEditSubmitAdmin, formErrors } = useCourseContext()
-console.log("fprms",formErrors)
+
     const courseService = useService(courseServiceFactory)
     const { courseId } = useParams()
     const navigate = useNavigate()

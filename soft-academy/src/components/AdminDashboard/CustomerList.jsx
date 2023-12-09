@@ -28,7 +28,7 @@ const{currentResult,currentPage,totalPages,paginate,setCurrentPage} = getPaginat
     useEffect(() => {
         userService.getAll()
             .then(result => {
-console.log(result)
+
                 setUsers(result)
             })
             .catch(error => {
