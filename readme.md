@@ -116,7 +116,7 @@ Open a new terminal window/tab in the root directory of your project. and run:
     ```bash
     npm start
     ```
-*And again write 
+    <!-- **And again write  -->
     ```bash
     npm start
     ```
