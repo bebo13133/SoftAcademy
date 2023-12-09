@@ -317,28 +317,31 @@ export const CourseProvider = ({ children }) => {
     }
 
     const onSearchSubmit = async (data) => {
+        const trimmedSearchName = data.searchName.trim();
+        console.log(trimmedSearchName,"blala")
+
         try {
             const result = await courseService.getAll();
             if (!data.criteria || data.criteria == "Select an option") {
                 // Търсене без конкретен критерий
                 setSearchResult(result.filter(course =>
-                    course.courseName?.toLowerCase().includes(data.searchName.toLowerCase())
-                    || course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())
+                    course.courseName?.toLowerCase().includes(trimmedSearchName.toLowerCase())
+                    || course.selectOption?.toLowerCase().includes(trimmedSearchName.toLowerCase())
                 ));
             } else {
                 // Търсене с определен критерий
                 if (data.criteria === 'courseName') {
-                    const searchTerms = data.searchName.toLowerCase().split(' ');
+                    const searchTerms = trimmedSearchName.toLowerCase().split(' ');
                     const searchResults = result.filter(course =>
                         searchTerms.every(term => course.courseName?.toLowerCase().includes(term))
                     );
                     setSearchResult(searchResults);
                 } else if (data.criteria == 'language-name') {
-                    setSearchResult(result.filter(course => course.selectOption?.toLowerCase().includes(data.searchName.toLowerCase())));
+                    setSearchResult(result.filter(course => course.selectOption?.toLowerCase().includes(trimmedSearchName.toLowerCase())));
                 } else if (data.criteria == 'lector-name') {
                     setSearchResult(result.filter(course =>
-                        course.firstName?.toUpperCase().includes(data.searchName.toUpperCase())
-                        || course.lastName?.toLowerCase().includes(data.searchName.toLowerCase())));
+                        course.firstName?.toUpperCase().includes(trimmedSearchName.toUpperCase())
+                        || course.lastName?.toLowerCase().includes(trimmedSearchName.toLowerCase())));
 
 
                 }
