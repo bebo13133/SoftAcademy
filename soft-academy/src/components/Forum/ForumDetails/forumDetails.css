@@ -51,6 +51,7 @@
   }
   /* descriptio selector */
   #root > section.TextSection > div > p:nth-child(4){
+    word-break: break-word;
     margin-top: 60px;
     margin-left:30px
   }
