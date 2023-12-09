@@ -115,7 +115,15 @@ export const ForumProvider = ({ children }) => {
 
 
     const onEditSubmitPost = async (forumData) => {
-        if (!forumData.title || !forumData.description || !forumData.author) {
+
+        const trimDataEdit = {};
+        Object.keys(forumData).forEach(key => {
+            if (typeof forumData[key] === 'string') {
+                trimDataEdit[key] = forumData[key].trim();
+            }
+        });
+
+        if (!trimDataEdit.title || !trimDataEdit.description || !trimDataEdit.author) {
 
 
             dispatch(setError("Some fields is empty"));
@@ -125,7 +133,7 @@ export const ForumProvider = ({ children }) => {
             return
         }
 
-        if (forumData.author.length < 4 || forumData.title.length < 4) {
+        if (trimDataEdit.author.length < 4 || trimDataEdit.title.length < 4) {
 
             dispatch(setError("Minimum field length is 4"));
             setTimeout(() => {
@@ -133,7 +141,7 @@ export const ForumProvider = ({ children }) => {
             }, 4000);
             return
         }
-        if (forumData.description.length < 40) {
+        if (trimDataEdit.description.length < 40) {
 
 
 
@@ -148,10 +156,10 @@ export const ForumProvider = ({ children }) => {
         try {
 
 
-            const post = await forumService.update(forumData._id, forumData)
+            const post = await forumService.update(trimDataEdit._id, trimDataEdit)
 
-            dispatch(editForumPost(forumData, post))
-            navigate(`/forum/${forumData._id}`)
+            dispatch(editForumPost(trimDataEdit, post))
+            navigate(`/forum/${trimDataEdit._id}`)
         } catch (err) {
             dispatch({ type: 'SET_ERROR_MESSAGE_FORUMS', payload: err.message || 'An error occurred' });
         }
