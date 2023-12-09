@@ -78,12 +78,12 @@ const Blog = () => {
                         <p>Stay up to date with our latest News and Articles</p>
                     </div>
                     {isLoading ? <IsLoading /> : (<>
-                        <div className="blog-content">
+                        <div className="blog-content" data-testid="news-article" >
                             <div className="row"> 
                             
                                 {currentNews.map((article, index) => (
-                                    <div className="col-md-4 col-sm-6" key={index}>
-                                        <div className="single-blog-item">
+                                    <div className="col-md-4 col-sm-6" key={index} >
+                                        <div className="single-blog-item" >
                                             <div className="single-blog-item-img">
                                                 <img style={{height:"220px", width:"400px"}}src={article.thumbnail || "./src/assets/images/blog/b3.jpg"} alt="blog image" />
                                             </div>
