@@ -129,7 +129,9 @@
     margin-bottom: 20px;
   }
 
-
+  #root > div.admin-dashboard > section.render-section > div > div > p > a{
+    text-transform: none;
+  }
 
   @media only screen and (max-width: 768px) {
     .section-a {
