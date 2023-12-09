@@ -44,7 +44,8 @@ const AdminRoutes = () => {
                 <Route path="projects" element={<IsAdmin><AllProjects/></IsAdmin>} />
                 <Route path="projects/:projectId" element={<IsAdmin><EditProject/></IsAdmin>} />
 
-              
+                <Route path={"/404/*"} element={<PageNotFound />} />
+                  <Route path={'*'} element={<PageNotFound />} />
 
             </Routes>
 

@@ -128,7 +128,7 @@ function App() {
 
 
                   <Route path={"/404/*"} element={<PageNotFound />} />
-                  <Route path={"*"} element={<PageNotFound />} />
+                  <Route path={'*'} element={<PageNotFound />} />
                 </Routes>
 
                 {!isAdminPage &&

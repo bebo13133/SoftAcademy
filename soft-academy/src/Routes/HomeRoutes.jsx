@@ -21,6 +21,7 @@ import { TrainingCourses } from "../components/ProfilePage/TrainingCourses/Train
 import { SearchPageForum } from "../components/Forum/SearcBarForum/SearcPagrForum"
 import { TopProjects } from "../components/TopProjects/TopProjects"
 import { MyPromoCodes } from "../components/ProfilePage/PromoCodes/MyPromoCodes"
+import { PageNotFound } from "../components/404/PageNotFound"
 
  const HomeRoutes = ()=>{
 
@@ -64,7 +65,8 @@ import { MyPromoCodes } from "../components/ProfilePage/PromoCodes/MyPromoCodes"
       <Route path="/favorite-courses" element={<FavoriteCourses />} />
       <Route path="/change-avatar" element={<AvatarHeader />} />
 
-
+      <Route path={"/404/*"} element={<PageNotFound />} />
+                  <Route path={'*'} element={<PageNotFound />} />
     </Routes>
     </>
     )

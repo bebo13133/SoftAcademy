@@ -77,7 +77,7 @@ console.log(forumData,"data")
             const newPost = await forumService.create(forumData)
 
             dispatch({ type: 'SET_FORUM_POSTS', payload: [...forumPosts, newPost] })
-            console.log([...forumPosts, newPost])
+   
             navigate("/forum")
 
         } catch (err) {

@@ -356,7 +356,7 @@ export const CourseProvider = ({ children }) => {
 
     const onSearchSubmit = async (data) => {
         const trimmedSearchName = data.searchName.trim();
-        console.log(trimmedSearchName,"blala")
+      
 
         try {
             const result = await courseService.getAll();

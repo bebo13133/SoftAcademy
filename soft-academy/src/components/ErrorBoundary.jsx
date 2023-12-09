@@ -29,7 +29,7 @@ export default class ErrorBoundary extends Component {
 
     render() {
         if (this.state.hasError) {
-            // return <Navigate to={'/404'} replace={true}/>            // TODO: Да се добави страница 404
+             return <Navigate to={'/404/*'} replace={true}/>            // TODO: Да се добави страница 404
         }
         return (
             <>
