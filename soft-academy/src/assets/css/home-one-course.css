@@ -1,4 +1,5 @@
 #works>div>div.works-content>div>div>div>p {
+    word-break: break-word;
     height: 105px;
     color: #084778;
     width: 274px;
