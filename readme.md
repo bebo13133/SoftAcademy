@@ -26,6 +26,8 @@ Description of the project.
    - [Discussion Forum](#discussion-forum)
    - [News Blog](#news-blog)
    - [Chat Feature](#chat-feature)
+   - [Profile Picture Storage](#profile-picture-storage)
+   - [New User Registration](#new-user-registration)
 4. [Installation and Running the Application](#installation-and-running-the-application)
 5. [Project Structure](#project-structure)
 6. [Testing Project](#testing-project)
