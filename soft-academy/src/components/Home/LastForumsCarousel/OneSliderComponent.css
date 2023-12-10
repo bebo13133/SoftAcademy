@@ -36,6 +36,7 @@
     color:#a9ad00;
   }
   .my-component-content p{
+    word-break: break-word;
     text-align: center;
   }
   .my-component-content h3{
