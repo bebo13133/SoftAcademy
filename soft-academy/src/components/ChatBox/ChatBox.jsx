@@ -20,6 +20,13 @@ const ENDPOINT =
   const [messageBody, setMessageBody] = useState("");
 
   useEffect(() => {
+    const savedUserName = localStorage.getItem("userName");
+    if (savedUserName) {
+      setUserName(savedUserName);
+    }
+  
+
+
     if (uiMessagesRef.current) {
       uiMessagesRef.current.scrollBy({
         top: uiMessagesRef.current.scrollHeight,
@@ -38,8 +45,14 @@ const ENDPOINT =
   const supportHandler = () => {
     setIsOpen(true);
     if (!userName) {
-      setUserName(prompt("Please enter your name"));
+      const enteredName = prompt("Please enter your name");
+      localStorage.setItem("userName", enteredName); // Запазване на името в localStorage
+      setUserName(enteredName);
     }
+
+    // if (!userName) {
+    //   setUserName(prompt("Please enter your name"));
+    // }
     const sk = socketIOClient(ENDPOINT);
     setSocket(sk);
   };

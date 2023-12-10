@@ -262,6 +262,7 @@ export const UserProvider = ({ children }) => {
         try {
             userService.logout()
             setIsAuth({})
+            localStorage.removeItem("userName");
         } catch (err) {
             throw new Error(err.message)
 

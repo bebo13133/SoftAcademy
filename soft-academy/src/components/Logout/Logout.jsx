@@ -7,6 +7,8 @@ import { useCookies } from 'react-cookie';
 export const Logout = ()=>{
     const [cookies, setCookies] = useCookies(["cookieConsent"]) // взимам стейта на кикитата за да мога  да ги изтрияч
 const {onLogout} = useAuthContext()
+
+
     useEffect(()=>{
     onLogout()
 // localStorage.clear()
