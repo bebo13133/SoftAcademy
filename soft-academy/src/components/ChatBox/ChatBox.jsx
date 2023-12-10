@@ -46,7 +46,7 @@ const ENDPOINT =
     setIsOpen(true);
     if (!userName) {
       const enteredName = prompt("Please enter your name");
-      localStorage.setItem("userName", enteredName); // Запазване на името в localStorage
+      localStorage.setItem("userName", enteredName); // Запазваm името в localStorage
       setUserName(enteredName);
     }
 
