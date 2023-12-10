@@ -89,6 +89,10 @@ At **Soft Academy**, we believe that effective communication is key to a success
 
 Every new user receives an email with a username, password, and a discount code upon registration. This process ensures a seamless onboarding experience and provides immediate access to the platform's resources.
 
+### Profile Picture Storage
+
+User profile pictures are securely stored as files in Firebase. This integration allows for easy upload and retrieval, ensuring that user profiles are always up-to-date and visually engaging.
+
 ## Installation and Running the Application
 
 1. Clone the repository.
