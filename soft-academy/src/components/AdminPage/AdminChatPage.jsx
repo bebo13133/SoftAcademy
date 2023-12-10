@@ -150,7 +150,7 @@ export const AdminChatPage = () => {
         </div>
         <div className="chat-admin-content">
           <div className="chat-admin">
-            {!selectedUser.length<=0 ? (
+            {!selectedUser.length <= 0 ? (
               <div className="alert">Select a user to start chat</div>
             ) : (
               <div>
