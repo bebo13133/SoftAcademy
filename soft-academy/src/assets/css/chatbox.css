@@ -103,6 +103,7 @@
 }
 
 .chat-admin-sidebar {
+  overflow: scroll;
   flex: 3;
   padding: 10px;
 }
