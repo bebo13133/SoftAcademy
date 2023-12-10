@@ -11,7 +11,7 @@ Description of the project.
 - **Fire-base:** Providing a real-time database service.
 - **React Router DOM:** Declarative routing for React.js.
 - 
-[![React/Vite](https://img.shields.io/badge/React/Vite-✓-blue)]() [![Material-UI](https://img.shields.io/badge/Material--UI-✓-important)]() [![react-redux](https://img.shields.io/badge/React_Redux-✓-9cf)]() [![Firebase](https://img.shields.io/badge/Firebase-✓-yellowgreen)]() [![SoftUni Practice Server](https://img.shields.io/badge/SoftUni_Practice_Server-✓-orange)]() [![React Router DOM](https://img.shields.io/badge/React_Router_DOM-✓-brightgreen)]() [![Emailjs browser](https://img.shields.io/badge/Еmailjs--Browser-✓-ff69b4)]() [![Bootstrap](https://img.shields.io/badge/Bootstrap-✓-red)]() [![Vitest/Jest](https://img.shields.io/badge/Vitest/Jest-✓-blue)]()
+[![React/Vite](https://img.shields.io/badge/React/Vite-✓-blue)]() [![Material-UI](https://img.shields.io/badge/Material--UI-✓-important)]() [![react-redux](https://img.shields.io/badge/React_Redux-✓-9cf)]() [![Firebase](https://img.shields.io/badge/Firebase-✓-yellowgreen)]() [![SoftUni Practice Server](https://img.shields.io/badge/SoftUni_Practice_Server-✓-orange)]() [![React Router DOM](https://img.shields.io/badge/React_Router_DOM-✓-brightgreen)]() [![Emailjs browser](https://img.shields.io/badge/Еmailjs--Browser-✓-ff69b4)]() [![Bootstrap](https://img.shields.io/badge/Bootstrap-✓-red)]() [![Vitest/Jest](https://img.shields.io/badge/Vitest/Jest-✓-blue)]() [![heruko](https://img.shields.io/badge/Heruko-✓-9cf)]()
 
 ## Table of Contents
 
