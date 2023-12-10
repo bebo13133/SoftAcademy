@@ -2,20 +2,20 @@ import { requestFactory } from "./requester"
 
 
 
-const baseUrl = `http://localhost:3030/data/comments`
-const baseUrl1 = `http://localhost:3030/data/commentsLikes`
+const baseUrl =`http://localhost:3030/data/comments`
+const baseUrl1 =`http://localhost:3030/data/commentsLikes`
 
 const request = requestFactory()
 
-export const createComment = async (courseId, comment, user) => {
-    const result = await request.post(baseUrl, { courseId, comment, user })
-    return result
+export const createComment=async(courseId, comment,user)=>{
+const result = await request.post(baseUrl,{courseId,comment,user})
+return result
 
 }
-export const getAllComments = async (courseId) => {
+export const getAllComments = async(courseId) =>{
     const response = await request.get(`${baseUrl}?where=courseId%3D%22${courseId}%22`)
     const result = Object.values(response)
-    return result
+return result
 }
 export const deleteComment = async (forumId) => await request.del(`${baseUrl}/${forumId}`)
 

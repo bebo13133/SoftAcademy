@@ -44,7 +44,7 @@ export const ForumProvider = ({ children }) => {
     }
 
     const onPostSubmit = async (forumData) => {
-console.log(forumData,"data")
+
         try {
 
             if (!forumData.title || !forumData.description || !forumData.author || !forumData.imageUrl) {
