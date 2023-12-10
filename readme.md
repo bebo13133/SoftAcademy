@@ -85,6 +85,10 @@ Access the chat feature conveniently from the "**Soft Academy**" platform. Enjoy
 
 At **Soft Academy**, we believe that effective communication is key to a successful learning journey, and our chat feature is designed to facilitate just that.
 
+### New User Registration
+
+Every new user receives an email with a username, password, and a discount code upon registration. This process ensures a seamless onboarding experience and provides immediate access to the platform's resources.
+
 ## Installation and Running the Application
 
 1. Clone the repository.
