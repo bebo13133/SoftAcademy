@@ -165,7 +165,7 @@ export const UserProvider = ({ children }) => {
      
             // setPromoCodes(state=>[...state,promoCodes])
             const newPromoCodes = await userService.createPromo({code:promoCodes, type:"20% for all courses"})
-            navigate("/")
+    
 
             const sendEmail = () => {
 
@@ -197,7 +197,7 @@ export const UserProvider = ({ children }) => {
     
     
             sendEmail()
-
+            navigate("/")
         } catch (err) {
 
 

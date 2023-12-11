@@ -7,7 +7,7 @@ export const GuardLoginRegister = ({ children }) => {
 
     if (isAuthentication) {
 
-        return <Navigate to={'/404'} />
+        return <Navigate to='/' replace/>
     }
     return (
         children ? children : <PageNotFound />
