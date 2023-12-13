@@ -1,4 +1,4 @@
- import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
 
 
@@ -7,7 +7,7 @@ const ENDPOINT =
     ? "http://127.0.0.1:4000"
     : window.location.host;
 
- const ChatBox=()=>{
+const ChatBox = () => {
   const uiMessagesRef = useRef(null);
 
   const [userName, setUserName] = useState("");
@@ -24,7 +24,7 @@ const ENDPOINT =
     if (savedUserName) {
       setUserName(savedUserName);
     }
-  
+
 
 
     if (uiMessagesRef.current) {
