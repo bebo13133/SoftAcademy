@@ -271,3 +271,27 @@ input[type=checkbox]:checked+label:after {
   max-height: 120px;
   /* Adjust to your preferred height */
 }
+@media (max-width: 768px) {
+  #root>div>form {
+
+    width: 100%;
+  }
+  .name-item,
+  .city-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .name-item input,
+  .city-item input {
+    width: calc(50% - 20px);
+  }
+
+  .city-item select {
+    width: calc(50% - 8px);
+  }
+  .btn-block1 button {
+    margin-left: 100px;
+  }
+}
