@@ -605,7 +605,7 @@ span {
         margin-top: -152px
     }
     .comments-action-buttons {
-        margin-top: -167px;
+        margin-top: -162px;
     }
     .del-btn {
         background-color: #ff0000;
@@ -623,6 +623,7 @@ span {
 .comment-button {
 
     font-size: 12px;
+    padding: 5px 11px;
 }
 .comment-button {
     font-size: 12px;
