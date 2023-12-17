@@ -605,11 +605,12 @@ span {
         margin-top: -152px
     }
     .comments-action-buttons {
-        margin-top: -162px;
+        margin-top: -45px;
     }
     .del-btn {
         background-color: #ff0000;
         font-size: 12px;
+        margin-top: 10px;
     }
     
     .social-btn>.edit-btn{
@@ -627,5 +628,8 @@ span {
 }
 .comment-button {
     font-size: 12px;
+}
+.like-button{
+    padding: 5px 11px;
 }
 }

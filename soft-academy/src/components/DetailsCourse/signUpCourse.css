@@ -86,4 +86,7 @@ margin: 5px;
         width: auto; 
         margin: 10px auto; 
     }
+    .sign-course-img{
+      width: 100%;
+    }
 }
