@@ -588,13 +588,13 @@ span {
 } */
 @media (max-width: 768px) {
     #details-page {
-        grid-template-columns: 1fr; /* Всички елементи заемат цялата ширина на родителския елемент */
-        /* Други необходими стилови промени */
+        grid-template-columns: 1fr; 
+   
     }
 
     #details-page > div.main_card, .lector-card, .sign-course-card {
-        grid-column: 1; /* Всички елементи са в една колона */
-        /* Допълнителни стилови промени, ако е необходимо */
+        grid-column: 1; 
+ 
     }
     #details-page>div>div.card_left>div>div.social-btn>div:nth-child(3)>svg {
         margin-top: -154px;
