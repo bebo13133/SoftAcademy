@@ -80,3 +80,10 @@ margin: 5px;
   .show-more-button-join:hover {
     background-color: #72b39b; 
   }
+  @media (max-width: 768px) {
+    .lector-card, .sign-course-card {
+        max-width: 100%; 
+        width: auto; 
+        margin: 10px auto; 
+    }
+}

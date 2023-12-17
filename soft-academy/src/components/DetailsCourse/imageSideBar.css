@@ -22,3 +22,12 @@
     height: 100%; /* Позволява на изображението да запази съотношението си на страни */
     display: block; /* Премахва вградения бял обрез при inline изображения */
 }
+@media screen and (max-width: 768px) {
+  .image-section-details img {
+
+    display:none;
+  }
+  .image-section-details{
+    display:none;
+  }
+}

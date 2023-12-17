@@ -547,3 +547,84 @@ span {
 
     border-radius: 65px;
 }
+
+@media (max-width: 768px) {
+    #details-page {
+     
+        grid-template-columns: 1fr; 
+        margin-top: 1em; 
+     
+    }
+
+    .card_left {
+        width: 100%; 
+    }
+
+    .card_right {
+        width: 100%; 
+        max-width: none;
+    }
+
+    .card_right img {
+        width: 100%; 
+    }
+
+ 
+    .some-class-to-hide-on-mobile {
+        display: none;
+    }
+
+
+}
+
+
+/* @media (max-width: 1024px) {
+    #details-page {
+    
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+
+} */
+@media (max-width: 768px) {
+    #details-page {
+        grid-template-columns: 1fr; /* Всички елементи заемат цялата ширина на родителския елемент */
+        /* Други необходими стилови промени */
+    }
+
+    #details-page > div.main_card, .lector-card, .sign-course-card {
+        grid-column: 1; /* Всички елементи са в една колона */
+        /* Допълнителни стилови промени, ако е необходимо */
+    }
+    #details-page>div>div.card_left>div>div.social-btn>div:nth-child(3)>svg {
+        margin-top: -154px;
+        margin-right: 0px
+    }
+    #details-page>div>div.card_left>div>div.social-btn>div:nth-child(3)>p {
+        margin-right: 30px;
+        margin-top: -152px
+    }
+    .comments-action-buttons {
+        margin-top: -167px;
+    }
+    .del-btn {
+        background-color: #ff0000;
+        font-size: 12px;
+    }
+    
+    .social-btn>.edit-btn{
+    
+    
+        background-color: #EFC050;
+        font-size: 12px;
+    
+    }
+    .like-button,
+.comment-button {
+
+    font-size: 12px;
+}
+.comment-button {
+    font-size: 12px;
+}
+}

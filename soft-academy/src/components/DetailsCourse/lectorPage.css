@@ -55,3 +55,33 @@ margin-top:-10px;
     margin-top: -10px;
     margin-bottom: 9px;
   }
+  /* @media (max-width: 768px) {
+
+    .lector-card {
+   
+      grid-column: 1 / -1; 
+      max-width: none;
+      width: 100%;
+      margin: 10px; 
+      height: auto; 
+  }
+
+  .lector-img {
+  
+      width: 100px;
+      height: 100px;
+  }
+
+  .show-more-button-course {
+      padding: 0px 40px; 
+      font-size: 20px; 
+  }
+
+  } */
+  @media (max-width: 768px) {
+    .lector-card, .sign-course-card {
+        max-width: 100%; 
+        width: auto; 
+        margin: 10px auto; 
+    }
+}
