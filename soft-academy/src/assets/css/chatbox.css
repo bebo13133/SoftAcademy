@@ -218,3 +218,17 @@
   padding-left: 15px;
 
 }
+@media screen and (max-width: 768px) {
+  .open-chat-button {
+    right: 2rem;
+    border-radius: 15px;
+    position: fixed;
+    bottom: 7rem;
+  
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+  }
+}

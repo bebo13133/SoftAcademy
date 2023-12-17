@@ -81,13 +81,14 @@
     text-shadow:0 4px 8px rgb(105 152 253 / 36%); 
   }
   
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
 
 
-
-
-
-
+    .pagination-admin {
+      flex-direction:row;
+      align-items: center;
+      
+  }
 }
 @media only screen and (max-width: 600px) {
   .admin-dashboard {
@@ -100,7 +101,7 @@
   }
 
   .pagination-admin {
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
   }
 

@@ -22,8 +22,8 @@
     background-color: #008e9d;
   }
   .pagination-catalog  li.active {
-    background-color: #007bff; /* Change to your preferred active color */
-    color: #fff; /* Change to your preferred text color for active page */
+    background-color: #007bff; 
+    color: #fff; 
   }
   .image-section-catalog {
     position: absolute;
@@ -49,4 +49,13 @@
     max-width: 100%; /* Гарантира, че изображението няма да надвишава ширината на родителя си */
     height: 100%; /* Позволява на изображението да запази съотношението си на страни */
     display: block; /* Премахва вградения бял обрез при inline изображения */
+}
+@media screen and (max-width: 768px) {
+  .image-section-catalog img{
+    display:none;
+  }
+  .image-section-catalog{
+    display:none;
+  }
+  
 }
