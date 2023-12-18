@@ -31,4 +31,16 @@
     text-transform: uppercase;
     letter-spacing: 1.3px;
   }
+  @media (max-width: 768px) {
+    .blue-bar-language {
+      height: 200px; 
+      width: 100%;
+      min-width: 100px;
+      background: url("./img/bluebar.png");
   
+      margin-bottom: 160px;
+    }
+    .blue-bar-h2 h2{
+      margin-top: 100rem;
+    }
+}

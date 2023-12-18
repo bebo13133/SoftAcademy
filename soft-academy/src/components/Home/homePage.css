@@ -20,3 +20,10 @@
     
   text-shadow: 7px 1px 11px #878795;
   }
+  @media (max-width: 768px) {
+    #root > div.section-header.section-header1 > div > div > div > div > div{
+      width: 100%;
+      width: 150px;
+    }
+}
+ 

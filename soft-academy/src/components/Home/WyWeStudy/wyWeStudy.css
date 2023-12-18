@@ -78,3 +78,12 @@ overflow-y: auto;
     cursor: pointer;
     margin-top: 10px;
   }
+  @media (max-width: 768px) {
+    .main-section {
+      margin-top: 10rem;
+      gap: 50px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      }
+}

@@ -30,7 +30,15 @@
     letter-spacing: 1.3px;
   }
   
-  
+  @media (max-width: 768px) {
+    .blue-bar {
+      height: 250px; 
+      width: 100%;
+      min-width: 150px;
+      background: url("/img/blue8.webp");
+      margin-bottom: 160px;
+    }
+}
   
   
   

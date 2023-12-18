@@ -1093,4 +1093,24 @@ search slector */
 }
 #home > div > div.welcome-hero-serch-box > div.welcome-hero-form > div{
         text-transform:none;
+   
+}
+@media (max-width: 768px) {
+    #home > div > div.welcome-hero-serch-box > div.welcome-hero-form > div > div > select {
+        font-size: 12px; 
+        padding: 10px; 
+        display: none;
+      
+    }
+    .welcome-hero-btn {
+        display: none;
+    }
+    #home > div > div.welcome-hero-serch-box > div.welcome-hero-form > div{
+        text-transform:none;
+        display: none;
+}
+.single-list-topics-content{
+    width: 140px;
+    height: 110px;
+}
 }
