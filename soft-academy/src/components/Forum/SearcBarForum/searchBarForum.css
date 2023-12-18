@@ -45,6 +45,7 @@
 @media only screen and (max-width: 600px) {
     .search-bar-forum {
         flex-direction: column;
+        margin-left: 15%;
     }
 
     .search-bar-forum input,

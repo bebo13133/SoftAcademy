@@ -83,7 +83,7 @@ h1 {
 .close-button1:hover{
   background: red;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .forum-page {
     padding: 10px; 
   }
@@ -103,5 +103,8 @@ h1 {
   .close-button1 {
     font-size: 14px;
     padding: 3px 6px; 
+  }
+  .forum-page {
+    margin-bottom: 977px;
   }
 }
