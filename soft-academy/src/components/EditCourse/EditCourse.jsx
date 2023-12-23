@@ -155,7 +155,7 @@ export const EditCourse = () => {
                         <div className="city-item">
                             <select value={selectOption} placeholder="Choice your language" name="language" onChange={selectOptionHandler} >
                                 <option value="">Select an option</option>
-                                <option value="Java Script">Java Script</option>
+                                <option value="JavaScript">Java Script</option>
                                 <option value="Java">Java</option>
                                 <option value="Python">Python</option>
                                 <option value="ReactJS">ReactJS</option>
