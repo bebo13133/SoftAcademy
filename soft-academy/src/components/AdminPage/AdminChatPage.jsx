@@ -123,6 +123,7 @@ export const AdminChatPage = () => {
 
         <section className="render-section">
 
+
         </section>
       </div>
       <div className="chat-admin-container">

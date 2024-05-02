@@ -17,19 +17,19 @@ export default class ErrorBoundary extends Component {
     static getDerivedStateFromError(error) {
 
         // console.log("Error boundary")
-      
+
         return { hasError: true }
     }
 
 
     componentDidCatch(error, errorInfo) {
-      
+
         return { hasError: true }
     }
 
     render() {
         if (this.state.hasError) {
-             return <Navigate to={'/404/*'} replace={true}/>            // TODO: Да се добави страница 404
+            return <Navigate to={'/404/*'} replace={true} />            // TODO: Да се добави страница 404
         }
         return (
             <>
